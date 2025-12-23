@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europaneel GmbH - Kühlzellen & Isoliertechnik</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+
+/* --- REPARATUR: UNSERE LÖSUNGEN --- */
+
+.solutions-section {
+    padding: 80px 20px;
+    background-color: #fff;
+}
+
+/* Der "Käfig", der verhindert, dass alles zu breit wird */
+.solutions-section .container {
+    max-width: 1200px;  /* Maximale Breite */
+    margin: 0 auto;     /* Automatisch zentrieren */
+    text-align: center; /* Text in der Mitte */
+}
+
+/* Das Gitter für die Boxen */
+.solutions-grid {
+    display: flex;
+    justify-content: center; /* Boxen in die Mitte schieben */
+    flex-wrap: wrap;         /* Umbruch erlauben, wenn Platz fehlt */
+    gap: 30px;               /* Schöner Abstand zwischen den Boxen */
+    margin-top: 40px;
+}
+
+/* Die einzelne Karte (Box) */
+/* --- CSS UPDATE FÜR EMOJIS --- */
+
+/* 1. Die Karte (Bleibt wie vorher, damit die Breite stimmt) */
+.solution-card {
+    background: #fff;
+    border: 1px solid #eee; /* Feiner grauer Rahmen rundherum */
+    border-radius: 10px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    
+    /* WICHTIG: Das hier ist der Platzhalter für den roten Balken */
+    border-bottom: 4px solid transparent; /* Erstmal unsichtbar */
+    
+    /* Begrenzung der Breite */
+    flex: 1 1 250px;
+    max-width: 300px; 
+    text-align: center; 
+    
+    /* Damit die Animation weich läuft */
+    transition: all 0.3s ease;
+}
+
+/* 2. NEU: Das Emoji-Styling (statt img) */
+.emoji-icon {
+    font-size: 4rem;      /* Macht das Emoji schön groß (ca. 64px) */
+    margin-bottom: 20px;  /* Abstand zum Text */
+    display: block;
+    line-height: 1;       /* Verhindert riesige Abstände */
+}
+
+/* (Falls noch .solution-card img im Code steht -> Bitte löschen!) */
+
+.solution-card:hover {
+    transform: translateY(-5px); /* Die Karte hüpft hoch */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* Mehr Schatten */
+    
+    /* HIER KOMMT DIE FARBE: */
+    border-bottom: 4px solid #d32f2f; /* Ein schönes, kräftiges Rot */
+}
+
+.solution-card img {
+    height: 60px;       /* Einheitliche Icon-Größe */
+    margin-bottom: 20px;
+}
+
+.solution-card h3 {
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+}
+
+.solution-card p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth; /* Das sorgt für das sanfte Gleiten */
+}
+        /* --- DESIGN SYSTEM VARIABLEN --- */
+        :root {
+            --primary-red: #D32F2F;       /* Ihr Firmen-Rot */
+            --primary-red-hover: #B71C1C;
+            --light-gray: #F5F5F5;        /* Hellgrau Hintergrund */
+            --dark-gray: #333333;         /* Text */
+            --white: #FFFFFF;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+/* --- ABSCHNITT 2: FEATURES --- */
+.features-section {
+    padding: 80px 20px;
+    background-color: var(--white);
+    text-align: center;
+}
+
+.features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-box {
+    flex: 1 1 250px; /* Jede Box ist mindestens 250px breit */
+    max-width: 300px;
+    padding: 20px;
+    transition: transform 0.3s ease; /* Sanfte Bewegung */
+    cursor: default;
+}
+
+/* Das Symbol (Icon) Grundeinstellung */
+.feature-box i {
+    font-size: 50px;           /* Größe des Symbols */
+    color: var(--dark-gray);   /* Farbe: Grau am Anfang */
+    margin-bottom: 20px;
+    transition: all 0.3s ease; /* WICHTIG für den Effekt */
+}
+
+/* --- HIER PASSIERT DIE MAGIE (HOVER EFFEKT) --- */
+.feature-box:hover i {
+    color: var(--primary-red); /* Wird Rot */
+    transform: scale(1.2);     /* Wird etwas größer */
+    
+    /* Der "Glow" (Leuchteffekt) */
+    text-shadow: 0 0 15px rgba(211, 47, 47, 0.6); 
+}
+
+/* Text Styling */
+.feature-box h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--dark-gray);
+    text-transform: uppercase;
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Der große Button unten */
+.cta-container {
+    margin-top: 60px;
+}
+
+.btn-large {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px; /* Runde Ecken für modernen Look */
+    transition: background 0.3s, box-shadow 0.3s;
+    display: inline-block;
+}
+
+.btn-large:hover {
+    background-color: #B71C1C; /* Dunkleres Rot beim Drüberfahren */
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4); /* Schatten beim Hover */
+}
+
+        /* --- BASIS EINSTELLUNGEN --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-gray);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER / NAVIGATION --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+/* 1. Der Container (Der Kasten um das Logo) */
+.logo {
+    display: flex;
+    align-items: center;
+    
+    /* Hier schieben wir den ganzen Kasten hoch */
+    position: relative; 
+    top: -25px;    /* Ändere diese Zahl, um es höher/tiefer zu machen */
+}
+
+/* 2. Das Bild selbst (WICHTIG: Das macht es wieder klein!) */
+.logo img {
+    height: 160px;  /* Wenn es zu groß ist, mach hier 40px draus */
+    width: auto;   /* Damit es nicht verzerrt */
+}
+
+
+        .logo span { color: var(--dark-gray); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary-red); }
+
+        .btn-contact {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-contact:hover { background-color: var(--primary-red-hover); }
+
+        /* --- HERO SECTION (Startbild) --- */
+.hero {
+    position: relative;
+    width: 95%;            /* Auf Handys fast voll */
+    
+    /* HIER DIE ÄNDERUNG: */
+    max-width: 1200px;     /* Vorher 900px. Jetzt 1200px (Standard-Breite) */
+    
+    margin: 20px auto;     /* Zentriert alles */
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    
+    display: flex;         
+    flex-direction: column;
+}
+
+/* --- 2. DIE LAUFSCHRIFT (TICKER) --- */
+.ticker-wrap {
+    width: 100%;
+    
+    /* HIER DIE ÄNDERUNG: */
+    /* Wir nutzen die Variable, damit es exakt das gleiche Rot ist wie im Logo */
+    background-color: var(--primary-red); 
+    
+    /* Alternativ, falls die Variable nicht geht, schreiben Sie: #D32F2F */
+    
+    color: white;
+    overflow: hidden;
+    padding: 12px 0;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%; /* Startet ganz rechts außerhalb des Bildes */
+    animation: ticker-move 25s linear infinite; /* Die Bewegung */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Die Animation selbst (von Rechts nach Links) */
+@keyframes ticker-move {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.back-video {
+    width: 100%;       /* Füllt den begrenzten Hero-Kasten aus */
+    height: auto;      /* Behält die Iglu-Form bei */
+    display: block;
+}
+
+/* Der dunkle Schleier muss sich anpassen */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 40% Schwarz */
+    z-index: 1;
+}
+
+/* Der Text schwebt darüber */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 2; /* Über dem Schleier */
+    padding: 20px;
+}
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .hero-btn {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* --- PRODUKTE (Grid Layout wie IT-Seite) --- */
+        .products {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        /* Kleiner roter Strich unter Titel */
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-red);
+            margin: 10px auto 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            border-bottom: 4px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        .icon-placeholder {
+            font-size: 40px;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .product-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* --- ÜBER UNS / VORTEILE --- */
+       /* --- STYLING FÜR "WARUM EUROPANEEL" --- */
+/* --- KORREKTUR: "WARUM EUROPANEEL" --- */
+
+/* --- NEUES "ÜBER UNS" DESIGN (Warm & Professionell) --- */
+.about-section {
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Sanfter Verlauf */
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* Linke Seite: Text */
+.about-content {
+    flex: 1 1 500px;
+}
+
+.sub-headline {
+    color: var(--primary-red);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.about-content h2 {
+    font-size: 2.5rem;
+    color: var(--dark-gray);
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.about-text-body {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* Die Boxen mit den Haken */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.check-icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(211, 47, 47, 0.1); /* Helles Rot */
+    color: var(--primary-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.value-text {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Das Zitat für mehr Persönlichkeit */
+.ceo-quote {
+    border-left: 4px solid var(--primary-red);
+    padding-left: 20px;
+    font-style: italic;
+    color: #666;
+    margin-top: 30px;
+}
+
+/* Rechte Seite: Bild */
+.about-image-wrapper {
+    flex: 1 1 500px;
+    position: relative;
+}
+
+.about-main-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    transition: transform 0.5s ease;
+}
+
+.about-image-wrapper:hover .about-main-img {
+    transform: scale(1.02);
+}
+
+/* Ein kleines "Badge" auf dem Bild für Professionalität */
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    background-color: var(--primary-red);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    text-align: center;
+    border: 5px solid white;
+}
+
+.badge-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    display: block;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Responsive Anpassung für Handys */
+@media (max-width: 900px) {
+    .about-container { flex-direction: column; }
+    .experience-badge { left: 50%; transform: translateX(-50%); bottom: -20px; width: 80%; }
+    .about-section { padding: 60px 20px; }
+}
+
+.benefits-list {
+    list-style: none;        /* Keine Punkte vor der Liste */
+    margin-top: 20px;
+}
+
+.benefits-list li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+/* Das Bild Styling */
+/* 1. Der Container um das Bild (Zentriert das Bild jetzt) */
+/* --- 1. Die Karte oben (Rechte Spalte) --- */
+.map-container {
+    flex: 1 1 500px;  /* Nimmt sich 500px Platz */
+    /* Damit füllt die Karte den Platz bis ganz rechts aus */
+}
+
+/* --- 2. Das Bild unten (Rechte Spalte) --- */
+.about-image {
+    flex: 1 1 500px;  /* WICHTIG: Exakt derselbe Wert wie oben (500px)! */
+    
+    display: flex;
+    justify-content: flex-end; /* DER TRICK: Schiebt das Bild an den RECHTEN Rand */
+    align-items: center;
+}
+
+/* Das Bild selbst bleibt klein, klebt aber jetzt rechts */
+.about-image img {
+    width: 80%;       /* Kann man anpassen */
+    max-width: 450px; /* Begrenzung */
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 5px solid var(--white);
+}
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-gray);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .footer ul li { margin-bottom: 10px; }
+        .footer ul li a:hover { color: var(--primary-red); }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Anpassung */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; } /* Einfaches Ausblenden für Demo */
+        }
+
+/* --- NEUES DESIGN: BUTTONS MIT FARBVERLAUF (Rot -> Grau) --- */
+
+/* Wir sprechen hier alle 3 Button-Arten gleichzeitig an */
+.hero-btn, .btn-large, .btn-contact {
+    
+    /* Der Verlauf: 135 Grad Winkel (schräg), startet Rot, endet Dunkelgrau */
+    background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
+    
+    color: white;          /* Text bleibt weiß */
+    border: none;          /* Ränder weg, stört beim Verlauf */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Leichter Schatten für 3D-Effekt */
+    transition: all 0.3s ease; /* Sanfte Animation beim Drüberfahren */
+}
+
+/* --- HOVER EFFEKT (Wenn die Maus drauf ist) --- */
+.hero-btn:hover, .btn-large:hover, .btn-contact:hover {
+    
+    /* Der Verlauf wird etwas dunkler/intensiver */
+    background: linear-gradient(135deg, #B71C1C 10%, #444444 100%);
+    
+    transform: translateY(-2px); /* Button schwebt leicht nach oben */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3); /* Schatten wird größer */
+}
+
+/* --- STATISTIK DESIGN --- */
+.stats-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Ganz leichtes Grau als Hintergrund */
+    text-align: center;
+}
+
+.stats-container {
+    max-width: 1200px;      /* Gleiche Breite wie der Rest */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around; /* Verteilt die Zahlen gleichmäßig */
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.stat-item {
+    flex: 1 1 200px;
+}
+
+/* Die große Zahl */
+.stat-number {
+    font-size: 3.5rem;      /* Sehr groß */
+    font-weight: 800;       /* Extra fett */
+    color: var(--dark-gray);
+    display: inline-block;  /* Damit das + oder % daneben passt */
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* Das + oder % Zeichen daneben */
+.stat-item span {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--primary-red); /* Wir machen die Zeichen rot als Akzent! */
+}
+
+/* Der Text darunter */
+.stat-item p {
+    font-size: 1.1rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+/* --- ABSCHNITT 3: STANDORT & ANFAHRT --- */
+.location-section {
+    padding: 80px 20px;
+    background-color: var(--light-gray); /* Wechselt wieder zu Hellgrau für Kontrast */
+}
+
+.location-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap; /* Damit es auf Handys untereinander rutscht */
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.location-text {
+    flex: 1 1 400px; /* Nimmt mindestens 400px Platz ein */
+}
+
+.location-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+}
+
+.location-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.address-box {
+    background: var(--white);
+    padding: 20px;
+    border-left: 5px solid var(--primary-red); /* Der rote Strich links */
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.address-box strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--dark-gray);
+}
+
+/* Der Bereich für die Karte */
+/* --- NEU: RECHTE SPALTE (BILD + KARTE) --- */
+.media-column {
+    flex: 1 1 500px; /* Die Spalte nimmt sich Platz */
+    display: flex;
+    flex-direction: column; /* Stapelt Bild und Karte untereinander */
+    gap: 20px; /* Abstand zwischen Bild und Karte */
+}
+
+/* Das Foto oben */
+.location-image {
+    width: 100%;
+    height: 250px;       /* Feste Höhe für ein sauberes Bild */
+    object-fit: cover;   /* Schneidet das Bild zurecht, damit nichts verzerrt */
+    border-radius: 15px; /* Runde Ecken */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border: 5px solid var(--white);
+}
+
+/* Die Karte unten */
+.map-frame {
+    width: 100%;
+    height: 300px;       /* Höhe der Karte */
+    border-radius: 15px;
+    border: 5px solid var(--white); /* Weißer Rahmen wie beim Bild */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+/* --- FOOTER DESIGN --- */
+footer {
+    background-color: var(--dark-gray); /* Dunkler Hintergrund */
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #bbb; /* Helles Grau */
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.footer-links a:hover {
+    color: var(--primary-red); /* Wird rot beim Drüberfahren */
+    text-decoration: underline;
+}
+
+/* --- MODAL (FENSTER) DESIGN --- */
+/* Der dunkle Hintergrund */
+.modal {
+    display: none; /* Standardmäßig unsichtbar */
+    position: fixed; 
+    z-index: 9999; /* Ganz weit vorne */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Scrollen möglich */
+    background-color: rgba(0,0,0,0.7); /* Halbtransparentes Schwarz */
+    backdrop-filter: blur(5px); /* Macht den Hintergrund unscharf (modern!) */
+}
+
+/* Die weiße Box */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* 5% von oben, mittig */
+    padding: 40px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px; /* Nicht zu breit auf großen Bildschirmen */
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Animation beim Öffnen */
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+/* Der Schließen-Knopf (X) */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--primary-red);
+}
+
+.modal-content h2 {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-red);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.modal-content p {
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+    <img src="logo.png" alt="Europaneel GmbH Logo">
+</div>
+             <ul class="nav-links">
+    <li><a href="#home">Startseite</a></li>
+    
+    <li>
+        <a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;">
+            <i class="fas fa-calculator"></i> Kalkulator
+        </a>
+    </li>
+
+    <li><a href="#produkte">Produkte</a></li>
+    <li><a href="#about">Über Uns</a></li>
+    
+    <li><a href="kontakt.html" class="btn-contact">Kontakt</a></li>
+</ul>
+            </nav>
+        </div>
+    </header>
+
+   <div class="ticker-wrap">
+        <div class="ticker-content">
+            ★ KÜHLZELLEN NACH MAß ★ WIR BAUEN DIE ZUKUNFT DER KÄLTETECHNIK ★ QUALITÄT MADE IN GERMANY ★
+        </div>
+    </div>
+
+
+    <section class="hero" id="home">
+        <video autoplay muted loop playsinline class="back-video">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Kühltechnik in Perfektion</h1>
+            <p>Ihr Partner für Kühlzellen und Isolierbau.</p>
+            <a href="kalkulator.html" class="hero-btn" style="text-decoration: none; display: inline-block;">
+    Kühlzellen-Kalkulator
+</a>
+        </div>
+    </section>
+
+    <div class="ticker-wrap">
+        <div class="ticker-content">
+            ★ JETZT KONTAKTIEREN ★ INDIVIDUELLE BERATUNG UNTER 02041 / 777 9191 ★ Am RHEIN-HERNE-KANAL 10, 46242 BOTTROP ★
+        </div>
+    </div>
+<section class="features-section">
+    
+    <div class="features-grid">
+        
+        <div class="feature-box">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Europaneel-Qualität</h3>
+            <p>Wir realisieren Kühlzellen aus hochwertigen Europanel-Paneelen exakt nach Kundenwunschmaß. Dank langlebiger Materialien, präziser Verarbeitung und modernster Technik entstehen Kühlzellen mit hoher Energieeffizienz und langer Lebensdauer – bundesweit umgesetzt.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fas fa-handshake"></i>
+            <h3>Alles aus einer Hand</h3>
+            <p>Von der persönlichen Beratung über die Planung bis hin zur fachgerechten Montage – Ihr Projekt komplett bei uns.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fas fa-building"></i>
+            <h3>Flexibel einsetzbar</h3>
+            <p>Ob Gastronomie, Lebensmittelhandel, Industrie oder Logistik – unsere Kühlzellenlösungen sind vielseitig einsetzbar und individuell anpassbar. Ideal für Neubau, Erweiterung oder Modernisierung bestehender Anlagen.</p>
+        </div>
+
+        <div class="feature-box">
+            <i class="fas fa-ruler-combined"></i>
+            <h3>In allen Formaten</h3>
+            <p>Durch unseren sehr hohen Lagerbestand ermöglichen wir kurze Lieferzeiten und attraktive Konditionen. Unterschiedliche Paneelstärken, Größen und Ausführungen sorgen dafür, dass jede Kühlzelle exakt zu Ihrem Projekt passt – zu sehr guten Preisen.</p>
+        </div>
+
+    </div>
+
+   <div class="cta-container">
+    <a href="kalkulator.html" class="btn-large" style="text-decoration: none;">
+        👉 Unverbindliches Angebot anfordern
+    </a>
+</div>
+
+</section>
+
+<section class="solutions-section" id="produkte">
+    <div class="container">
+        
+        <h2>Unsere Lösungen</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px;">Maßgeschneiderte Kältetechnik für Industrie und Gewerbe</p>
+        
+        <div class="solutions-grid">
+            
+            <div class="solution-card">
+                <div class="emoji-icon">❄️</div> 
+                <h3>Kühlzellen</h3>
+                <p>Modulare Kühl- und Tiefkühlzellen für Gastronomie, Pharmazie und Industrie. Individuell planbar und energieeffizient.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="emoji-icon">🚪</div>
+                <h3>Kühlzellentüren</h3>
+                <p>Hochwertige Drehtüren und Schiebetüren. Robuste Verarbeitung für dauerhafte Isolierung und einfache Bedienung.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="emoji-icon">🏗️</div> 
+                <h3>Sandwichpaneele</h3>
+                <p>Erstklassige Isolierpaneele für den Hallenbau und Kühlraumkonstruktionen. Verfügbar in verschiedenen Stärken.</p>
+            </div>
+
+            <div class="solution-card">
+                <div class="emoji-icon">🔌</div>
+                <h3>Monoblock Aggregate</h3>
+                <p>Steckerfertige Kühllösungen. Einfache Montage ("Huckepack" oder Decke) und sofortige Einsatzbereitschaft.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+         
+
+<section class="stats-section" id="stats">
+    <div class="stats-container">
+        
+       <div class="stat-item">
+            <div class="stat-number" data-target="1000">0</div>
+            
+            <span>+</span> 
+            
+            <p>Montierte Kühlzellen</p>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-number" data-target="1000">0</div>
+            <span>+</span>
+            <p>Zufriedene Kunden</p>
+        </div>
+
+       <div class="stat-item">
+            <div class="stat-number" data-target="18">0</div>
+            
+            <span style="visibility: hidden;">+</span>
+            
+            <p>Jahre Erfahrung</p>
+        </div>
+
+        <div class="stat-item">
+            <div class="stat-number" data-target="98">0</div>
+            <span>%</span> <p>Kundenzufriedenheit</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="location-section">
+    <div class="location-container">
+        
+        <div class="location-text">
+            <h2>Hier finden Sie uns</h2>
+            <p>Besuchen Sie uns an unserem Standort in Bottrop. Wir beraten Sie gerne persönlich vor Ort oder Sie holen Ihre Ware direkt ab.</p>
+            
+            <div class="address-box">
+                <strong>Europaneel GmbH</strong>
+                Am Rhein-Herne-Kanal 10<br>
+                46242 Bottrop<br>
+                Deutschland
+            </div>
+
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Europaneel+GmbH+Am+Rhein-Herne-Kanal+10+46242+Bottrop" target="_blank" class="btn-large">
+                📍 Route jetzt starten
+            </a>
+        </div>
+
+        <div class="map-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=Europaneel+GmbH,+Am+Rhein-Herne-Kanal+10,+46242+Bottrop&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="450" 
+                style="border:0; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+</section>
+
+    <section class="about-section" id="about">
+    <div class="about-container">
+        
+        <div class="about-content">
+            <span class="sub-headline">Über Europaneel</span>
+            <h2>Ihr Partner für Kältetechnik mit Herz und Verstand</h2>
+            
+            <p class="about-text-body">
+                Bei Europaneel bauen wir nicht einfach nur Kühlzellen – wir schaffen Lösungen, auf die Sie sich verlassen können. Was uns antreibt, ist die Leidenschaft für Präzision und der Anspruch, jedem Kunden genau das zu liefern, was er braucht: <strong>Qualität ohne Kompromisse.</strong>
+            </p>
+            <p class="about-text-body">
+                In einer Branche, in der Schnelligkeit oft vor Qualität geht, nehmen wir uns die Zeit für echte Beratung. Unser Lager in Bottrop ist so bestückt, dass wir schnell reagieren können, aber wir verlieren dabei nie den Blick fürs Detail.
+            </p>
+
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="check-icon"><i class="fas fa-check"></i></div>
+                    <span class="value-text">Sofortige Lagerverfügbarkeit</span>
+                </div>
+                <div class="value-item">
+                    <div class="check-icon"><i class="fas fa-check"></i></div>
+                    <span class="value-text">Persönliche Beratung</span>
+                </div>
+                <div class="value-item">
+                    <div class="check-icon"><i class="fas fa-check"></i></div>
+                    <span class="value-text">Maßgeschneiderte Planung</span>
+                </div>
+                <div class="value-item">
+                    <div class="check-icon"><i class="fas fa-check"></i></div>
+                    <span class="value-text">Faire Preise</span>
+                </div>
+            </div>
+
+            <div class="ceo-quote">
+                "Für uns ist ein Projekt erst dann abgeschlossen, wenn die Kühlung perfekt läuft und unser Kunde zufrieden ist."
+                <br><strong style="color:#333; font-style:normal; font-size:0.9rem; margin-top:5px; display:block;">– Das Team von Europaneel</strong>
+            </div>
+            
+            <br>
+            <a href="kontakt.html" class="hero-btn" style="text-decoration:none; display:inline-block; padding: 12px 25px;">
+                Lernen Sie uns kennen
+            </a>
+        </div>
+
+        <div class="about-image-wrapper">
+            <img src="standort.jpg" alt="Europaneel Standort Bottrop" class="about-main-img">
+            
+            <div class="experience-badge">
+                <span class="badge-number">100%</span>
+                <span class="badge-text">Einsatz</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <footer id="contact">
+    <div class="footer-container">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <h4>Europaneel GmbH</h4>
+                <p>Ihr Experte für Kältetechnik und Isolierbau.</p>
+                
+                <ul style="margin-top: 20px; list-style: none; padding: 0;">
+                    <li style="margin-bottom: 8px;"><a href="#" onclick="openModal('modal-impressum'); return false;" style="color: #bbb; text-decoration: none;">Impressum</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" onclick="openModal('modal-agb'); return false;" style="color: #bbb; text-decoration: none;">AGB</a></li>
+                    <li style="margin-bottom: 8px;"><a href="#" onclick="openModal('modal-datenschutz'); return false;" style="color: #bbb; text-decoration: none;">Datenschutz</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-envelope" style="width: 20px;"></i> info@europaneel.de</li>
+                    <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-phone" style="width: 20px;"></i> +49 2041 / 777 9191</li>
+                    <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-map-marker-alt" style="width: 20px;"></i> Am Rhein-Herne-Kanal 10<br><span style="margin-left: 25px;">46242 Bottrop</span></li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="copyright">
+            © 2011 Europaneel GmbH. Alle Rechte vorbehalten.
+        </div>
+    </div>
+</footer>
+<script>
+    // 1. Wir suchen alle Zahlen-Elemente
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200; // Je höher die Zahl, desto langsamer zählt es
+
+    // 2. Die Funktion, die das Zählen macht
+    const runCounter = (counter) => {
+        const updateCount = () => {
+            const target = +counter.getAttribute('data-target'); // Zielzahl holen
+            const count = +counter.innerText; // Aktuelle Zahl holen
+            
+            // Schrittgröße berechnen (damit alle gleichzeitig fertig werden)
+            const inc = target / speed;
+
+            if (count < target) {
+                // Solange wir noch nicht am Ziel sind, addieren
+                counter.innerText = Math.ceil(count + inc);
+                setTimeout(updateCount, 20); // Alle 20ms aktualisieren
+            } else {
+                counter.innerText = target; // Sicherstellen, dass die Endzahl stimmt
+            }
+        };
+        updateCount();
+    };
+
+    // 3. Der "Beobachter" (Intersection Observer)
+    // Er prüft, ob der Nutzer zu den Zahlen gescrollt hat
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                runCounter(counter);
+                observer.unobserve(counter); // Nur einmal abspielen, dann aufhören zu beobachten
+            }
+        });
+    }, {
+        rootMargin: '0px 0px -50px 0px', // Startet etwas früher/später
+        threshold: 0.5 // Startet, wenn 50% des Elements sichtbar sind
+    });
+
+    // Jeden Zähler beim Beobachter anmelden
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+/* --- FUNKTIONEN FÜR DIE FENSTER (MODALS) --- */
+    
+    // Fenster öffnen
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        document.body.style.overflow = "hidden"; // Verhindert Scrollen der Hauptseite
+    }
+
+    // Fenster schließen
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+        document.body.style.overflow = "auto"; // Scrollen wieder erlauben
+    }
+
+    // Schließen, wenn man nebendran (auf den dunklen Hintergrund) klickt
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+</script>
+
+
+
+<div id="modal-impressum" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-impressum')">&times;</span>
+        
+        <h2>Impressum</h2>
+        
+        <p><strong>Angaben gemäß § 5 TMG:</strong><br>
+        Europaneel GmbH<br>
+        Am Rhein-Herne-Kanal 10<br>
+        46242 Bottrop</p>
+
+        <p><strong>Vertreten durch:</strong><br>
+        Geschäftsführer: Mehmet Pak</p>
+
+        <p><strong>Kontakt:</strong><br>
+        Telefon: 02041 7779191<br>
+        Telefon (Alt): +49 (0)208 / 94129694<br>
+        Fax: +49 (0)208 / 94129695<br>
+        Handy: +49 (0)177 / 86 26 363<br>
+        E-Mail: <a href="mailto:info@europaneel.de">info@europaneel.de</a><br>
+        Webseite: <a href="http://europaneel.de" target="_blank">www.europaneel.de</a></p>
+
+        <p><strong>Registereintrag:</strong><br>
+        Eintragung im Handelsregister.<br>
+        Registergericht: Amtsgericht Duisburg<br>
+        Registernummer: HRB 24252</p>
+
+        <p><strong>Umsatzsteuer & Steuernummer:</strong><br>
+        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>
+        DE283639971<br>
+        Steuernummer: 124/5708/1217</p>
+
+        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
+        Mehmet Pak<br>
+        Am Rhein-Herne-Kanal 10<br>
+        46242 Bottrop</p>
+
+        <p><strong>Technische Umsetzung:</strong><br>
+        Mehmet Pak</p>
+
+        <hr style="margin: 20px 0; border: 0; border-top: 1px solid #eee;">
+
+        <p><strong>Bankverbindung:</strong><br>
+        Sparkasse Essen<br>
+        IBAN: DE26 3605 0105 0003 2104 16<br>
+        BIC: SPESDE3EXXX</p>
+
+    </div>
+</div>
+
+<div id="modal-agb" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-agb')">&times;</span>
+        
+        <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
+
+        <p><strong>§1 Geltungsbereich</strong><br>
+        (1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und sonstigen Leistungen zwischen der:<br><br>
+        <strong>Europaneel GmbH</strong><br>
+        Am Rhein-Herne-Kanal 10<br>
+        46242 Bottrop<br>
+        Vertreten durch den Geschäftsführer: Mehmet Pak<br>
+        – nachfolgend „Verkäufer“ –<br>
+        und ihren Kunden – nachfolgend „Kunde“ –.<br><br>
+        (2) Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nur dann Vertragsbestandteil, wenn der Verkäufer ihrer Geltung ausdrücklich schriftlich zugestimmt hat.<br>
+        (3) Diese AGB gelten sowohl gegenüber Verbrauchern (§ 13 BGB) als auch gegenüber Unternehmern (§ 14 BGB), sofern nicht ausdrücklich anders geregelt.</p>
+
+        <p><strong>§2 Vertragsabschluss</strong><br>
+        (1) Die Präsentation der Waren und Dienstleistungen stellt kein rechtlich bindendes Angebot dar, sondern eine unverbindliche Aufforderung zur Abgabe einer Bestellung.<br>
+        (2) Der Vertrag kommt erst durch eine schriftliche Auftragsbestätigung oder durch Ausführung der Lieferung bzw. Leistung zustande.<br>
+        (3) Technische Änderungen sowie Änderungen in Form, Farbe und/oder Gewicht bleiben im Rahmen des Zumutbaren vorbehalten.</p>
+
+        <p><strong>§3 Preise und Zahlungsbedingungen</strong><br>
+        (1) Alle Preise verstehen sich in Euro und zzgl. der gesetzlichen Umsatzsteuer, sofern nicht ausdrücklich anders angegeben.<br>
+        (2) Versand-, Liefer-, Montage- oder sonstige Zusatzkosten werden gesondert ausgewiesen.<br>
+        (3) Zahlungen sind, sofern nicht anders vereinbart, sofort nach Rechnungsstellung ohne Abzug fällig.<br>
+        (4) Bei Zahlungsverzug ist der Verkäufer berechtigt, Verzugszinsen in gesetzlicher Höhe zu verlangen.</p>
+
+        <p><strong>§4 Lieferung und Leistungszeit</strong><br>
+        (1) Liefertermine und -fristen sind nur verbindlich, wenn sie ausdrücklich schriftlich zugesichert wurden.<br>
+        (2) Teillieferungen sind zulässig, soweit sie dem Kunden zumutbar sind.<br>
+        (3) Ereignisse höherer Gewalt berechtigen den Verkäufer, die Lieferung um die Dauer der Behinderung hinauszuschieben.</p>
+
+        <p><strong>§5 Eigentumsvorbehalt</strong><br>
+        (1) Die gelieferte Ware bleibt bis zur vollständigen Bezahlung aller Forderungen aus der Geschäftsbeziehung Eigentum des Verkäufers.<br>
+        (2) Der Kunde ist verpflichtet, die Ware pfleglich zu behandeln und Zugriffe Dritter unverzüglich mitzuteilen.</p>
+
+        <p><strong>§6 Gewährleistung</strong><br>
+        (1) Es gelten die gesetzlichen Gewährleistungsrechte.<br>
+        (2) Gegenüber Unternehmern beträgt die Gewährleistungsfrist 12 Monate ab Lieferung, sofern gesetzlich zulässig.<br>
+        (3) Offensichtliche Mängel sind vom Kunden unverzüglich, spätestens jedoch innerhalb von 7 Tagen nach Lieferung, schriftlich anzuzeigen.</p>
+
+        <p><strong>§7 Haftung</strong><br>
+        (1) Der Verkäufer haftet uneingeschränkt bei Vorsatz und grober Fahrlässigkeit.<br>
+        (2) Bei leichter Fahrlässigkeit haftet der Verkäufer nur bei Verletzung wesentlicher Vertragspflichten (Kardinalpflichten) und beschränkt auf den vorhersehbaren, vertragstypischen Schaden.<br>
+        (3) Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit bleibt unberührt.</p>
+
+        <p><strong>§8 Widerrufsrecht (nur für Verbraucher)</strong><br>
+        Verbrauchern steht bei Fernabsatzverträgen grundsätzlich ein gesetzliches Widerrufsrecht zu.<br>
+        Ein Widerrufsrecht besteht nicht, wenn Waren nach Kundenspezifikation angefertigt oder eindeutig auf persönliche Bedürfnisse zugeschnitten sind.<br>
+        <em>(Hinweis: Die vollständige Widerrufsbelehrung finden Sie unter dem Menüpunkt "Widerrufsrecht".)</em></p>
+
+        <p><strong>§9 Datenschutz</strong><br>
+        Die Verarbeitung personenbezogener Daten erfolgt unter Beachtung der geltenden datenschutzrechtlichen Vorschriften.<br>
+        Weitere Informationen sind der Datenschutzerklärung auf der Website des Verkäufers zu entnehmen.</p>
+
+        <p><strong>§10 Gerichtsstand und anwendbares Recht</strong><br>
+        (1) Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.<br>
+        (2) Ist der Kunde Kaufmann, juristische Person des öffentlichen Rechts oder öffentlich-rechtliches Sondervermögen, ist Gerichtsstand der Sitz des Verkäufers.</p>
+
+        <p><strong>§11 Salvatorische Klausel</strong><br>
+        Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
+
+        <br>
+        <p style="font-size: 0.9rem; color: #666;"><em>Stand: 22.12.2025</em></p>
+
+    </div>
+</div>
+
+<div id="modal-datenschutz" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('modal-datenschutz')">&times;</span>
+        
+        <h2>Datenschutzerklärung</h2>
+
+        <h3>1. Datenschutz auf einen Blick</h3>
+        <p>Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. Personenbezogene Daten werden auf dieser Website ausschließlich im Rahmen der gesetzlichen Vorschriften der Datenschutz-Grundverordnung (DSGVO) sowie des Bundesdatenschutzgesetzes (BDSG) verarbeitet.</p>
+
+        <h3>2. Verantwortlicher</h3>
+        <p><strong>Europaneel GmbH</strong><br>
+        Am Rhein-Herne-Kanal 10<br>
+        46242 Bottrop</p>
+        
+        <p>Vertreten durch den Geschäftsführer:<br>
+        Mehmet Pak</p>
+
+        <p>Telefon: +49 (0)208 / 94129694<br>
+        E-Mail: <a href="mailto:info@europaneel.de">info@europaneel.de</a><br>
+        Website: <a href="http://www.europaneel.de" target="_blank">http://www.europaneel.de</a></p>
+
+        <h3>3. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck von deren Verwendung</h3>
+        
+        <p><strong>a) Beim Besuch der Website</strong><br>
+        Beim Aufrufen unserer Website werden automatisch Informationen durch den Browser Ihres Endgerätes an den Server unserer Website gesendet. Diese Informationen werden temporär in sogenannten Logfiles gespeichert.<br>
+        Erfasst werden dabei insbesondere:</p>
+        <ul>
+            <li>IP-Adresse des anfragenden Rechners</li>
+            <li>Datum und Uhrzeit des Zugriffs</li>
+            <li>Name und URL der abgerufenen Datei</li>
+            <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+            <li>Verwendeter Browser und ggf. das Betriebssystem</li>
+        </ul>
+        <p>Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. f DSGVO auf Grundlage unseres berechtigten Interesses an der technischen Stabilität und Sicherheit der Website.</p>
+
+        <p><strong>b) Kontaktaufnahme per E-Mail oder Telefon</strong><br>
+        Bei Fragen jeglicher Art bieten wir Ihnen die Möglichkeit, mit uns per E-Mail oder telefonisch Kontakt aufzunehmen. Dabei werden die von Ihnen übermittelten personenbezogenen Daten (z. B. Name, E-Mail-Adresse, Telefonnummer) gespeichert.</p>
+        <p><em>Zweck der Verarbeitung:</em></p>
+        <ul>
+            <li>Bearbeitung Ihrer Anfrage</li>
+            <li>Kommunikation mit Ihnen</li>
+        </ul>
+        <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
+
+        <h3>4. Weitergabe von Daten</h3>
+        <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte findet nicht statt, außer:</p>
+        <ul>
+            <li>dies ist gesetzlich zulässig oder vorgeschrieben,</li>
+            <li>die Weitergabe ist zur Vertragsabwicklung erforderlich,</li>
+            <li>oder Sie haben ausdrücklich eingewilligt.</li>
+        </ul>
+
+        <h3>5. Cookies</h3>
+        <p>Unsere Website kann Cookies verwenden. Cookies richten auf Ihrem Endgerät keinen Schaden an und enthalten keine Viren.<br>
+        Cookies dienen dazu:</p>
+        <ul>
+            <li>die Nutzung unserer Website nutzerfreundlicher zu gestalten,</li>
+            <li>die technische Funktionalität sicherzustellen.</li>
+        </ul>
+        <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO oder – sofern erforderlich – Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
+
+        <h3>6. Speicherdauer</h3>
+        <p>Personenbezogene Daten werden nur so lange gespeichert, wie dies für die jeweiligen Verarbeitungszwecke erforderlich ist oder gesetzliche Aufbewahrungsfristen bestehen.</p>
+
+        <h3>7. Betroffenenrechte</h3>
+        <p>Sie haben das Recht:</p>
+        <ul>
+            <li>auf Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO),</li>
+            <li>auf Berichtigung unrichtiger Daten (Art. 16 DSGVO),</li>
+            <li>auf Löschung Ihrer Daten (Art. 17 DSGVO),</li>
+            <li>auf Einschränkung der Verarbeitung (Art. 18 DSGVO),</li>
+            <li>auf Datenübertragbarkeit (Art. 20 DSGVO),</li>
+            <li>auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO).</li>
+        </ul>
+        <p>Zudem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
+
+        <h3>8. Datensicherheit</h3>
+        <p>Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust sowie gegen unbefugten Zugriff Dritter zu schützen.</p>
+
+        <h3>9. Änderungen dieser Datenschutzerklärung</h3>
+        <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht.</p>
+
+    </div>
+</div>
+
+
+
+</body>
+</html>

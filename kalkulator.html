@@ -15,9 +15,9 @@
             --white: #FFFFFF;
         }
 
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-gray); }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-gray); user-select: none; /* Text markieren erschweren */ }
         
-        /* HEADER (Kopie von Index) */
+        /* HEADER */
         header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
@@ -82,7 +82,7 @@
         .modal {
             display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%;
             background-color: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-            overflow-y: auto; /* Scrollen ermöglichen bei kleinen Screens */
+            overflow-y: auto; 
         }
         .modal-content {
             background-color: #fff; margin: 5% auto; padding: 40px; border-radius: 15px;
@@ -102,11 +102,11 @@
 
         @media (max-width: 768px) {
             .selection-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Mobile Menü vereinfacht */
+            .nav-links { display: none; }
         }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <header>
         <div class="container">
@@ -214,7 +214,6 @@
         </div>
     </div>
 
-
     <div id="requestModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeRequestModal()">&times;</span>
@@ -269,8 +268,47 @@
         </div>
     </div>
 
-
     <script>
+        // --- SICHERHEITS-MODUL (Ganz oben!) ---
+        (function() {
+            // HIER die erlaubten Domains. Hinweis: Nur der Hauptname (europaneel.de) reicht, 
+            // Unterordner wie "/kalkulator" sind automatisch mit abgedeckt und müssen hier nicht stehen.
+            const allowedDomains = ["europaneel.de", "www.europaneel.de", "mertkaanpak.github.io", "localhost", "127.0.0.1"];
+            
+            const currentDomain = window.location.hostname;
+            let isAllowed = false;
+
+            // Prüfen, ob die aktuelle Domain in der Liste ist
+            for (let i = 0; i < allowedDomains.length; i++) {
+                if (currentDomain.includes(allowedDomains[i])) {
+                    isAllowed = true;
+                    break;
+                }
+            }
+
+            // Wenn Domain NICHT erlaubt ist -> Kalkulator zerstören
+            if (!isAllowed) {
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;">' +
+                    '<h1 style="color:red;">Urheberrechtsverletzung erkannt</h1>' +
+                    '<p>Dieser Kalkulator ist lizenziert für Europaneel GmbH.</p>' +
+                    '<p>Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
+                    '</div>';
+                // Werfe Fehler, um weitere Skripte zu stoppen
+                throw new Error("Lizenzfehler: Unbefugte Nutzung."); 
+            }
+            
+            // Entwickler-Tools (F12) blockieren
+            document.onkeydown = function(e) {
+                if(e.keyCode == 123) return false; 
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+                if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false;
+                if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+            }
+        })();
+
+        // --- HAUPTPROGRAMM ---
+
         let kuehlTyp = ""; 
         let hatBoden = false; 
 
@@ -353,7 +391,7 @@
             document.getElementById('preis-ausgabe').innerText = endPreis.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
         }
 
-        // --- MODAL FUNKTIONEN (NEU) ---
+        // --- MODAL FUNKTIONEN ---
 
         function openRequestModal() {
             // 1. Daten sammeln
@@ -391,39 +429,6 @@
             if (event.target == modal) {
                 closeRequestModal();
             }
-<script>
-        // --- SICHERHEITS-CHECK ---
-        (function() {
-            // Hier deine erlaubten Domains eintragen (ohne https:// und ohne www.)
-            // Auch 'github.io' erlauben, solange du noch testest!
-            const allowedDomains = ["europaneel.de","europaneel.de/kalkulator", "mertkaanpak.github.io", "localhost", "127.0.0.1"];
-            
-            const currentDomain = window.location.hostname;
-            let isAllowed = false;
-
-            // Prüfen, ob die aktuelle Domain in der Liste ist
-            for (let i = 0; i < allowedDomains.length; i++) {
-                if (currentDomain.includes(allowedDomains[i])) {
-                    isAllowed = true;
-                    break;
-                }
-            }
-
-            // Wenn Domain NICHT erlaubt ist -> Kalkulator zerstören
-            if (!isAllowed) {
-                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;">' +
-                    '<h1 style="color:red;">Urheberrechtsverletzung erkannt</h1>' +
-                    '<p>Dieser Kalkulator ist lizenziert für Europaneel GmbH.</p>' +
-                    '<p>Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
-                    '</div>';
-                // Werfe Fehler, um weitere Skripte zu stoppen
-                throw new Error("Lizenzfehler: Unbefugte Nutzung."); 
-            }
-        })();
-
-        // ... HIER DRUNTER KOMMT DEIN NORMALER CODE ...
-        let kuehlTyp = ""; 
-        // usw.
         }
     </script>
 </body>

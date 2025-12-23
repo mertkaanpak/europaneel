@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Europaneel GmbH</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* --- DESIGN SYSTEM (Gleiche Farben wie Index) --- */
+        /* --- DESIGN SYSTEM --- */
         :root {
             --primary-red: #D32F2F;
             --primary-red-hover: #B71C1C;
@@ -16,107 +19,126 @@
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* --- BASIS EINSTELLUNGEN --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-main); color: var(--dark-gray); background-color: var(--white); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
-        /* --- HEADER (Kopie von Index) --- */
-        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        nav { display: flex; justify-content: space-between; align-items: center; height: 80px; }
-        
-        .logo { position: relative; top: -25px; }
-        .logo img { height: 160px; width: auto; }
+        /* --- HEADER / NAVIGATION (Identisch zur Index) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo { display: flex; align-items: center; position: relative; top: -20px; }
+        .logo img { height: 140px; width: auto; }
+
+        /* MENU DESKTOP */
         .nav-links { display: flex; gap: 30px; align-items: center; }
         .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 1rem; }
         .nav-links a:hover { color: var(--primary-red); }
-        .btn-contact { background: linear-gradient(135deg, #D32F2F 20%, #666666 100%); color: var(--white); padding: 10px 20px; border-radius: 4px; transition: all 0.3s; }
+
+        .btn-contact {
+            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
+            color: var(--white); padding: 10px 20px; border-radius: 4px; transition: all 0.3s;
+        }
         .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* HAMBURGER (Mobile) */
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark-gray); }
 
         /* --- KONTAKT HERO (Oben) --- */
         .contact-header {
-            background-color: #222;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('standort.jpg'); /* Nutzt Ihr Standortbild als Hintergrund */
-            background-size: cover;
-            background-position: center;
+            background-color: #222; color: white; text-align: center; padding: 80px 20px;
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('standort.jpg');
+            background-size: cover; background-position: center;
         }
-
         .contact-header h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
         .contact-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
-        /* --- HAUPTBEREICH (Split Layout) --- */
+        /* --- HAUPTBEREICH --- */
         .contact-section { padding: 80px 20px; background-color: #f9f9f9; }
-        .contact-grid {
-            max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-        }
+        .contact-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
 
         /* Linke Seite: Infos */
-        .info-card {
-            background: white; padding: 40px; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%;
-        }
+        .info-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; }
         .info-card h2 { font-size: 2rem; margin-bottom: 30px; color: var(--dark-gray); }
-        
         .info-item { display: flex; gap: 20px; margin-bottom: 30px; }
         .info-icon {
-            width: 50px; height: 50px; background: rgba(211, 47, 47, 0.1);
-            color: var(--primary-red); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-            flex-shrink: 0;
+            width: 50px; height: 50px; background: rgba(211, 47, 47, 0.1); color: var(--primary-red);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
         }
         .info-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
         .info-content p { color: #666; line-height: 1.5; }
 
         /* Karte */
-        .map-wrapper {
-            margin-top: 40px; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 5px solid white; height: 300px;
-        }
+        .map-wrapper { margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border: 5px solid white; height: 300px; }
 
         /* Rechte Seite: Formular */
-        .form-card {
-            background: white; padding: 40px; border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--primary-red);
-        }
+        .form-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-red); }
         .form-card h2 { font-size: 2rem; margin-bottom: 10px; color: var(--dark-gray); }
         .form-intro { color: #666; margin-bottom: 30px; }
-
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; color: #444; }
         .form-group input, .form-group textarea {
-            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px;
-            font-size: 1rem; transition: border 0.3s; font-family: inherit;
+            width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;
+            transition: border 0.3s; font-family: inherit;
         }
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary-red); outline: none; box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.1);
-        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--primary-red); outline: none; box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.1); }
         .form-group textarea { height: 150px; resize: vertical; }
 
         .btn-submit {
-            width: 100%; padding: 15px;
-            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
-            color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold;
-            cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%; padding: 15px; background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
+            color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
         }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        /* --- FOOTER (Kopie von Index) --- */
-        footer { background-color: var(--dark-gray); color: white; padding: 50px 0 20px; }
+        /* --- FOOTER --- */
+        footer { background-color: var(--dark-gray); color: #ccc; padding: 50px 0 20px; }
         .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.2rem; }
-        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9rem; color: #888; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9rem; }
 
+        /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 900px) {
             .contact-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; } /* Mobile Menü hier vereinfacht ausgeblendet */
+        }
+
+        @media (max-width: 768px) {
+            /* Navigation Mobile */
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 80px; left: 0; width: 100%; background-color: white;
+                flex-direction: column; align-items: center; padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1); display: none;
+            }
+            .nav-links.active { display: flex; animation: fadeIn 0.3s; }
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+            .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+            .btn-contact { width: 80%; display: block; margin: 0 auto; text-align: center; }
+            
+            .logo img { height: 100px; }
+
+            /* Kontakt Content Mobile */
+            .contact-header { padding: 60px 20px; }
+            .contact-header h1 { font-size: 2rem; }
+            .contact-section { padding: 40px 20px; }
+            .contact-grid { gap: 40px; }
+            .info-card, .form-card { padding: 25px; } /* Weniger Innenabstand auf Handy */
         }
     </style>
 </head>
@@ -128,21 +150,22 @@
                 <div class="logo">
                     <a href="index.html"><img src="logo.png" alt="Europaneel Logo"></a>
                 </div>
-               <ul class="nav-links">
-    <li><a href="index.html">Startseite</a></li>
-    
-    <li>
-        <a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;">
-            <i class="fas fa-calculator"></i> Kalkulator
-        </a>
-    </li>
+                
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
 
-    <li><a href="index.html#produkte">Produkte</a></li>
-    
-    <li><a href="index.html#about">Über Uns</a></li>
-    
-    <li><a href="kontakt.html" class="btn-contact">Kontakt</a></li>
-</ul>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" onclick="toggleMenu()">Startseite</a></li>
+                    <li>
+                        <a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">
+                            <i class="fas fa-calculator"></i> Kalkulator
+                        </a>
+                    </li>
+                    <li><a href="index.html#produkte" onclick="toggleMenu()">Produkte</a></li>
+                    <li><a href="index.html#about" onclick="toggleMenu()">Über Uns</a></li>
+                    <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
+                </ul>
             </nav>
         </div>
     </header>
@@ -203,47 +226,44 @@
                 <p class="form-intro">Haben Sie Fragen zu unseren Kühlzellen oder benötigen Sie ein individuelles Angebot? Füllen Sie einfach das Formular aus.</p>
                 
                 <form action="https://formsubmit.co/info@europaneel.de" method="POST">
-    
-    <input type="hidden" name="_subject" value="Neue Anfrage über Webseite (Europaneel)">
-    
-    <input type="hidden" name="_next" value="https://mertkaanpak.github.io/europaneel/danke.html">
-    
-    <input type="hidden" name="_captcha" value="false">
-    
-    <input type="hidden" name="_template" value="table">
+                    
+                    <input type="hidden" name="_subject" value="Neue Anfrage über Webseite (Europaneel)">
+                    <input type="hidden" name="_next" value="https://mertkaanpak.github.io/europaneel/danke.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
 
-    <div class="form-group">
-        <label>Ihr Name / Firma</label>
-        <input type="text" name="name" placeholder="z.B. Max Mustermann GmbH" required>
-    </div>
-    
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
-        <div class="form-group">
-            <label>E-Mail Adresse</label>
-            <input type="email" name="email" placeholder="name@firma.de" required>
-        </div>
-        <div class="form-group">
-            <label>Telefonnummer</label>
-            <input type="tel" name="telefon" placeholder="Für Rückrufe" required>
-        </div>
-    </div>
+                    <div class="form-group">
+                        <label>Ihr Name / Firma</label>
+                        <input type="text" name="name" placeholder="z.B. Max Mustermann GmbH" required>
+                    </div>
+                    
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+                        <div class="form-group">
+                            <label>E-Mail Adresse</label>
+                            <input type="email" name="email" placeholder="name@firma.de" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Telefonnummer</label>
+                            <input type="tel" name="telefon" placeholder="Für Rückrufe" required>
+                        </div>
+                    </div>
 
-    <div class="form-group">
-        <label>Betreff</label>
-        <input type="text" name="betreff" placeholder="z.B. Angebot für Tiefkühlzelle">
-    </div>
+                    <div class="form-group">
+                        <label>Betreff</label>
+                        <input type="text" name="betreff" placeholder="z.B. Angebot für Tiefkühlzelle">
+                    </div>
 
-    <div class="form-group">
-        <label>Ihre Nachricht</label>
-        <textarea name="nachricht" placeholder="Wie können wir Ihnen helfen? Nennen Sie gerne schon Maße oder Details."></textarea>
-    </div>
+                    <div class="form-group">
+                        <label>Ihre Nachricht</label>
+                        <textarea name="nachricht" placeholder="Wie können wir Ihnen helfen? Nennen Sie gerne schon Maße oder Details."></textarea>
+                    </div>
 
-    <button type="submit" class="btn-submit">Nachricht absenden <i class="fas fa-paper-plane"></i></button>
-    
-    <p style="font-size:0.8rem; color:#999; margin-top:15px; text-align:center;">
-        Mit dem Absenden erklären Sie sich mit der Verarbeitung Ihrer Daten gemäß der Datenschutzerklärung einverstanden.
-    </p>
-</form>
+                    <button type="submit" class="btn-submit">Nachricht absenden <i class="fas fa-paper-plane"></i></button>
+                    
+                    <p style="font-size:0.8rem; color:#999; margin-top:15px; text-align:center;">
+                        Mit dem Absenden erklären Sie sich mit der Verarbeitung Ihrer Daten gemäß der Datenschutzerklärung einverstanden.
+                    </p>
+                </form>
             </div>
 
         </div>
@@ -254,28 +274,36 @@
             <div class="footer-grid">
                 
                 <div class="footer-col">
-    <h4>Europaneel GmbH</h4>
-    <p>Ihr Experte für Kältetechnik und Isolierbau.</p>
-    <ul style="margin-top: 20px; list-style: none; padding: 0;">
-        <li style="margin-bottom: 8px;"><a href="start.html" style="color: #bbb;">Zurück zur Startseite</a></li>
-    </ul>
-</div>
+                    <h4>Europaneel GmbH</h4>
+                    <p>Ihr Experte für Kältetechnik und Isolierbau.</p>
+                    <ul style="margin-top: 20px; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 8px;"><a href="index.html" style="color: #bbb;">Zurück zur Startseite</a></li>
+                    </ul>
+                </div>
 
-               <div class="footer-col">
-    <h4>Europaneel GmbH</h4>
-    <p>Ihr Experte für Kältetechnik und Isolierbau.</p>
-    <ul style="margin-top: 20px; list-style: none; padding: 0;">
-        <li style="margin-bottom: 8px;"><a href="index.html" style="color: #bbb;">Zurück zur Startseite</a></li>
-    </ul>
-</div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-envelope" style="width: 20px;"></i> info@europaneel.de</li>
+                        <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-phone" style="width: 20px;"></i> +49 2041 / 777 9191</li>
+                        <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-map-marker-alt" style="width: 20px;"></i> Am Rhein-Herne-Kanal 10<br><span style="margin-left: 25px;">46242 Bottrop</span></li>
+                    </ul>
+                </div>
 
             </div>
             
             <div class="copyright">
-                © 2024 Europaneel GmbH. Alle Rechte vorbehalten.
+                © 2025 Europaneel GmbH. Alle Rechte vorbehalten.
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>

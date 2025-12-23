@@ -391,6 +391,39 @@
             if (event.target == modal) {
                 closeRequestModal();
             }
+<script>
+        // --- SICHERHEITS-CHECK ---
+        (function() {
+            // Hier deine erlaubten Domains eintragen (ohne https:// und ohne www.)
+            // Auch 'github.io' erlauben, solange du noch testest!
+            const allowedDomains = ["europaneel.de", "mertkaanpak.github.io", "localhost", "127.0.0.1"];
+            
+            const currentDomain = window.location.hostname;
+            let isAllowed = false;
+
+            // Prüfen, ob die aktuelle Domain in der Liste ist
+            for (let i = 0; i < allowedDomains.length; i++) {
+                if (currentDomain.includes(allowedDomains[i])) {
+                    isAllowed = true;
+                    break;
+                }
+            }
+
+            // Wenn Domain NICHT erlaubt ist -> Kalkulator zerstören
+            if (!isAllowed) {
+                document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;">' +
+                    '<h1 style="color:red;">Urheberrechtsverletzung erkannt</h1>' +
+                    '<p>Dieser Kalkulator ist lizenziert für Europaneel GmbH.</p>' +
+                    '<p>Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
+                    '</div>';
+                // Werfe Fehler, um weitere Skripte zu stoppen
+                throw new Error("Lizenzfehler: Unbefugte Nutzung."); 
+            }
+        })();
+
+        // ... HIER DRUNTER KOMMT DEIN NORMALER CODE ...
+        let kuehlTyp = ""; 
+        // usw.
         }
     </script>
 </body>

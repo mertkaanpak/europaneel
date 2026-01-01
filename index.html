@@ -1,11 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Europaneel GmbH – Kühlzellen, Isoliertechnik und Sandwichpaneele. Maßgeschneiderte Lösungen für Industrie und Gewerbe, Planung, Montage und Service.">
+    <meta name="robots" content="index, follow">
     <title>Europaneel GmbH - Kühlzellen & Isoliertechnik</title>
+    <link rel="canonical" href="https://www.europaneel.de/">
     
     <link rel="icon" type="image/png" href="logo.png">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Europaneel GmbH - Kühlzellen & Isoliertechnik">
+    <meta property="og:description" content="Europaneel GmbH – Kühlzellen, Isoliertechnik und Sandwichpaneele. Maßgeschneiderte Lösungen für Industrie und Gewerbe, Planung, Montage und Service.">
+    <meta property="og:url" content="https://www.europaneel.de/">
+    <meta property="og:image" content="https://www.europaneel.de/logo.png">
+    <meta property="og:site_name" content="Europaneel GmbH">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Europaneel GmbH - Kühlzellen & Isoliertechnik">
+    <meta name="twitter:description" content="Europaneel GmbH – Kühlzellen, Isoliertechnik und Sandwichpaneele. Maßgeschneiderte Lösungen für Industrie und Gewerbe, Planung, Montage und Service.">
+    <meta name="twitter:image" content="https://www.europaneel.de/logo.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Europaneel GmbH",
+      "url": "https://www.europaneel.de/",
+      "logo": "https://www.europaneel.de/logo.png",
+      "image": "https://www.europaneel.de/logo.png",
+      "telephone": "+49 2041 777 9191",
+      "email": "info@europaneel.de",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Am Rhein-Herne-Kanal 10",
+        "addressLocality": "Bottrop",
+        "postalCode": "46242",
+        "addressCountry": "DE"
+      },
+      "areaServed": "DE"
+    }
+    </script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -69,6 +105,15 @@
 
         .nav-links a { font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary-red); }
+        .nav-cta a {
+            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+        }
+        .nav-cta a:hover { color: white; transform: translateY(-1px); }
 
         /* HAMBURGER MENU (Standardmäßig unsichtbar) */
         .hamburger {
@@ -257,17 +302,14 @@
 
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#home" onclick="toggleMenu()">Startseite</a></li>
-                    
-                    <li>
-                        <a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">
+                    <li><a href="#produkte" onclick="toggleMenu()">Produkte</a></li>
+                    <li><a href="#about" onclick="toggleMenu()">Über Uns</a></li>
+                    <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
+                    <li class="nav-cta">
+                        <a href="kalkulator.html" onclick="toggleMenu()">
                             <i class="fas fa-calculator"></i> Kalkulator
                         </a>
                     </li>
-
-                    <li><a href="#produkte" onclick="toggleMenu()">Produkte</a></li>
-                    <li><a href="#about" onclick="toggleMenu()">Über Uns</a></li>
-                    
-                    <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
@@ -281,7 +323,7 @@
 
 
     <section class="hero" id="home">
-        <video autoplay muted loop playsinline class="back-video">
+        <video autoplay muted loop playsinline class="back-video" poster="standort.jpg">
             <source src="video.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>

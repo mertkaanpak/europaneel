@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T&uuml;ren | Europaneel GmbH</title>
+    <title>Baustellen | Europaneel GmbH</title>
 
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -62,35 +62,17 @@
         .page-hero h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
         .page-hero p { font-size: 1.1rem; opacity: 0.9; max-width: 720px; margin: 0 auto; }
 
-        .door-section { padding: 70px 20px; background-color: #f9f9f9; }
-        .door-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .gallery-section { padding: 70px 20px; background-color: #f9f9f9; }
+        .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-        .door-card {
-            background: white; border-radius: 16px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border-top: 5px solid var(--primary-red);
-        }
-        .door-card h2 { font-size: 1.6rem; margin-bottom: 15px; color: var(--dark-gray); }
-        .door-card p { color: #666; margin-bottom: 20px; }
+        .gallery-item { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .gallery-item img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.3s ease; }
+        .gallery-item:hover img { transform: scale(1.03); }
 
-        .size-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 25px; }
-        .size-list li {
-            background: #f4f4f4; border-radius: 8px; padding: 10px 12px; font-weight: 600; font-size: 0.95rem;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .size-list i { color: var(--primary-red); }
+        .empty-note { text-align: center; color: #666; }
 
-        .cta-row { max-width: 900px; margin: 40px auto 0; text-align: center; }
-        .cta-note { color: #666; margin-bottom: 15px; }
-        .cta-btn {
-            display: inline-block; padding: 12px 28px; border-radius: 999px; font-weight: 700; color: white;
-            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        @media (max-width: 900px) {
-            .door-grid { grid-template-columns: 1fr; }
-            .size-list { grid-template-columns: 1fr; }
+        @media (max-width: 1000px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -106,6 +88,8 @@
             .btn-contact { width: 80%; display: block; margin: 0 auto; text-align: center; }
             .logo img { height: 100px; }
             .page-hero h1 { font-size: 2.1rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item img { height: 220px; }
         }
     </style>
 </head>
@@ -130,8 +114,8 @@
                         </a>
                     </li>
                     <li><a href="index.html#produkte" onclick="toggleMenu()">Produkte</a></li>
-                    <li><a href="turen.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">T&uuml;ren</a></li>
-                    <li><a href="galerie.html" onclick="toggleMenu()">Baustellen</a></li>
+                    <li><a href="turen.html" onclick="toggleMenu()">T&uuml;ren</a></li>
+                    <li><a href="galerie.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">Baustellen</a></li>
                     <li><a href="index.html#about" onclick="toggleMenu()">&Uuml;ber Uns</a></li>
                     <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
                 </ul>
@@ -140,52 +124,72 @@
     </header>
 
     <section class="page-hero">
-        <h1>K&uuml;hlhaus-T&uuml;ren</h1>
-        <p>Hier finden Sie eine &Uuml;bersicht der aktuell verf&uuml;gbaren K&uuml;hlhaus-T&uuml;ren. Alle Ma&szlig;e sind in cm angegeben.</p>
+        <h1>Unsere Baustellen</h1>
+        <p>Einblick in aktuelle und abgeschlossene Projekte von Europaneel.</p>
     </section>
 
-    <section class="door-section">
-        <div class="door-grid">
-            <div class="door-card">
-                <h2>K&uuml;hlhaus Dreht&uuml;ren</h2>
-                <p>Standard-Dreht&uuml;ren f&uuml;r Plus- und Minusbereiche.</p>
-                <ul class="size-list">
-                    <li><i class="fas fa-door-open"></i> 75 x 175 cm</li>
-                    <li><i class="fas fa-door-open"></i> 75 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 80 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 90 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 110 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 100 x 200 cm</li>
-                    <li><i class="fas fa-door-open"></i> 100 x 220 cm</li>
-                    <li><i class="fas fa-door-open"></i> 120 x 220 cm</li>
-                </ul>
-            </div>
-
-            <div class="door-card">
-                <h2>K&uuml;hlhaus Schiebet&uuml;ren</h2>
-                <p>Gro&szlig;e Schiebet&uuml;ren f&uuml;r komfortable Warenbewegung.</p>
-                <ul class="size-list">
-                    <li><i class="fas fa-grip-lines-vertical"></i> 250 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 180 x 300 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 190 x 300 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 240 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 230 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 180 x 240 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 220 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 200 x 270 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 200 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 200 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 240 x 180 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 250 x 180 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 160 x 240 cm</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="cta-row">
-            <p class="cta-note">Weitere Sonderma&szlig;e oder Einbausituationen sind auf Anfrage m&ouml;glich.</p>
-            <a class="cta-btn" href="kontakt.html">Jetzt Angebot anfragen</a>
+    <section class="gallery-section">
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.09.jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.10 (1).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.10 (2).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.10 (3).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.10.jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (1).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (2).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (3).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (4).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (5).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (6).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11 (7).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.11.jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (1).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (2).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (3).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (4).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (5).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12 (6).jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
+            <figure class="gallery-item">
+                <img src="WhatsApp Image 2026-01-05 at 13.51.12.jpeg" alt="Baustellenfoto" loading="lazy">
+            </figure>
         </div>
     </section>
 

@@ -17,11 +17,19 @@
             --dark-gray: #333333;
             --white: #FFFFFF;
             --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --fs-body: 1rem;
+            --fs-lead: 1.2rem;
+            --fs-hero: 3rem;
+            --fs-hero-sm: 2rem;
+            --fs-h2: 2rem;
+            --fs-h3: 1.1rem;
+            --lh-tight: 1.15;
+            --lh-normal: 1.6;
         }
 
         /* --- BASIS EINSTELLUNGEN --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-main); color: var(--dark-gray); background-color: var(--white); line-height: 1.6; }
+        body { font-family: var(--font-main); color: var(--dark-gray); background-color: var(--white); line-height: var(--lh-normal); font-size: var(--fs-body); }
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
@@ -66,8 +74,8 @@
             background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('standort.jpg');
             background-size: cover; background-position: center;
         }
-        .contact-header h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; }
-        .contact-header p { font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .contact-header h1 { font-size: var(--fs-hero); margin-bottom: 10px; text-transform: uppercase; line-height: var(--lh-tight); }
+        .contact-header p { font-size: var(--fs-lead); opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
         /* --- HAUPTBEREICH --- */
         .contact-section { padding: 80px 20px; background-color: #f9f9f9; }
@@ -75,13 +83,13 @@
 
         /* Linke Seite: Infos */
         .info-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); height: 100%; }
-        .info-card h2 { font-size: 2rem; margin-bottom: 30px; color: var(--dark-gray); }
+        .info-card h2 { font-size: var(--fs-h2); margin-bottom: 30px; color: var(--dark-gray); line-height: var(--lh-tight); }
         .info-item { display: flex; gap: 20px; margin-bottom: 30px; }
         .info-icon {
             width: 50px; height: 50px; background: rgba(211, 47, 47, 0.1); color: var(--primary-red);
             border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
         }
-        .info-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .info-content h3 { font-size: var(--fs-h3); margin-bottom: 5px; line-height: var(--lh-tight); }
         .info-content p { color: #666; line-height: 1.5; }
 
         /* Karte */
@@ -89,7 +97,7 @@
 
         /* Rechte Seite: Formular */
         .form-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 5px solid var(--primary-red); }
-        .form-card h2 { font-size: 2rem; margin-bottom: 10px; color: var(--dark-gray); }
+        .form-card h2 { font-size: var(--fs-h2); margin-bottom: 10px; color: var(--dark-gray); line-height: var(--lh-tight); }
         .form-intro { color: #666; margin-bottom: 30px; }
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; color: #444; }
@@ -135,7 +143,7 @@
 
             /* Kontakt Content Mobile */
             .contact-header { padding: 60px 20px; }
-            .contact-header h1 { font-size: 2rem; }
+            .contact-header h1 { font-size: var(--fs-hero-sm); }
             .contact-section { padding: 40px 20px; }
             .contact-grid { gap: 40px; }
             .info-card, .form-card { padding: 25px; } /* Weniger Innenabstand auf Handy */

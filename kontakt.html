@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kontaktieren Sie Europaneel GmbH f&uuml;r K&uuml;hlzellen, Isoliertechnik und Montage. Wir beraten Sie pers&ouml;nlich.">
     <title>Kontakt | Europaneel GmbH</title>
     
     <link rel="icon" type="image/png" href="logo.png">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
@@ -113,6 +115,8 @@
             color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
         }
         .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+        .recaptcha-wrap { display: flex; justify-content: center; margin: 10px 0 20px; }
+        .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
         /* --- FOOTER --- */
         footer { background-color: var(--dark-gray); color: #ccc; padding: 50px 0 20px; }
@@ -156,7 +160,7 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.html"><img src="logo.png" alt="Europaneel Logo"></a>
+                    <a href="index.html">Zur&uuml;ck zur Startseite</a>
                 </div>
                 
                 <div class="hamburger" onclick="toggleMenu()">
@@ -164,7 +168,7 @@
                 </div>
 
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" onclick="toggleMenu()">Startseite</a></li>
+                    <li><a href="index.html" onclick="toggleMenu()">Zur&uuml;ck zur Startseite</a></li>
                     <li>
                         <a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">
                             <i class="fas fa-calculator"></i> Kalkulator
@@ -173,7 +177,7 @@
                     <li><a href="index.html#produkte" onclick="toggleMenu()">Produkte</a></li>
                     <li><a href="turen.html" onclick="toggleMenu()">T&uuml;ren</a></li>
                     <li><a href="galerie.html" onclick="toggleMenu()">Baustellen</a></li>
-                    <li><a href="index.html#about" onclick="toggleMenu()">Über Uns</a></li>
+                    <li><a href="index.html#about" onclick="toggleMenu()">&Uuml;ber Uns</a></li>
                     <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
                 </ul>
             </nav>
@@ -182,7 +186,7 @@
 
     <div class="contact-header">
         <h1>Kontaktieren Sie uns</h1>
-        <p>Wir freuen uns auf Ihr Projekt. Lassen Sie uns gemeinsam die perfekte Kühllösung finden.</p>
+        <p>Wir freuen uns auf Ihr Projekt. Lassen Sie uns gemeinsam die passende K&uuml;hll&ouml;sung finden.</p>
     </div>
 
     <section class="contact-section">
@@ -218,7 +222,7 @@
                 <div class="info-item">
                     <div class="info-icon"><i class="fas fa-clock"></i></div>
                     <div class="info-content">
-                        <h3>Öffnungszeiten</h3>
+                        <h3>&Ouml;ffnungszeiten</h3>
                         <p>Mo - Fr: 09:00 - 17:00 Uhr<br>Sa: Nach Vereinbarung</p>
                     </div>
                 </div>
@@ -233,14 +237,19 @@
 
             <div class="form-card">
                 <h2>Schreiben Sie uns</h2>
-                <p class="form-intro">Haben Sie Fragen zu unseren Kühlzellen oder benötigen Sie ein individuelles Angebot? Füllen Sie einfach das Formular aus.</p>
+                <p class="form-intro">Haben Sie Fragen zu unseren K&uuml;hlzellen oder ben&ouml;tigen Sie ein individuelles Angebot? F&uuml;llen Sie das Formular aus.</p>
                 
-                <form action="https://formsubmit.co/info@europaneel.de" method="POST">
+                <form action="https://formsubmit.co/info@europaneel.de" method="POST" onsubmit="return validateRecaptcha();">
                     
-                    <input type="hidden" name="_subject" value="Neue Anfrage über Webseite (Europaneel)">
+                    <input type="hidden" name="_subject" value="Neue Anfrage &uuml;ber Webseite (Europaneel)">
                     <input type="hidden" name="_next" value="https://mertkaanpak.github.io/europaneel/danke.html">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
+
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="website">Website</label>
+                        <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
 
                     <div class="form-group">
                         <label>Ihr Name / Firma</label>
@@ -254,25 +263,28 @@
                         </div>
                         <div class="form-group">
                             <label>Telefonnummer</label>
-                            <input type="tel" name="telefon" placeholder="Für Rückrufe" required>
+                            <input type="tel" name="telefon" placeholder="F&uuml;r R&uuml;ckrufe" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Betreff</label>
-                        <input type="text" name="betreff" placeholder="z.B. Angebot für Tiefkühlzelle">
+                        <input type="text" name="betreff" placeholder="z.B. Angebot f&uuml;r Tiefk&uuml;hlzelle">
                     </div>
 
                     <div class="form-group">
                         <label>Ihre Nachricht</label>
-                        <textarea name="nachricht" placeholder="Wie können wir Ihnen helfen? Nennen Sie gerne schon Maße oder Details."></textarea>
+                        <textarea name="nachricht" placeholder="Wie k&ouml;nnen wir Ihnen helfen? Nennen Sie gern schon Ma&szlig;e oder Details."></textarea>
+                    </div>
+
+                    <div class="recaptcha-wrap">
+                        <div class="g-recaptcha" data-sitekey="6LeDD0IsAAAAAIKh3-DU6Pw0THEbk4oWRsw4BXEu"></div>
                     </div>
 
                     <button type="submit" class="btn-submit">Nachricht absenden <i class="fas fa-paper-plane"></i></button>
                     
                     <p style="font-size:0.8rem; color:#999; margin-top:15px; text-align:center;">
-                        Mit dem Absenden erklären Sie sich mit der Verarbeitung Ihrer Daten gemäß der Datenschutzerklärung einverstanden.
-                    </p>
+                        Mit dem Absenden erkl&auml;ren Sie sich mit der Verarbeitung Ihrer Daten gem&auml;&szlig; der Datenschutzerkl&auml;rung einverstanden.</p>
                 </form>
             </div>
 
@@ -285,9 +297,9 @@
                 
                 <div class="footer-col">
                     <h4>Europaneel GmbH</h4>
-                    <p>Ihr Experte für Kältetechnik und Isolierbau.</p>
+                    <p>Ihr Experte f&uuml;r K&auml;ltetechnik und Isolierbau.</p>
                     <ul style="margin-top: 20px; list-style: none; padding: 0;">
-                        <li style="margin-bottom: 8px;"><a href="index.html" style="color: #bbb;">Zurück zur Startseite</a></li>
+                        <li style="margin-bottom: 8px;"><a href="index.html" style="color: #bbb;">Zur&uuml;ck zur Startseite</a></li>
                     </ul>
                 </div>
 
@@ -302,9 +314,7 @@
 
             </div>
             
-            <div class="copyright">
-                © 2025 Europaneel GmbH. Alle Rechte vorbehalten.
-            </div>
+            <div class="copyright">&copy; 2025 Europaneel GmbH. Alle Rechte vorbehalten.</div>
         </div>
     </footer>
 
@@ -313,7 +323,23 @@
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
+
+        function validateRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                alert('reCAPTCHA konnte nicht geladen werden. Bitte Seite neu laden.');
+                return false;
+            }
+            if (!grecaptcha.getResponse()) {
+                alert('Bitte best&auml;tigen Sie, dass Sie kein Roboter sind.');
+                return false;
+            }
+            return true;
+        }
     </script>
 
 </body>
 </html>
+
+
+
+

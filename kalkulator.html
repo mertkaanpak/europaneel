@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="K&uuml;hlzellen-Kalkulator von Europaneel. Konfigurieren Sie Ma&szlig;e, T&uuml;r und Ausstattung und erhalten Sie einen Richtpreis.">
     <title>Kalkulator | Europaneel GmbH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
@@ -49,7 +51,7 @@
         .step-content.active { display: block; }
         @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 
-        /* CARDS FÜR AUSWAHL */
+        /* CARDS FUER AUSWAHL */
         .selection-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
         .selection-card {
             border: 2px solid #eee; border-radius: 12px; padding: 30px; text-align: center;
@@ -84,6 +86,8 @@
         
         .btn-back { background: none; border: none; color: #999; cursor: pointer; margin-bottom: 15px; font-size: 0.9rem; }
         .btn-back:hover { color: #333; }
+        .recaptcha-wrap { display: flex; justify-content: center; margin: 10px 0 20px; }
+        .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
         /* --- MODAL (POP-UP) DESIGN --- */
         .modal {
@@ -127,7 +131,7 @@
                     <li><a href="index.html#produkte">Produkte</a></li>
                     <li><a href="turen.html">T&uuml;ren</a></li>
                     <li><a href="galerie.html">Baustellen</a></li>
-                    <li><a href="index.html#about">Über Uns</a></li>
+                    <li><a href="index.html#about">&Uuml;ber Uns</a></li>
                     <li><a href="kontakt.html" class="btn-contact">Kontakt</a></li>
                 </ul>
             </nav>
@@ -135,43 +139,43 @@
     </header>
 
     <div class="calc-wrapper">
-        <h1><i class="fas fa-calculator" style="color:var(--primary-red);"></i> Kühlzellen Kalkulator</h1>
+        <h1><i class="fas fa-calculator" style="color:var(--primary-red);"></i> K&uuml;hlzellen-Kalkulator</h1>
 
         <div id="step-1" class="step-content active">
-            <p style="text-align:center; color:#666;">Was möchten Sie konfigurieren?</p>
+            <p style="text-align:center; color:#666;">Was m&ouml;chten Sie konfigurieren?</p>
             <div class="selection-grid">
                 <div class="selection-card" onclick="waehleKuehlung('normal')">
-                    <span class="icon">❄️</span>
-                    <span class="card-title">Normalkühlung (Plusgrad)</span>
+                    <span class="icon">&#10052;</span>
+                    <span class="card-title">Normalk&uuml;hlung (Plusgrad)</span>
                 </div>
                 <div class="selection-card" onclick="waehleKuehlung('tief')">
-                    <span class="icon">🧊</span>
-                    <span class="card-title">Tiefkühlung (Minusgrad)</span>
+                    <span class="icon">&#10054;</span>
+                    <span class="card-title">Tiefk&uuml;hlung (Minusgrad)</span>
                 </div>
             </div>
         </div>
 
         <div id="step-2" class="step-content">
-            <button class="btn-back" onclick="goToStep(1)">← Zurück</button>
-            <p style="text-align:center;">Benötigen Sie einen Boden?</p>
+            <button class="btn-back" onclick="goToStep(1)">&larr; Zur&uuml;ck</button>
+            <p style="text-align:center;">Ben&ouml;tigen Sie einen Boden?</p>
             <div class="selection-grid">
                 <div class="selection-card" onclick="waehleBoden(true)">
-                    <span class="icon">✅</span>
+                    <span class="icon">&#9632;</span>
                     <span class="card-title">Mit Boden</span>
                 </div>
                 <div class="selection-card" onclick="waehleBoden(false)">
-                    <span class="icon">❌</span>
+                    <span class="icon">&#9633;</span>
                     <span class="card-title">Ohne Boden</span>
                 </div>
             </div>
         </div>
 
         <div id="step-3" class="step-content">
-            <button class="btn-back" onclick="zurueckVonMasse()">← Zurück</button>
-            <h3 style="text-align:center;">Außenmaße eingeben</h3>
+            <button class="btn-back" onclick="zurueckVonMasse()">&larr; Zur&uuml;ck</button>
+            <h3 style="text-align:center;">Au&szlig;enma&szlig;e eingeben</h3>
             
             <div class="input-group">
-                <label>Länge (in Meter)</label>
+                <label>L&auml;nge (in Meter)</label>
                 <input type="number" id="inp-laenge" placeholder="z.B. 3.00" step="0.10">
             </div>
             <div class="input-group">
@@ -179,40 +183,40 @@
                 <input type="number" id="inp-breite" placeholder="z.B. 2.50" step="0.10">
             </div>
             <div class="input-group">
-                <label>Höhe (in Meter)</label>
+                <label>H&ouml;he (in Meter)</label>
                 <select id="inp-hoehe">
                     </select>
             </div>
 
-            <button class="btn-next" onclick="goToStep(4); berechnePreis();">Weiter zu Optionen →</button>
+            <button class="btn-next" onclick="goToStep(4); berechnePreis();">Weiter zu Optionen &rarr;</button>
         </div>
 
         <div id="step-4" class="step-content">
-            <button class="btn-back" onclick="goToStep(3)">← Zurück</button>
-            <h3 style="text-align:center;">Ihre Konfiguration</h3>
+            <button class="btn-back" onclick="goToStep(3)">&larr; Zur&uuml;ck</button>
+            <h3 style="text-align:center;">Au&szlig;enma&szlig;e eingeben</h3>
 
             <div class="input-group">
-                <label>Tür wählen:</label>
+                <label>T&uuml;r w&auml;hlen:</label>
                 <select id="inp-tuer" onchange="berechnePreis()">
-                    <option value="0" selected>Keine Tür [0 €]</option>
-                    <option value="550">Drehtür 75 x 175 cm [+550 €]</option>
-                    <option value="580">Drehtür 75 x 190 cm [+580 €]</option>
-                    <option value="600">Drehtür 80 x 190 cm [+600 €]</option>
-                    <option value="650">Drehtür 90 x 190 cm [+650 €]</option>
-                    <option value="700">Drehtür 110 x 190 cm [+700 €]</option>
-                    <option value="800">Drehtür 100 x 200 cm [+800 €]</option>
-                    <option value="900">Drehtür 120 x 200 cm [+900 €]</option>
-                    <option value="1000">Drehtür 120 x 220 cm [+1.000 €]</option>
-                    <option value="0">Schiebetür (Auf Anfrage)</option>
+                    <option value="0" selected>Keine T&uuml;r [0 &euro;]</option>
+                    <option value="550">Dreht&uuml;r 75 x 175 cm [+550 &euro;]</option>
+                    <option value="580">Dreht&uuml;r 75 x 190 cm [+580 &euro;]</option>
+                    <option value="600">Dreht&uuml;r 80 x 190 cm [+600 &euro;]</option>
+                    <option value="650">Dreht&uuml;r 90 x 190 cm [+650 &euro;]</option>
+                    <option value="700">Dreht&uuml;r 110 x 190 cm [+700 &euro;]</option>
+                    <option value="800">Dreht&uuml;r 100 x 200 cm [+800 &euro;]</option>
+                    <option value="900">Dreht&uuml;r 120 x 200 cm [+900 &euro;]</option>
+                    <option value="1000">Dreht&uuml;r 120 x 220 cm [+1 &euro;]</option>
+                    <option value="0">Schiebet&uuml;r (Auf Anfrage)</option>
                 </select>
             </div>
 
             <div class="result-box">
-                <div class="price-label">Geschätzter Preis (Netto):</div>
-                <div class="price-big" id="preis-ausgabe">0,00 €</div>
+                <div class="price-label">Gesch&auml;tzter Preis (Netto):</div>
+                $10,00 &euro;</div>
                 <div class="price-disclaimer">
-                    *Preis versteht sich für Paneele & Tür.<br>
-                    <strong>Exklusive Kälteaggregat, Lieferung & Montage.</strong>
+                    *Preis versteht sich f&uuml;r Paneele &amp; T&uuml;r.<br>
+                    <strong>Exklusive K&auml;lteaggregat, Lieferung &amp; Montage.</strong>
                 </div>
             </div>
 
@@ -227,9 +231,9 @@
         <div class="modal-content">
             <span class="close" onclick="closeRequestModal()">&times;</span>
             <h2>Angebot anfordern</h2>
-            <p style="color:#666; margin-bottom:20px;">Bitte geben Sie Ihre Kontaktdaten ein, damit wir Ihnen das schriftliche Angebot zusenden können.</p>
+            <p style="color:#666; margin-bottom:20px;">Bitte geben Sie Ihre Kontaktdaten ein, damit wir Ihnen das schriftliche Angebot zusenden k&ouml;nnen.</p>
 
-            <form action="https://formsubmit.co/info@europaneel.de" method="POST">
+            <form action="https://formsubmit.co/info@europaneel.de" method="POST" onsubmit="return validateRecaptcha();">
                 
                 <input type="hidden" name="_subject" value="Neue Kalkulator-Anfrage!">
                 <input type="hidden" name="_next" value="https://mertkaanpak.github.io/europaneel/danke.html">
@@ -237,6 +241,11 @@
                 <input type="hidden" name="Konfiguration_Masse" id="hidden-masse">
                 <input type="hidden" name="Konfiguration_Tuer" id="hidden-tuer">
                 <input type="hidden" name="Kalkulierter_Preis" id="hidden-preis">
+
+                <div class="honeypot" aria-hidden="true">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" name="_honey" tabindex="-1" autocomplete="off">
+                </div>
 
                 <div class="input-group">
                     <label>Name / Firma *</label>
@@ -249,12 +258,12 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Telefonnummer *</label>
-                    <input type="tel" name="Telefon" required placeholder="Für Rückfragen">
+                    <label>T&uuml;r w&auml;hlen:</label>
+                    <input type="tel" name="Telefon" required placeholder="F&uuml;r R&uuml;ckfragen">
                 </div>
 
                 <div class="input-group">
-                    <label>Strasse und Hausnummer *</label>
+                    <label>Stra&szlig;e und Hausnummer *</label>
                     <input type="text" name="Strasse" required placeholder="z.B. Musterstrasse 12">
                 </div>
 
@@ -269,12 +278,12 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Land *</label>
+                    <label>L&auml;nge (in Meter)</label>
                     <input type="text" name="Land" required placeholder="z.B. Deutschland">
                 </div>
 
                 <div class="input-group">
-                    <label>Lieferung & Montage:</label>
+                    <label>L&auml;nge (in Meter)</label>
                     <div class="radio-group">
                         <label class="radio-option">
                             <input type="radio" name="Service" value="Lieferung und Montage anfragen" checked>
@@ -288,8 +297,12 @@
                 </div>
 
                 <div class="input-group">
-                    <label>Zusätzliche Anmerkungen</label>
+                    <label>Zus&auml;tzliche Anmerkungen</label>
                     <input type="text" name="Nachricht" placeholder="z.B. Wunschtermin...">
+                </div>
+
+                <div class="recaptcha-wrap">
+                    <div class="g-recaptcha" data-sitekey="6LeDD0IsAAAAAIKh3-DU6Pw0THEbk4oWRsw4BXEu"></div>
                 </div>
 
                 <button type="submit" class="btn-next">Kostenlos anfragen</button>
@@ -301,13 +314,13 @@
         // --- SICHERHEITS-MODUL (Ganz oben!) ---
         (function() {
             // HIER die erlaubten Domains. Hinweis: Nur der Hauptname (europaneel.de) reicht, 
-            // Unterordner wie "/kalkulator" sind automatisch mit abgedeckt und müssen hier nicht stehen.
+            // Unterordner wie "/kalkulator" sind automatisch mit abgedeckt und muessen hier nicht stehen.
             const allowedDomains = ["europaneel.de", "www.europaneel.de", "mertkaanpak.github.io", "localhost", "127.0.0.1"];
             
             const currentDomain = window.location.hostname;
             let isAllowed = false;
 
-            // Prüfen, ob die aktuelle Domain in der Liste ist
+            // Pruefen, ob die aktuelle Domain in der Liste ist
             for (let i = 0; i < allowedDomains.length; i++) {
                 if (currentDomain.includes(allowedDomains[i])) {
                     isAllowed = true;
@@ -315,12 +328,12 @@
                 }
             }
 
-            // Wenn Domain NICHT erlaubt ist -> Kalkulator zerstören
+            // Wenn Domain NICHT erlaubt ist -> Wenn Domain NICHT erlaubt ist -> Kalkulator zerstoeren
             if (!isAllowed) {
                 document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;">' +
-                    '<h1 style="color:red;">Urheberrechtsverletzung erkannt</h1>' +
-                    '<p>Dieser Kalkulator ist lizenziert für Europaneel GmbH.</p>' +
-                    '<p>Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
+                    '<h1 style="color:red;">Unzul&auml;ssige Nutzung erkannt</h1>' +
+                    '<p>Dieser Kalkulator ist lizenziert f&uuml;r Europaneel GmbH.</p>' +
+                    '<p>Die Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
                     '</div>';
                 // Werfe Fehler, um weitere Skripte zu stoppen
                 throw new Error("Lizenzfehler: Unbefugte Nutzung."); 
@@ -391,7 +404,7 @@
 
             // Preiseinstellungen
             let preisProQm = 55.00; // Standardpreis
-            if(hatBoden) { preisProQm = 65.00; } // Höherer Preis wenn Boden dabei
+            if(Hoeherer Preis wenn Boden dabei
 
             let wandFlaeche = (L + B) * 2 * H;
             let deckenFlaeche = L * B;
@@ -400,16 +413,16 @@
             let gesamtFlaeche = 0;
             
             if (hatBoden) {
-                // Wände + Decke + Boden
+                // Waende + Decke + Boden
                 gesamtFlaeche = wandFlaeche + deckenFlaeche + bodenFlaeche;
             } else {
-                // Nur Wände + Decke
+                // Nur Waende + Decke
                 gesamtFlaeche = wandFlaeche + deckenFlaeche;
             }
 
             let materialPreis = gesamtFlaeche * preisProQm;
             
-            // Pauschale für Siebdruckplatte Boden wenn Boden gewählt (versteckter Aufpreis)
+            // Pauschale fuer Siebdruckplatte Boden wenn Boden gewaehlt (versteckter Aufpreis)
             if(hatBoden) {
                 materialPreis += (bodenFlaeche * 50.00); 
             }
@@ -428,7 +441,7 @@
             let B = document.getElementById('inp-breite').value || "-";
             let H = document.getElementById('inp-hoehe').value || "-";
             
-            let typText = (kuehlTyp === 'tief' ? "Tiefkühlung" : "Normalkühlung") + (hatBoden ? " mit Boden" : " ohne Boden");
+            let typText = (kuehlTyp === "tief" ? "Tiefkuehlung" : "Normalkuehlung") + (hatBoden ? " mit Boden" : " ohne Boden");
             let masseText = L + "m x " + B + "m x " + H + "m";
             
             let tuerSelect = document.getElementById('inp-tuer');
@@ -442,7 +455,7 @@
             document.getElementById('hidden-tuer').value = tuerText;
             document.getElementById('hidden-preis').value = preisText;
 
-            // 3. Modal öffnen
+            // 3. Modal oeffnen
             document.getElementById('requestModal').style.display = "block";
             document.body.style.overflow = "hidden"; // Scrollen verhindern
         }
@@ -452,13 +465,28 @@
             document.body.style.overflow = "auto";
         }
 
-        // Schließen wenn man daneben klickt
+        // Schliessen wenn man daneben klickt
         window.onclick = function(event) {
             let modal = document.getElementById('requestModal');
             if (event.target == modal) {
                 closeRequestModal();
             }
         }
+
+        function validateRecaptcha() {
+            if (typeof grecaptcha === 'undefined') {
+                alert('reCAPTCHA konnte nicht geladen werden. Bitte Seite neu laden.');
+                return false;
+            }
+            if (!grecaptcha.getResponse()) {
+                alert('Bitte best&auml;tigen Sie, dass Sie kein Roboter sind.');
+                return false;
+            }
+            return true;
+        }
     </script>
 </body>
 </html>
+
+
+

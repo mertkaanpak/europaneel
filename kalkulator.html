@@ -172,7 +172,7 @@
 
         <div id="step-3" class="step-content">
             <button class="btn-back" onclick="zurueckVonMasse()">&larr; Zur&uuml;ck</button>
-            <h3 style="text-align:center;">Au&szlig;enma&szlig;e eingeben</h3>
+            <h3 style="text-align:center;">Ihre Konfiguration</h3>
             
             <div class="input-group">
                 <label>L&auml;nge (in Meter)</label>
@@ -206,14 +206,14 @@
                     <option value="700">Dreht&uuml;r 110 x 190 cm [+700 &euro;]</option>
                     <option value="800">Dreht&uuml;r 100 x 200 cm [+800 &euro;]</option>
                     <option value="900">Dreht&uuml;r 120 x 200 cm [+900 &euro;]</option>
-                    <option value="1000">Dreht&uuml;r 120 x 220 cm [+1 &euro;]</option>
+                    <option value="1000">Dreht&uuml;r 120 x 220 cm [+1.000 &euro;]</option>
                     <option value="0">Schiebet&uuml;r (Auf Anfrage)</option>
                 </select>
             </div>
 
             <div class="result-box">
                 <div class="price-label">Gesch&auml;tzter Preis (Netto):</div>
-                $10,00 &euro;</div>
+                <div class="price-big" id="preis-ausgabe">0,00 &euro;</div>
                 <div class="price-disclaimer">
                     *Preis versteht sich f&uuml;r Paneele &amp; T&uuml;r.<br>
                     <strong>Exklusive K&auml;lteaggregat, Lieferung &amp; Montage.</strong>
@@ -333,7 +333,7 @@
                 document.body.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;">' +
                     '<h1 style="color:red;">Unzul&auml;ssige Nutzung erkannt</h1>' +
                     '<p>Dieser Kalkulator ist lizenziert f&uuml;r Europaneel GmbH.</p>' +
-                    '<p>Die Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
+                    '<p>Die Nutzung auf dieser Domain (' + currentDomain + ') ist untersagt.</p>' +
                     '</div>';
                 // Werfe Fehler, um weitere Skripte zu stoppen
                 throw new Error("Lizenzfehler: Unbefugte Nutzung."); 
@@ -404,7 +404,7 @@
 
             // Preiseinstellungen
             let preisProQm = 55.00; // Standardpreis
-            if(Hoeherer Preis wenn Boden dabei
+            if (hatBoden) { preisProQm = 65.00; } // Hoeherer Preis wenn Boden dabei
 
             let wandFlaeche = (L + B) * 2 * H;
             let deckenFlaeche = L * B;

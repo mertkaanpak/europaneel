@@ -6,6 +6,7 @@
     <meta name="description" content="K&uuml;hlzellen-Kalkulator von Europaneel. Konfigurieren Sie Ma&szlig;e, T&uuml;r und Ausstattung und erhalten Sie einen Richtpreis.">
     <title>Kalkulator | Europaneel GmbH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="canonical" href="https://www.europaneel.de/kalkulator.html">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* --- DESIGN SYSTEM --- */
@@ -117,9 +118,21 @@
         .radio-group { display: flex; gap: 20px; margin-top: 5px; }
         .radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
 
+        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark-gray); }
+
         @media (max-width: 768px) {
             .selection-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .nav-links {
+                position: fixed; top: 80px; left: 0; width: 100%; background-color: white;
+                flex-direction: column; align-items: center; padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0,0,0,0.1); display: none;
+            }
+            .nav-links.active { display: flex; animation: fadeIn 0.3s; }
+            @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+            .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
+            .btn-contact { width: 80%; display: block; margin: 0 auto; text-align: center; }
+            .logo img { height: 100px; }
         }
     </style>
 </head>
@@ -131,7 +144,12 @@
                 <div class="logo">
                     <a href="index.html"><img src="logo.webp" alt="Europaneel Logo"></a>
                 </div>
-                <ul class="nav-links">
+
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <ul class="nav-links" id="navLinks">
                     <li><a href="index.html">Startseite</a></li>
                     <li><a href="kalkulator.html" style="color: var(--primary-red); font-weight: bold;"><i class="fas fa-calculator"></i> Kalkulator</a></li>
                     <li><a href="index.html#produkte">Produkte</a></li>
@@ -218,6 +236,7 @@
                     <option value="650">Dreht&uuml;r 90 x 190 cm [+650 &euro;]</option>
                     <option value="700">Dreht&uuml;r 110 x 190 cm [+700 &euro;]</option>
                     <option value="800">Dreht&uuml;r 100 x 200 cm [+800 &euro;]</option>
+                    <option value="850">Dreht&uuml;r 100 x 220 cm [+850 &euro;]</option>
                     <option value="900">Dreht&uuml;r 120 x 200 cm [+900 &euro;]</option>
                     <option value="1000">Dreht&uuml;r 120 x 220 cm [+1.000 &euro;]</option>
                     <option value="0">Schiebet&uuml;r (Auf Anfrage)</option>
@@ -271,7 +290,7 @@
                 </div>
 
                 <div class="input-group">
-                    <label>T&uuml;r w&auml;hlen:</label>
+                    <label>Telefon *</label>
                     <input type="tel" name="Telefon" required placeholder="F&uuml;r R&uuml;ckfragen">
                 </div>
 
@@ -291,12 +310,12 @@
                 </div>
 
                 <div class="input-group">
-                    <label>L&auml;nge (in Meter)</label>
+                    <label>Land *</label>
                     <input type="text" name="Land" required placeholder="z.B. Deutschland">
                 </div>
 
                 <div class="input-group">
-                    <label>L&auml;nge (in Meter)</label>
+                    <label>Lieferung / Selbstabholung</label>
                     <div class="radio-group">
                         <label class="radio-option">
                             <input type="radio" name="Service" value="Lieferung und Montage anfragen" checked>
@@ -524,6 +543,11 @@
             });
             updateSummary();
         });
+
+        function toggleMenu() {
+            var nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
 
         function validateRecaptcha() {
             if (typeof grecaptcha === 'undefined') {

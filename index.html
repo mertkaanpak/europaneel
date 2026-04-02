@@ -206,6 +206,38 @@
         .about-content h2,
         .location-text h2 { font-size: var(--fs-h2); line-height: var(--lh-tight); }
 
+        /* --- SO ARBEITEN WIR --- */
+        .process-section { padding: 80px 20px; background-color: #f9f9f9; text-align: center; }
+        .process-section h2 { font-size: var(--fs-h2); margin-bottom: 10px; line-height: var(--lh-tight); }
+        .process-section .section-sub { color: #666; font-size: var(--fs-lead); margin-bottom: 60px; }
+        .process-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;
+        }
+        .process-grid::before {
+            content: ''; position: absolute; top: 38px; left: 12.5%; right: 12.5%; height: 3px;
+            background: linear-gradient(90deg, var(--primary-red), #999);
+            z-index: 0;
+        }
+        .process-step { display: flex; flex-direction: column; align-items: center; padding: 0 15px; position: relative; z-index: 1; }
+        .process-num {
+            width: 76px; height: 76px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-red), #B71C1C);
+            color: white; font-size: 1.8rem; font-weight: 800;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 20px rgba(211,47,47,0.35); margin-bottom: 22px;
+            border: 4px solid white;
+        }
+        .process-step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; color: var(--dark-gray); line-height: var(--lh-tight); }
+        .process-step p { font-size: 0.93rem; color: #666; line-height: 1.55; }
+        @media (max-width: 768px) {
+            .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+            .process-grid::before { display: none; }
+        }
+        @media (max-width: 480px) {
+            .process-grid { grid-template-columns: 1fr; gap: 30px; }
+        }
+
         /* --- STATISTIK --- */
         .stats-section { padding: 60px 20px; background-color: #f9f9f9; text-align: center; }
         .stats-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; }
@@ -425,6 +457,35 @@
                     <div class="emoji-icon">&#9881;</div>
                     <h3>Monoblock Aggregate</h3>
                     <p>Steckerfertige Aggregate &ndash; schnelle Inbetriebnahme und effiziente K&auml;lteerzeugung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="container">
+            <h2>So arbeiten wir</h2>
+            <p class="section-sub">Von der ersten Anfrage bis zur fertigen K&uuml;hlzelle &ndash; einfach, schnell und zuverl&auml;ssig.</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-num">1</div>
+                    <h3>Anfrage</h3>
+                    <p>Kontaktieren Sie uns per Telefon, E-Mail, WhatsApp oder &uuml;ber unseren Kalkulator &ndash; schnell und unkompliziert.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">2</div>
+                    <h3>Beratung &amp; Aufma&szlig;</h3>
+                    <p>Wir kommen pers&ouml;nlich zu Ihnen oder beraten Sie telefonisch &ndash; und nehmen alle Ma&szlig;e pr&auml;zise auf.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">3</div>
+                    <h3>Planung &amp; Angebot</h3>
+                    <p>Sie erhalten ein detailliertes, schriftliches Angebot &ndash; transparent, fair und ohne versteckte Kosten.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-num">4</div>
+                    <h3>Montage &amp; &Uuml;bergabe</h3>
+                    <p>Unser Team montiert Ihre K&uuml;hlzelle fachgerecht und &uuml;bergibt sie betriebsfertig &ndash; sauber und termingerecht.</p>
                 </div>
             </div>
         </div>

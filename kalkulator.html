@@ -7,7 +7,6 @@
     <title>Kalkulator | Europaneel GmbH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="canonical" href="https://www.europaneel.de/kalkulator.html">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
@@ -117,6 +116,22 @@
         /* Checkbox/Radio Styling im Modal */
         .radio-group { display: flex; gap: 20px; margin-top: 5px; }
         .radio-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+        .cookie-banner {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9997;
+            background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.13);
+            border-top: 3px solid var(--primary-red); padding: 18px 20px;
+        }
+        .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .cookie-text { flex: 1; min-width: 240px; }
+        .cookie-text strong { font-size: 0.98rem; color: var(--dark-gray); display: block; margin-bottom: 4px; }
+        .cookie-text p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
+        .cookie-text a { color: var(--primary-red); text-decoration: underline; }
+        .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+        .cookie-decline { padding: 9px 18px; border: 2px solid #ccc; background: white; color: #555; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
+        .cookie-decline:hover { border-color: #999; color: #333; }
+        .cookie-accept { padding: 9px 22px; background: var(--primary-red); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: background 0.2s; }
+        .cookie-accept:hover { background: var(--primary-red-hover); }
 
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; z-index: 9000;
@@ -571,9 +586,48 @@
         }
     </script>
 
+<div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-inner">
+        <div class="cookie-text">
+            <strong>&#x1F36A; Wir nutzen externe Dienste</strong>
+            <p>Diese Website verwendet reCAPTCHA von Google. Dieser Dienst kann Daten an Google &uuml;bermitteln. Mehr dazu in unserer <a href="index.html#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
+        </div>
+        <div class="cookie-btns">
+            <button class="cookie-decline" onclick="setCookieConsent('necessary')">Nur notwendige</button>
+            <button class="cookie-accept" onclick="setCookieConsent('all')">Alle akzeptieren</button>
+        </div>
+    </div>
+</div>
+
 <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+(function() {
+    function loadRecaptcha() {
+        if (document.querySelector('.g-recaptcha') && !document.querySelector('script[src*="recaptcha"]')) {
+            var s = document.createElement('script');
+            s.src = 'https://www.google.com/recaptcha/api.js';
+            s.async = true; s.defer = true;
+            document.head.appendChild(s);
+        }
+    }
+    window.setCookieConsent = function(choice) {
+        localStorage.setItem('ep_consent', choice);
+        document.getElementById('cookieBanner').style.display = 'none';
+        if (choice === 'all') { loadRecaptcha(); }
+    };
+    window.addEventListener('DOMContentLoaded', function() {
+        var consent = localStorage.getItem('ep_consent');
+        if (!consent) {
+            document.getElementById('cookieBanner').style.display = 'block';
+        } else if (consent === 'all') {
+            loadRecaptcha();
+        }
+    });
+})();
+</script>
 
 </body>
 </html>

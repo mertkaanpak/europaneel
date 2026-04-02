@@ -10,7 +10,6 @@
     <link rel="canonical" href="https://www.europaneel.de/kontakt.html">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         /* --- DESIGN SYSTEM --- */
         :root {
@@ -126,6 +125,26 @@
         .footer-col h4 { color: white; margin-bottom: 20px; font-size: 1.2rem; }
         .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #444; font-size: 0.9rem; }
 
+        .cookie-banner {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9997;
+            background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.13);
+            border-top: 3px solid var(--primary-red); padding: 18px 20px;
+        }
+        .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .cookie-text { flex: 1; min-width: 240px; }
+        .cookie-text strong { font-size: 0.98rem; color: var(--dark-gray); display: block; margin-bottom: 4px; }
+        .cookie-text p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
+        .cookie-text a { color: var(--primary-red); text-decoration: underline; }
+        .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+        .cookie-decline { padding: 9px 18px; border: 2px solid #ccc; background: white; color: #555; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
+        .cookie-decline:hover { border-color: #999; color: #333; }
+        .cookie-accept { padding: 9px 22px; background: var(--primary-red); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: background 0.2s; }
+        .cookie-accept:hover { background: var(--primary-red-hover); }
+        .map-placeholder { background: #f4f4f4; border-radius: 10px; display: flex; align-items: center; justify-content: center; text-align: center; width: 100%; border: 2px dashed #ddd; }
+        .map-placeholder-inner i { font-size: 2rem; color: #bbb; display: block; margin-bottom: 10px; }
+        .map-placeholder-inner p { color: #888; font-size: 0.9rem; margin-bottom: 14px; }
+        .map-placeholder-inner button { padding: 9px 20px; background: var(--primary-red); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.88rem; }
+
         .whatsapp-float {
             position: fixed; bottom: 30px; right: 30px; z-index: 9000;
             background-color: #25D366; color: white; width: 62px; height: 62px;
@@ -238,10 +257,17 @@
                 </div>
 
                 <div class="map-wrapper">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2489.176467389146!2d6.94726!3d51.5212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMxJzE2LjMiTiA2wrA1Nyc1MC4xIkU!5e0!3m2!1sde!2sde!4v1600000000000!5m2!1sde!2sde" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-                    </iframe>
+                    <div class="map-placeholder"
+                        data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2489.176467389146!2d6.94726!3d51.5212!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDMxJzE2LjMiTiA2wrA1Nyc1MC4xIkU!5e0!3m2!1sde!2sde!4v1600000000000!5m2!1sde!2sde"
+                        data-height="100%"
+                        data-style="border:0;width:100%;height:300px;display:block;"
+                        style="height:300px;">
+                        <div class="map-placeholder-inner">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>Karte wird nach Cookie-Zustimmung geladen.</p>
+                            <button onclick="setCookieConsent('all')">Karte laden &amp; akzeptieren</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -348,9 +374,60 @@
     </script>
 
 
+<div id="cookieBanner" class="cookie-banner">
+    <div class="cookie-inner">
+        <div class="cookie-text">
+            <strong>&#x1F36A; Wir nutzen externe Dienste</strong>
+            <p>Diese Website verwendet Google Maps und reCAPTCHA. Diese Dienste k&ouml;nnen Daten an Google &uuml;bermitteln. Mehr dazu in unserer <a href="index.html#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
+        </div>
+        <div class="cookie-btns">
+            <button class="cookie-decline" onclick="setCookieConsent('necessary')">Nur notwendige</button>
+            <button class="cookie-accept" onclick="setCookieConsent('all')">Alle akzeptieren</button>
+        </div>
+    </div>
+</div>
+
 <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt">
     <i class="fab fa-whatsapp"></i>
 </a>
+
+<script>
+(function() {
+    function loadMaps() {
+        document.querySelectorAll('.map-placeholder').forEach(function(el) {
+            var iframe = document.createElement('iframe');
+            iframe.src = el.getAttribute('data-src');
+            iframe.width = '100%';
+            iframe.height = '300';
+            iframe.style.cssText = el.getAttribute('data-style') || 'border:0;';
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.setAttribute('loading', 'lazy');
+            el.replaceWith(iframe);
+        });
+    }
+    function loadRecaptcha() {
+        if (document.querySelector('.g-recaptcha') && !document.querySelector('script[src*="recaptcha"]')) {
+            var s = document.createElement('script');
+            s.src = 'https://www.google.com/recaptcha/api.js';
+            s.async = true; s.defer = true;
+            document.head.appendChild(s);
+        }
+    }
+    window.setCookieConsent = function(choice) {
+        localStorage.setItem('ep_consent', choice);
+        document.getElementById('cookieBanner').style.display = 'none';
+        if (choice === 'all') { loadMaps(); loadRecaptcha(); }
+    };
+    window.addEventListener('DOMContentLoaded', function() {
+        var consent = localStorage.getItem('ep_consent');
+        if (!consent) {
+            document.getElementById('cookieBanner').style.display = 'block';
+        } else if (consent === 'all') {
+            loadMaps(); loadRecaptcha();
+        }
+    });
+})();
+</script>
 
 </body>
 </html>

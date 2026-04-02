@@ -266,6 +266,25 @@
         .badge-number { font-size: 2.5rem; font-weight: 800; display: block; line-height: 1; }
         .badge-text { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* --- BRANCHEN / FÜR WEN WIR ARBEITEN --- */
+        .clients-section { padding: 70px 20px; background-color: var(--white); text-align: center; }
+        .clients-section h2 { font-size: var(--fs-h2); margin-bottom: 10px; line-height: var(--lh-tight); }
+        .clients-section .section-sub { color: #666; font-size: var(--fs-lead); margin-bottom: 50px; }
+        .clients-grid {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+        }
+        .client-card {
+            background: #f9f9f9; border-radius: 14px; padding: 30px 20px;
+            border: 1px solid #eee; transition: all 0.25s ease;
+            display: flex; flex-direction: column; align-items: center; gap: 14px;
+        }
+        .client-card:hover { background: white; border-color: var(--primary-red); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .client-card i { font-size: 2.2rem; color: var(--primary-red); }
+        .client-card span { font-weight: 600; font-size: 0.95rem; color: var(--dark-gray); line-height: 1.3; }
+        @media (max-width: 900px) { .clients-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 480px) { .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; } }
+
         /* --- STANDORT --- */
         .location-section { padding: 80px 20px; background-color: var(--light-gray); }
         .location-container { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between; }
@@ -532,6 +551,47 @@
             <div class="stat-item">
                 <div class="stat-number" data-target="98">0</div>
                 <span>%</span> <p>Kundenzufriedenheit</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="clients-section">
+        <div class="container">
+            <h2>F&uuml;r wen wir arbeiten</h2>
+            <p class="section-sub">Vom kleinen Restaurant bis zum gro&szlig;en Lebensmittellager &ndash; wir liefern die passende K&uuml;hll&ouml;sung.</p>
+            <div class="clients-grid">
+                <div class="client-card">
+                    <i class="fas fa-utensils"></i>
+                    <span>Gastronomie &amp; Restaurants</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-store"></i>
+                    <span>Lebensmittelhandel &amp; M&auml;rkte</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-industry"></i>
+                    <span>Industrie &amp; Produktion</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-truck"></i>
+                    <span>Logistik &amp; Lagerung</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <span>Metzgerei &amp; Fleischerei</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-bread-slice"></i>
+                    <span>B&auml;ckerei &amp; Konditorei</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-hotel"></i>
+                    <span>Hotel &amp; Catering</span>
+                </div>
+                <div class="client-card">
+                    <i class="fas fa-pills"></i>
+                    <span>Pharma &amp; K&uuml;hllogistik</span>
+                </div>
             </div>
         </div>
     </section>

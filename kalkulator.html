@@ -25,6 +25,12 @@
 
         body { font-family: var(--font-main); margin: 0; padding: 0; background-color: var(--light-bg); color: var(--dark-gray); user-select: none; line-height: var(--lh-normal); font-size: var(--fs-body); /* Text markieren erschweren */ }
         
+        .top-bar { background-color: var(--dark-gray); color: #ccc; font-size: 0.82rem; padding: 7px 20px; }
+        .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 24px; flex-wrap: wrap; }
+        .top-bar a { color: #ccc; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+        .top-bar a:hover { color: white; }
+        @media (max-width: 600px) { .top-bar { display: none; } }
+
         /* HEADER */
         header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
@@ -161,6 +167,14 @@
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <a href="tel:+4920417779191"><i class="fas fa-phone"></i> +49 2041 / 777 9191</a>
+            <a href="mailto:info@europaneel.de"><i class="fas fa-envelope"></i> info@europaneel.de</a>
+            <span><i class="fas fa-clock"></i> Mo&ndash;Fr: 09:00&ndash;17:00 Uhr</span>
+        </div>
+    </div>
 
     <header>
         <div class="container">

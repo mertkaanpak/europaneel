@@ -75,6 +75,19 @@
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
 
+        /* --- TOP INFO BAR --- */
+        .top-bar {
+            background-color: var(--dark-gray); color: #ccc;
+            font-size: 0.82rem; padding: 7px 20px;
+        }
+        .top-bar-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: flex-end; align-items: center; gap: 24px; flex-wrap: wrap;
+        }
+        .top-bar a { color: #ccc; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
+        .top-bar a:hover { color: white; }
+        @media (max-width: 600px) { .top-bar { display: none; } }
+
         /* --- HEADER / NAVIGATION --- */
         header {
             background-color: var(--white);
@@ -406,6 +419,14 @@
     </style>
 </head>
 <body>
+
+    <div class="top-bar">
+        <div class="top-bar-inner">
+            <a href="tel:+4920417779191"><i class="fas fa-phone"></i> +49 2041 / 777 9191</a>
+            <a href="mailto:info@europaneel.de"><i class="fas fa-envelope"></i> info@europaneel.de</a>
+            <span><i class="fas fa-clock"></i> Mo&ndash;Fr: 09:00&ndash;17:00 Uhr</span>
+        </div>
+    </div>
 
     <header>
         <div class="container">
@@ -781,7 +802,7 @@
                     <h4>Kontakt</h4>
                     <ul style="list-style: none; padding: 0;">
                         <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-envelope" style="width: 20px;"></i> info@europaneel.de</li>
-                        <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-phone" style="width: 20px;"></i> +49 2041 / 777 9191</li>
+                        <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-phone" style="width: 20px;"></i> <a href="tel:+4920417779191" style="color:#bbb;">+49 2041 / 777 9191</a></li>
                         <li style="margin-bottom: 10px; color: #bbb;"><i class="fas fa-map-marker-alt" style="width: 20px;"></i> Am Rhein-Herne-Kanal 10<br><span style="margin-left: 25px;">46242 Bottrop</span></li>
                     </ul>
                 </div>

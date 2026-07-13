@@ -45,6 +45,10 @@
     </script>
 
     <script>document.documentElement.className += ' js';</script>
+    <link rel="preload" href="fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/manrope-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="fontawesome/css/all.min.css">
     <link rel="stylesheet" href="assets/style.css">
     <style>
@@ -52,7 +56,8 @@
         .hero{position:relative;min-height:min(780px,93vh);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink);}
         .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:heroZoom 22s ease-in-out infinite alternate;}
         @keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
-        .hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(11,12,15,.94) 0%,rgba(11,12,15,.74) 42%,rgba(11,12,15,.30) 100%);}
+        .hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(11,12,15,.95) 0%,rgba(11,12,15,.72) 44%,rgba(11,12,15,.26) 100%),linear-gradient(to top,rgba(11,12,15,.9) 0%,rgba(11,12,15,0) 34%);}
+        .hero__glow{position:absolute;top:-10%;right:-6%;width:60%;height:70%;z-index:1;background:radial-gradient(circle,rgba(211,47,47,.28),transparent 62%);pointer-events:none;filter:blur(6px);}
         .hero__content{position:relative;z-index:2;width:100%;max-width:860px;}
         .hero .eyebrow{color:#ff6b6b;}
         .hero .eyebrow::before{background:#ff6b6b;}
@@ -224,6 +229,7 @@
             <source src="video.mp4" type="video/mp4">
         </video>
         <div class="hero__overlay"></div>
+        <div class="hero__glow"></div>
         <div class="container">
             <div class="hero__content">
                 <span class="eyebrow hero__anim d1">Kältetechnik & Isolierbau aus Bottrop</span>

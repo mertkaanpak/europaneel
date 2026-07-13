@@ -208,4 +208,17 @@
     } else if (consent === 'all') {
         loadMaps(); loadRecaptcha();
     }
+
+    /* ---------- KOPIERSCHUTZ (Deterrent) ---------- */
+    // Rechtsklick-Kontextmenü unterbinden (Formularfelder ausgenommen, damit z. B.
+    // Einfügen/Autofill funktioniert).
+    document.addEventListener('contextmenu', function (e) {
+        var t = e.target;
+        if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA')) return;
+        e.preventDefault();
+    });
+    // Bilder nicht per Drag herausziehen
+    document.addEventListener('dragstart', function (e) {
+        if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+    });
 })();

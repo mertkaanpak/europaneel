@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <!--
+      (c) 2026 Europaneel GmbH - Am Rhein-Herne-Kanal 10, 46242 Bottrop
+      Diese Website inkl. Design, Quellcode und Kuehlzellen-Kalkulator ist urheberrechtlich
+      geschuetzt (u.a. Paragraf 2 & 69a UrhG). Jede Vervielfaeltigung, Verbreitung oder
+      Uebernahme - auch auszugsweise - ist ohne ausdrueckliche schriftliche Genehmigung
+      untersagt und wird rechtlich verfolgt. Kontakt: info@europaneel.de
+    -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Europaneel GmbH">
+    <meta name="copyright" content="(c) 2026 Europaneel GmbH. Alle Rechte vorbehalten.">
+    <meta name="rights" content="Urheberrechtlich geschuetzt. Vervielfaeltigung untersagt.">
     <meta name="description" content="Kühlzellen-Kalkulator von Europaneel. Konfigurieren Sie Maße, Tür und Ausstattung und erhalten Sie in einer Minute einen Richtpreis.">
     <title>Kühlzellen-Kalkulator | Europaneel GmbH</title>
     <link rel="icon" type="image/png" href="logo.png">
@@ -282,116 +292,6 @@
     <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt"><i class="fab fa-whatsapp"></i></a>
 
     <script src="assets/main.js"></script>
-    <script>
-        // --- KALKULATOR LOGIK ---
-        let kuehlTyp = "";
-        let hatBoden = false;
-
-        function setProgress(step){
-            document.querySelectorAll('#calcProgress .dot').forEach(function(d){
-                d.classList.toggle('done', (+d.getAttribute('data-step')) <= step);
-            });
-        }
-
-        function goToStep(stepNumber) {
-            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
-            document.getElementById('step-' + stepNumber).classList.add('active');
-            setProgress(stepNumber);
-            document.querySelector('.calc-wrapper').scrollIntoView({behavior:'smooth', block:'start'});
-        }
-
-        function waehleKuehlung(typ) {
-            kuehlTyp = typ;
-            if (typ === 'tief') { hatBoden = true; updateHoehenListe(); goToStep(3); }
-            else { goToStep(2); }
-            updateSummary();
-        }
-
-        function waehleBoden(wahl) {
-            hatBoden = wahl;
-            updateHoehenListe();
-            goToStep(3);
-            updateSummary();
-        }
-
-        function zurueckVonMasse() {
-            if (kuehlTyp === 'tief') { goToStep(1); } else { goToStep(2); }
-        }
-
-        function updateHoehenListe() {
-            const sel = document.getElementById('inp-hoehe');
-            sel.innerHTML = "";
-            const optionen = hatBoden ? [2.20, 2.70, 3.20, 3.70, 4.20, 4.70] : [2.10, 2.60, 3.10, 3.60, 4.10, 4.60];
-            optionen.forEach(function(h){
-                const o = document.createElement('option');
-                o.value = h.toFixed(2); o.textContent = h.toFixed(2) + " m";
-                sel.appendChild(o);
-            });
-            updateSummary();
-        }
-
-        function berechnePreis() {
-            const L = parseFloat(document.getElementById('inp-laenge').value) || 0;
-            const B = parseFloat(document.getElementById('inp-breite').value) || 0;
-            const H = parseFloat(document.getElementById('inp-hoehe').value) || 0;
-            const tuerPreis = parseFloat(document.getElementById('inp-tuer').value) || 0;
-
-            let preisProQm = hatBoden ? 65.00 : 55.00;
-
-            const wandFlaeche = (L + B) * 2 * H;
-            const deckenFlaeche = L * B;
-            const bodenFlaeche = L * B;
-
-            let gesamtFlaeche = hatBoden ? (wandFlaeche + deckenFlaeche + bodenFlaeche) : (wandFlaeche + deckenFlaeche);
-            let materialPreis = gesamtFlaeche * preisProQm;
-            if (hatBoden) { materialPreis += bodenFlaeche * 50.00; } // Siebdruckplatte
-
-            const endPreis = materialPreis + tuerPreis;
-            document.getElementById('preis-ausgabe').textContent = endPreis.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
-            updateSummary();
-        }
-
-        function updateSummary() {
-            const typeText = kuehlTyp ? (kuehlTyp === 'tief' ? 'Tiefkühlung' : 'Normalkühlung') : '–';
-            const floorText = kuehlTyp ? (hatBoden ? 'Mit Boden' : 'Ohne Boden') : '–';
-            const L = document.getElementById('inp-laenge')?.value || '';
-            const B = document.getElementById('inp-breite')?.value || '';
-            const H = document.getElementById('inp-hoehe')?.value || '';
-            const sizeText = (L || B || H) ? ((L || '–') + ' × ' + (B || '–') + ' × ' + (H || '–') + ' m') : '–';
-            const doorSelect = document.getElementById('inp-tuer');
-            const doorText = doorSelect ? doorSelect.options[doorSelect.selectedIndex].text : '–';
-
-            document.querySelector('#summaryType b').textContent = typeText;
-            document.querySelector('#summaryFloor b').textContent = floorText;
-            document.querySelector('#summarySize b').textContent = sizeText;
-            document.querySelector('#summaryDoor b').textContent = doorText;
-        }
-
-        function openRequestModal() {
-            const L = document.getElementById('inp-laenge').value || "–";
-            const B = document.getElementById('inp-breite').value || "–";
-            const H = document.getElementById('inp-hoehe').value || "–";
-            const typText = (kuehlTyp === "tief" ? "Tiefkühlung" : "Normalkühlung") + (hatBoden ? " mit Boden" : " ohne Boden");
-            const tuerSelect = document.getElementById('inp-tuer');
-
-            document.getElementById('hidden-typ').value = typText;
-            document.getElementById('hidden-masse').value = L + "m × " + B + "m × " + H + "m";
-            document.getElementById('hidden-tuer').value = tuerSelect.options[tuerSelect.selectedIndex].text;
-            document.getElementById('hidden-preis').value = document.getElementById('preis-ausgabe').textContent;
-
-            openModal('requestModal');
-        }
-        function closeRequestModal() { closeModal('requestModal'); }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            ['inp-laenge', 'inp-breite', 'inp-hoehe', 'inp-tuer'].forEach(function (id) {
-                const el = document.getElementById(id);
-                if (!el) return;
-                el.addEventListener('input', function(){ updateSummary(); if(id!=='inp-tuer') berechnePreis(); });
-                el.addEventListener('change', berechnePreis);
-            });
-            updateSummary();
-        });
-    </script>
+    <script src="assets/calc.js"></script>
 </body>
 </html>

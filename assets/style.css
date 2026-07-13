@@ -306,6 +306,15 @@ html.js [data-reveal].is-visible{opacity:1;transform:none;filter:none;}
     .modal-content{padding:30px 22px;}
 }
 
+/* ---------- KOPIERSCHUTZ (Deterrent gegen bequemes Kopieren) ----------
+   Marketing-Inhalte nicht markierbar; Kontaktdaten & Formulare bleiben nutzbar. */
+body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+input,textarea,select,button,a,label,
+.top-bar,.address-box,.info-content,.footer-list,.footer-bottom,.modal-content{
+    -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;
+}
+img{-webkit-user-drag:none;-khtml-user-drag:none;user-drag:none;-webkit-touch-callout:none;pointer-events:auto;}
+
 /* ---------- REDUCED MOTION ---------- */
 @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}

@@ -3,150 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="K&uuml;hlhaus-T&uuml;ren von Europaneel: Dreh- und Schiebet&uuml;ren in vielen Gr&ouml;&szlig;en, Anschlag rechts/links, mit oder ohne Schwelle.">
-    <title>T&uuml;ren | Europaneel GmbH</title>
-
+    <meta name="description" content="Kühlhaus-Türen von Europaneel: Dreh- und Schiebetüren in vielen Größen, Anschlag rechts/links, mit oder ohne Schwelle.">
+    <title>Kühlhaus-Türen | Europaneel GmbH</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="canonical" href="https://www.europaneel.de/turen.html">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>document.documentElement.className += ' js';</script>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
     <style>
-        :root {
-            --primary-red: #D32F2F;
-            --primary-red-hover: #B71C1C;
-            --light-gray: #F5F5F5;
-            --dark-gray: #333333;
-            --white: #FFFFFF;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --fs-body: 1rem;
-            --fs-lead: 1.1rem;
-            --fs-hero: 3rem;
-            --fs-hero-sm: 2.1rem;
-            --fs-h2: 1.6rem;
-            --lh-tight: 1.15;
-            --lh-normal: 1.6;
-        }
+        .page-hero{position:relative;color:#fff;text-align:center;padding:100px 24px;background-image:linear-gradient(rgba(11,12,15,.80),rgba(11,12,15,.80)),url('standort.webp');background-size:cover;background-position:center;}
+        .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.5vw,3.2rem);margin-bottom:14px;}
+        .page-hero p{color:#d5d9e0;font-size:1.12rem;max-width:720px;margin:0 auto;}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-main); color: var(--dark-gray); background-color: var(--white); line-height: var(--lh-normal); font-size: var(--fs-body); }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        .door-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+        .door-card{background:#fff;border-radius:var(--r-xl);padding:clamp(26px,4vw,40px);box-shadow:var(--sh-md);border-top:4px solid var(--red);}
+        .door-card__head{display:flex;align-items:center;gap:16px;margin-bottom:8px;}
+        .door-card__ic{width:52px;height:52px;border-radius:14px;background:var(--red-soft);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+        .door-card h2{font-size:1.4rem;}
+        .door-card>p{color:var(--muted);margin-bottom:22px;}
+        .size-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .size-list li{background:var(--mist);border-radius:var(--r-sm);padding:11px 14px;font-weight:600;font-size:.92rem;display:flex;align-items:center;gap:9px;color:var(--ink);transition:background .2s,transform .2s;}
+        .size-list li:hover{background:var(--red-soft);transform:translateX(3px);}
+        .size-list i{color:var(--red);}
 
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo { display: flex; align-items: center; position: relative; top: -20px; }
-        .logo img { height: 140px; width: auto; }
-
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 1rem; }
-        .nav-links a:hover { color: var(--primary-red); }
-
-        .btn-contact {
-            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
-            color: var(--white); padding: 10px 20px; border-radius: 4px; transition: all 0.3s;
-        }
-        .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-        .top-bar { background-color: var(--dark-gray); color: #ccc; font-size: 0.82rem; padding: 7px 20px; }
-        .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .top-bar a { color: #ccc; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
-        .top-bar a:hover { color: white; }
-        @media (max-width: 600px) { .top-bar { display: none; } }
-
-        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark-gray); }
-
-        .page-hero {
-            background-color: #222; color: white; text-align: center; padding: 90px 20px;
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('standort.webp');
-            background-size: cover; background-position: center;
-        }
-        .page-hero h1 { font-size: var(--fs-hero); margin-bottom: 10px; text-transform: uppercase; line-height: var(--lh-tight); }
-        .page-hero p { font-size: var(--fs-lead); opacity: 0.9; max-width: 720px; margin: 0 auto; }
-
-        .door-section { padding: 70px 20px; background-color: #f9f9f9; }
-        .door-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-
-        .door-card {
-            background: white; border-radius: 16px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-            border-top: 5px solid var(--primary-red);
-        }
-        .door-card h2 { font-size: var(--fs-h2); margin-bottom: 15px; color: var(--dark-gray); line-height: var(--lh-tight); }
-        .door-card p { color: #666; margin-bottom: 20px; }
-
-        .size-list { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 25px; }
-        .size-list li {
-            background: #f4f4f4; border-radius: 8px; padding: 10px 12px; font-weight: 600; font-size: 0.95rem;
-            display: flex; align-items: center; gap: 8px;
-        }
-        .size-list i { color: var(--primary-red); }
-
-        .cta-row { max-width: 900px; margin: 40px auto 0; text-align: center; }
-        .cta-note { color: #666; margin-bottom: 15px; }
-        .cta-btn {
-            display: inline-block; padding: 12px 28px; border-radius: 999px; font-weight: 700; color: white;
-            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
-
-        .cookie-banner {
-            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9997;
-            background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.13);
-            border-top: 3px solid var(--primary-red); padding: 18px 20px;
-        }
-        .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .cookie-text { flex: 1; min-width: 240px; }
-        .cookie-text strong { font-size: 0.98rem; color: var(--dark-gray); display: block; margin-bottom: 4px; }
-        .cookie-text p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
-        .cookie-text a { color: var(--primary-red); text-decoration: underline; }
-        .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
-        .cookie-decline { padding: 9px 18px; border: 2px solid #ccc; background: white; color: #555; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
-        .cookie-decline:hover { border-color: #999; color: #333; }
-        .cookie-accept { padding: 9px 22px; background: var(--primary-red); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: background 0.2s; }
-        .cookie-accept:hover { background: var(--primary-red-hover); }
-
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; z-index: 9000;
-            background-color: #25D366; color: white; width: 62px; height: 62px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2.1rem; box-shadow: 0 4px 18px rgba(37,211,102,0.55);
-            transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.75); }
-
-        @media (max-width: 900px) {
-            .door-grid { grid-template-columns: 1fr; }
-            .size-list { grid-template-columns: 1fr; }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links {
-                position: fixed; top: 80px; left: 0; width: 100%; background-color: white;
-                flex-direction: column; align-items: center; padding: 20px 0;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1); display: none;
-            }
-            .nav-links.active { display: flex; animation: fadeIn 0.3s; }
-            @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-            .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-            .btn-contact { width: 80%; display: block; margin: 0 auto; text-align: center; }
-            .logo img { height: 100px; }
-            .page-hero h1 { font-size: var(--fs-hero-sm); }
-        }
+        .cta-row{max-width:820px;margin:44px auto 0;text-align:center;}
+        .cta-row p{color:var(--muted);margin-bottom:10px;}
+        @media(max-width:820px){.door-grid{grid-template-columns:1fr;}}
+        @media(max-width:460px){.size-list{grid-template-columns:1fr;}}
     </style>
 </head>
 <body>
@@ -155,130 +39,133 @@
         <div class="top-bar-inner">
             <a href="tel:+4920417779191"><i class="fas fa-phone"></i> +49 2041 / 777 9191</a>
             <a href="mailto:info@europaneel.de"><i class="fas fa-envelope"></i> info@europaneel.de</a>
-            <span><i class="fas fa-clock"></i> Mo&ndash;Fr: 09:00&ndash;17:00 Uhr</span>
+            <span><i class="fas fa-clock"></i> Mo–Fr: 09:00–17:00 Uhr</span>
         </div>
     </div>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="index.html"><img src="logo.webp" alt="Europaneel Logo"></a>
-                </div>
-
-                <div class="hamburger" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-
+            <nav class="nav">
+                <a class="brand" href="index.html"><img src="logo.webp" alt="Europaneel GmbH Logo"></a>
+                <button class="hamburger" data-menu-toggle aria-label="Menü öffnen" aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" onclick="toggleMenu()">Startseite</a></li>
-                    <li>
-                        <a href="kalkulator.html" onclick="toggleMenu()">
-                            <i class="fas fa-calculator"></i> Kalkulator
-                        </a>
-                    </li>
-                    <li><a href="index.html#produkte" onclick="toggleMenu()">Produkte</a></li>
-                    <li><a href="turen.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">T&uuml;ren</a></li>
-                    <li><a href="galerie.html" onclick="toggleMenu()">Baustellen</a></li>
-                    <li><a href="index.html#about" onclick="toggleMenu()">&Uuml;ber Uns</a></li>
-                    <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
+                    <li><a class="link" href="index.html">Startseite</a></li>
+                    <li><a class="link" href="index.html#produkte">Produkte</a></li>
+                    <li><a class="link active" href="turen.html">Türen</a></li>
+                    <li><a class="link" href="galerie.html">Baustellen</a></li>
+                    <li><a class="link" href="index.html#about">Über uns</a></li>
+                    <li><a class="link" href="kontakt.html">Kontakt</a></li>
+                    <li><a class="nav-cta" href="kalkulator.html"><i class="fas fa-calculator"></i> Kalkulator</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="page-hero">
-        <h1>K&uuml;hlhaus-T&uuml;ren</h1>
-        <p>Hier finden Sie eine &Uuml;bersicht der aktuell verf&uuml;gbaren K&uuml;hlhaus-T&uuml;ren. Alle Ma&szlig;e sind in cm angegeben.</p>
+        <h1>Kühlhaus-Türen</h1>
+        <p>Übersicht der aktuell verfügbaren Kühlhaus-Türen. Alle Maße in cm – weitere Sondermaße jederzeit auf Anfrage.</p>
     </section>
 
-    <section class="door-section">
-        <div class="door-grid">
-            <div class="door-card">
-                <h2>K&uuml;hlhaus Dreht&uuml;ren</h2>
-                <p>Standard-Dreht&uuml;ren f&uuml;r Plus- und Minusbereiche.</p>
-                <ul class="size-list">
-                    <li><i class="fas fa-door-open"></i> 75 x 175 cm</li>
-                    <li><i class="fas fa-door-open"></i> 75 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 80 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 90 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 110 x 190 cm</li>
-                    <li><i class="fas fa-door-open"></i> 100 x 200 cm</li>
-                    <li><i class="fas fa-door-open"></i> 100 x 220 cm</li>
-                    <li><i class="fas fa-door-open"></i> 120 x 200 cm</li>
-                    <li><i class="fas fa-door-open"></i> 120 x 220 cm</li>
-                </ul>
+    <section class="section section--mist">
+        <div class="container">
+            <div class="door-grid">
+                <div class="door-card" data-reveal="left">
+                    <div class="door-card__head">
+                        <div class="door-card__ic"><i class="fas fa-door-open"></i></div>
+                        <h2>Kühlhaus-Drehtüren</h2>
+                    </div>
+                    <p>Standard-Drehtüren für Plus- und Minusbereiche.</p>
+                    <ul class="size-list">
+                        <li><i class="fas fa-ruler-combined"></i> 75 × 175 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 75 × 190 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 80 × 190 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 90 × 190 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 110 × 190 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 100 × 200 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 100 × 220 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 120 × 200 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 120 × 220 cm</li>
+                    </ul>
+                </div>
+
+                <div class="door-card" data-reveal="right">
+                    <div class="door-card__head">
+                        <div class="door-card__ic"><i class="fas fa-grip-lines-vertical"></i></div>
+                        <h2>Kühlhaus-Schiebetüren</h2>
+                    </div>
+                    <p>Große Schiebetüren für komfortable Warenbewegung.</p>
+                    <ul class="size-list">
+                        <li><i class="fas fa-ruler-combined"></i> 250 × 250 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 180 × 300 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 190 × 300 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 150 × 240 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 150 × 230 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 150 × 250 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 180 × 240 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 150 × 220 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 200 × 270 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 200 × 250 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 150 × 200 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 240 × 180 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 250 × 180 cm</li>
+                        <li><i class="fas fa-ruler-combined"></i> 160 × 240 cm</li>
+                    </ul>
+                </div>
             </div>
 
-            <div class="door-card">
-                <h2>K&uuml;hlhaus Schiebet&uuml;ren</h2>
-                <p>Gro&szlig;e Schiebet&uuml;ren f&uuml;r komfortable Warenbewegung.</p>
-                <ul class="size-list">
-                    <li><i class="fas fa-grip-lines-vertical"></i> 250 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 180 x 300 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 190 x 300 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 240 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 230 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 180 x 240 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 220 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 200 x 270 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 200 x 250 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 150 x 200 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 240 x 180 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 250 x 180 cm</li>
-                    <li><i class="fas fa-grip-lines-vertical"></i> 160 x 240 cm</li>
-                </ul>
+            <div class="cta-row" data-reveal>
+                <p>Alle Türen sind mit Anschlag rechts oder links sowie mit oder ohne Schwelle erhältlich.</p>
+                <p style="margin-bottom:22px;">Weitere Sondermaße oder besondere Einbausituationen sind auf Anfrage möglich.</p>
+                <a class="btn btn--primary btn--lg" href="kontakt.html"><i class="fas fa-paper-plane"></i> Jetzt Angebot anfragen</a>
             </div>
-        </div>
-
-        <div class="cta-row">
-            <p class="cta-note">Alle T&uuml;ren sind mit Anschlag rechts oder links sowie mit oder ohne Schwelle erh&auml;ltlich &ndash; einfach anfragen.</p>
-            <p class="cta-note">Weitere Sonderma&szlig;e oder Einbausituationen sind auf Anfrage m&ouml;glich.</p>
-            <a class="cta-btn" href="kontakt.html">Jetzt Angebot anfragen</a>
         </div>
     </section>
 
-    <script>
-        function toggleMenu() {
-            var nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
-        }
-    </script>
-
-<div id="cookieBanner" class="cookie-banner">
-    <div class="cookie-inner">
-        <div class="cookie-text">
-            <strong>&#x1F36A; Wir nutzen externe Dienste</strong>
-            <p>Andere Seiten dieser Website verwenden Google Maps und reCAPTCHA. Mehr dazu in unserer <a href="index.html#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="logo.webp" alt="Europaneel GmbH">
+                <p>Ihr Experte für Kältetechnik und Isolierbau. Maßgeschneiderte Kühlzellen, Sandwichpaneele und Türen – aus einer Hand.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/4915229383557" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:info@europaneel.de" aria-label="E-Mail"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+4920417779191" aria-label="Telefon"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="index.html#produkte">Produkte</a></li>
+                    <li><a href="turen.html">Türen</a></li>
+                    <li><a href="galerie.html">Baustellen</a></li>
+                    <li><a href="kalkulator.html">Kalkulator</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <ul class="footer-list">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Am Rhein-Herne-Kanal 10<br>46242 Bottrop</span></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+4920417779191">+49 2041 / 777 9191</a></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:info@europaneel.de">info@europaneel.de</a></li>
+                    <li><i class="fas fa-clock"></i><span>Mo–Fr: 09:00–17:00 Uhr</span></li>
+                </ul>
+            </div>
         </div>
-        <div class="cookie-btns">
-            <button class="cookie-decline" onclick="setCookieConsent('necessary')">Nur notwendige</button>
-            <button class="cookie-accept" onclick="setCookieConsent('all')">Alle akzeptieren</button>
+        <div class="footer-bottom">
+            <span>© 2026 Europaneel GmbH. Alle Rechte vorbehalten.</span>
+            <span style="display:flex;gap:20px;flex-wrap:wrap;">
+                <a class="footer-legal" href="index.html#impressum">Impressum</a>
+                <a class="footer-legal" href="index.html#agb">AGB</a>
+                <a class="footer-legal" href="index.html#datenschutz">Datenschutz</a>
+            </span>
         </div>
-    </div>
-</div>
+    </footer>
 
-<a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt"><i class="fab fa-whatsapp"></i></a>
 
-<script>
-(function() {
-    window.setCookieConsent = function(choice) {
-        localStorage.setItem('ep_consent', choice);
-        document.getElementById('cookieBanner').style.display = 'none';
-    };
-    window.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('ep_consent')) {
-            document.getElementById('cookieBanner').style.display = 'block';
-        }
-    });
-})();
-</script>
-
+    <script src="assets/main.js"></script>
 </body>
 </html>
-
-
-

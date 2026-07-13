@@ -3,164 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Baustellen und Referenzen der Europaneel GmbH. Einblick in aktuelle und abgeschlossene K&uuml;hlzellen-Projekte.">
-    <title>Baustellen | Europaneel GmbH</title>
-
+    <meta name="description" content="Baustellen und Referenzen der Europaneel GmbH. Einblick in aktuelle und abgeschlossene Kühlzellen-Projekte.">
+    <title>Baustellen & Referenzen | Europaneel GmbH</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="canonical" href="https://www.europaneel.de/galerie.html">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>document.documentElement.className += ' js';</script>
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/style.css">
     <style>
-        :root {
-            --primary-red: #D32F2F;
-            --primary-red-hover: #B71C1C;
-            --light-gray: #F5F5F5;
-            --dark-gray: #333333;
-            --white: #FFFFFF;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            --fs-body: 1rem;
-            --fs-lead: 1.1rem;
-            --fs-hero: 3rem;
-            --fs-hero-sm: 2.1rem;
-            --lh-tight: 1.15;
-            --lh-normal: 1.6;
-        }
+        .page-hero{position:relative;color:#fff;text-align:center;padding:100px 24px;background-image:linear-gradient(rgba(11,12,15,.78),rgba(11,12,15,.78)),url('standort.webp');background-size:cover;background-position:center;}
+        .page-hero h1{color:#fff;font-size:clamp(2.2rem,4.5vw,3.2rem);margin-bottom:14px;}
+        .page-hero p{color:#d5d9e0;font-size:1.12rem;max-width:720px;margin:0 auto;}
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-main); color: var(--dark-gray); background-color: var(--white); line-height: var(--lh-normal); font-size: var(--fs-body); }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+        .slideshow{max-width:940px;margin:0 auto 46px;border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);background:#000;}
+        .slideshow-frame{position:relative;width:100%;background:#0a0a0a;}
+        .slideshow-frame img{width:100%;height:clamp(280px,52vw,540px);display:block;object-fit:cover;transition:opacity .4s ease;}
+        .slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:none;border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;}
+        .slide-arrow:hover{background:var(--red);}
+        .slide-arrow.prev{left:16px;}.slide-arrow.next{right:16px;}
+        .slide-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(11,12,15,.6);color:#fff;padding:6px 16px;border-radius:var(--r-pill);font-size:.85rem;font-weight:600;z-index:2;}
 
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+        .gallery-item{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-sm);cursor:pointer;position:relative;aspect-ratio:4/3;}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+        .gallery-item::after{content:'\f00e';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;background:rgba(11,12,15,.35);opacity:0;transition:opacity .3s;}
+        .gallery-item:hover img{transform:scale(1.08);}
+        .gallery-item:hover::after{opacity:1;}
+        @media(max-width:1000px){.gallery-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:560px){.gallery-grid{grid-template-columns:1fr;}}
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo { display: flex; align-items: center; position: relative; top: -20px; }
-        .logo img { height: 140px; width: auto; }
-
-        .nav-links { display: flex; gap: 30px; align-items: center; }
-        .nav-links a { font-weight: 500; transition: color 0.3s; font-size: 1rem; }
-        .nav-links a:hover { color: var(--primary-red); }
-
-        .btn-contact {
-            background: linear-gradient(135deg, #D32F2F 20%, #666666 100%);
-            color: var(--white); padding: 10px 20px; border-radius: 4px; transition: all 0.3s;
-        }
-        .btn-contact:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-
-        .top-bar { background-color: var(--dark-gray); color: #ccc; font-size: 0.82rem; padding: 7px 20px; }
-        .top-bar-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: flex-end; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .top-bar a { color: #ccc; text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
-        .top-bar a:hover { color: white; }
-        @media (max-width: 600px) { .top-bar { display: none; } }
-
-        .hamburger { display: none; font-size: 1.8rem; cursor: pointer; color: var(--dark-gray); }
-
-        .page-hero {
-            background-color: #222; color: white; text-align: center; padding: 90px 20px;
-            background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('standort.webp');
-            background-size: cover; background-position: center;
-        }
-        .page-hero h1 { font-size: var(--fs-hero); margin-bottom: 10px; text-transform: uppercase; line-height: var(--lh-tight); }
-        .page-hero p { font-size: var(--fs-lead); opacity: 0.9; max-width: 720px; margin: 0 auto; }
-
-        .gallery-section { padding: 70px 20px; background-color: #f9f9f9; }
-        .slideshow {
-            max-width: 900px; margin: 0 auto 30px; background: white; border-radius: 18px;
-            box-shadow: 0 14px 32px rgba(0,0,0,0.12); overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.06);
-        }
-        .slideshow-frame {
-            position: relative; width: 100%;
-            background: radial-gradient(circle at top, #2a2a2a 0%, #111 60%, #0a0a0a 100%);
-            padding: 8px;
-        }
-        .slideshow-frame img {
-            width: 100%; height: 520px; display: block;
-            border-radius: 12px;
-            transition: opacity 0.35s ease;
-            opacity: 1;
-            object-fit: cover;
-        }
-        .slideshow-controls {
-            display: flex; justify-content: center; align-items: center; gap: 16px;
-            padding: 14px 16px; background: #f6f6f6; font-weight: 600;
-            border-top: 1px solid rgba(0,0,0,0.06);
-        }
-        .slide-btn {
-            border: none; background: var(--primary-red); color: white; width: 36px; height: 36px;
-            border-radius: 50%; cursor: pointer; font-size: 1.1rem; line-height: 1;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .slide-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
-        .slide-counter { color: #444; }
-
-        .gallery-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-
-        .gallery-item { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-        .gallery-item img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.35s ease, filter 0.35s ease; }
-        .gallery-item:hover img { transform: scale(1.03); filter: saturate(1.05); }
-
-        .empty-note { text-align: center; color: #666; }
-
-        .cookie-banner {
-            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9997;
-            background: white; box-shadow: 0 -4px 20px rgba(0,0,0,0.13);
-            border-top: 3px solid var(--primary-red); padding: 18px 20px;
-        }
-        .cookie-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-        .cookie-text { flex: 1; min-width: 240px; }
-        .cookie-text strong { font-size: 0.98rem; color: var(--dark-gray); display: block; margin-bottom: 4px; }
-        .cookie-text p { font-size: 0.85rem; color: #666; margin: 0; line-height: 1.5; }
-        .cookie-text a { color: var(--primary-red); text-decoration: underline; }
-        .cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
-        .cookie-decline { padding: 9px 18px; border: 2px solid #ccc; background: white; color: #555; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 600; transition: all 0.2s; }
-        .cookie-decline:hover { border-color: #999; color: #333; }
-        .cookie-accept { padding: 9px 22px; background: var(--primary-red); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 0.88rem; font-weight: 700; transition: background 0.2s; }
-        .cookie-accept:hover { background: var(--primary-red-hover); }
-
-        .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; z-index: 9000;
-            background-color: #25D366; color: white; width: 62px; height: 62px;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 2.1rem; box-shadow: 0 4px 18px rgba(37,211,102,0.55);
-            transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration: none;
-        }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37,211,102,0.75); }
-
-        @media (max-width: 1000px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links {
-                position: fixed; top: 80px; left: 0; width: 100%; background-color: white;
-                flex-direction: column; align-items: center; padding: 20px 0;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.1); display: none;
-            }
-            .nav-links.active { display: flex; animation: fadeIn 0.3s; }
-            @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-            .nav-links li { margin: 10px 0; width: 100%; text-align: center; }
-            .btn-contact { width: 80%; display: block; margin: 0 auto; text-align: center; }
-            .logo img { height: 100px; }
-            .page-hero h1 { font-size: var(--fs-hero-sm); }
-            .gallery-grid { grid-template-columns: 1fr; }
-            .gallery-item img { height: 220px; }
-            .slideshow-frame img { height: 360px; }
-        }
+        /* Lightbox */
+        .lightbox{display:none;position:fixed;inset:0;z-index:9999;background:rgba(8,9,11,.94);align-items:center;justify-content:center;}
+        .lightbox.open{display:flex;animation:fade .25s ease;}
+        .lightbox img{max-width:92vw;max-height:86vh;border-radius:var(--r-md);box-shadow:0 30px 80px rgba(0,0,0,.6);}
+        .lb-close{position:absolute;top:24px;right:28px;width:48px;height:48px;border:none;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.5rem;cursor:pointer;transition:background .2s;}
+        .lb-close:hover{background:var(--red);}
+        .lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border:none;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.3rem;cursor:pointer;transition:background .2s;}
+        .lb-arrow:hover{background:var(--red);}
+        .lb-arrow.prev{left:24px;}.lb-arrow.next{right:24px;}
     </style>
 </head>
 <body>
@@ -169,33 +50,23 @@
         <div class="top-bar-inner">
             <a href="tel:+4920417779191"><i class="fas fa-phone"></i> +49 2041 / 777 9191</a>
             <a href="mailto:info@europaneel.de"><i class="fas fa-envelope"></i> info@europaneel.de</a>
-            <span><i class="fas fa-clock"></i> Mo&ndash;Fr: 09:00&ndash;17:00 Uhr</span>
+            <span><i class="fas fa-clock"></i> Mo–Fr: 09:00–17:00 Uhr</span>
         </div>
     </div>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <nav>
-                <div class="logo">
-                    <a href="index.html"><img src="logo.webp" alt="Europaneel Logo"></a>
-                </div>
-
-                <div class="hamburger" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-
+            <nav class="nav">
+                <a class="brand" href="index.html"><img src="logo.webp" alt="Europaneel GmbH Logo"></a>
+                <button class="hamburger" data-menu-toggle aria-label="Menü öffnen" aria-expanded="false"><i class="fas fa-bars"></i></button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" onclick="toggleMenu()">Startseite</a></li>
-                    <li>
-                        <a href="kalkulator.html" onclick="toggleMenu()">
-                            <i class="fas fa-calculator"></i> Kalkulator
-                        </a>
-                    </li>
-                    <li><a href="index.html#produkte" onclick="toggleMenu()">Produkte</a></li>
-                    <li><a href="turen.html" onclick="toggleMenu()">T&uuml;ren</a></li>
-                    <li><a href="galerie.html" style="color: var(--primary-red); font-weight: bold;" onclick="toggleMenu()">Baustellen</a></li>
-                    <li><a href="index.html#about" onclick="toggleMenu()">&Uuml;ber Uns</a></li>
-                    <li><a href="kontakt.html" class="btn-contact" onclick="toggleMenu()">Kontakt</a></li>
+                    <li><a class="link" href="index.html">Startseite</a></li>
+                    <li><a class="link" href="index.html#produkte">Produkte</a></li>
+                    <li><a class="link" href="turen.html">Türen</a></li>
+                    <li><a class="link active" href="galerie.html">Baustellen</a></li>
+                    <li><a class="link" href="index.html#about">Über uns</a></li>
+                    <li><a class="link" href="kontakt.html">Kontakt</a></li>
+                    <li><a class="nav-cta" href="kalkulator.html"><i class="fas fa-calculator"></i> Kalkulator</a></li>
                 </ul>
             </nav>
         </div>
@@ -203,145 +74,131 @@
 
     <section class="page-hero">
         <h1>Unsere Baustellen</h1>
-        <p>Einblick in aktuelle und abgeschlossene Projekte von Europaneel.</p>
+        <p>Einblick in aktuelle und abgeschlossene Projekte von Europaneel – vom Aufmaß bis zur fertigen Kühlzelle.</p>
     </section>
 
-    <section class="gallery-section">
-        <div class="slideshow" id="slideshow">
-            <div class="slideshow-frame">
-                <img id="slideshowImage" src="" alt="Baustellenfoto" loading="eager">
+    <section class="section section--mist">
+        <div class="container">
+            <div class="slideshow" data-reveal>
+                <div class="slideshow-frame">
+                    <button class="slide-arrow prev" type="button" onclick="prevSlide()" aria-label="Vorheriges Bild"><i class="fas fa-chevron-left"></i></button>
+                    <img id="slideshowImage" src="" alt="Baustellenfoto" loading="eager">
+                    <button class="slide-arrow next" type="button" onclick="nextSlide()" aria-label="Nächstes Bild"><i class="fas fa-chevron-right"></i></button>
+                    <span class="slide-counter" id="slideshowCounter"></span>
+                </div>
             </div>
-            <div class="slideshow-controls">
-                <button class="slide-btn" type="button" onclick="prevSlide()">&lsaquo;</button>
-                <span class="slide-counter" id="slideshowCounter"></span>
-                <button class="slide-btn" type="button" onclick="nextSlide()">&rsaquo;</button>
+
+            <div class="gallery-grid" id="galleryGrid" data-reveal>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202025-12-19%20at%2020.33.21.webp" alt="Baustellenfoto 1" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.09.webp" alt="Baustellenfoto 2" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.10%20%281%29.webp" alt="Baustellenfoto 3" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.10.webp" alt="Baustellenfoto 4" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%282%29.webp" alt="Baustellenfoto 5" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%283%29.webp" alt="Baustellenfoto 6" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%285%29.webp" alt="Baustellenfoto 7" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.12%20%281%29.webp" alt="Baustellenfoto 8" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="WhatsApp%20Image%202026-01-05%20at%2013.51.12%20%285%29.webp" alt="Baustellenfoto 9" loading="lazy"></figure>
+                <figure class="gallery-item"><img src="lager-innen.jpeg" alt="Europaneel Lagerhalle" loading="lazy" style="object-position:top;"></figure>
+                <figure class="gallery-item"><img src="werkstatt.jpeg" alt="Europaneel Werkstatt" loading="lazy" style="object-position:top;"></figure>
+                <figure class="gallery-item"><img src="standort-aussen.jpeg" alt="Europaneel Standort Bottrop" loading="lazy"></figure>
             </div>
-        </div>
-        <div class="gallery-grid">
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202025-12-19%20at%2020.33.21.webp" alt="Baustellenfoto 1" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.09.webp" alt="Baustellenfoto 2" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.10%20%281%29.webp" alt="Baustellenfoto 3" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.10.webp" alt="Baustellenfoto 4" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%282%29.webp" alt="Baustellenfoto 5" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%283%29.webp" alt="Baustellenfoto 6" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.11%20%285%29.webp" alt="Baustellenfoto 7" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.12%20%281%29.webp" alt="Baustellenfoto 8" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="WhatsApp%20Image%202026-01-05%20at%2013.51.12%20%285%29.webp" alt="Baustellenfoto 9" loading="lazy">
-            </figure>
-            <figure class="gallery-item">
-                <img src="lager-innen.jpeg" alt="Europaneel Lagerhalle" loading="lazy" style="object-position: top;">
-            </figure>
-            <figure class="gallery-item">
-                <img src="werkstatt.jpeg" alt="Europaneel Werkstatt" loading="lazy" style="object-position: top;">
-            </figure>
-            <figure class="gallery-item">
-                <img src="standort-aussen.jpeg" alt="Europaneel Standort Bottrop" loading="lazy">
-            </figure>
+
+            <div style="text-align:center;margin-top:44px;" data-reveal>
+                <a class="btn btn--primary btn--lg" href="kontakt.html"><i class="fas fa-paper-plane"></i> Ihr Projekt anfragen</a>
+            </div>
         </div>
     </section>
 
-    <script>
-        
-        var galleryImages = Array.from(document.querySelectorAll('.gallery-grid img')).map(function(img) {
-            return img.getAttribute('src');
-        });
-        var currentIndex = 0;
-        var timer = null;
-
-        function showSlide(index) {
-            if (!galleryImages.length) {
-                var box = document.getElementById('slideshow');
-                if (box) { box.style.display = 'none'; }
-                return;
-            }
-            currentIndex = (index + galleryImages.length) % galleryImages.length;
-            var img = document.getElementById('slideshowImage');
-            var counter = document.getElementById('slideshowCounter');
-            if (img) {
-                img.style.opacity = '0';
-                img.onload = function() { img.style.opacity = '1'; };
-                img.src = galleryImages[currentIndex];
-            }
-            if (counter) { counter.textContent = (currentIndex + 1) + ' / ' + galleryImages.length; }
-        }
-
-        function nextSlide() {
-            showSlide(currentIndex + 1);
-            restartTimer();
-        }
-
-        function prevSlide() {
-            showSlide(currentIndex - 1);
-            restartTimer();
-        }
-
-        function restartTimer() {
-            if (timer) { clearInterval(timer); }
-            timer = setInterval(function() { showSlide(currentIndex + 1); }, 4000);
-        }
-
-        window.nextSlide = nextSlide;
-        window.prevSlide = prevSlide;
-        showSlide(0);
-        restartTimer();
-
-function toggleMenu() {
-            var nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
-        }
-    </script>
-
-<div id="cookieBanner" class="cookie-banner">
-    <div class="cookie-inner">
-        <div class="cookie-text">
-            <strong>&#x1F36A; Wir nutzen externe Dienste</strong>
-            <p>Andere Seiten dieser Website verwenden Google Maps und reCAPTCHA. Mehr dazu in unserer <a href="index.html#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
-        </div>
-        <div class="cookie-btns">
-            <button class="cookie-decline" onclick="setCookieConsent('necessary')">Nur notwendige</button>
-            <button class="cookie-accept" onclick="setCookieConsent('all')">Alle akzeptieren</button>
-        </div>
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <button class="lb-close" onclick="closeLightbox()" aria-label="Schließen">&times;</button>
+        <button class="lb-arrow prev" onclick="lbPrev()" aria-label="Vorheriges Bild"><i class="fas fa-chevron-left"></i></button>
+        <img id="lightboxImg" src="" alt="Baustellenfoto groß">
+        <button class="lb-arrow next" onclick="lbNext()" aria-label="Nächstes Bild"><i class="fas fa-chevron-right"></i></button>
     </div>
-</div>
 
-<a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt">
-    <i class="fab fa-whatsapp"></i>
-</a>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="logo.webp" alt="Europaneel GmbH">
+                <p>Ihr Experte für Kältetechnik und Isolierbau. Maßgeschneiderte Kühlzellen, Sandwichpaneele und Türen – aus einer Hand.</p>
+                <div class="footer-socials">
+                    <a href="https://wa.me/4915229383557" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:info@europaneel.de" aria-label="E-Mail"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+4920417779191" aria-label="Telefon"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <ul class="footer-list">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="index.html#produkte">Produkte</a></li>
+                    <li><a href="turen.html">Türen</a></li>
+                    <li><a href="galerie.html">Baustellen</a></li>
+                    <li><a href="kalkulator.html">Kalkulator</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <ul class="footer-list">
+                    <li><i class="fas fa-map-marker-alt"></i><span>Am Rhein-Herne-Kanal 10<br>46242 Bottrop</span></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+4920417779191">+49 2041 / 777 9191</a></li>
+                    <li><i class="fas fa-envelope"></i><a href="mailto:info@europaneel.de">info@europaneel.de</a></li>
+                    <li><i class="fas fa-clock"></i><span>Mo–Fr: 09:00–17:00 Uhr</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Europaneel GmbH. Alle Rechte vorbehalten.</span>
+            <span style="display:flex;gap:20px;flex-wrap:wrap;">
+                <a class="footer-legal" href="index.html#impressum">Impressum</a>
+                <a class="footer-legal" href="index.html#agb">AGB</a>
+                <a class="footer-legal" href="index.html#datenschutz">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
 
-<script>
-(function() {
-    window.setCookieConsent = function(choice) {
-        localStorage.setItem('ep_consent', choice);
-        document.getElementById('cookieBanner').style.display = 'none';
-    };
-    window.addEventListener('DOMContentLoaded', function() {
-        if (!localStorage.getItem('ep_consent')) {
-            document.getElementById('cookieBanner').style.display = 'block';
+    <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="assets/main.js"></script>
+    <script>
+        var images = Array.prototype.map.call(document.querySelectorAll('#galleryGrid img'), function (img) { return img.getAttribute('src'); });
+        var current = 0, timer = null;
+
+        function showSlide(i) {
+            if (!images.length) return;
+            current = (i + images.length) % images.length;
+            var img = document.getElementById('slideshowImage');
+            img.style.opacity = '0';
+            img.onload = function () { img.style.opacity = '1'; };
+            img.src = images[current];
+            document.getElementById('slideshowCounter').textContent = (current + 1) + ' / ' + images.length;
         }
-    });
-})();
-</script>
+        function nextSlide() { showSlide(current + 1); restart(); }
+        function prevSlide() { showSlide(current - 1); restart(); }
+        function restart() { if (timer) clearInterval(timer); timer = setInterval(function () { showSlide(current + 1); }, 4500); }
+        window.nextSlide = nextSlide; window.prevSlide = prevSlide;
+        showSlide(0); restart();
 
+        // Lightbox
+        var lbIndex = 0;
+        document.querySelectorAll('#galleryGrid .gallery-item').forEach(function (fig, idx) {
+            fig.addEventListener('click', function () { lbIndex = idx; openLightbox(); });
+        });
+        function openLightbox() { document.getElementById('lightboxImg').src = images[lbIndex]; document.getElementById('lightbox').classList.add('open'); document.body.style.overflow = 'hidden'; }
+        function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+        function lbNext() { lbIndex = (lbIndex + 1) % images.length; document.getElementById('lightboxImg').src = images[lbIndex]; }
+        function lbPrev() { lbIndex = (lbIndex - 1 + images.length) % images.length; document.getElementById('lightboxImg').src = images[lbIndex]; }
+        window.closeLightbox = closeLightbox; window.lbNext = lbNext; window.lbPrev = lbPrev;
+        document.getElementById('lightbox').addEventListener('click', function (e) { if (e.target === this) closeLightbox(); });
+        document.addEventListener('keydown', function (e) {
+            if (!document.getElementById('lightbox').classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') lbNext();
+            if (e.key === 'ArrowLeft') lbPrev();
+        });
+    </script>
 </body>
 </html>
-
-
-
-

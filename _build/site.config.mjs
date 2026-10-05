@@ -23,10 +23,11 @@ export const SITE = {
   sameAs: [], // CONTENT_REQUIRED: nur echte Unternehmensprofile eintragen (Google-Unternehmensprofil, LinkedIn …)
   ga4: null,  // CONTENT_REQUIRED: GA4-Mess-ID (z. B. 'G-XXXXXXX') – erst nach Freigabe; lädt nur mit Einwilligung
 
-  // Kennzahlen: werden NUR angezeigt, wenn vom Unternehmen bestätigt (confirmed: true)
+  // Kennzahlen: werden NUR angezeigt, wenn vom Unternehmen bestätigt (confirmed: true).
+  // Bestätigt durch die Geschäftsführung am 05.10.2026.
   facts: {
-    installed: { value: '1.000+', label: 'montierte Kühlzellen', confirmed: false },
-    years: { value: '18+', label: 'Jahre Erfahrung', confirmed: false },
+    installed: { value: '1.000+', label: 'montierte Kühlzellen', confirmed: true },
+    years: { value: '18+', label: 'Jahre Erfahrung', confirmed: true },
   },
 };
 

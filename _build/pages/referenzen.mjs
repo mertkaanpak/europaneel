@@ -38,7 +38,7 @@ export default {
     return `${pageHero({
       eyebrow: 'Referenzen',
       title: 'Kühlzellen und Kühlanlagen aus unserer Praxis',
-      lead: 'Hier zeigen wir echte Projekte – fotografiert auf der Baustelle, nicht gerendert. Von der kompakten Zelle mit Drehtür bis zur mehrzelligen Anlage mit Schiebetüren und Kältetechnik.',
+      lead: 'Über 1.000 Kühlzellen haben wir bereits montiert. Hier zeigen wir eine Auswahl – fotografiert auf der Baustelle, nicht gerendert: von der kompakten Zelle mit Drehtür bis zur mehrzelligen Anlage mit Schiebetüren und Kältetechnik.',
       ctas: { lead: 'secondary' },
     })}
 ${GROUPS.map((g, gi) => `<section class="sec${gi % 2 ? ' sec--surface' : ''}" aria-labelledby="${g.id}-t"><div class="container">

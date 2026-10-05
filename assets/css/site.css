@@ -428,6 +428,7 @@ a.card:hover,.card--link:hover{border-color:var(--line-strong);transform:transla
 .stat b{display:block;font-family:var(--font-head);font-weight:800;font-size:clamp(2.2rem,3.5vw,3rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
 .stat b span{color:var(--red)}
 .stat small{display:block;margin-top:.5rem;color:var(--steel-500);font-size:.9rem}
+.stats--inline{display:flex;flex-wrap:wrap;gap:16px 48px;margin:0 0 2rem;padding-bottom:1.75rem;border-bottom:1px solid var(--line)}
 
 /* Branchen-Liste */
 .ind{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}

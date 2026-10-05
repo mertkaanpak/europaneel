@@ -1,6 +1,8 @@
 import { icon, pic, fig, btn, ctas, secHead, facts, points, steps, faq, related, ctaBand, linkArrow } from '../lib.mjs';
 import { SITE, CTA } from '../site.config.mjs';
 
+const FACTS = Object.values(SITE.facts).filter((f) => f.confirmed);
+
 export default {
   path: '/',
   title: 'Kühlraumbau aus Bottrop: Kühlzellen & Kühlhäuser | Europaneel',
@@ -97,6 +99,7 @@ export default {
   <div class="container split split--rev">
     <div>
       ${secHead({ eyebrow: 'Warum Europaneel', id: 'why-t', title: 'Kühlraumbau mit kurzen Wegen und klaren Preisen', stack: true })}
+      ${FACTS.length ? `<div class="stats stats--inline" data-reveal>${FACTS.map((f) => `<div class="stat"><b>${f.value.replace('+', '<span>+</span>')}</b><small>${f.label}</small></div>`).join('')}</div>` : ''}
       <div data-reveal>${points([
         ['Richtpreis, bevor Sie anfragen', 'Unser Kalkulator zeigt den Netto-Richtpreis für Paneele und Tür sofort – ohne Registrierung. So wissen Sie früh, in welcher Größenordnung Ihr Projekt liegt.'],
         ['Ein Ansprechpartner bis zur Übergabe', 'Beratung, Aufmaß, Planung, Lieferung und Montage aus einer Hand – auf Wunsch inklusive Kältetechnik als Huckepack-, Monoblock- oder Split-Lösung.'],

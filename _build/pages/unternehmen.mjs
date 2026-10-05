@@ -22,7 +22,7 @@ export default {
       ctas: { lead: 'secondary' },
     })}
 
-${confirmed.length ? `<section class="sec--facts" aria-label="Kennzahlen"><div class="container"><div class="stats">${confirmed.map((f) => `<div class="stat"><b>${f.value}</b><small>${f.label}</small></div>`).join('')}</div></div></section>` : ''}
+${confirmed.length ? `<section class="sec--facts" aria-label="Kennzahlen"><div class="container"><div class="stats">${confirmed.map((f) => `<div class="stat"><b>${f.value.replace('+', '<span>+</span>')}</b><small>${f.label}</small></div>`).join('')}</div></div></section>` : ''}
 
 <section class="sec" aria-labelledby="wer-t">
   <div class="container split">

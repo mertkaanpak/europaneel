@@ -1,3 +1,23 @@
-# Lesbare Kalkulator-Quelle NICHT veröffentlichen –
-# im Browser & im Repo landet nur die verschleierte assets/calc.js
+# --- Niemals veröffentlichen (öffentliches Repository!) ---
+
+# Lesbare Kalkulator-Quelle – online liegt nur die verschleierte assets/js/calc.js
 assets/calc.src.js
+_build/private/
+
+# Interne Strategie-, Audit- und Planungsdokumente
+_intern/
+
+# Interne Arbeitsdateien (Preis-/Lagerlisten, Office-Dateien)
+*.xlsx
+*.xls
+*.csv
+*.docx
+
+# Backups, Archive, Entwicklungs-Artefakte
+*.bak
+*.zip
+*.map
+*.log
+node_modules/
+.DS_Store
+Thumbs.db

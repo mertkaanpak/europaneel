@@ -1,0 +1,136 @@
+{
+  "photos": {
+    "kuehlzellen-schiebetueren-halle": {
+      "width": 2048,
+      "height": 1536,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Zwei große weiße Kühlzellen mit Kühlhaus-Schiebetüren in einer Industriehalle"
+    },
+    "kuehlzelle-anthrazit-schiebetuer": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Kühlzelle mit anthrazitfarbenen Paneelen und weißer Schiebetür"
+    },
+    "kuehlanlage-mehrzellig-hochformat": {
+      "width": 1200,
+      "height": 1600,
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "alt": "Langgestreckte mehrzellige Kühlanlage mit drei Schiebetüren in einer Halle"
+    },
+    "kuehlanlage-mehrzellig-montage": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Mehrzellige Kühlanlage während der Montage mit geöffneten Schiebetüren und Hubarbeitsbühne"
+    },
+    "kuehlanlage-monoblock-aggregate": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Kühlanlage mit an der Wand montierten Kälteaggregaten, Schiebetüren und Auffahrrampen"
+    },
+    "kuehlanlage-aggregat-schiebetueren": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Front einer Kühlanlage mit Kälteaggregat und zwei Schiebetüren"
+    },
+    "kuehlzelle-drehtuer-auffahrrampe": {
+      "width": 1200,
+      "height": 1600,
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "alt": "Kompakte weiße Kühlzelle mit Drehtür und Auffahrrampe aus Riffelblech"
+    },
+    "kuehlzelle-anthrazit-fliesenboden": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Anthrazitfarbene Kühlzelle mit weißer Schiebetür auf gefliestem Boden"
+    },
+    "kuehlzelle-monoblock-werkstatt": {
+      "width": 1200,
+      "height": 1600,
+      "widths": [
+        480,
+        800,
+        1200
+      ],
+      "alt": "Anthrazitfarbene Kühlzelle mit Kälteaggregat neben der Tür"
+    },
+    "europaneel-lager-bottrop": {
+      "width": 900,
+      "height": 1600,
+      "widths": [
+        480,
+        800,
+        900
+      ],
+      "alt": "Lagerhalle der Europaneel GmbH in Bottrop mit gestapelten Sandwichpaneelen"
+    },
+    "europaneel-werkstatt-bottrop": {
+      "width": 900,
+      "height": 1600,
+      "widths": [
+        480,
+        800,
+        900
+      ],
+      "alt": "Werkstatthalle der Europaneel GmbH in Bottrop"
+    },
+    "europaneel-standort-bottrop": {
+      "width": 1600,
+      "height": 1200,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Firmengelände der Europaneel GmbH am Rhein-Herne-Kanal in Bottrop"
+    }
+  },
+  "generated": "2026-10-02",
+  "logo": {
+    "width": 1253,
+    "height": 260
+  }
+}

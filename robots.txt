@@ -1,0 +1,5 @@
+# europaneel.de
+User-agent: *
+Allow: /
+
+Sitemap: https://www.europaneel.de/sitemap.xml

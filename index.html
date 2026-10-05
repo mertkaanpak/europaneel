@@ -1,678 +1,243 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <!--
-      (c) 2026 Europaneel GmbH - Am Rhein-Herne-Kanal 10, 46242 Bottrop
-      Diese Website inkl. Design, Quellcode und Kuehlzellen-Kalkulator ist urheberrechtlich
-      geschuetzt (u.a. Paragraf 2 & 69a UrhG). Jede Vervielfaeltigung, Verbreitung oder
-      Uebernahme - auch auszugsweise - ist ohne ausdrueckliche schriftliche Genehmigung
-      untersagt und wird rechtlich verfolgt. Kontakt: info@europaneel.de
-    -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Europaneel GmbH">
-    <meta name="copyright" content="(c) 2026 Europaneel GmbH. Alle Rechte vorbehalten.">
-    <meta name="rights" content="Urheberrechtlich geschuetzt. Vervielfaeltigung untersagt.">
-    <meta name="description" content="Europaneel GmbH – Kühlzellen, Isoliertechnik und Sandwichpaneele nach Maß. Planung, Montage und Service aus einer Hand für Industrie und Gewerbe – deutschlandweit.">
-    <meta name="robots" content="index, follow">
-    <title>Europaneel GmbH | Kühlzellen, Isoliertechnik & Sandwichpaneele nach Maß</title>
-    <link rel="canonical" href="https://www.europaneel.de/">
-
-    <link rel="icon" type="image/png" href="logo.png">
-    <meta property="og:locale" content="de_DE">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Europaneel GmbH | Kühlzellen, Isoliertechnik, Sandwichpaneele">
-    <meta property="og:description" content="Kühlzellen nach Maß für Gewerbe & Industrie. Planung, Montage und Service aus einer Hand – effizient, langlebig und normgerecht.">
-    <meta property="og:url" content="https://www.europaneel.de/">
-    <meta property="og:image" content="https://www.europaneel.de/logo.png">
-    <meta property="og:site_name" content="Europaneel GmbH">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Europaneel GmbH | Kühlzellen, Isoliertechnik, Sandwichpaneele">
-    <meta name="twitter:description" content="Kühlzellen nach Maß für Gewerbe & Industrie. Planung, Montage und Service aus einer Hand.">
-    <meta name="twitter:image" content="https://www.europaneel.de/logo.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Europaneel GmbH",
-      "url": "https://www.europaneel.de/",
-      "logo": "https://www.europaneel.de/logo.png",
-      "image": "https://www.europaneel.de/logo.png",
-      "telephone": "+49 2041 777 9191",
-      "email": "info@europaneel.de",
-      "priceRange": "€€",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Am Rhein-Herne-Kanal 10",
-        "addressLocality": "Bottrop",
-        "postalCode": "46242",
-        "addressCountry": "DE"
-      },
-      "areaServed": "DE",
-      "openingHours": "Mo-Fr 09:00-17:00"
-    }
-    </script>
-
-    <script>document.documentElement.className += ' js';</script>
-    <link rel="preload" href="fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/manrope-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="fonts/inter-600.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="assets/style.css">
-    <style>
-        /* ---------- HERO ---------- */
-        .hero{position:relative;min-height:min(780px,93vh);display:flex;align-items:center;color:#fff;overflow:hidden;background:var(--ink);}
-        .hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;animation:heroZoom 22s ease-in-out infinite alternate;}
-        @keyframes heroZoom{from{transform:scale(1);}to{transform:scale(1.08);}}
-        .hero__overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(11,12,15,.95) 0%,rgba(11,12,15,.72) 44%,rgba(11,12,15,.26) 100%),linear-gradient(to top,rgba(11,12,15,.9) 0%,rgba(11,12,15,0) 34%);}
-        .hero__glow{position:absolute;top:-10%;right:-6%;width:60%;height:70%;z-index:1;background:radial-gradient(circle,rgba(211,47,47,.28),transparent 62%);pointer-events:none;filter:blur(6px);}
-        .hero__content{position:relative;z-index:2;width:100%;max-width:860px;}
-        .hero .eyebrow{color:#ff6b6b;}
-        .hero .eyebrow::before{background:#ff6b6b;}
-        .hero h1{font-size:clamp(2.4rem,5.6vw,4.3rem);color:#fff;margin-bottom:22px;letter-spacing:-.025em;}
-        .hero h1 .accent{background:linear-gradient(120deg,#ff5a5a,#D32F2F);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-        .hero__lead{font-size:clamp(1.05rem,1.6vw,1.32rem);color:#d5d9e0;max-width:620px;margin-bottom:36px;line-height:1.6;}
-        .hero__cta{display:flex;gap:16px;flex-wrap:wrap;}
-        .hero__trust{display:flex;gap:14px 30px;flex-wrap:wrap;margin-top:44px;}
-        .hero__trust span{display:inline-flex;align-items:center;gap:10px;color:#c7ccd5;font-size:.94rem;font-weight:500;}
-        .hero__trust i{color:#37c26a;font-size:1rem;}
-        /* entrance */
-        .hero__anim{opacity:0;transform:translateY(26px);animation:heroUp .9s var(--ease-out) forwards;}
-        .hero__anim.d1{animation-delay:.1s;}.hero__anim.d2{animation-delay:.24s;}.hero__anim.d3{animation-delay:.38s;}.hero__anim.d4{animation-delay:.52s;}
-        @keyframes heroUp{to{opacity:1;transform:none;}}
-        /* floating glass card */
-        .hero__badge{
-            position:absolute;right:0;bottom:8%;z-index:2;
-            background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
-            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-            border-radius:var(--r-lg);padding:22px 26px;min-width:210px;
-            box-shadow:0 20px 50px rgba(0,0,0,.35);
-            animation:floatY 5s ease-in-out infinite;
-        }
-        @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
-        .hero__badge b{font-family:var(--font-head);font-size:2.4rem;color:#fff;display:block;line-height:1;}
-        .hero__badge small{color:#c7ccd5;font-size:.86rem;letter-spacing:.03em;text-transform:uppercase;}
-        .hero__badge .stars{color:#ffc531;margin-top:8px;font-size:.85rem;}
-        @media(max-width:900px){.hero__badge{display:none;}}
-        /* scroll cue */
-        .hero__cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:2;color:rgba(255,255,255,.7);font-size:1.3rem;animation:bob 1.8s ease-in-out infinite;}
-        @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
-
-        /* ---------- TRUST BAR ---------- */
-        .trust-bar{background:var(--ink-2);color:#fff;padding:26px 24px;}
-        .trust-bar__inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-        .trust-bar__item{display:flex;align-items:center;gap:14px;}
-        .trust-bar__item i{font-size:1.5rem;color:var(--red);flex-shrink:0;}
-        .trust-bar__item b{display:block;font-family:var(--font-head);font-size:1rem;color:#fff;line-height:1.2;}
-        .trust-bar__item span{font-size:.84rem;color:#9aa1ae;}
-        @media(max-width:820px){.trust-bar__inner{grid-template-columns:1fr 1fr;gap:22px;}}
-
-        /* ---------- FEATURES ---------- */
-        .features{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;}
-        .feature{padding:34px 28px;border-radius:var(--r-lg);background:#fff;border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;}
-        .feature:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);border-color:transparent;}
-        .feature__icon{width:60px;height:60px;border-radius:16px;background:var(--red-soft);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:22px;transition:all .35s var(--ease);}
-        .feature:hover .feature__icon{background:linear-gradient(135deg,var(--red),var(--red-600));color:#fff;transform:scale(1.06) rotate(-4deg);}
-        .feature h3{font-size:1.15rem;margin-bottom:10px;}
-        .feature p{color:var(--muted);font-size:.96rem;line-height:1.6;}
-        @media(max-width:940px){.features{grid-template-columns:1fr 1fr;}}
-        @media(max-width:560px){.features{grid-template-columns:1fr;}}
-
-        /* ---------- SOLUTIONS ---------- */
-        .solutions{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;}
-        .solution{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:34px 26px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
-        .solution::before{content:'';position:absolute;left:0;top:0;height:100%;width:4px;background:linear-gradient(var(--red),var(--red-600));transform:scaleY(0);transform-origin:top;transition:transform .35s var(--ease);}
-        .solution:hover{transform:translateY(-6px);box-shadow:var(--sh-lg);}
-        .solution:hover::before{transform:scaleY(1);}
-        .solution__icon{font-size:2rem;color:var(--red);margin-bottom:20px;}
-        .solution h3{font-size:1.2rem;margin-bottom:12px;}
-        .solution p{color:var(--muted);font-size:.95rem;line-height:1.6;}
-        @media(max-width:940px){.solutions{grid-template-columns:1fr 1fr;}}
-        @media(max-width:560px){.solutions{grid-template-columns:1fr;}}
-
-        /* ---------- PROCESS ---------- */
-        .process{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:60px;}
-        .process::before{content:'';position:absolute;top:34px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--red),#c9ccd3);z-index:0;}
-        .step{position:relative;z-index:1;text-align:center;padding:0 8px;}
-        .step__num{width:68px;height:68px;margin:0 auto 22px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-600));color:#fff;font-family:var(--font-head);font-size:1.6rem;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(211,47,47,.32);border:4px solid var(--mist);}
-        .step h3{font-size:1.08rem;margin-bottom:9px;}
-        .step p{font-size:.92rem;color:var(--muted);line-height:1.55;}
-        @media(max-width:760px){.process{grid-template-columns:1fr 1fr;gap:40px 20px;}.process::before{display:none;}}
-        @media(max-width:440px){.process{grid-template-columns:1fr;}}
-
-        /* ---------- STATS ---------- */
-        .stats{background:var(--ink);color:#fff;position:relative;overflow:hidden;}
-        .stats::after{content:'';position:absolute;top:-40%;right:-10%;width:520px;height:520px;background:radial-gradient(circle,rgba(211,47,47,.22),transparent 65%);pointer-events:none;}
-        .stats__grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative;z-index:1;}
-        .stat{text-align:center;}
-        .stat__num{font-family:var(--font-head);font-size:clamp(2.6rem,5vw,3.6rem);font-weight:800;line-height:1;display:inline-flex;align-items:flex-start;}
-        .stat__num .suffix{color:var(--red);margin-left:2px;}
-        .stat p{margin-top:12px;color:#9aa1ae;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;font-weight:600;}
-        @media(max-width:640px){.stats__grid{grid-template-columns:1fr 1fr;gap:36px 20px;}}
-
-        /* ---------- CLIENTS ---------- */
-        .clients{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:52px;}
-        .client{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:26px 18px;display:flex;flex-direction:column;align-items:center;gap:13px;text-align:center;transition:all .3s var(--ease);}
-        .client:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:var(--sh-md);}
-        .client i{font-size:1.7rem;color:var(--red);}
-        .client span{font-weight:600;font-size:.92rem;color:var(--ink);line-height:1.3;}
-        @media(max-width:820px){.clients{grid-template-columns:repeat(2,1fr);}}
-
-        /* ---------- FAQ ---------- */
-        .faq-list{max-width:840px;margin:52px auto 0;display:flex;flex-direction:column;gap:14px;}
-        .faq-item{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;transition:box-shadow .3s,border-color .3s;}
-        .faq-item.open{border-color:var(--red);box-shadow:var(--sh-md);}
-        .faq-question{width:100%;background:none;border:none;text-align:left;padding:22px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:var(--font-head);font-size:1.02rem;font-weight:700;color:var(--ink);transition:color .2s;}
-        .faq-item.open .faq-question{color:var(--red);}
-        .faq-icon{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--red-soft);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .35s var(--ease),background .3s;}
-        .faq-item.open .faq-icon{transform:rotate(135deg);background:var(--red);color:#fff;}
-        .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);}
-        .faq-answer p{padding:0 24px 22px;color:var(--muted);font-size:.97rem;line-height:1.7;margin:0;}
-
-        /* ---------- ABOUT ---------- */
-        .about{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;}
-        .about__values{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 32px;}
-        .value{display:flex;align-items:center;gap:13px;}
-        .value__chk{width:32px;height:32px;border-radius:50%;background:var(--red-soft);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
-        .value span{font-weight:600;color:var(--ink);font-size:.96rem;}
-        .about__quote{border-left:3px solid var(--red);padding:6px 0 6px 20px;font-style:italic;color:var(--muted);margin-bottom:30px;}
-        .about__quote b{display:block;font-style:normal;color:var(--ink);font-size:.9rem;margin-top:8px;font-weight:600;}
-        .about__media{position:relative;}
-        .about__media img{width:100%;height:520px;object-fit:cover;border-radius:var(--r-xl);box-shadow:var(--sh-lg);}
-        .about__exp{position:absolute;left:-24px;bottom:-24px;background:#fff;border-radius:var(--r-lg);box-shadow:var(--sh-lg);padding:20px 26px;display:flex;align-items:center;gap:14px;}
-        .about__exp b{font-family:var(--font-head);font-size:2.2rem;color:var(--red);line-height:1;}
-        .about__exp span{font-size:.86rem;color:var(--muted);font-weight:600;line-height:1.2;}
-        @media(max-width:900px){.about{grid-template-columns:1fr;gap:40px;}.about__media img{height:360px;}.about__exp{left:16px;bottom:-20px;}}
-
-        /* ---------- LOCATION ---------- */
-        .location{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
-        .address-box{background:#fff;padding:24px;border-radius:var(--r-md);border-left:4px solid var(--red);box-shadow:var(--sh-sm);margin:22px 0 28px;}
-        .address-box strong{display:block;font-family:var(--font-head);font-size:1.15rem;margin-bottom:6px;color:var(--ink);}
-        @media(max-width:860px){.location{grid-template-columns:1fr;gap:34px;}}
-
-        /* ---------- CTA BAND ---------- */
-        .cta-band{position:relative;background:var(--ink);color:#fff;overflow:hidden;}
-        .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 20%,rgba(211,47,47,.28),transparent 45%),radial-gradient(circle at 85% 90%,rgba(211,47,47,.18),transparent 45%);}
-        .cta-band__inner{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center;}
-        .cta-band h2{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:16px;}
-        .cta-band p{color:#c7ccd5;font-size:1.15rem;margin-bottom:34px;}
-        .cta-band__btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-    </style>
+<meta charset="utf-8">
+<!-- (c) 2026 Europaneel GmbH, Am Rhein-Herne-Kanal 10, 46242 Bottrop. Design, Texte, Fotos, Quellcode und Kühlzellen-Kalkulator sind urheberrechtlich geschützt (§§ 2, 69a UrhG). Vervielfältigung oder Übernahme – auch auszugsweise – nur mit schriftlicher Genehmigung. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kühlraumbau aus Bottrop: Kühlzellen &amp; Kühlhäuser | Europaneel</title>
+<meta name="description" content="Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gewerbe und Industrie. Richtpreis online berechnen, Türen ab Lager.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://www.europaneel.de/">
+<meta name="author" content="Europaneel GmbH">
+<meta name="copyright" content="© Europaneel GmbH">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Europaneel">
+<meta property="og:title" content="Kühlraumbau aus Bottrop: Kühlzellen &amp; Kühlhäuser | Europaneel">
+<meta property="og:description" content="Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gewerbe und Industrie. Richtpreis online berechnen, Türen ab Lager.">
+<meta property="og:url" content="https://www.europaneel.de/">
+<meta property="og:image" content="https://www.europaneel.de/assets/img/og-europaneel.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mehrzellige Kühlanlage von Europaneel mit Schiebetüren">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#16191f">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/fonts/manrope-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" type="image/avif" imagesrcset="/assets/img/kuehlanlage-mehrzellig-montage-480.avif 480w, /assets/img/kuehlanlage-mehrzellig-montage-800.avif 800w, /assets/img/kuehlanlage-mehrzellig-montage-1200.avif 1200w, /assets/img/kuehlanlage-mehrzellig-montage-1600.avif 1600w" imagesizes="(min-width: 1240px) 700px, (min-width: 1024px) 56vw, 100vw" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/site.css?v=700922d3">
+<script>document.documentElement.className+=' js';</script>
+<script src="/assets/js/main.js?v=38c5cdf7" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"LocalBusiness","@id":"https://www.europaneel.de/#organization","name":"Europaneel GmbH","legalName":"Europaneel GmbH","alternateName":"EuroPaneel – Isoliertüren & Kühlraumbau","url":"https://www.europaneel.de/","logo":{"@type":"ImageObject","url":"https://www.europaneel.de/assets/img/europaneel-logo.png","width":1253,"height":260},"image":"https://www.europaneel.de/assets/img/europaneel-standort-bottrop-1600.webp","telephone":"+49-2041-7779191","email":"info@europaneel.de","vatID":"DE283639971","address":{"@type":"PostalAddress","streetAddress":"Am Rhein-Herne-Kanal 10","postalCode":"46242","addressLocality":"Bottrop","addressRegion":"Nordrhein-Westfalen","addressCountry":"DE"},"geo":{"@type":"GeoCoordinates","latitude":51.49864,"longitude":6.93782},"hasMap":"https://www.google.com/maps/search/?api=1&query=Europaneel+GmbH%2C+Am+Rhein-Herne-Kanal+10%2C+46242+Bottrop","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"17:00"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","telephone":"+49-2041-7779191","email":"info@europaneel.de","areaServed":["DE","AT","CH","NL"],"availableLanguage":["de"]}],"areaServed":[{"@type":"Country","name":"DE"},{"@type":"Country","name":"AT"},{"@type":"Country","name":"CH"},{"@type":"Country","name":"NL"}],"knowsAbout":["Kühlzellen","Tiefkühlzellen","Kühlhausbau","Sandwichpaneele","Kühlhaustüren","Isoliertüren","Kälteaggregate"]},{"@type":"WebSite","@id":"https://www.europaneel.de/#website","url":"https://www.europaneel.de/","name":"Europaneel","inLanguage":"de-DE","publisher":{"@id":"https://www.europaneel.de/#organization"}},{"@type":"WebPage","@id":"https://www.europaneel.de/#webpage","url":"https://www.europaneel.de/","name":"Kühlraumbau aus Bottrop: Kühlzellen & Kühlhäuser | Europaneel","description":"Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gewerbe und Industrie. Richtpreis online berechnen, Türen ab Lager.","inLanguage":"de-DE","isPartOf":{"@id":"https://www.europaneel.de/#website"},"about":{"@id":"https://www.europaneel.de/#organization"},"dateModified":"2026-10-02","primaryImageOfPage":{"@type":"ImageObject","url":"https://www.europaneel.de/assets/img/kuehlanlage-mehrzellig-montage-1600.webp"}},{"@type":"FAQPage","@id":"https://www.europaneel.de/#faq","mainEntity":[{"@type":"Question","name":"Wie lange dauert die Montage einer Kühlzelle?","acceptedAnswer":{"@type":"Answer","text":"Das hängt von den Maßen ab – in den meisten Fällen montieren wir eine Kühlzelle an einem Tag. Größere Anlagen und Kühlhäuser planen wir individuell."}},{"@type":"Question","name":"Liefert und montiert Europaneel bundesweit?","acceptedAnswer":{"@type":"Answer","text":"Ja. Wir liefern und montieren deutschlandweit und sind auch in Nachbarländern wie Österreich, der Schweiz und den Niederlanden tätig."}},{"@type":"Question","name":"Was ist im Preis des Kalkulators enthalten?","acceptedAnswer":{"@type":"Answer","text":"Der Kalkulator berechnet einen Netto-Richtpreis für die Kühlzelle selbst – Sandwichpaneele und Tür, bei gewähltem Boden inklusive Siebdruckplatte. Kälteaggregat, Lieferung und Montage bieten wir auf Wunsch separat an."}},{"@type":"Question","name":"Welche Kühlzellen-Größen sind möglich?","acceptedAnswer":{"@type":"Answer","text":"Alle Größen sind möglich. Wir fertigen Kühlzellen nach Ihren Wunschmaßen – von der kleinen Zelle für die Gastronomie bis zum großen Kühllager."}},{"@type":"Question","name":"Kann eine bestehende Kühlzelle erweitert werden?","acceptedAnswer":{"@type":"Answer","text":"Grundsätzlich ja, abhängig von den baulichen Gegebenheiten vor Ort. Wir sehen uns die Situation an und beraten Sie ehrlich."}},{"@type":"Question","name":"Bietet Europaneel auch Kälteaggregate an?","acceptedAnswer":{"@type":"Answer","text":"Ja – in den gängigen Bauformen Huckepack, Monoblock und Split. So erhalten Sie Zelle und Kältetechnik aufeinander abgestimmt aus einer Hand."}},{"@type":"Question","name":"Kann ich Material selbst in Bottrop abholen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Neben Lieferung und Montage ist auch die Selbstabholung ab unserem Lager am Rhein-Herne-Kanal in Bottrop möglich."}}]}]}</script>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="top-bar-inner">
-            <a href="tel:+4920417779191"><i class="fas fa-phone"></i> +49 2041 / 777 9191</a>
-            <a href="mailto:info@europaneel.de"><i class="fas fa-envelope"></i> info@europaneel.de</a>
-            <span><i class="fas fa-clock"></i> Mo–Fr: 09:00–17:00 Uhr</span>
-        </div>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header class="hdr" data-track-pos="header"><div class="container hdr__in">
+<a class="hdr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo.webp" width="720" height="149" alt="Europaneel GmbH – Isoliertüren &amp; Kühlraumbau"></a>
+<nav class="nav" aria-label="Hauptnavigation"><ul class="nav__list">
+<li class="nav__item" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-sol">Lösungen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-down"></use></svg></button><div class="mega" id="m-sol"><div class="mega__col"><p class="mega__title">Kühllösungen</p><a class="mega__link" href="/kuehlzellen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-snowflake"></use></svg><span><b>Kühlzellen</b><small>Pluskühlung nach Maß, mit oder ohne Boden</small></span></a><a class="mega__link" href="/tiefkuehlzellen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-thermometer-snowflake"></use></svg><span><b>Tiefkühlzellen</b><small>Minusbereich mit isoliertem Boden</small></span></a><a class="mega__link" href="/kuehlhausbau/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-warehouse"></use></svg><span><b>Kühlhausbau</b><small>Mehrzellige Anlagen & Kühllager</small></span></a></div><div class="mega__col"><p class="mega__title">Komponenten</p><a class="mega__link" href="/sandwichpaneele/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layers"></use></svg><span><b>Sandwichpaneele</b><small>Isolierpaneele für Wand, Decke, Boden</small></span></a><a class="mega__link" href="/kuehlhaustueren/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-door-closed"></use></svg><span><b>Kühlhaustüren</b><small>Dreh- & Schiebetüren ab Lager</small></span></a><a class="mega__link" href="/kaelteaggregate/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-fan"></use></svg><span><b>Kälteaggregate</b><small>Monoblock, Huckepack, Split</small></span></a></div><div class="mega__col"><p class="mega__title">Service</p><a class="mega__link" href="/kuehlzellen-montage/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-hard-hat"></use></svg><span><b>Planung & Montage</b><small>Aufmaß, Lieferung, Aufbau</small></span></a><a class="mega__link" href="/referenzen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-images"></use></svg><span><b>Referenzen</b><small>Projekte aus der Praxis</small></span></a><a class="mega__link" href="/ratgeber/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-book-open"></use></svg><span><b>Ratgeber</b><small>Kosten, Paneelstärke, Planung</small></span></a></div><a class="mega__tool" href="/kalkulator.html"><span><span class="eyebrow">Online-Tool</span><b>Kühlzellen-Kalkulator</b><small>Maße, Boden und Tür wählen – Netto-Richtpreis sofort, ohne Registrierung.</small></span><span class="link-arrow">Kühlzelle konfigurieren<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></span></a></div></li>
+<li class="nav__item" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-ind">Branchen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-down"></use></svg></button><div class="drop" id="m-ind"><a class="mega__link" href="/branchen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layout-grid"></use></svg><span><b>Alle Branchen</b><small>Von Gastronomie bis Logistik</small></span></a><a class="mega__link" href="/branchen/gastronomie/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chef-hat"></use></svg><span><b>Gastronomie & Hotel</b><small>Kühl- und Tiefkühlzellen für Küchen</small></span></a><a class="mega__link" href="/branchen/metzgerei/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-beef"></use></svg><span><b>Metzgerei & Fleischerei</b><small>Kühlräume für Fleisch & Wurst</small></span></a></div></li>
+<li><a class="nav__link" href="/referenzen/">Referenzen</a></li><li><a class="nav__link" href="/ratgeber/">Ratgeber</a></li><li><a class="nav__link" href="/unternehmen/">Unternehmen</a></li><li><a class="nav__link" href="/kontakt.html">Kontakt</a></li></ul></nav>
+<div class="hdr__actions"><a class="hdr__phone" href="tel:+4920417779191"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg>+49 2041 / 777 9191</a><a class="hdr__call" href="tel:+4920417779191" aria-label="Anrufen: +49 2041 / 777 9191"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg></a><a class="btn btn--primary btn--sm" href="/kalkulator.html">Kühlzelle konfigurieren</a><button class="hdr__burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menü öffnen"><span></span></button></div>
+</div></header>
+<div class="mnav" id="mnav" hidden data-track-pos="mobile-nav"><div class="mnav__body">
+<details class="mnav__group"><summary>Lösungen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-down"></use></svg></summary><ul class="mnav__sub"><li><a href="/kuehlzellen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-snowflake"></use></svg>Kühlzellen</a></li><li><a href="/tiefkuehlzellen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-thermometer-snowflake"></use></svg>Tiefkühlzellen</a></li><li><a href="/kuehlhausbau/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-warehouse"></use></svg>Kühlhausbau</a></li><li><a href="/sandwichpaneele/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layers"></use></svg>Sandwichpaneele</a></li><li><a href="/kuehlhaustueren/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-door-closed"></use></svg>Kühlhaustüren</a></li><li><a href="/kaelteaggregate/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-fan"></use></svg>Kälteaggregate</a></li><li><a href="/kuehlzellen-montage/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-hard-hat"></use></svg>Planung & Montage</a></li><li><a href="/referenzen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-images"></use></svg>Referenzen</a></li><li><a href="/ratgeber/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-book-open"></use></svg>Ratgeber</a></li></ul></details>
+<details class="mnav__group"><summary>Branchen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-down"></use></svg></summary><ul class="mnav__sub"><li><a href="/branchen/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layout-grid"></use></svg>Alle Branchen</a></li><li><a href="/branchen/gastronomie/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chef-hat"></use></svg>Gastronomie & Hotel</a></li><li><a href="/branchen/metzgerei/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-beef"></use></svg>Metzgerei & Fleischerei</a></li></ul></details>
+<a class="mnav__link" href="/referenzen/">Referenzen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-right"></use></svg></a><a class="mnav__link" href="/ratgeber/">Ratgeber<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-right"></use></svg></a><a class="mnav__link" href="/unternehmen/">Unternehmen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-right"></use></svg></a><a class="mnav__link" href="/kontakt.html">Kontakt<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-right"></use></svg></a>
+<a class="mnav__link" href="/kalkulator.html">Kühlzellen-Kalkulator<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chevron-right"></use></svg></a>
+</div><div class="mnav__foot"><a class="btn btn--outline" href="tel:+4920417779191"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg>Anrufen</a><a class="btn btn--primary" href="/kalkulator.html">Konfigurieren</a></div></div>
+<main id="main">
+
+
+<section class="hero blueprint" aria-labelledby="hero-t">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <p class="eyebrow">Kühlzellen · Tiefkühlzellen · Kühlhausbau</p>
+      <h1 id="hero-t">Kühlräume nach Maß – <em>für Gewerbe und Industrie</em></h1>
+      <p class="lead">Europaneel ist Ihr Fachbetrieb für Kühlraumbau aus Bottrop. Wir planen Abmessungen, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb, liefern ab unserem Lager und montieren deutschlandweit. Den Richtpreis für Ihre Kühlzelle sehen Sie online in wenigen Schritten.</p>
+      <div class="btn-row"><a class="btn btn--primary" href="/kalkulator.html">Kühlzelle konfigurieren<svg class="icon icon--arrow" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a><a class="btn btn--outline" href="/kontakt.html">Projekt anfragen</a></div>
+      <ul class="hero__proof">
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-circle-check"></use></svg>Richtpreis sofort online – ohne Registrierung</li>
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-circle-check"></use></svg>Kühlhaustüren und Paneele ab Lager Bottrop</li>
+        <li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-circle-check"></use></svg>Montage in den meisten Fällen an einem Tag</li>
+      </ul>
     </div>
-
-    <header class="site-header">
-        <div class="container">
-            <nav class="nav">
-                <a class="brand" href="index.html"><img src="logo.webp" alt="Europaneel GmbH Logo"></a>
-                <button class="hamburger" data-menu-toggle aria-label="Menü öffnen" aria-expanded="false"><i class="fas fa-bars"></i></button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a class="link active" href="#home">Startseite</a></li>
-                    <li><a class="link" href="#produkte">Produkte</a></li>
-                    <li><a class="link" href="turen.html">Türen</a></li>
-                    <li><a class="link" href="galerie.html">Baustellen</a></li>
-                    <li><a class="link" href="#about">Über uns</a></li>
-                    <li><a class="link" href="kontakt.html">Kontakt</a></li>
-                    <li><a class="nav-cta" href="kalkulator.html"><i class="fas fa-calculator"></i> Kalkulator</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="ticker">
-        <div class="ticker__track">•&nbsp;&nbsp;Kühlzellen nach Maß&nbsp;&nbsp;•&nbsp;&nbsp;Isoliertechnik&nbsp;&nbsp;•&nbsp;&nbsp;Sandwichpaneele&nbsp;&nbsp;•&nbsp;&nbsp;Planung, Montage & Service&nbsp;&nbsp;•&nbsp;&nbsp;Deutschlandweit im Einsatz&nbsp;&nbsp;•&nbsp;&nbsp;Kühlzellen nach Maß&nbsp;&nbsp;•&nbsp;&nbsp;Isoliertechnik&nbsp;&nbsp;•&nbsp;&nbsp;Sandwichpaneele&nbsp;&nbsp;•</div>
+    <div class="hero__media">
+      <figure class="fig fig--43"><div class="fig__frame"><span class="corners" aria-hidden="true"></span><div class="fig__img"><picture><source type="image/avif" srcset="/assets/img/kuehlanlage-mehrzellig-montage-480.avif 480w, /assets/img/kuehlanlage-mehrzellig-montage-800.avif 800w, /assets/img/kuehlanlage-mehrzellig-montage-1200.avif 1200w, /assets/img/kuehlanlage-mehrzellig-montage-1600.avif 1600w" sizes="(min-width: 1240px) 700px, (min-width: 1024px) 56vw, 100vw"><source type="image/webp" srcset="/assets/img/kuehlanlage-mehrzellig-montage-480.webp 480w, /assets/img/kuehlanlage-mehrzellig-montage-800.webp 800w, /assets/img/kuehlanlage-mehrzellig-montage-1200.webp 1200w, /assets/img/kuehlanlage-mehrzellig-montage-1600.webp 1600w" sizes="(min-width: 1240px) 700px, (min-width: 1024px) 56vw, 100vw"><img src="/assets/img/kuehlanlage-mehrzellig-montage-1200.webp" width="1600" height="1200" alt="Mehrzellige Kühlanlage während der Montage mit geöffneten Schiebetüren und Hubarbeitsbühne" fetchpriority="high" decoding="async"></picture></div></div><figcaption><b>Abb. 01</b><span>Mehrzellige Kühlanlage mit Schiebetüren während der Montage</span></figcaption></figure>
+      <a class="hero__calc" href="/kalkulator.html">
+        <span class="lbl"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-calculator"></use></svg>Kühlzellen-Kalkulator</span>
+        <span class="dims tnum">3,00 <i>×</i> 2,50 <i>×</i> 2,10 <i>m</i></span>
+        <span class="go">Richtpreis berechnen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></span>
+      </a>
     </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <video class="hero__video" autoplay muted loop playsinline poster="standort.webp">
-            <source src="video.mp4" type="video/mp4">
-        </video>
-        <div class="hero__overlay"></div>
-        <div class="hero__glow"></div>
-        <div class="container">
-            <div class="hero__content">
-                <span class="eyebrow hero__anim d1">Kältetechnik & Isolierbau aus Bottrop</span>
-                <h1 class="hero__anim d2">Kühlzellen <span class="accent">nach Maß</span><br>für Gewerbe & Industrie</h1>
-                <p class="hero__lead hero__anim d3">Planung, Montage und Service aus einer Hand – effizient, langlebig und normgerecht. Von der kleinen Gastro-Zelle bis zum großen Lebensmittellager.</p>
-                <div class="hero__cta hero__anim d3">
-                    <a href="kalkulator.html" class="btn btn--primary btn--lg"><i class="fas fa-calculator"></i> Preis berechnen</a>
-                    <a href="kontakt.html" class="btn btn--light btn--lg"><i class="fas fa-comments"></i> Beratung anfragen</a>
-                </div>
-                <div class="hero__trust hero__anim d4">
-                    <span><i class="fas fa-check-circle"></i> Deutschlandweit</span>
-                    <span><i class="fas fa-check-circle"></i> Montage oft an 1 Tag</span>
-                    <span><i class="fas fa-check-circle"></i> Alles aus einer Hand</span>
-                </div>
-            </div>
-        </div>
-        <div class="container" style="position:relative;">
-            <div class="hero__badge">
-                <b>1.000+</b>
-                <small>Montierte Kühlzellen</small>
-                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-            </div>
-        </div>
-        <a href="#leistungen" class="hero__cue" aria-label="Nach unten scrollen"><i class="fas fa-chevron-down"></i></a>
-    </section>
+<section class="sec--facts" aria-label="Eckdaten">
+  <div class="container">
+    <dl class="facts " data-reveal><div><dt>Richtpreis</dt><dd>Online, sofort, ohne Registrierung</dd></div><div><dt>Türen ab Lager</dt><dd>9 Drehtür- &amp; 14 Schiebetürformate</dd></div><div><dt>Raumhöhen im Kalkulator</dt><dd>2,10 bis 4,70 m</dd></div><div><dt>Einsatzgebiet</dt><dd>Deutschland, Österreich, Schweiz, Niederlande</dd></div></dl>
+  </div>
+</section>
 
-    <!-- TRUST BAR -->
-    <div class="trust-bar">
-        <div class="trust-bar__inner">
-            <div class="trust-bar__item"><i class="fas fa-award"></i><div><b>18+ Jahre</b><span>Erfahrung in der Kältetechnik</span></div></div>
-            <div class="trust-bar__item"><i class="fas fa-truck-fast"></i><div><b>Ab Lager</b><span>Viele Formate sofort verfügbar</span></div></div>
-            <div class="trust-bar__item"><i class="fas fa-ruler-combined"></i><div><b>Maßanfertigung</b><span>Jede Größe & Temperatur</span></div></div>
-            <div class="trust-bar__item"><i class="fas fa-headset"></i><div><b>Ein Ansprechpartner</b><span>Von Beratung bis Übergabe</span></div></div>
-        </div>
+<section class="sec" aria-labelledby="loes-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Leistungsspektrum</p><h2 id="loes-t">Vom Kühlraum für die Küche bis zum mehrzelligen Kühllager</h2></div><p>Jede Anlage entsteht aus Sandwichpaneelen, Türen und Kältetechnik – abgestimmt auf Temperatur, Nutzung und den verfügbaren Platz.</p></header>
+    <div class="grid g-3">
+      <a class="sol" href="/kuehlzellen/" data-reveal>
+        <div class="sol__img"><picture><source type="image/avif" srcset="/assets/img/kuehlzelle-drehtuer-auffahrrampe-480.avif 480w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-800.avif 800w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.avif 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/kuehlzelle-drehtuer-auffahrrampe-480.webp 480w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-800.webp 800w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.webp 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><img src="/assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.webp" width="1200" height="1600" alt="Kompakte weiße Kühlzelle mit Drehtür und Auffahrrampe aus Riffelblech" loading="lazy" decoding="async" style="object-position:center 40%"></picture></div>
+        <div class="sol__body"><span class="sol__tag">Pluskühlung</span><h3>Kühlzellen</h3>
+        <p>Begehbare Kühlzellen nach Maß – mit oder ohne Bodenelement, mit Dreh- oder Schiebetür und passendem Kälteaggregat.</p>
+        <span class="link-arrow">Kühlzellen ansehen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></span></div>
+      </a>
+      <a class="sol" href="/tiefkuehlzellen/" data-reveal data-reveal-d="1">
+        <div class="sol__img"><picture><source type="image/avif" srcset="/assets/img/kuehlzelle-monoblock-werkstatt-480.avif 480w, /assets/img/kuehlzelle-monoblock-werkstatt-800.avif 800w, /assets/img/kuehlzelle-monoblock-werkstatt-1200.avif 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/kuehlzelle-monoblock-werkstatt-480.webp 480w, /assets/img/kuehlzelle-monoblock-werkstatt-800.webp 800w, /assets/img/kuehlzelle-monoblock-werkstatt-1200.webp 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><img src="/assets/img/kuehlzelle-monoblock-werkstatt-1200.webp" width="1200" height="1600" alt="Anthrazitfarbene Kühlzelle mit Kälteaggregat neben der Tür" loading="lazy" decoding="async" style="object-position:center 45%"></picture></div>
+        <div class="sol__body"><span class="sol__tag">Minusbereich</span><h3>Tiefkühlzellen</h3>
+        <p>Für Tiefkühlware, die bei −18 °C oder kälter gelagert werden muss: mit isoliertem Boden, Tiefkühltür und abgestimmter Kältetechnik.</p>
+        <span class="link-arrow">Tiefkühlzellen ansehen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></span></div>
+      </a>
+      <a class="sol" href="/kuehlhausbau/" data-reveal data-reveal-d="2">
+        <div class="sol__img"><picture><source type="image/avif" srcset="/assets/img/kuehlanlage-mehrzellig-hochformat-480.avif 480w, /assets/img/kuehlanlage-mehrzellig-hochformat-800.avif 800w, /assets/img/kuehlanlage-mehrzellig-hochformat-1200.avif 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><source type="image/webp" srcset="/assets/img/kuehlanlage-mehrzellig-hochformat-480.webp 480w, /assets/img/kuehlanlage-mehrzellig-hochformat-800.webp 800w, /assets/img/kuehlanlage-mehrzellig-hochformat-1200.webp 1200w" sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"><img src="/assets/img/kuehlanlage-mehrzellig-hochformat-1200.webp" width="1200" height="1600" alt="Langgestreckte mehrzellige Kühlanlage mit drei Schiebetüren in einer Halle" loading="lazy" decoding="async" style="object-position:center 60%"></picture></div>
+        <div class="sol__body"><span class="sol__tag">Projekte</span><h3>Kühlhausbau</h3>
+        <p>Mehrzellige Kühlanlagen und Kühllager in Hallen – als Gesamtprojekt mit Schiebetüren, Auffahrrampen und Kältetechnik.</p>
+        <span class="link-arrow">Kühlhausbau ansehen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></span></div>
+      </a>
     </div>
-
-    <!-- FEATURES -->
-    <section class="section" id="leistungen">
-        <div class="container">
-            <div class="section-head section-head--center" data-reveal>
-                <span class="eyebrow eyebrow--center">Warum Europaneel</span>
-                <h2 class="section-title">Kältetechnik, auf die Sie sich verlassen können</h2>
-                <p class="section-sub">Hochwertige Paneele, saubere Verarbeitung und klare Abläufe – für maximale Energieeffizienz und einen reibungslosen Ablauf.</p>
-            </div>
-            <div class="features">
-                <div class="feature" data-reveal data-reveal-delay="1">
-                    <div class="feature__icon"><i class="fas fa-shield-halved"></i></div>
-                    <h3>Europaneel-Qualität</h3>
-                    <p>Hochwertige Paneele und durchdachte Details – für maximale Energieeffizienz und lange Lebensdauer.</p>
-                </div>
-                <div class="feature" data-reveal data-reveal-delay="2">
-                    <div class="feature__icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Alles aus einer Hand</h3>
-                    <p>Beratung, Aufmaß, Planung und Montage – ein Ansprechpartner, klare Abläufe, kein Schnittstellen-Chaos.</p>
-                </div>
-                <div class="feature" data-reveal data-reveal-delay="3">
-                    <div class="feature__icon"><i class="fas fa-building"></i></div>
-                    <h3>Flexibel einsetzbar</h3>
-                    <p>Für Gastronomie, Industrie, Logistik und Lebensmittellager – Neubau, Umbau oder Erweiterung.</p>
-                </div>
-                <div class="feature" data-reveal data-reveal-delay="4">
-                    <div class="feature__icon"><i class="fas fa-boxes-stacked"></i></div>
-                    <h3>Vielfalt auf Lager</h3>
-                    <p>Viele Stärken, Formate und Oberflächen kurzfristig verfügbar – schnelle Lieferung inklusive.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOLUTIONS -->
-    <section class="section section--mist" id="produkte">
-        <div class="container">
-            <div class="section-head section-head--center" data-reveal>
-                <span class="eyebrow eyebrow--center">Unsere Lösungen</span>
-                <h2 class="section-title">Kühltechnik für anspruchsvolle Anwendungen</h2>
-                <p class="section-sub">Modular, skalierbar und robust – passgenau für Fläche, Temperatur und Nutzung.</p>
-            </div>
-            <div class="solutions">
-                <div class="solution" data-reveal data-reveal-delay="1">
-                    <div class="solution__icon"><i class="fas fa-snowflake"></i></div>
-                    <h3>Kühlzellen</h3>
-                    <p>Modulare Plus- und Tiefkühlzellen – passgenau für Fläche, Temperatur und Nutzung.</p>
-                </div>
-                <div class="solution" data-reveal data-reveal-delay="2">
-                    <div class="solution__icon"><i class="fas fa-door-closed"></i></div>
-                    <h3>Kühlzellentüren</h3>
-                    <p>Dreh- und Schiebetüren mit hoher Dichtheit – für intensive, tägliche Nutzung.</p>
-                </div>
-                <div class="solution" data-reveal data-reveal-delay="3">
-                    <div class="solution__icon"><i class="fas fa-layer-group"></i></div>
-                    <h3>Sandwichpaneele</h3>
-                    <p>Isolierpaneele für Kühlräume, Hallen und Trennwände – stark im Wärmeschutz.</p>
-                </div>
-                <div class="solution" data-reveal data-reveal-delay="4">
-                    <div class="solution__icon"><i class="fas fa-gears"></i></div>
-                    <h3>Monoblock-Aggregate</h3>
-                    <p>Steckerfertige Aggregate – schnelle Inbetriebnahme und effiziente Kälteerzeugung.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROCESS -->
-    <section class="section">
-        <div class="container">
-            <div class="section-head section-head--center" data-reveal>
-                <span class="eyebrow eyebrow--center">So arbeiten wir</span>
-                <h2 class="section-title">Von der Anfrage bis zur fertigen Kühlzelle</h2>
-                <p class="section-sub">Ein klarer Ablauf in vier Schritten – einfach, schnell und zuverlässig.</p>
-            </div>
-            <div class="process">
-                <div class="step" data-reveal data-reveal-delay="1">
-                    <div class="step__num">1</div>
-                    <h3>Anfrage</h3>
-                    <p>Per Telefon, E-Mail, WhatsApp oder über unseren Kalkulator – schnell und unkompliziert.</p>
-                </div>
-                <div class="step" data-reveal data-reveal-delay="2">
-                    <div class="step__num">2</div>
-                    <h3>Beratung & Aufmaß</h3>
-                    <p>Wir beraten Sie persönlich oder telefonisch und nehmen alle Maße präzise auf.</p>
-                </div>
-                <div class="step" data-reveal data-reveal-delay="3">
-                    <div class="step__num">3</div>
-                    <h3>Planung & Angebot</h3>
-                    <p>Sie erhalten ein detailliertes, schriftliches Angebot – transparent und ohne versteckte Kosten.</p>
-                </div>
-                <div class="step" data-reveal data-reveal-delay="4">
-                    <div class="step__num">4</div>
-                    <h3>Montage & Übergabe</h3>
-                    <p>Fachgerechte Montage und betriebsfertige Übergabe – sauber und termingerecht.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="section stats">
-        <div class="stats__grid">
-            <div class="stat" data-reveal data-reveal-delay="1"><div class="stat__num"><span data-target="1000">0</span><span class="suffix">+</span></div><p>Montierte Kühlzellen</p></div>
-            <div class="stat" data-reveal data-reveal-delay="2"><div class="stat__num"><span data-target="1000">0</span><span class="suffix">+</span></div><p>Zufriedene Kunden</p></div>
-            <div class="stat" data-reveal data-reveal-delay="3"><div class="stat__num"><span data-target="18">0</span><span class="suffix">+</span></div><p>Jahre Erfahrung</p></div>
-            <div class="stat" data-reveal data-reveal-delay="4"><div class="stat__num"><span data-target="98">0</span><span class="suffix">%</span></div><p>Kundenzufriedenheit</p></div>
-        </div>
-    </section>
-
-    <!-- CLIENTS -->
-    <section class="section">
-        <div class="container">
-            <div class="section-head section-head--center" data-reveal>
-                <span class="eyebrow eyebrow--center">Für wen wir arbeiten</span>
-                <h2 class="section-title">Die passende Kühllösung für jede Branche</h2>
-                <p class="section-sub">Vom kleinen Restaurant bis zum großen Lebensmittellager.</p>
-            </div>
-            <div class="clients">
-                <div class="client" data-reveal data-reveal-delay="1"><i class="fas fa-utensils"></i><span>Gastronomie & Restaurants</span></div>
-                <div class="client" data-reveal data-reveal-delay="1"><i class="fas fa-store"></i><span>Lebensmittelhandel & Märkte</span></div>
-                <div class="client" data-reveal data-reveal-delay="2"><i class="fas fa-industry"></i><span>Industrie & Produktion</span></div>
-                <div class="client" data-reveal data-reveal-delay="2"><i class="fas fa-truck"></i><span>Logistik & Lagerung</span></div>
-                <div class="client" data-reveal data-reveal-delay="3"><i class="fas fa-drumstick-bite"></i><span>Metzgerei & Fleischerei</span></div>
-                <div class="client" data-reveal data-reveal-delay="3"><i class="fas fa-bread-slice"></i><span>Bäckerei & Konditorei</span></div>
-                <div class="client" data-reveal data-reveal-delay="4"><i class="fas fa-hotel"></i><span>Hotel & Catering</span></div>
-                <div class="client" data-reveal data-reveal-delay="4"><i class="fas fa-pills"></i><span>Pharma & Kühllogistik</span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section section--mist" id="about">
-        <div class="container">
-            <div class="about">
-                <div class="about__text" data-reveal="left">
-                    <span class="eyebrow">Über Europaneel</span>
-                    <h2 class="section-title">Ihr Partner für Kältetechnik – mit Herz und Verstand</h2>
-                    <p class="section-sub">Bei Europaneel erhalten Sie maßgeschneiderte Kühlzellen – von der Planung bis zur Montage. Wir arbeiten präzise, termintreu und energieeffizient.</p>
-                    <div class="about__values">
-                        <div class="value"><div class="value__chk"><i class="fas fa-check"></i></div><span>Sofortige Lagerverfügbarkeit</span></div>
-                        <div class="value"><div class="value__chk"><i class="fas fa-check"></i></div><span>Persönliche Beratung</span></div>
-                        <div class="value"><div class="value__chk"><i class="fas fa-check"></i></div><span>Maßgeschneiderte Planung</span></div>
-                        <div class="value"><div class="value__chk"><i class="fas fa-check"></i></div><span>Faire Preise</span></div>
-                    </div>
-                    <div class="about__quote">
-                        „Für uns ist ein Projekt erst dann abgeschlossen, wenn die Kühlung perfekt läuft und Sie zufrieden sind."
-                        <b>– Das Team von Europaneel</b>
-                    </div>
-                    <a href="kontakt.html" class="btn btn--primary"><i class="fas fa-arrow-right"></i> Lernen Sie uns kennen</a>
-                </div>
-                <div class="about__media" data-reveal="right">
-                    <img src="standort-aussen.jpeg" alt="Europaneel Standort Bottrop – Außenansicht">
-                    <div class="about__exp"><b>18+</b><span>Jahre<br>Erfahrung</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-        <div class="container">
-            <div class="section-head section-head--center" data-reveal>
-                <span class="eyebrow eyebrow--center">FAQ</span>
-                <h2 class="section-title">Häufig gestellte Fragen</h2>
-                <p class="section-sub">Alles Wichtige rund um Kühlzellen, Montage und Lieferung – kurz und klar beantwortet.</p>
-            </div>
-            <div class="faq-list" data-reveal>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Wie lange dauert die Montage einer Kühlzelle?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p>Das kommt auf die Maße des Kühlhauses an – aber in den meisten Fällen schaffen wir die Montage an <strong>einem Tag</strong>. Bei größeren Projekten planen wir individuell.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Liefert und montiert ihr bundesweit?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p>Ja – wir liefern und montieren <strong>deutschlandweit</strong> und sind auch in den <strong>Nachbarländern</strong> (z. B. Österreich, Schweiz, Niederlande) für Sie tätig. Sprechen Sie uns einfach an.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Was ist im Preis des Kalkulators enthalten?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p>Der Kalkulator berechnet den Preis für die <strong>Kühlzelle selbst</strong> (Paneele & Tür). Auf Wunsch können Sie zusätzlich ein Angebot für <strong>Lieferung, Montage und Kälteaggregat</strong> anfordern – einfach im Formular vermerken.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Welche Kühlzellen-Größen sind möglich?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p><strong>Alle Größen sind möglich.</strong> Wir fertigen Kühlzellen vollständig nach Ihren Wunschmaßen an – ob kleine Zelle für die Gastronomie oder großes Kühllager für die Industrie.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Kann eine bestehende Kühlzelle erweitert werden?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p>Eine Erweiterung ist <strong>grundsätzlich möglich</strong>, hängt aber von den baulichen Gegebenheiten vor Ort ab. Wir schauen uns die Situation gerne an und beraten Sie ehrlich.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">Bietet ihr auch Kälteaggregate an?<span class="faq-icon"><i class="fas fa-plus"></i></span></button>
-                    <div class="faq-answer"><p>Ja – wir bieten Kälteaggregate in allen gängigen Bauformen an: <strong>Huckepack-, Monoblock- und Split-Geräte</strong>. So erhalten Sie alles aus einer Hand – Zelle und Kältetechnik perfekt aufeinander abgestimmt.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOCATION -->
-    <section class="section section--mist">
-        <div class="container">
-            <div class="location">
-                <div class="location__text" data-reveal="left">
-                    <span class="eyebrow">Standort</span>
-                    <h2 class="section-title">Hier finden Sie uns</h2>
-                    <p class="section-sub">Besuchen Sie uns an unserem Standort in Bottrop. Wir beraten Sie gern persönlich vor Ort oder Sie holen Ihre Ware direkt ab.</p>
-                    <div class="address-box">
-                        <strong>Europaneel GmbH</strong>
-                        Am Rhein-Herne-Kanal 10<br>46242 Bottrop<br>Deutschland
-                    </div>
-                    <a href="https://maps.google.com/?q=Europaneel+GmbH+Bottrop" target="_blank" rel="noopener" class="btn btn--dark"><i class="fas fa-route"></i> Route starten</a>
-                </div>
-                <div class="location__map" data-reveal="right">
-                    <div class="map-placeholder"
-                        data-src="https://maps.google.com/maps?q=Europaneel+GmbH+Am+Rhein-Herne-Kanal+10+Bottrop&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        data-height="380"
-                        data-style="border:0;border-radius:18px;width:100%;height:380px;display:block;">
-                        <div class="map-placeholder-inner">
-                            <i class="fas fa-map-location-dot"></i>
-                            <p>Karte wird nach Cookie-Zustimmung geladen.</p>
-                            <button onclick="setCookieConsent('all')">Karte laden & akzeptieren</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA BAND -->
-    <section class="section cta-band">
-        <div class="cta-band__inner" data-reveal>
-            <h2>Bereit für Ihre neue Kühlzelle?</h2>
-            <p>Berechnen Sie in einer Minute einen Richtpreis – oder sprechen Sie direkt mit uns.</p>
-            <div class="cta-band__btns">
-                <a href="kalkulator.html" class="btn btn--primary btn--lg"><i class="fas fa-calculator"></i> Zum Kalkulator</a>
-                <a href="tel:+4920417779191" class="btn btn--light btn--lg"><i class="fas fa-phone"></i> 02041 / 777 9191</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <img src="logo.webp" alt="Europaneel GmbH">
-                <p>Ihr Experte für Kältetechnik und Isolierbau. Maßgeschneiderte Kühlzellen, Sandwichpaneele und Türen – geplant, geliefert und montiert aus einer Hand.</p>
-                <div class="footer-socials">
-                    <a href="https://wa.me/4915229383557" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="mailto:info@europaneel.de" aria-label="E-Mail"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+4920417779191" aria-label="Telefon"><i class="fas fa-phone"></i></a>
-                </div>
-            </div>
-            <div>
-                <h4>Navigation</h4>
-                <ul class="footer-list">
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="index.html#produkte">Produkte</a></li>
-                    <li><a href="turen.html">Türen</a></li>
-                    <li><a href="galerie.html">Baustellen</a></li>
-                    <li><a href="kalkulator.html">Kalkulator</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Kontakt</h4>
-                <ul class="footer-list">
-                    <li><i class="fas fa-map-marker-alt"></i><span>Am Rhein-Herne-Kanal 10<br>46242 Bottrop</span></li>
-                    <li><i class="fas fa-phone"></i><a href="tel:+4920417779191">+49 2041 / 777 9191</a></li>
-                    <li><i class="fas fa-envelope"></i><a href="mailto:info@europaneel.de">info@europaneel.de</a></li>
-                    <li><i class="fas fa-clock"></i><span>Mo–Fr: 09:00–17:00 Uhr</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 Europaneel GmbH. Alle Rechte vorbehalten.</span>
-            <span style="display:flex;gap:20px;flex-wrap:wrap;">
-                <button class="footer-legal" onclick="openModal('modal-impressum')">Impressum</button>
-                <button class="footer-legal" onclick="openModal('modal-agb')">AGB</button>
-                <button class="footer-legal" onclick="openModal('modal-datenschutz')">Datenschutz</button>
-            </span>
-        </div>
-    </footer>
-
-    <!-- LEGAL MODALS -->
-    <div id="modal-impressum" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal-impressum')" aria-label="Schließen">&times;</button>
-            <h2>Impressum</h2>
-            <p><strong>Europaneel GmbH</strong><br>Am Rhein-Herne-Kanal 10<br>46242 Bottrop</p>
-            <p>Vertreten durch: Mehmet Pak</p>
-            <p>Tel: 02041 7779191 &nbsp;|&nbsp; Mail: info@europaneel.de</p>
-            <p>HRB 24252, Amtsgericht Duisburg</p>
-            <p>USt-IdNr.: DE283639971</p>
-        </div>
+    <div class="grid g-4 mt-l">
+      <a class="card card--compact" href="/sandwichpaneele/" data-reveal><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layers"></use></svg></span><h3>Sandwichpaneele</h3><p>Isolierpaneele für Wand, Decke und Boden – viele Stärken ab Lager.</p></a><a class="card card--compact" href="/kuehlhaustueren/" data-reveal data-reveal-d="1"><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-door-closed"></use></svg></span><h3>Kühlhaustüren</h3><p>Dreh- und Schiebetüren, Anschlag links oder rechts, mit oder ohne Schwelle.</p></a><a class="card card--compact" href="/kaelteaggregate/" data-reveal data-reveal-d="2"><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-fan"></use></svg></span><h3>Kälteaggregate</h3><p>Monoblock-, Huckepack- und Split-Lösungen passend zur Zelle.</p></a><a class="card card--compact" href="/kuehlzellen-montage/" data-reveal data-reveal-d="3"><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-hard-hat"></use></svg></span><h3>Planung & Montage</h3><p>Aufmaß vor Ort, Planung, Lieferung und fachgerechter Aufbau.</p></a>
     </div>
+  </div>
+</section>
 
-    <div id="modal-agb" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal-agb')" aria-label="Schließen">&times;</button>
-            <h2>Allgemeine Geschäftsbedingungen (AGB)</h2>
-            <div style="text-align:left;">
-                <h3>1. Geltungsbereich</h3>
-                <p>(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, Lieferungen und sonstigen Leistungen zwischen der Europaneel GmbH, Am Rhein-Herne-Kanal 10, 46242 Bottrop (nachfolgend „Verkäufer") und ihren Kunden (nachfolgend „Kunde").</p>
-                <p>(2) Unser Angebot richtet sich ausschließlich an Unternehmer im Sinne des § 14 BGB. Verträge mit Verbrauchern werden nicht geschlossen.</p>
-                <p>(3) Abweichende, entgegenstehende oder ergänzende Allgemeine Geschäftsbedingungen des Kunden werden nicht Vertragsbestandteil, es sei denn, ihrer Geltung wird ausdrücklich schriftlich zugestimmt.</p>
-                <h3>2. Vertragsabschluss</h3>
-                <p>(1) Angebote des Verkäufers sind freibleibend und unverbindlich, sofern sie nicht ausdrücklich als verbindlich gekennzeichnet sind.</p>
-                <p>(2) Ein Vertrag kommt erst durch eine schriftliche Auftragsbestätigung oder durch Auslieferung der Ware zustande.</p>
-                <p>(3) Technische Änderungen sowie Änderungen in Form, Farbe und Material bleiben im Rahmen des Zumutbaren vorbehalten.</p>
-                <h3>3. Preise und Zahlungsbedingungen</h3>
-                <p>(1) Alle Preise verstehen sich netto zzgl. der jeweils gültigen gesetzlichen Umsatzsteuer, sofern nicht anders angegeben.</p>
-                <p>(2) Sofern nichts anderes vereinbart ist, sind Rechnungen sofort ohne Abzug zur Zahlung fällig.</p>
-                <p>(3) Bei Zahlungsverzug ist der Verkäufer berechtigt, Verzugszinsen gemäß § 288 Abs. 2 BGB zu berechnen. Die Geltendmachung weiterer Verzugsschäden bleibt vorbehalten.</p>
-                <p>(4) Der Verkäufer ist berechtigt, Lieferungen nur gegen Vorkasse oder Teilvorkasse auszuführen.</p>
-                <h3>4. Lieferung und Lieferzeit</h3>
-                <p>(1) Liefertermine und Lieferfristen sind unverbindlich, sofern sie nicht ausdrücklich schriftlich als verbindlich zugesagt wurden.</p>
-                <p>(2) Teillieferungen sind zulässig, soweit sie dem Kunden zumutbar sind.</p>
-                <p>(3) Ereignisse höherer Gewalt, Betriebsstörungen, Lieferverzögerungen von Vorlieferanten oder behördliche Maßnahmen entbinden den Verkäufer für die Dauer der Störung von der Lieferpflicht.</p>
-                <h3>5. Gefahrübergang</h3>
-                <p>(1) Die Gefahr geht spätestens mit Übergabe der Ware an den Spediteur, Frachtführer oder Abholer auf den Kunden über.</p>
-                <p>(2) Dies gilt auch dann, wenn der Verkäufer die Transportkosten übernimmt oder die Lieferung frei Haus erfolgt.</p>
-                <h3>6. Eigentumsvorbehalt</h3>
-                <p>(1) Die gelieferte Ware bleibt bis zur vollständigen Bezahlung sämtlicher Forderungen aus der Geschäftsverbindung Eigentum des Verkäufers.</p>
-                <p>(2) Der Kunde ist verpflichtet, die Vorbehaltsware pfleglich zu behandeln und gegen übliche Risiken zu versichern.</p>
-                <p>(3) Bei Zugriffen Dritter auf die Vorbehaltsware hat der Kunde den Verkäufer unverzüglich zu informieren.</p>
-                <h3>7. Gewährleistung und Mängelhaftung</h3>
-                <p>(1) Der Kunde hat die Ware unverzüglich nach Lieferung auf Mängel zu prüfen und offensichtliche Mängel spätestens innerhalb von 7 Tagen schriftlich anzuzeigen.</p>
-                <p>(2) Bei berechtigten Mängelrügen erfolgt nach Wahl des Verkäufers Nachbesserung oder Ersatzlieferung.</p>
-                <p>(3) Weitergehende Ansprüche, insbesondere Schadensersatz, sind ausgeschlossen, soweit nicht zwingende gesetzliche Vorschriften entgegenstehen.</p>
-                <h3>8. Haftung</h3>
-                <p>(1) Der Verkäufer haftet nur für Schäden, die auf vorsätzlicher oder grob fahrlässiger Pflichtverletzung beruhen.</p>
-                <p>(2) Bei einfacher Fahrlässigkeit haftet der Verkäufer nur bei Verletzung wesentlicher Vertragspflichten und beschränkt auf den vorhersehbaren, vertragstypischen Schaden.</p>
-                <p>(3) Die Haftung für entgangenen Gewinn, Produktionsausfall oder Folgeschäden ist ausgeschlossen.</p>
-                <h3>9. Rückgabe und Stornierung</h3>
-                <p>(1) Sonderanfertigungen und individuell zugeschnittene Ware sind von Rückgabe und Umtausch ausgeschlossen.</p>
-                <p>(2) Stornierungen bedürfen der schriftlichen Zustimmung des Verkäufers. Bereits entstandene Kosten können in Rechnung gestellt werden.</p>
-                <h3>10. Erfüllungsort und Gerichtsstand</h3>
-                <p>(1) Erfüllungsort für alle Leistungen ist Bottrop.</p>
-                <p>(2) Gerichtsstand für alle Streitigkeiten aus dem Vertragsverhältnis ist – soweit gesetzlich zulässig – der Sitz des Verkäufers.</p>
-                <p>(3) Es gilt ausschließlich das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts.</p>
-                <h3>11. Salvatorische Klausel</h3>
-                <p>Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
-            </div>
-        </div>
+<section class="sec sec--surface" aria-labelledby="proj-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Aus unseren Projekten</p><h2 id="proj-t">Gebaut, nicht gerendert.</h2></div><p>Echte Anlagen aus unserer Montagepraxis – von der kompakten Kühlzelle mit Drehtür bis zur mehrzelligen Anlage mit Schiebetüren und Aggregaten.</p></header>
+    <div class="mosaic" data-reveal>
+      <figure class="m-a"><picture><source type="image/avif" srcset="/assets/img/kuehlanlage-mehrzellig-montage-480.avif 480w, /assets/img/kuehlanlage-mehrzellig-montage-800.avif 800w, /assets/img/kuehlanlage-mehrzellig-montage-1200.avif 1200w, /assets/img/kuehlanlage-mehrzellig-montage-1600.avif 1600w" sizes="(min-width: 1024px) 700px, 100vw"><source type="image/webp" srcset="/assets/img/kuehlanlage-mehrzellig-montage-480.webp 480w, /assets/img/kuehlanlage-mehrzellig-montage-800.webp 800w, /assets/img/kuehlanlage-mehrzellig-montage-1200.webp 1200w, /assets/img/kuehlanlage-mehrzellig-montage-1600.webp 1600w" sizes="(min-width: 1024px) 700px, 100vw"><img src="/assets/img/kuehlanlage-mehrzellig-montage-1200.webp" width="1600" height="1200" alt="Mehrzellige Kühlanlage während der Montage mit geöffneten Schiebetüren und Hubarbeitsbühne" loading="lazy" decoding="async"></picture><figcaption>Mehrzellige Kühlanlage in der Montage</figcaption></figure>
+      <figure class="m-b"><picture><source type="image/avif" srcset="/assets/img/kuehlzelle-anthrazit-schiebetuer-480.avif 480w, /assets/img/kuehlzelle-anthrazit-schiebetuer-800.avif 800w, /assets/img/kuehlzelle-anthrazit-schiebetuer-1200.avif 1200w, /assets/img/kuehlzelle-anthrazit-schiebetuer-1600.avif 1600w" sizes="(min-width: 1024px) 500px, 50vw"><source type="image/webp" srcset="/assets/img/kuehlzelle-anthrazit-schiebetuer-480.webp 480w, /assets/img/kuehlzelle-anthrazit-schiebetuer-800.webp 800w, /assets/img/kuehlzelle-anthrazit-schiebetuer-1200.webp 1200w, /assets/img/kuehlzelle-anthrazit-schiebetuer-1600.webp 1600w" sizes="(min-width: 1024px) 500px, 50vw"><img src="/assets/img/kuehlzelle-anthrazit-schiebetuer-1200.webp" width="1600" height="1200" alt="Kühlzelle mit anthrazitfarbenen Paneelen und weißer Schiebetür" loading="lazy" decoding="async"></picture><figcaption>Anthrazit-Paneele mit Schiebetür</figcaption></figure>
+      <figure class="m-c"><picture><source type="image/avif" srcset="/assets/img/kuehlanlage-monoblock-aggregate-480.avif 480w, /assets/img/kuehlanlage-monoblock-aggregate-800.avif 800w, /assets/img/kuehlanlage-monoblock-aggregate-1200.avif 1200w, /assets/img/kuehlanlage-monoblock-aggregate-1600.avif 1600w" sizes="(min-width: 1024px) 500px, 50vw"><source type="image/webp" srcset="/assets/img/kuehlanlage-monoblock-aggregate-480.webp 480w, /assets/img/kuehlanlage-monoblock-aggregate-800.webp 800w, /assets/img/kuehlanlage-monoblock-aggregate-1200.webp 1200w, /assets/img/kuehlanlage-monoblock-aggregate-1600.webp 1600w" sizes="(min-width: 1024px) 500px, 50vw"><img src="/assets/img/kuehlanlage-monoblock-aggregate-1200.webp" width="1600" height="1200" alt="Kühlanlage mit an der Wand montierten Kälteaggregaten, Schiebetüren und Auffahrrampen" loading="lazy" decoding="async"></picture><figcaption>Aggregate an der Zellenwand</figcaption></figure>
+      <figure class="m-d"><picture><source type="image/avif" srcset="/assets/img/kuehlzelle-drehtuer-auffahrrampe-480.avif 480w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-800.avif 800w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.avif 1200w" sizes="(min-width: 1024px) 400px, 50vw"><source type="image/webp" srcset="/assets/img/kuehlzelle-drehtuer-auffahrrampe-480.webp 480w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-800.webp 800w, /assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.webp 1200w" sizes="(min-width: 1024px) 400px, 50vw"><img src="/assets/img/kuehlzelle-drehtuer-auffahrrampe-1200.webp" width="1200" height="1600" alt="Kompakte weiße Kühlzelle mit Drehtür und Auffahrrampe aus Riffelblech" loading="lazy" decoding="async" style="object-position:center 35%"></picture><figcaption>Drehtür mit Auffahrrampe</figcaption></figure>
+      <figure class="m-e"><picture><source type="image/avif" srcset="/assets/img/kuehlzellen-schiebetueren-halle-480.avif 480w, /assets/img/kuehlzellen-schiebetueren-halle-800.avif 800w, /assets/img/kuehlzellen-schiebetueren-halle-1200.avif 1200w, /assets/img/kuehlzellen-schiebetueren-halle-1600.avif 1600w" sizes="(min-width: 1024px) 300px, 50vw"><source type="image/webp" srcset="/assets/img/kuehlzellen-schiebetueren-halle-480.webp 480w, /assets/img/kuehlzellen-schiebetueren-halle-800.webp 800w, /assets/img/kuehlzellen-schiebetueren-halle-1200.webp 1200w, /assets/img/kuehlzellen-schiebetueren-halle-1600.webp 1600w" sizes="(min-width: 1024px) 300px, 50vw"><img src="/assets/img/kuehlzellen-schiebetueren-halle-1200.webp" width="2048" height="1536" alt="Zwei große weiße Kühlzellen mit Kühlhaus-Schiebetüren in einer Industriehalle" loading="lazy" decoding="async"></picture><figcaption>Zwei Zellen mit Schiebetüren</figcaption></figure>
     </div>
+    <p class="mt-m"><a class="link-arrow" href="/referenzen/">Alle Referenzen ansehen<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a></p>
+  </div>
+</section>
 
-    <div id="modal-datenschutz" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeModal('modal-datenschutz')" aria-label="Schließen">&times;</button>
-            <h2>Datenschutzerklärung</h2>
-            <div style="text-align:left;">
-                <h3>1. Datenschutz auf einen Blick</h3>
-                <p>Der Schutz Ihrer personenbezogenen Daten ist uns ein wichtiges Anliegen. Personenbezogene Daten werden von uns nur im Rahmen der gesetzlichen Vorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO), verarbeitet.</p>
-                <p>Diese Datenschutzerklärung informiert Sie darüber, welche Daten wir erheben, wie wir sie verwenden und welche Rechte Ihnen zustehen.</p>
-                <h3>2. Verantwortlicher</h3>
-                <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
-                <p style="padding-left:15px;border-left:3px solid var(--red);">
-                    <strong>Europaneel GmbH</strong><br>Am Rhein-Herne-Kanal 10<br>46242 Bottrop<br>Deutschland<br><br>
-                    Vertreten durch: Geschäftsführer Mehmet Pak<br>Telefon: 02041 7779191<br>E-Mail: info@europaneel.de
-                </p>
-                <h3>3. Erhebung und Speicherung personenbezogener Daten</h3>
-                <p><strong>a) Beim Besuch der Website</strong></p>
-                <p>Beim Aufrufen unserer Website werden automatisch Informationen durch den Webserver erfasst. Diese Daten sind technisch erforderlich und beinhalten: IP-Adresse, Datum und Uhrzeit der Anfrage, besuchte Seiten, Browsertyp und -version, Betriebssystem, Referrer-URL.</p>
-                <p>Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschließlich der Sicherstellung eines störungsfreien Betriebs der Website. <em>Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</em></p>
-                <p><strong>b) Kontaktaufnahme (E-Mail oder Kontaktformular)</strong></p>
-                <p>Wenn Sie uns per E-Mail oder über ein Kontaktformular kontaktieren, werden Ihre Angaben (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachricht) zum Zwecke der Bearbeitung Ihrer Anfrage gespeichert. <em>Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</em> Die Daten werden gelöscht, sobald sie für den Zweck der Anfrage nicht mehr erforderlich sind.</p>
-                <h3>4. Externe Dienste (Google Maps & reCAPTCHA)</h3>
-                <p>Wir binden Google Maps und Google reCAPTCHA erst nach Ihrer ausdrücklichen Einwilligung über den Cookie-Hinweis ein. Erst dann werden Daten (u. a. Ihre IP-Adresse) an Google übermittelt. <em>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</em> Ihre Einwilligung können Sie jederzeit widerrufen.</p>
-                <h3>5. Weitergabe von Daten</h3>
-                <p>Eine Weitergabe Ihrer personenbezogenen Daten an Dritte erfolgt nicht, es sei denn, sie ist zur Vertragsabwicklung erforderlich, wir sind gesetzlich dazu verpflichtet oder Sie haben ausdrücklich eingewilligt.</p>
-                <h3>6. Hosting</h3>
-                <p>Die Website wird bei einem externen Hosting-Anbieter betrieben. Personenbezogene Daten werden auf den Servern des Hosters verarbeitet. Mit dem Hosting-Anbieter besteht ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO.</p>
-                <h3>7. Ihre Rechte als betroffene Person</h3>
-                <p>Sie haben jederzeit das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO). Außerdem haben Sie das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.</p>
-                <h3>8. Datensicherheit</h3>
-                <p>Wir verwenden geeignete technische und organisatorische Sicherheitsmaßnahmen, um Ihre Daten gegen Manipulation, Verlust oder unbefugten Zugriff zu schützen.</p>
-                <h3>9. Änderungen dieser Datenschutzerklärung</h3>
-                <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, um sie an geänderte rechtliche Anforderungen oder neue Funktionen der Website anzupassen.</p>
-            </div>
-        </div>
+<section class="sec" aria-labelledby="why-t">
+  <div class="container split split--rev">
+    <div>
+      <header class="sec-head sec-head--stack" data-reveal><div><p class="eyebrow">Warum Europaneel</p><h2 id="why-t">Kühlraumbau mit kurzen Wegen und klaren Preisen</h2></div></header>
+      <div data-reveal><ol class="points"><li><div><h3>Richtpreis, bevor Sie anfragen</h3><p>Unser Kalkulator zeigt den Netto-Richtpreis für Paneele und Tür sofort – ohne Registrierung. So wissen Sie früh, in welcher Größenordnung Ihr Projekt liegt.</p></div></li><li><div><h3>Ein Ansprechpartner bis zur Übergabe</h3><p>Beratung, Aufmaß, Planung, Lieferung und Montage aus einer Hand – auf Wunsch inklusive Kältetechnik als Huckepack-, Monoblock- oder Split-Lösung.</p></div></li><li><div><h3>Material ab Lager in Bottrop</h3><p>Viele Paneelstärken, Formate und Oberflächen sowie Kühlhaustüren sind kurzfristig verfügbar. Ihre Ware können Sie auch direkt bei uns abholen.</p></div></li><li><div><h3>Maßanfertigung statt Katalog</h3><p>Abmessungen, Boden, Türposition und Anschlag richten sich nach Ihrem Raum und Ihren Abläufen. Bestehende Zellen lassen sich je nach baulicher Situation erweitern.</p></div></li></ol></div>
     </div>
-
-    <!-- COOKIE BANNER -->
-    <div id="cookieBanner" class="cookie-banner">
-        <div class="cookie-inner">
-            <div class="cookie-text">
-                <strong>🍪 Wir nutzen externe Dienste</strong>
-                <p>Diese Website verwendet Google Maps und reCAPTCHA. Diese Dienste können Daten an Google übermitteln. Mehr dazu in unserer <a href="#" onclick="openModal('modal-datenschutz'); return false;">Datenschutzerklärung</a>.</p>
-            </div>
-            <div class="cookie-btns">
-                <button class="cookie-decline" onclick="setCookieConsent('necessary')">Nur notwendige</button>
-                <button class="cookie-accept" onclick="setCookieConsent('all')">Alle akzeptieren</button>
-            </div>
-        </div>
+    <div class="grid g-2" style="align-self:center">
+      <figure class="fig fig--34" data-reveal><div class="fig__frame"><div class="fig__img"><picture><source type="image/avif" srcset="/assets/img/europaneel-lager-bottrop-480.avif 480w, /assets/img/europaneel-lager-bottrop-800.avif 800w, /assets/img/europaneel-lager-bottrop-900.avif 900w" sizes="(min-width: 1024px) 300px, 50vw"><source type="image/webp" srcset="/assets/img/europaneel-lager-bottrop-480.webp 480w, /assets/img/europaneel-lager-bottrop-800.webp 800w, /assets/img/europaneel-lager-bottrop-900.webp 900w" sizes="(min-width: 1024px) 300px, 50vw"><img src="/assets/img/europaneel-lager-bottrop-900.webp" width="900" height="1600" alt="Lagerhalle der Europaneel GmbH in Bottrop mit gestapelten Sandwichpaneelen" loading="lazy" decoding="async"></picture></div></div><figcaption><b>Abb. 02</b><span>Paneellager in Bottrop</span></figcaption></figure>
+      <figure class="fig fig--34 mt-xl" data-reveal><div class="fig__frame"><div class="fig__img"><picture><source type="image/avif" srcset="/assets/img/europaneel-werkstatt-bottrop-480.avif 480w, /assets/img/europaneel-werkstatt-bottrop-800.avif 800w, /assets/img/europaneel-werkstatt-bottrop-900.avif 900w" sizes="(min-width: 1024px) 300px, 50vw"><source type="image/webp" srcset="/assets/img/europaneel-werkstatt-bottrop-480.webp 480w, /assets/img/europaneel-werkstatt-bottrop-800.webp 800w, /assets/img/europaneel-werkstatt-bottrop-900.webp 900w" sizes="(min-width: 1024px) 300px, 50vw"><img src="/assets/img/europaneel-werkstatt-bottrop-900.webp" width="900" height="1600" alt="Werkstatthalle der Europaneel GmbH in Bottrop" loading="lazy" decoding="async" class="mt-xl"></picture></div></div><figcaption><b>Abb. 03</b><span>Werkstatthalle am Standort</span></figcaption></figure>
     </div>
+  </div>
+</section>
 
-    <a href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp Kontakt">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<section class="sec sec--dark" aria-labelledby="calc-t" data-track-pos="calc-teaser">
+  <div class="container calc-band">
+    <div data-reveal>
+      <p class="eyebrow">Kühlzellen-Kalkulator</p>
+      <h2 id="calc-t">In vier Schritten zum Richtpreis – ohne Registrierung.</h2>
+      <p class="lead mt-s">Kühlart wählen, Boden festlegen, Maße eingeben, Tür auswählen: Der Netto-Richtpreis erscheint sofort. Wenn er passt, übernehmen wir Ihre Konfiguration direkt in die Anfrage.</p>
+      <div class="incl">
+        <div class="yes"><h3>Im Richtpreis enthalten</h3><ul><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-check"></use></svg>Sandwichpaneele für Wände und Decke</li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-check"></use></svg>Boden inkl. Siebdruckplatte, falls gewählt</li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-check"></use></svg>Kühlhaustür nach Auswahl</li></ul></div>
+        <div class="no"><h3>Separat angeboten</h3><ul><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-minus"></use></svg>Kälteaggregat</li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-minus"></use></svg>Lieferung</li><li><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-minus"></use></svg>Montage</li></ul></div>
+      </div>
+      <div class="btn-row mt-l"><a class="btn btn--primary" href="/kalkulator.html">Kühlzelle konfigurieren<svg class="icon icon--arrow" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a></div>
+    </div>
+    <div class="calc-mock" aria-hidden="true" data-reveal data-reveal-d="1">
+      <div class="calc-mock__bar"><i></i><i></i><i></i></div>
+      <div class="calc-mock__body">
+        <div class="calc-mock__steps"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></div>
+        <div class="calc-mock__row">
+          <div class="calc-mock__f"><small>Länge</small><b>3,00 m</b></div>
+          <div class="calc-mock__f"><small>Breite</small><b>2,50 m</b></div>
+          <div class="calc-mock__f"><small>Höhe</small><b>2,10 m</b></div>
+        </div>
+        <div class="calc-mock__f calc-mock__door"><small>Tür</small><b>Drehtür 90 × 190 cm</b></div>
+        <div class="calc-mock__res"><span><small>Richtpreis netto</small><br><b>sofort sichtbar</b></span><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-calculator"></use></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="assets/main.js"></script>
+<section class="sec" aria-labelledby="ind-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Branchen</p><h2 id="ind-t">Kühlräume für Betriebe, in denen die Kühlkette zählt</h2></div><p>Lebensmittelrecht, Warenfluss und Platz unterscheiden sich je Branche. Wir planen die Zelle danach – nicht umgekehrt.</p></header>
+    <div class="ind" data-reveal>
+      <a href="/branchen/gastronomie/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-chef-hat"></use></svg><b>Gastronomie & Hotel</b><small>Kühl- und Tiefkühlzellen für Küche, Lager und Catering.</small></a><a href="/branchen/metzgerei/"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-beef"></use></svg><b>Metzgerei & Fleischerei</b><small>Kühlräume für Fleisch, Wurst und Zubereitungen.</small></a><a href="/branchen/#baeckerei"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-croissant"></use></svg><b>Bäckerei & Konditorei</b><small>Tiefkühlung für Teiglinge, Kühlung für Füllungen.</small></a><a href="/branchen/#handel"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-store"></use></svg><b>Lebensmittelhandel</b><small>Lagerkühlung hinter Verkaufsflächen und Märkten.</small></a><a href="/branchen/#produktion"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-factory"></use></svg><b>Lebensmittelproduktion</b><small>Kühlräume für Rohware, Zwischen- und Fertigprodukte.</small></a><a href="/branchen/#logistik"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-forklift"></use></svg><b>Logistik & Lager</b><small>Kühllager mit Schiebetüren und Auffahrrampen.</small></a><a href="/branchen/#pharma"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-pill"></use></svg><b>Pharma & Apotheken</b><small>Gekühlte Lagerbereiche für temperaturgeführte Ware.</small></a><a href="/branchen/#catering"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-utensils"></use></svg><b>Catering & Großküchen</b><small>Getrennte Kühlzonen für Rohware und Fertiges.</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--surface" aria-labelledby="ablauf-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Ablauf</p><h2 id="ablauf-t">Von der Anfrage bis zur betriebsbereiten Zelle</h2></div><p>Ein klarer Ablauf in vier Schritten – mit einem festen Ansprechpartner.</p></header>
+    <ol class="steps" data-reveal><li><div><h3>Anfrage oder Kalkulator</h3><p>Per Telefon, E-Mail, WhatsApp oder über den Kalkulator – mit Richtpreis als erster Orientierung.</p></div></li><li><div><h3>Beratung & Aufmaß</h3><p>Wir beraten Sie telefonisch oder vor Ort und nehmen alle Maße und Anschlüsse präzise auf.</p></div></li><li><div><h3>Angebot & Planung</h3><p>Sie erhalten ein schriftliches Angebot mit allen Positionen – Zelle, Tür, Kältetechnik, Lieferung und Montage.</p></div></li><li><div><h3>Lieferung & Montage</h3><p>Wir liefern ab Bottrop und montieren fachgerecht. Übliche Zellengrößen stehen meist an einem Tag.</p></div></li></ol>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="tech-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Technik</p><h2 id="tech-t">Worauf es bei einer Kühlzelle technisch ankommt</h2></div><p>Drei Entscheidungen bestimmen Funktion, Energiebedarf und Alltagstauglichkeit Ihrer Zelle.</p></header>
+    <div class="grid g-3">
+      <article class="card" data-reveal><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-layers"></use></svg></span><h3>Dämmstärke nach Temperatur</h3><p>Tiefkühlung braucht deutlich mehr Dämmung als Pluskühlung. Welche Paneelstärke sinnvoll ist, hängt von Solltemperatur, Umgebung und Paneelsystem ab.</p><a class="link-arrow" href="/ratgeber/paneelstaerke-kuehlzelle/">Ratgeber Paneelstärke<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a></article>
+      <article class="card" data-reveal data-reveal-d="1"><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-door-open"></use></svg></span><h3>Tür nach Warenfluss</h3><p>Drehtüren für kleinere Zellen und Personenverkehr, Schiebetüren für breite Öffnungen und Rollwagen. Tiefkühltüren werden üblicherweise mit Rahmenheizung ausgeführt.</p><a class="link-arrow" href="/kuehlhaustueren/">Kühlhaustüren<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a></article>
+      <article class="card" data-reveal data-reveal-d="2"><span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-fan"></use></svg></span><h3>Aggregat nach Raum & Abwärme</h3><p>Monoblock, Huckepack oder Split: Entscheidend sind Kältebedarf, Aufstellort und wohin die Abwärme abgeführt werden kann.</p><a class="link-arrow" href="/kaelteaggregate/">Kälteaggregate<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--surface" aria-labelledby="rat-t">
+  <div class="container">
+    <header class="sec-head" data-reveal><div><p class="eyebrow">Ratgeber</p><h2 id="rat-t">Fachwissen für Ihre Entscheidung</h2></div><p>Antworten auf die Fragen, die vor jedem Kühlzellen-Projekt stehen – sachlich und ohne Verkaufsfloskeln.</p></header>
+    <nav class="related" aria-label="Ratgeber-Artikel"><a href="/ratgeber/kuehlzelle-kosten/"><small>Kosten</small><b>Was kostet eine Kühlzelle?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-up-right"></use></svg></b><span>Welche Posten den Preis bestimmen – und was im Richtpreis steckt.</span></a><a href="/ratgeber/paneelstaerke-kuehlzelle/"><small>Technik</small><b>Welche Paneelstärke braucht eine Kühlzelle?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-up-right"></use></svg></b><span>Dämmstärke, U-Wert und Kernmaterial im Überblick.</span></a><a href="/ratgeber/kuehlzelle-planen/"><small>Planung</small><b>Kühlzelle planen: Checkliste<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-up-right"></use></svg></b><span>Maße, Untergrund, Strom, Tür und Aggregat – vor dem Aufmaß klären.</span></a></nav>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq-t">
+  <div class="container split">
+    <div><header class="sec-head sec-head--stack" data-reveal><div><p class="eyebrow">FAQ</p><h2 id="faq-t">Häufige Fragen</h2></div><p>Ihre Frage ist nicht dabei? Rufen Sie uns an – wir antworten direkt.</p></header>
+      <p data-reveal><a class="tel-line" href="tel:+4920417779191"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg>+49 2041 / 777 9191</a></p></div>
+    <div><div class="faq" data-reveal><details name="faq"><summary>Wie lange dauert die Montage einer Kühlzelle?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Das hängt von den Maßen ab – in den meisten Fällen montieren wir eine Kühlzelle an einem Tag. Größere Anlagen und Kühlhäuser planen wir individuell.</p></div></details><details name="faq"><summary>Liefert und montiert Europaneel bundesweit?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Ja. Wir liefern und montieren deutschlandweit und sind auch in Nachbarländern wie Österreich, der Schweiz und den Niederlanden tätig.</p></div></details><details name="faq"><summary>Was ist im Preis des Kalkulators enthalten?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Der Kalkulator berechnet einen Netto-Richtpreis für die Kühlzelle selbst – Sandwichpaneele und Tür, bei gewähltem Boden inklusive Siebdruckplatte. Kälteaggregat, Lieferung und Montage bieten wir auf Wunsch separat an.</p></div></details><details name="faq"><summary>Welche Kühlzellen-Größen sind möglich?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Alle Größen sind möglich. Wir fertigen Kühlzellen nach Ihren Wunschmaßen – von der kleinen Zelle für die Gastronomie bis zum großen Kühllager.</p></div></details><details name="faq"><summary>Kann eine bestehende Kühlzelle erweitert werden?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Grundsätzlich ja, abhängig von den baulichen Gegebenheiten vor Ort. Wir sehen uns die Situation an und beraten Sie ehrlich.</p></div></details><details name="faq"><summary>Bietet Europaneel auch Kälteaggregate an?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Ja – in den gängigen Bauformen Huckepack, Monoblock und Split. So erhalten Sie Zelle und Kältetechnik aufeinander abgestimmt aus einer Hand.</p></div></details><details name="faq"><summary>Kann ich Material selbst in Bottrop abholen?<svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-plus"></use></svg></summary><div class="faq__a"><p>Ja. Neben Lieferung und Montage ist auch die Selbstabholung ab unserem Lager am Rhein-Herne-Kanal in Bottrop möglich.</p></div></details></div></div>
+  </div>
+</section>
+
+<section class="sec sec--surface" aria-labelledby="ort-t">
+  <div class="container split split--center">
+    <div data-reveal>
+      <p class="eyebrow">Standort Bottrop</p>
+      <h2 id="ort-t">Lager, Werkstatt und Beratung am Rhein-Herne-Kanal</h2>
+      <p class="lead mt-s">Besuchen Sie uns nach Vereinbarung: Wir beraten Sie persönlich, zeigen Paneele und Türen – oder Sie holen Ihre Ware direkt ab.</p>
+      <div class="contact-strip contact-strip--stack mt-l">
+        <div><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-map-pin"></use></svg><span><small>Adresse</small><b>Europaneel GmbH<br>Am Rhein-Herne-Kanal 10, 46242 Bottrop</b></span></div>
+        <a class="contact-strip__i" href="tel:+4920417779191" data-track-pos="home-contact"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg><span><small>Telefon</small><b>+49 2041 / 777 9191</b></span></a>
+        <div><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-clock"></use></svg><span><small>Erreichbarkeit</small><b>Mo–Fr 09:00–17:00 Uhr · Sa nach Vereinbarung</b></span></div>
+      </div>
+      <div class="btn-row mt-m"><a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=Europaneel+GmbH%2C+Am+Rhein-Herne-Kanal+10%2C+46242+Bottrop" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-navigation"></use></svg>Route planen</a><a class="btn btn--outline" href="/kontakt.html">Projekt anfragen</a></div>
+    </div>
+    <figure class="fig fig--43" data-reveal><div class="fig__frame"><div class="fig__img"><picture><source type="image/avif" srcset="/assets/img/europaneel-standort-bottrop-480.avif 480w, /assets/img/europaneel-standort-bottrop-800.avif 800w, /assets/img/europaneel-standort-bottrop-1200.avif 1200w, /assets/img/europaneel-standort-bottrop-1600.avif 1600w" sizes="(min-width: 1024px) 640px, 100vw"><source type="image/webp" srcset="/assets/img/europaneel-standort-bottrop-480.webp 480w, /assets/img/europaneel-standort-bottrop-800.webp 800w, /assets/img/europaneel-standort-bottrop-1200.webp 1200w, /assets/img/europaneel-standort-bottrop-1600.webp 1600w" sizes="(min-width: 1024px) 640px, 100vw"><img src="/assets/img/europaneel-standort-bottrop-1200.webp" width="1600" height="1200" alt="Firmengelände der Europaneel GmbH am Rhein-Herne-Kanal in Bottrop" loading="lazy" decoding="async"></picture></div></div><figcaption><b>Abb. 04</b><span>Firmengelände der Europaneel GmbH in Bottrop</span></figcaption></figure>
+  </div>
+</section>
+
+<section class="cta-band" aria-labelledby="cta-t" data-track-pos="cta-band"><div class="container cta-band__in"><div data-reveal><h2 id="cta-t">Ihre Kühlzelle – in wenigen Minuten zum Richtpreis.</h2><p>Konfigurieren Sie Maße, Boden und Tür online und sehen Sie sofort einen Netto-Richtpreis – ohne Registrierung. Oder schildern Sie uns Ihr Projekt, wir melden uns mit einem schriftlichen Angebot.</p></div><div class="cta-band__act" data-reveal data-reveal-d="1"><a class="btn btn--primary" href="/kalkulator.html">Kühlzelle konfigurieren<svg class="icon icon--arrow" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-arrow-right"></use></svg></a><a class="btn btn--ghost-light" href="/kontakt.html">Projekt anfragen</a><a class="cta-band__tel" href="tel:+4920417779191"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-phone"></use></svg>Beratung anrufen: +49 2041 / 777 9191</a></div></div></section>
+</main>
+<footer class="ftr" data-track-pos="footer"><div class="container ftr__grid">
+<div class="ftr__brand"><a class="ftr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-light.webp" width="720" height="149" alt="Europaneel GmbH" loading="lazy"></a>
+<p class="ftr__claim">Kühlzellen, Tiefkühlzellen und Kühlhäuser – geplant, geliefert und montiert. Mit Lager und Abholung in Bottrop.</p>
+<address>Europaneel GmbH<br>Am Rhein-Herne-Kanal 10<br>46242 Bottrop<br><a href="tel:+4920417779191">+49 2041 / 777 9191</a><br><a href="mailto:info@europaneel.de">info@europaneel.de</a><br>Mo–Fr 09:00–17:00 Uhr</address></div>
+<div><h2>Lösungen</h2><ul><li><a href="/kuehlzellen/">Kühlzellen</a></li><li><a href="/tiefkuehlzellen/">Tiefkühlzellen</a></li><li><a href="/kuehlhausbau/">Kühlhausbau</a></li><li><a href="/sandwichpaneele/">Sandwichpaneele</a></li><li><a href="/kuehlhaustueren/">Kühlhaustüren</a></li><li><a href="/kaelteaggregate/">Kälteaggregate</a></li></ul></div><div><h2>Service & Wissen</h2><ul><li><a href="/kuehlzellen-montage/">Planung & Montage</a></li><li><a href="/kalkulator.html">Kühlzellen-Kalkulator</a></li><li><a href="/referenzen/">Referenzen</a></li><li><a href="/branchen/">Branchen</a></li><li><a href="/ratgeber/">Ratgeber</a></li></ul></div><div><h2>Unternehmen</h2><ul><li><a href="/unternehmen/">Über Europaneel</a></li><li><a href="/kontakt.html">Kontakt & Anfahrt</a></li><li><a href="/impressum/">Impressum</a></li><li><a href="/datenschutz/">Datenschutz</a></li><li><a href="/agb/">AGB</a></li></ul></div>
+</div><div class="container ftr__bottom"><span>© 2026 Europaneel GmbH · Alle Rechte vorbehalten. Texte, Fotos und Kalkulator sind urheberrechtlich geschützt.</span><button class="ftr__btn" type="button" data-consent-open>Cookie-Einstellungen</button></div></footer>
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-t" aria-describedby="consent-d" hidden>
+<h2 id="consent-t"><svg class="icon" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-cookie"></use></svg>Externe Dienste</h2>
+<p id="consent-d">Für die Kartenansicht binden wir Google Maps erst nach Ihrer Zustimmung ein. Dabei können Daten an Google übermittelt werden. Ihre Wahl können Sie jederzeit unter „Cookie-Einstellungen“ ändern. <a href="/datenschutz/">Datenschutzerklärung</a></p>
+<div class="consent__btns"><button class="btn btn--outline btn--sm" type="button" data-consent="necessary">Nur notwendige</button><button class="btn btn--outline btn--sm" type="button" data-consent="all">Alle akzeptieren</button></div></div>
+<a class="wa-float" href="https://wa.me/4915229383557?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20K%C3%BChlzelle." target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben" data-track-pos="float"><svg class="icon icon--fill" aria-hidden="true" focusable="false"><use href="/assets/icons.svg?v=696e087b#i-whatsapp"></use></svg></a>
 </body>
 </html>

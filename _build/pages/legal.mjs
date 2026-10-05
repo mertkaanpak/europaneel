@@ -8,7 +8,7 @@ const T = JSON.parse(fs.readFileSync(path.join(ROOT, '_build/legal-texts.json'),
 const h3toh2 = (h) => h.replace(/<h3>/g, '<h2>').replace(/<\/h3>/g, '</h2>');
 
 const legal = (key, p) => ({
-  path: p.path, title: p.title, description: p.description, updated: '2026-10-02', sitemap: false, crumbs: [[p.h1, p.path]],
+  path: p.path, title: p.title, description: p.description, updated: '2026-10-05', sitemap: false, crumbs: [[p.h1, p.path]],
   render: () => `${pageHero({ title: p.h1, lead: p.lead, ctas: false })}
 <section class="sec--sm"><div class="container container--narrow"><div class="prose legal">${h3toh2(T[key])}</div></div></section>`,
 });

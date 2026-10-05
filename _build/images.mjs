@@ -60,10 +60,12 @@ const logoSrc = path.join(SRC, 'europaneel-logo-original.webp');
 const logoTrim = path.join(OUT, 'europaneel-logo.png');
 magick(logoSrc, '-trim', '+repage', '-bordercolor', 'none', '-border', '6', logoTrim);
 magick(logoTrim, '-resize', '720x', '-quality', '90', path.join(OUT, 'europaneel-logo.webp'));
+magick(logoTrim, '-resize', '360x', '-quality', '90', path.join(OUT, 'europaneel-logo-360.webp'));
 // helle Variante: entsättigte (graue) Bildanteile → hell, Markenrot bleibt
 const logoLight = path.join(OUT, 'europaneel-logo-light.png');
 magick(logoTrim, '-channel', 'RGB', '-fx', 'saturation < 0.35 ? 0.93 : u', '+channel', logoLight);
 magick(logoLight, '-resize', '720x', '-quality', '90', path.join(OUT, 'europaneel-logo-light.webp'));
+magick(logoLight, '-resize', '360x', '-quality', '90', path.join(OUT, 'europaneel-logo-light-360.webp'));
 const [lw, lh] = dims(logoTrim);
 manifest.logo = { width: lw, height: lh };
 // Alt-URL /logo.png (in externen Verweisen/Caches) mit dem sauberen Logo aktualisieren

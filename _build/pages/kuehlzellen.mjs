@@ -4,7 +4,7 @@ export default {
   path: '/kuehlzellen/',
   title: 'Kühlzellen nach Maß – planen, liefern, montieren | Europaneel',
   description: 'Begehbare Kühlzellen nach Maß für Gastronomie, Handel und Industrie: mit oder ohne Boden, Dreh- oder Schiebetür, Kältetechnik und Montage. Richtpreis online.',
-  updated: '2026-10-02',
+  updated: '2026-10-05',
   crumbs: [['Kühlzellen', '/kuehlzellen/']],
   service: { name: 'Kühlzellen nach Maß', type: 'Planung, Lieferung und Montage von Kühlzellen' },
   ogPhoto: 'kuehlzelle-anthrazit-fliesenboden',

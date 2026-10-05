@@ -155,7 +155,7 @@ function renderHeader(page) {
   const links = NAV.links.map((l) => `<li><a class="nav__link" href="${l.href}"${navLinkCurrent(l.href, page) ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('');
   return `<a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="hdr" data-track-pos="header"><div class="container hdr__in">
-<a class="hdr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo.webp" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH – Isoliertüren &amp; Kühlraumbau"></a>
+<a class="hdr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-360.webp" srcset="/assets/img/europaneel-logo-360.webp 360w, /assets/img/europaneel-logo.webp 720w" sizes="180px" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH – Isoliertüren &amp; Kühlraumbau"></a>
 <nav class="nav" aria-label="Hauptnavigation"><ul class="nav__list">
 <li class="nav__item${solCurrent ? ' is-current' : ''}" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-sol">${sol.label}${icon('chevron-down')}</button><div class="mega" id="m-sol">${megaCols}${tool}</div></li>
 <li class="nav__item${indCurrent ? ' is-current' : ''}" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-ind">${ind.label}${icon('chevron-down')}</button><div class="drop" id="m-ind">${drop}</div></li>
@@ -179,7 +179,7 @@ function renderCrumbs(page) {
 function renderFooter() {
   const year = new Date().getFullYear();
   return `<footer class="ftr" data-track-pos="footer"><div class="container ftr__grid">
-<div class="ftr__brand"><a class="ftr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-light.webp" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH" loading="lazy"></a>
+<div class="ftr__brand"><a class="ftr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-light-360.webp" srcset="/assets/img/europaneel-logo-light-360.webp 360w, /assets/img/europaneel-logo-light.webp 720w" sizes="190px" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH" loading="lazy"></a>
 <p class="ftr__claim">Kühlzellen, Tiefkühlzellen und Kühlhäuser – geplant, geliefert und montiert. Mit Lager und Abholung in Bottrop.</p>
 <address>${SITE.legalName}<br>${SITE.address.street}<br>${SITE.address.zip} ${SITE.address.city}<br><a href="${SITE.phone.href}">${SITE.phone.display}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.hours.text}</address></div>
 ${FOOTER.cols.map((c) => `<div><h2>${c.title}</h2><ul>${c.links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join('')}</ul></div>`).join('')}
@@ -232,7 +232,8 @@ export function renderDocument(page, main, ctx, V) {
   const canonical = abs(page.path);
   const indexable = page.robots !== 'noindex';
   const og = page.ogImage || '/assets/img/og-europaneel.jpg';
-  const css = [`/assets/css/site.css?v=${V['assets/css/site.css']}`, ...(page.css || []).map((c) => `/assets/css/${c}?v=${V['assets/css/' + c]}`)];
+  const min = (c) => c.replace(/\.css$/, '.min.css');
+  const css = [`/assets/css/site.min.css?v=${V['assets/css/site.min.css']}`, ...(page.css || []).map((c) => `/assets/css/${min(c)}?v=${V['assets/css/' + min(c)]}`)];
   const js = [`/assets/js/main.js?v=${V['assets/js/main.js']}`, ...(page.js || []).map((j) => `/assets/js/${j}?v=${V['assets/js/' + j]}`)];
   const cfg = SITE.ga4 ? `<script>window.EP_CONFIG={ga4:${JSON.stringify(SITE.ga4)}};</script>` : '';
   return `<!DOCTYPE html>

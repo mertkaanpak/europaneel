@@ -42,7 +42,7 @@
 .opt small{color:var(--steel-600);font-size:.9rem;line-height:1.45}
 .opt:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:var(--shadow-card)}
 .opt[data-typ="tief"] .icon{color:var(--frost)}
-@media (max-width:519px){.opt-grid{grid-template-columns:1fr}.opt{min-height:0}}
+@media (max-width:519px){.opt-grid{grid-template-columns:minmax(0,1fr)}.opt{min-height:0}}
 
 .dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:1.5rem}
 .dims .unit{color:var(--steel-500);font-weight:500}
@@ -67,7 +67,7 @@
 .incl--calc{margin-top:1.25rem;padding:18px 20px;border:1px solid var(--line);border-radius:var(--r-md)}
 .incl--calc h3{font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;color:var(--steel-600)}
 .calc-actions{display:grid;grid-template-columns:1fr auto;gap:10px;margin-top:1.25rem}
-@media (max-width:519px){.calc-actions{grid-template-columns:1fr}}
+@media (max-width:519px){.calc-actions{grid-template-columns:minmax(0,1fr)}}
 .step-hint{margin-top:.8rem;font-size:.88rem;color:var(--steel-500)}
 
 /* Seitenleiste */
@@ -92,7 +92,7 @@
 /* Mobile Preisleiste */
 .calc-bar{display:none}
 @media (max-width:1023px){
-  .calc__grid{grid-template-columns:1fr}
+  .calc__grid{grid-template-columns:minmax(0,1fr)}
   .calc-side{position:static}
   .calc-bar:not([hidden]){display:flex;position:fixed;left:0;right:0;bottom:0;z-index:950;justify-content:space-between;align-items:center;gap:12px;
     padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -12px rgba(16,18,22,.25)}

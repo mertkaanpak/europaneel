@@ -13,9 +13,21 @@ const read = (p) => fs.readFileSync(path.join(ROOT, p));
 const write = (p, s) => { fs.mkdirSync(path.dirname(path.join(ROOT, p)), { recursive: true }); fs.writeFileSync(path.join(ROOT, p), s); };
 const outFile = (p) => (p.endsWith('/') ? p.slice(1) + 'index.html' : p.slice(1));
 
+/* 0) CSS minifizieren (Quelle bleibt lesbar; ausgeliefert wird *.min.css) */
+function minifyCss(css) {
+  return css.replace(/\/\*[\s\S]*?\*\//g, '')   // Kommentare
+    .replace(/\s+/g, ' ')                      // Leerraum zusammenfassen
+    .replace(/\s*([{};,>])\s*/g, '$1')         // Leerzeichen an Trennzeichen (nicht an ':' – Nachfahren-Selektor!)
+    .replace(/;}/g, '}').trim() + '\n';
+}
+for (const f of ['assets/css/site.css', 'assets/css/calc.css']) {
+  const src = read(f).toString();
+  write(f.replace(/\.css$/, '.min.css'), `/* (c) Europaneel GmbH – erzeugt aus ${path.basename(f)} */\n` + minifyCss(src));
+}
+
 /* 1) Asset-Versionen (Cache-Busting – GitHub Pages cacht fest 10 Minuten) */
 const V = {};
-for (const a of ['assets/css/site.css', 'assets/css/calc.css', 'assets/js/main.js', 'assets/js/calc.js', 'assets/js/calc-ui.js']) {
+for (const a of ['assets/css/site.min.css', 'assets/css/calc.min.css', 'assets/js/main.js', 'assets/js/calc.js', 'assets/js/calc-ui.js']) {
   if (fs.existsSync(path.join(ROOT, a))) V[a] = hash(read(a));
 }
 

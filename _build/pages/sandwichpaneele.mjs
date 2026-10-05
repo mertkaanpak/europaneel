@@ -10,7 +10,7 @@ const DIAGRAM = `<figure class="diagram" data-reveal>
 <path d="M490 90 h40 v30 h18 v60 h-18 v30 h-40 z" fill="#f3f4f6" stroke="#a9b0bb" stroke-dasharray="4 4"/>
 <rect x="60" y="84" width="470" height="6" fill="#3e4652"/><rect x="60" y="210" width="470" height="6" fill="#3e4652"/>
 <line x1="40" y1="84" x2="40" y2="216" stroke="#dd0312" stroke-width="1.5"/><line x1="34" y1="84" x2="46" y2="84" stroke="#dd0312" stroke-width="1.5"/><line x1="34" y1="216" x2="46" y2="216" stroke="#dd0312" stroke-width="1.5"/>
-<text x="26" y="155" font-size="15" font-weight="700" fill="#dd0312" text-anchor="middle" transform="rotate(-90 26 155)">d</text>
+<text x="22" y="155" font-size="15" font-weight="700" fill="#dd0312" text-anchor="middle" font-family="Inter, Arial, sans-serif">d</text>
 <g font-family="Inter, Arial, sans-serif" font-size="14" fill="#101216">
 <line x1="150" y1="84" x2="150" y2="40" stroke="#5b6570"/><text x="158" y="38">Deckschicht: beschichtetes Stahlblech</text>
 <text x="200" y="156" font-weight="600">Dämmkern PUR / PIR</text>

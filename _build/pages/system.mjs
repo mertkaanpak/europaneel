@@ -5,7 +5,7 @@ import { SITE, CTA } from '../site.config.mjs';
 export default [
   {
     path: '/danke.html', title: 'Vielen Dank für Ihre Anfrage | Europaneel', description: 'Ihre Anfrage ist bei der Europaneel GmbH eingegangen.',
-    robots: 'noindex', sitemap: false, updated: '2026-10-02',
+    robots: 'noindex', sitemap: false, updated: '2026-10-05',
     render: () => `<section class="sec blueprint"><div class="container container--narrow">
   <p class="eyebrow">Anfrage eingegangen</p>
   <h1>Vielen Dank – Ihre Nachricht ist bei uns.</h1>
@@ -20,7 +20,7 @@ export default [
   },
   {
     path: '/404.html', title: 'Seite nicht gefunden | Europaneel', description: 'Die angeforderte Seite existiert nicht oder ist umgezogen.',
-    robots: 'noindex', sitemap: false, updated: '2026-10-02',
+    robots: 'noindex', sitemap: false, updated: '2026-10-05',
     render: () => `<section class="sec blueprint e404"><div class="container">
   <p class="code" aria-hidden="true">404</p>
   <h1>Diese Seite gibt es nicht (mehr).</h1>

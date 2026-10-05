@@ -183,7 +183,7 @@ function renderFooter() {
 <p class="ftr__claim">Kühlzellen, Tiefkühlzellen und Kühlhäuser – geplant, geliefert und montiert. Mit Lager und Abholung in Bottrop.</p>
 <address>${SITE.legalName}<br>${SITE.address.street}<br>${SITE.address.zip} ${SITE.address.city}<br><a href="${SITE.phone.href}">${SITE.phone.display}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.hours.text}</address></div>
 ${FOOTER.cols.map((c) => `<div><h2>${c.title}</h2><ul>${c.links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join('')}</ul></div>`).join('')}
-</div><div class="container ftr__bottom"><span>© ${year} ${SITE.legalName} · Alle Rechte vorbehalten. Texte, Fotos und Kalkulator sind urheberrechtlich geschützt.</span><button class="ftr__btn" type="button" data-consent-open>Cookie-Einstellungen</button></div></footer>`;
+</div><div class="container ftr__bottom"><span>© ${year} ${SITE.legalName} · Alle Rechte vorbehalten. Texte, Fotos und Kalkulator sind urheberrechtlich geschützt. Nutzungsvorbehalt nach § 44b UrhG: keine Verwendung für Text- und Data-Mining oder KI-Training.</span><button class="ftr__btn" type="button" data-consent-open>Cookie-Einstellungen</button></div></footer>`;
 }
 
 function renderConsent() {
@@ -246,6 +246,8 @@ export function renderDocument(page, main, ctx, V) {
 <meta name="description" content="${esc(page.description)}">
 <meta name="robots" content="${indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'}">
 ${indexable ? `<link rel="canonical" href="${canonical}">` : ''}
+<meta name="tdm-reservation" content="1">
+<meta name="robots" content="noai, noimageai">
 <meta name="author" content="${SITE.legalName}">
 <meta name="copyright" content="© ${SITE.legalName}">
 <meta property="og:type" content="${page.article ? 'article' : 'website'}">

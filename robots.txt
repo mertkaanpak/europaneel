@@ -1,4 +1,46 @@
-# europaneel.de
+# europaneel.de – Suchmaschinen sind willkommen.
+# Nutzungsvorbehalt nach § 44b UrhG / Art. 4 Richtlinie (EU) 2019/790: Text- und Data-Mining,
+# insbesondere das Training von KI-Systemen, ist nicht gestattet.
+
+# KI-Training: kein Zugriff
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Claude-Web
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Diffbot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Amazonbot
+User-agent: Omgilibot
+User-agent: Timpibot
+User-agent: ImagesiftBot
+User-agent: img2dataset
+User-agent: PanguBot
+Disallow: /
+
+# KI-Suche und KI-Assistenten: Inhalte ja, Kalkulator und Programmcode nein
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: YouBot
+Disallow: /kalkulator.html
+Disallow: /kalkulator
+Disallow: /assets/js/
+
+# Suchmaschinen (Google, Bing …)
 User-agent: *
 Allow: /
 

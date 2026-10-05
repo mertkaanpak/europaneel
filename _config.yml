@@ -1,5 +1,7 @@
 # GitHub Pages: Die Seiten sind fertiges HTML (erzeugt mit node _build/build.mjs).
 # Jekyll liefert nur aus. Interne Ordner werden nie veröffentlicht.
+include:
+  - .well-known
 exclude:
   - _build
   - _intern

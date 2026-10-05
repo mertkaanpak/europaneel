@@ -89,6 +89,8 @@
 .calc-trust li{display:flex;align-items:center;gap:.5rem}
 .calc-trust .icon{color:var(--steel-500);width:1.05em;height:1.05em}
 
+.calc-legal{margin-top:1.25rem;font-size:.8rem;color:var(--steel-500)}
+
 /* Mobile Preisleiste */
 .calc-bar{display:none}
 @media (max-width:1023px){

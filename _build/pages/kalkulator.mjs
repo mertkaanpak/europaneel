@@ -117,6 +117,7 @@ export default {
       </ul>
     </aside>
   </div>
+  <p class="container calc-legal">© Europaneel GmbH – Kühlzellen-Kalkulator. Urheberrechtlich geschützt; Nutzung ausschließlich auf europaneel.de. Nachbau, Einbettung, automatisierte Abfragen und Verwendung für KI-Training sind untersagt.</p>
   <div class="calc-bar" id="calcBar" hidden><span><small>Richtpreis netto</small><b class="tnum" id="calcBarPrice"></b></span><button class="btn btn--primary btn--sm" type="button" onclick="openRequestModal()">Angebot anfordern</button></div>
 </section>
 

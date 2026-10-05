@@ -90,13 +90,39 @@ write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 ${indexable.map((p) => `  <url><loc>${SITE.url}${p.path}</loc><lastmod>${p.updated}</lastmod></url>`).join('\n')}
 </urlset>
 `);
-write('robots.txt', `# europaneel.de\nUser-agent: *\nAllow: /\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
+// KI-Bots: Training komplett gesperrt; KI-Suche/Assistenten nur ohne Kalkulator und Programmcode
+const AI_TRAINING = ['GPTBot', 'ClaudeBot', 'anthropic-ai', 'Claude-Web', 'CCBot', 'Google-Extended', 'Applebot-Extended', 'Bytespider',
+  'meta-externalagent', 'FacebookBot', 'Diffbot', 'cohere-ai', 'cohere-training-data-crawler', 'AI2Bot', 'Ai2Bot-Dolma', 'Amazonbot',
+  'Omgilibot', 'Timpibot', 'ImagesiftBot', 'img2dataset', 'PanguBot'];
+const AI_SEARCH = ['OAI-SearchBot', 'ChatGPT-User', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'DuckAssistBot', 'MistralAI-User', 'YouBot'];
+write('robots.txt', `# europaneel.de – Suchmaschinen sind willkommen.
+# Nutzungsvorbehalt nach § 44b UrhG / Art. 4 Richtlinie (EU) 2019/790: Text- und Data-Mining,
+# insbesondere das Training von KI-Systemen, ist nicht gestattet.
+
+# KI-Training: kein Zugriff
+${AI_TRAINING.map((a) => `User-agent: ${a}`).join('\n')}
+Disallow: /
+
+# KI-Suche und KI-Assistenten: Inhalte ja, Kalkulator und Programmcode nein
+${AI_SEARCH.map((a) => `User-agent: ${a}`).join('\n')}
+Disallow: /kalkulator.html
+Disallow: /kalkulator
+Disallow: /assets/js/
+
+# Suchmaschinen (Google, Bing …)
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE.url}/sitemap.xml
+`);
+// Maschinenlesbarer TDM-Vorbehalt (W3C TDMRep)
+write('.well-known/tdmrep.json', JSON.stringify([{ location: '/', 'tdm-reservation': 1 }], null, 2) + '\n');
 write('site.webmanifest', JSON.stringify({
   name: 'Europaneel GmbH – Kühlzellen & Kühlraumbau', short_name: 'Europaneel', lang: 'de', start_url: '/', display: 'browser',
   background_color: '#ffffff', theme_color: '#16191f',
   icons: [{ src: '/assets/img/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/img/icon-512.png', sizes: '512x512', type: 'image/png' }],
 }, null, 2) + '\n');
-write('_config.yml', `# GitHub Pages: Die Seiten sind fertiges HTML (erzeugt mit node _build/build.mjs).\n# Jekyll liefert nur aus. Interne Ordner werden nie veröffentlicht.\nexclude:\n  - _build\n  - _intern\n  - "*.md"\n  - package.json\n  - node_modules\n`);
+write('_config.yml', `# GitHub Pages: Die Seiten sind fertiges HTML (erzeugt mit node _build/build.mjs).\n# Jekyll liefert nur aus. Interne Ordner werden nie veröffentlicht.\ninclude:\n  - .well-known\nexclude:\n  - _build\n  - _intern\n  - "*.md"\n  - package.json\n  - node_modules\n`);
 
 /* 7) Qualitätsprüfung */
 const errors = [], warns = [];

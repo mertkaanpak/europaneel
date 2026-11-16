@@ -126,7 +126,7 @@ ${cmp(['Temperaturbereich (Raum)', 'Übliche Paneelstärken', 'Hinweis'], [
 /* ------------------------------------------------------------------ 3 Planen */
 const planen = article({
   path: '/ratgeber/kuehlzelle-planen/', short: 'Kühlzelle planen', topic: 'Planung', photo: 'kuehlanlage-mehrzellig-montage',
-  title: 'Kühlzelle planen: Checkliste | Europaneel',
+  title: 'Kühlzelle planen: Checkliste, Maße & Aggregat | Europaneel',
   description: 'Kühlzelle richtig planen: Bedarf, Standort, Untergrund, Maße, Boden, Tür, Kältetechnik, Stromanschluss und Einbringweg – die Checkliste vor dem Aufmaß.',
   h1: 'Kühlzelle planen: Checkliste von Maß bis Aggregat',
   lead: 'Die meisten Probleme mit Kühlzellen entstehen nicht bei der Montage, sondern Wochen vorher – in der Planung. Mit dieser Checkliste klären Sie alles, was für ein belastbares Angebot und einen reibungslosen Aufbau nötig ist.',

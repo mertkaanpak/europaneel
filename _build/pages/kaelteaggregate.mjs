@@ -2,7 +2,7 @@ import { icon, fig, pageHero, secHead, facts, cmp, points, faq, related, ctaBand
 
 export default {
   path: '/kaelteaggregate/',
-  title: 'Kälteaggregate für Kühlzellen | Europaneel',
+  title: 'Kälteaggregate für Kühlzellen: Monoblock, Split | Europaneel',
   description: 'Kälteaggregate für Kühl- und Tiefkühlzellen: Huckepack, Monoblock und Split im Vergleich – Aufstellung, Abwärme und Kältemittel nach F-Gase-Verordnung.',
   updated: '2026-10-05',
   crumbs: [['Kälteaggregate', '/kaelteaggregate/']],

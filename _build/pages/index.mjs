@@ -5,7 +5,7 @@ const FACTS = Object.values(SITE.facts).filter((f) => f.confirmed);
 
 export default {
   path: '/',
-  title: 'Kühlraumbau aus Bottrop: Kühlzellen & Kühlhäuser | Europaneel',
+  title: 'Kühlraumbau Bottrop: Kühlzellen & Kühlhäuser | Europaneel',
   description: 'Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gewerbe und Industrie. Richtpreis online berechnen, Türen ab Lager.',
   updated: '2026-10-05',
   pageType: 'WebPage',

@@ -205,7 +205,7 @@ export function orgNode() {
     geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng }, hasMap: SITE.mapsLink,
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: SITE.hours.days, opens: SITE.hours.opens, closes: SITE.hours.closes }],
     contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', telephone: SITE.phone.schema, email: SITE.email, areaServed: SITE.areaServed, availableLanguage: ['de'] }],
-    areaServed: SITE.areaServed.map((c) => ({ '@type': 'Country', name: c })),
+    areaServed: [...SITE.areaServed.map((c) => ({ '@type': 'Country', name: c })), ...SITE.areaCities.map((c) => ({ '@type': 'City', name: c }))],
     knowsAbout: ['Kühlzellen', 'Tiefkühlzellen', 'Kühlhausbau', 'Sandwichpaneele', 'Kühlhaustüren', 'Isoliertüren', 'Kälteaggregate'],
     ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
   };

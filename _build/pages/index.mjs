@@ -201,7 +201,7 @@ export default {
       <p data-reveal><a class="tel-line" href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a></p></div>
     <div>${faq([
       { q: 'Wie lange dauert die Montage einer Kühlzelle?', a: 'Das hängt von den Maßen ab – in den meisten Fällen montieren wir eine Kühlzelle an einem Tag. Größere Anlagen und Kühlhäuser planen wir individuell.' },
-      { q: 'Liefert und montiert Europaneel bundesweit?', a: 'Ja. Wir liefern und montieren deutschlandweit und sind auch in Nachbarländern wie Österreich, der Schweiz und den Niederlanden tätig.' },
+      { q: 'Liefert und montiert Europaneel bundesweit?', a: 'Ja. Wir liefern und montieren deutschlandweit und sind auch in Nachbarländern wie Österreich, der Schweiz und den Niederlanden tätig. Einsatzorte sind zum Beispiel Düsseldorf, Köln, Frankfurt, München, Stuttgart, Essen, Dortmund, Bochum, Gelsenkirchen und Duisburg.' },
       { q: 'Was ist im Preis des Kalkulators enthalten?', a: 'Der Kalkulator berechnet einen Netto-Richtpreis für die Kühlzelle selbst – Sandwichpaneele und Tür, bei gewähltem Boden inklusive Siebdruckplatte. Kälteaggregat, Lieferung und Montage bieten wir auf Wunsch separat an.' },
       { q: 'Welche Kühlzellen-Größen sind möglich?', a: 'Alle Größen sind möglich. Wir fertigen Kühlzellen nach Ihren Wunschmaßen – von der kleinen Zelle für die Gastronomie bis zum großen Kühllager.' },
       { q: 'Kann eine bestehende Kühlzelle erweitert werden?', a: 'Grundsätzlich ja, abhängig von den baulichen Gegebenheiten vor Ort. Wir sehen uns die Situation an und beraten Sie ehrlich.' },

@@ -156,6 +156,48 @@
         850
       ],
       "alt": "Kühlzelle mit geöffneter Tür in einer Halle"
+    },
+    "kuehlanlage-rot-praxis": {
+      "width": 1741,
+      "height": 1198,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Mehrteilige Kühlanlage mit roten Paneelen in einer Halle"
+    },
+    "kuehlanlage-gruen-praxis": {
+      "width": 1823,
+      "height": 1106,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Kühlzelle mit außenliegenden Aggregaten"
+    },
+    "kuehlanlage-dunkel-praxis": {
+      "width": 1056,
+      "height": 1328,
+      "widths": [
+        480,
+        800,
+        1056
+      ],
+      "alt": "Dunkle Kühlzelle unter einem Glasdach"
+    },
+    "kuehlzelle-tuerreihe-praxis": {
+      "width": 902,
+      "height": 1076,
+      "widths": [
+        480,
+        800,
+        902
+      ],
+      "alt": "Weiße Kühlzelle mit mehreren Türen"
     }
   },
   "generated": "2026-11-16",

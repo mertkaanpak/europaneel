@@ -30,6 +30,10 @@ export const PHOTOS = {
   'kuehlanlage-schiebetuer-praxis': 'Mehrteilige Kühlanlage mit Schiebetür in einer Halle',
   'kuehlzelle-tuer-praxis': 'Kühlzelle mit Tür in einer Halle',
   'kuehlzelle-offene-tuer-praxis': 'Kühlzelle mit geöffneter Tür in einer Halle',
+  'kuehlanlage-rot-praxis': 'Mehrteilige Kühlanlage mit roten Paneelen in einer Halle',
+  'kuehlanlage-gruen-praxis': 'Kühlzelle mit außenliegenden Aggregaten',
+  'kuehlanlage-dunkel-praxis': 'Dunkle Kühlzelle unter einem Glasdach',
+  'kuehlzelle-tuerreihe-praxis': 'Weiße Kühlzelle mit mehreren Türen',
 };
 
 const magick = (...args) => execFileSync('magick', args, { stdio: ['ignore', 'pipe', 'pipe'] });

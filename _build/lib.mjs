@@ -106,6 +106,10 @@ export function ctaBand(o = {}) {
     + `<a class="cta-band__tel" href="${SITE.phone.href}">${icon('phone')}${CTA.tertiary.label}: ${SITE.phone.display}</a></div></div></section>`;
 }
 
+export function mobileContactBar() {
+  return `<nav class="mobile-contact" aria-label="Schneller Kontakt"><a href="${SITE.phone.href}">${icon('phone')}<span>Anrufen</span></a><a href="${CTA.secondary.href}">${icon('arrow-right')}<span>Projekt anfragen</span></a></nav>`;
+}
+
 export function mapBlock(title = 'Standort der Europaneel GmbH in Bottrop') {
   if (CUR) CUR.consent = true;
   return `<div class="map-ph" data-consent-required data-src="${SITE.mapsEmbed}" data-title="${esc(title)}"><div>${icon('map')}<p>Die Karte wird von Google Maps geladen – erst nach Ihrer Zustimmung.</p>`
@@ -283,6 +287,7 @@ ${main}
 </main>
 ${renderFooter()}
 ${renderConsent()}
+${mobileContactBar()}
 ${page.noWa ? '' : `<a class="wa-float" href="${SITE.whatsapp}" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben" data-track-pos="float">${icon('whatsapp', 'icon--fill')}</a>`}
 </body>
 </html>

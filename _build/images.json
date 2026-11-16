@@ -126,9 +126,39 @@
         1600
       ],
       "alt": "Firmengelände der Europaneel GmbH am Rhein-Herne-Kanal in Bottrop"
+    },
+    "kuehlanlage-schiebetuer-praxis": {
+      "width": 1966,
+      "height": 1213,
+      "widths": [
+        480,
+        800,
+        1200,
+        1600
+      ],
+      "alt": "Mehrteilige Kühlanlage mit Schiebetür in einer Halle"
+    },
+    "kuehlzelle-tuer-praxis": {
+      "width": 799,
+      "height": 684,
+      "widths": [
+        480,
+        799
+      ],
+      "alt": "Kühlzelle mit Tür in einer Halle"
+    },
+    "kuehlzelle-offene-tuer-praxis": {
+      "width": 850,
+      "height": 691,
+      "widths": [
+        480,
+        800,
+        850
+      ],
+      "alt": "Kühlzelle mit geöffneter Tür in einer Halle"
     }
   },
-  "generated": "2026-10-05",
+  "generated": "2026-11-16",
   "logo": {
     "width": 1253,
     "height": 260

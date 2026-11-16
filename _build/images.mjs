@@ -27,6 +27,9 @@ export const PHOTOS = {
   'europaneel-lager-bottrop': 'Lagerhalle der Europaneel GmbH in Bottrop mit gestapelten Sandwichpaneelen',
   'europaneel-werkstatt-bottrop': 'Werkstatthalle der Europaneel GmbH in Bottrop',
   'europaneel-standort-bottrop': 'Firmengelände der Europaneel GmbH am Rhein-Herne-Kanal in Bottrop',
+  'kuehlanlage-schiebetuer-praxis': 'Mehrteilige Kühlanlage mit Schiebetür in einer Halle',
+  'kuehlzelle-tuer-praxis': 'Kühlzelle mit Tür in einer Halle',
+  'kuehlzelle-offene-tuer-praxis': 'Kühlzelle mit geöffneter Tür in einer Halle',
 };
 
 const magick = (...args) => execFileSync('magick', args, { stdio: ['ignore', 'pipe', 'pipe'] });

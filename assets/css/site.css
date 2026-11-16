@@ -653,8 +653,37 @@ img{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
 .toc__tool b{font-size:1rem}
 @media (max-width:1023px){.toc__tool{display:none}}
 
+/* Design-Etappe 2: Split-Hero, Praxisband und mobile Kontaktleiste */
+.hero--split .hero__media .fig__img{aspect-ratio:16/11}
+.practice-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,32px);align-items:start}
+.practice-grid__offset{margin-top:clamp(24px,5vw,72px)}
+.hero__line{display:flex;align-items:center;gap:12px;margin-top:2rem;color:var(--steel-500);font-size:var(--fs-xs);font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.hero__line span{display:block;width:48px;height:1px;background:var(--red)}
+.mobile-contact{display:none}
+@media (max-width:899px){
+  body{padding-bottom:76px}
+  .practice-grid{grid-template-columns:minmax(0,1fr)}
+  .practice-grid__offset{margin-top:0}
+  .mobile-contact{position:fixed;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;left:10px;right:10px;bottom:max(10px,env(safe-area-inset-bottom));z-index:1100;padding:8px;border:1px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.96);box-shadow:var(--shadow-float);backdrop-filter:blur(10px)}
+  .mobile-contact a{min-width:0;min-height:44px;display:flex;align-items:center;justify-content:center;gap:.4rem;border-radius:var(--r-sm);font-size:.78rem;font-weight:700;text-decoration:none;white-space:nowrap;overflow:hidden}
+  .hero h1{max-width:11ch;font-size:2rem;text-wrap:pretty;overflow-wrap:anywhere}
+  .hero .lead,.hero .eyebrow{overflow-wrap:anywhere}
+  .mobile-contact a:first-child{border:1px solid var(--line-strong);color:var(--ink)}
+  .mobile-contact a:last-child{background:var(--red);color:#fff}
+  .mobile-contact .icon{width:1.1em;height:1.1em}
+  .wa-float{bottom:94px}
+}
+@media (min-width:768px){.hero--split .hero__text{padding-block:16px}}
+
 /* 11 · Bewegung ------------------------------------------------------------ */
 html.js [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+@media (prefers-reduced-motion:no-preference){
+  html.js [data-hero-enter],html.js [data-hero-media]{animation:heroIn .6s var(--ease) both}
+  html.js [data-hero-media]{animation-delay:.12s}
+  html.js [data-hero-media] .fig__img img{animation:heroZoom 12s ease-out both}
+  @keyframes heroIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @keyframes heroZoom{from{transform:scale(1.025)}to{transform:scale(1.055)}}
+}
 html.js [data-reveal].is-in{opacity:1;transform:none}
 html.js [data-reveal-d="1"]{transition-delay:.06s}html.js [data-reveal-d="2"]{transition-delay:.12s}
 html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{transition-delay:.24s}
@@ -667,6 +696,7 @@ html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{tr
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   html.js [data-reveal]{opacity:1;transform:none}
+  html.js [data-hero-enter],html.js [data-hero-media]{animation:none;opacity:1;transform:none}
 }
 
 /* 12 · Druck --------------------------------------------------------------- */

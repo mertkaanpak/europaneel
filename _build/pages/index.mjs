@@ -5,8 +5,8 @@ const FACTS = Object.values(SITE.facts).filter((f) => f.confirmed);
 
 export default {
   path: '/',
-  title: 'Kühlraumbau Bottrop: Kühlzellen & Kühlhäuser | Europaneel',
-  description: 'Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gewerbe und Industrie. Richtpreis online berechnen, Türen ab Lager.',
+  title: 'Kühlraumbau bundesweit: Kühlzellen & Kühlhäuser | Europaneel',
+  description: 'Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser deutschlandweit – in der Regel in 1–2 Wochen. Richtpreis online berechnen.',
   updated: '2026-10-05',
   pageType: 'WebPage',
   ogPhoto: 'kuehlanlage-mehrzellig-montage',
@@ -17,9 +17,10 @@ export default {
     <div class="hero__text">
       <p class="eyebrow">Kühlzellen · Tiefkühlzellen · Kühlhausbau</p>
       <h1 id="hero-t">Kühlräume nach Maß – <em>für Gewerbe und Industrie</em></h1>
-      <p class="lead">Europaneel ist Ihr Fachbetrieb für Kühlraumbau aus Bottrop. Wir planen Abmessungen, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb, liefern ab unserem Lager und montieren deutschlandweit. Den Richtpreis für Ihre Kühlzelle sehen Sie online in wenigen Schritten.</p>
+      <p class="lead">Europaneel ist Ihr Fachbetrieb für Kühlraumbau. Wir planen Abmessungen, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb, liefern ab unserem Lager und montieren deutschlandweit – Lieferung und Montage in der Regel innerhalb von 1–2 Wochen. Den Richtpreis für Ihre Kühlzelle sehen Sie online in wenigen Schritten.</p>
       ${ctas()}
       <ul class="hero__proof">
+        <li>${icon('circle-check')}Lieferung und Montage in der Regel in 1–2 Wochen</li>
         <li>${icon('circle-check')}Richtpreis sofort online – ohne Registrierung</li>
         <li>${icon('circle-check')}Kühlhaustüren und Paneele ab Lager Bottrop</li>
         <li>${icon('circle-check')}Montage in den meisten Fällen an einem Tag</li>

@@ -31,7 +31,7 @@ export default {
       <h2 id="wann-t">Wann aus der Kühlzelle ein Kühlhaus wird</h2>
       <div class="prose mt-m">
         <p>Technisch besteht ein Kühlhaus aus denselben Bausteinen wie eine Kühlzelle: <a href="/sandwichpaneele/">Sandwichpaneele</a>, <a href="/kuehlhaustueren/">Kühlhaustüren</a> und <a href="/kaelteaggregate/">Kältetechnik</a>. Der Unterschied liegt in der Planung. Mehrere Zellen teilen sich Wände, Temperaturzonen müssen sauber getrennt werden, und der Warenfluss mit Rollwagen, Hubwagen oder Stapler bestimmt Türen, Rampen und Wege.</p>
-        <p>Typische Projekte sind Kühllager in bestehenden Hallen, Anlagen mit getrennten Bereichen für Frischware und Tiefkühlware oder die Erweiterung eines vorhandenen Kühlraums um zusätzliche Zellen.</p>
+        <p>Typische Projekte sind Kühllager in bestehenden Hallen, Anlagen mit getrennten Bereichen für Frischware und Tiefkühlware oder die Erweiterung eines vorhandenen Kühlraums um zusätzliche Zellen. Die Grundentscheidung zwischen Raumausbau und Paneelzelle erläutert der Ratgeber <a href="/ratgeber/kuehlraum-bauen/">Kühlraum bauen</a>.</p>
       </div>
       <p class="mt-m">${linkArrow('Einzelne Kühlzelle statt Anlage? Kühlzellen ansehen', '/kuehlzellen/')}</p>
     </div>

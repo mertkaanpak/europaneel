@@ -2,7 +2,7 @@ import { icon, fig, pageHero, secHead, facts, cmp, points, checks, faq, related,
 
 export default {
   path: '/tiefkuehlzellen/',
-  title: 'Tiefkühlzellen nach Maß für Gewerbe & Gastronomie | Europaneel',
+  title: 'Tiefkühlzellen nach Maß | Europaneel',
   description: 'Tiefkühlzellen mit isoliertem Boden, Tiefkühltür und passender Kältetechnik – geplant für Ware bei −18 °C und kälter. Richtpreis online berechnen.',
   updated: '2026-10-05',
   crumbs: [['Tiefkühlzellen', '/tiefkuehlzellen/']],

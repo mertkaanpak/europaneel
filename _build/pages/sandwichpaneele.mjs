@@ -21,7 +21,7 @@ const DIAGRAM = `<figure class="diagram" data-reveal>
 
 export default {
   path: '/sandwichpaneele/',
-  title: 'Sandwichpaneele für Kühlhaus & Kühlzelle | Europaneel',
+  title: 'Sandwichpaneele für Kühlzellen | Europaneel',
   description: 'Sandwichpaneele für Kühlzellen und Kühlhäuser: Isolierpaneele für Wand, Decke und Boden, viele Stärken kurzfristig ab Lager Bottrop verfügbar.',
   updated: '2026-10-05',
   crumbs: [['Sandwichpaneele', '/sandwichpaneele/']],

@@ -150,9 +150,10 @@ const metzgerei = {
     ['Belastbarer Boden', 'Rollwagen, Kisten und Hubwagen belasten den Zellenboden. Die Bodenausführung wird auf diese Lasten abgestimmt.'],
     ['Lasten an der Decke', 'Sollen Rohrbahnen oder Haken an der Decke befestigt werden, müssen Decke und Aufhängung dafür ausgelegt sein – das gehört in die Planung, bevor die Paneele bestellt werden.'],
   ])}</div>
-</div></section>
+  <p class="mt-m">Für die Vorbereitung vor dem Aufmaß hilft die <a href="/ratgeber/kuehlzelle-planen/">Checkliste zum Planen einer Kühlzelle</a>. Welche Dämmung zu Temperatur und Umgebung passt, erklärt der Ratgeber <a href="/ratgeber/paneelstaerke-kuehlzelle/">Paneelstärke für Kühlzellen</a>.</p>
+  </div></section>
 
-<section class="sec" aria-labelledby="tuer-t"><div class="container">
+  <section class="sec" aria-labelledby="tuer-t"><div class="container">
   ${secHead({ eyebrow: 'Türen', id: 'tuer-t', title: 'Tür und Warenfluss', text: 'In der Metzgerei wird die Kühlzelle oft im Minutentakt geöffnet. Breite Schiebetüren erleichtern das Ein- und Ausfahren, Streifenvorhänge und Türschließer begrenzen die Kälteverluste.' })}
   <div class="grid g-2">
     <article class="card" data-reveal><span class="card__icon">${icon('door-open')}</span><h3>Drehtür</h3><p>Für kleinere Zellen und Personenverkehr. Ab Lager in Breiten von 75 bis 120 cm.</p>${linkArrow('Drehtüren ansehen', '/kuehlhaustueren/#drehtueren')}</article>

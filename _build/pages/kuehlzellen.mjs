@@ -2,7 +2,7 @@ import { icon, fig, pageHero, secHead, facts, spec, cmp, checks, steps, faq, rel
 
 export default {
   path: '/kuehlzellen/',
-  title: 'Kühlzellen nach Maß – planen, liefern, montieren | Europaneel',
+  title: 'Kühlzellen nach Maß | Europaneel',
   description: 'Begehbare Kühlzellen nach Maß für Gastronomie, Handel und Industrie: mit oder ohne Boden, Dreh- oder Schiebetür, Kältetechnik und Montage. Richtpreis online.',
   updated: '2026-10-05',
   crumbs: [['Kühlzellen', '/kuehlzellen/']],

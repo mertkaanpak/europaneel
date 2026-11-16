@@ -2,7 +2,7 @@ import { icon, fig, pageHero, secHead, facts, cmp, points, faq, related, ctaBand
 
 export default {
   path: '/kaelteaggregate/',
-  title: 'Kälteaggregate für Kühlzellen: Monoblock & Split | Europaneel',
+  title: 'Kälteaggregate für Kühlzellen | Europaneel',
   description: 'Kälteaggregate für Kühl- und Tiefkühlzellen: Huckepack, Monoblock und Split im Vergleich – Aufstellung, Abwärme und Kältemittel nach F-Gase-Verordnung.',
   updated: '2026-10-05',
   crumbs: [['Kälteaggregate', '/kaelteaggregate/']],
@@ -46,6 +46,7 @@ export default {
       ['Geräusch und Platz', 'Wo es leise sein muss oder kein Platz für die Abwärme ist, kann ein außen aufgestellter Verflüssigungssatz die bessere Lösung sein.'],
       ['Tiefkühlung', 'Tiefkühlaggregate müssen den Verdampfer regelmäßig abtauen. Das gehört zur Auslegung genauso wie die Wahl des Kältemittels.'],
     ])}</div>
+    <p class="mt-m">Für die Auslegung helfen Maße, Solltemperatur und Aufstellort. Was vor dem Angebot geklärt werden sollte, steht in der <a href="/ratgeber/kuehlzelle-planen/">Checkliste zum Planen einer Kühlzelle</a>.</p>
   </div>
 </section>
 

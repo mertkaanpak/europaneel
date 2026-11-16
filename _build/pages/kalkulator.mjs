@@ -5,10 +5,10 @@ import { icon, secHead, faq, related, heroCrumbs } from '../lib.mjs';
 import { SITE } from '../site.config.mjs';
 
 const DOORS = [
-  ['0', 'Keine Tür [0 €]', true], ['550', 'Drehtür 75 × 175 cm [+550 €]'], ['580', 'Drehtür 75 × 190 cm [+580 €]'],
-  ['600', 'Drehtür 80 × 190 cm [+600 €]'], ['650', 'Drehtür 90 × 190 cm [+650 €]'], ['700', 'Drehtür 110 × 190 cm [+700 €]'],
-  ['800', 'Drehtür 100 × 200 cm [+800 €]'], ['850', 'Drehtür 100 × 220 cm [+850 €]'], ['900', 'Drehtür 120 × 200 cm [+900 €]'],
-  ['1000', 'Drehtür 120 × 220 cm [+1.000 €]'], ['0', 'Schiebetür (Auf Anfrage)'],
+  ['0', 'Keine Tür [0 €]', true], ['600', 'Drehtür 75 × 175 cm [+600 €]'], ['630', 'Drehtür 75 × 190 cm [+630 €]'],
+  ['650', 'Drehtür 80 × 190 cm [+650 €]'], ['700', 'Drehtür 90 × 190 cm [+700 €]'], ['750', 'Drehtür 110 × 190 cm [+750 €]'],
+  ['850', 'Drehtür 100 × 200 cm [+850 €]'], ['900', 'Drehtür 100 × 220 cm [+900 €]'], ['950', 'Drehtür 120 × 200 cm [+950 €]'],
+  ['1050', 'Drehtür 120 × 220 cm [+1.050 €]'], ['0', 'Schiebetür (Auf Anfrage)'],
 ];
 const back = (fn) => `<button class="step-back" type="button" onclick="${fn}">${icon('chevron-left')}Zurück</button>`;
 const f = (id, label, input, req = true) => `<div class="field"><label for="${id}">${label}${req ? ' <span class="req" aria-hidden="true">*</span>' : ''}</label>${input}${req ? `<span class="err">Bitte ausfüllen.</span>` : ''}</div>`;

@@ -58,7 +58,7 @@ export const linkArrow = (label, href) => `<a class="link-arrow" href="${href}">
 export function ctas(o = {}) {
   const parts = [];
   const p1 = btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: o.lead === 'secondary' ? (o.dark ? 'ghost-light' : 'outline') : 'primary', icon: o.lead === 'secondary' ? false : undefined });
-  const p2 = btn(CTA.secondary.label, CTA.secondary.href, { variant: o.lead === 'secondary' ? 'primary' : (o.dark ? 'ghost-light' : 'outline'), icon: o.lead === 'secondary' ? undefined : false });
+  const p2 = btn(CTA.secondary.label, o.secondaryHref || CTA.secondary.href, { variant: o.lead === 'secondary' ? 'primary' : (o.dark ? 'ghost-light' : 'outline'), icon: o.lead === 'secondary' ? undefined : false });
   if (o.lead === 'secondary') { if (o.secondary !== false) parts.push(p2); if (o.primary !== false) parts.push(p1); }
   else { if (o.primary !== false) parts.push(p1); if (o.secondary !== false) parts.push(p2); }
   if (o.tel) parts.push(`<a class="tel-line" href="${SITE.phone.href}">${icon('phone')}${CTA.tertiary.label}: ${SITE.phone.display}</a>`);
@@ -101,8 +101,8 @@ export function ctaBand(o = {}) {
   const text = o.text || 'Konfigurieren Sie Maße, Boden und Tür online und sehen Sie sofort einen Netto-Richtpreis – ohne Registrierung. Oder schildern Sie uns Ihr Projekt, wir melden uns mit einem schriftlichen Angebot.';
   return `<section class="cta-band" aria-labelledby="cta-t" data-track-pos="cta-band"><div class="container cta-band__in"><div data-reveal><h2 id="cta-t">${title}</h2><p>${text}</p></div>`
     + `<div class="cta-band__act" data-reveal data-reveal-d="1">${o.lead === 'secondary'
-      ? btn(CTA.secondary.label, CTA.secondary.href, { variant: 'primary' }) + btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'ghost-light', icon: false })
-      : btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'primary' }) + btn(CTA.secondary.label, CTA.secondary.href, { variant: 'ghost-light', icon: false })}`
+      ? btn(CTA.secondary.label, o.secondaryHref || CTA.secondary.href, { variant: 'primary' }) + btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'ghost-light', icon: false })
+      : btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'primary' }) + btn(CTA.secondary.label, o.secondaryHref || CTA.secondary.href, { variant: 'ghost-light', icon: false })}`
     + `<p class="cta-band__direct"><a href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a><a href="${SITE.whatsapp}" target="_blank" rel="noopener">${icon('whatsapp', 'icon--fill')}WhatsApp</a></p>`
     + `<p class="cta-band__hours">${SITE.hours.text} · Beratung für Gewerbekunden</p></div></div></section>`;
 }

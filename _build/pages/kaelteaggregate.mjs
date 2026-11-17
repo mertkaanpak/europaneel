@@ -14,7 +14,7 @@ export default {
       title: 'Kälteaggregate für Kühlzellen und Kühlhäuser',
       lead: 'Ohne Kältetechnik ist eine Kühlzelle nur ein gut gedämmter Raum. Wir bieten Aggregate in den gängigen Bauformen Huckepack, Monoblock und Split an – abgestimmt auf Zellengröße, Temperatur und Aufstellort.',
       photo: 'kuehlanlage-aggregat-schiebetueren', cap: 'Kälteaggregat über der Front einer mehrzelligen Anlage',
-      ctas: { lead: 'secondary' },
+      ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=aggregat#anfrage' },
     })}
 
 <section class="sec--facts" aria-label="Eckdaten"><div class="container">${facts([
@@ -87,6 +87,6 @@ export default {
   { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'Aufstellort und Abwärme vorab klären.' },
 ])}</div></section>
 
-${ctaBand({ lead: 'secondary', title: 'Welches Aggregat passt zu Ihrer Zelle?', text: 'Nennen Sie uns Zellenmaße, Temperatur und Aufstellort – wir schlagen Ihnen eine passende Kältelösung vor.' })}`;
+${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=aggregat#anfrage', title: 'Welches Aggregat passt zu Ihrer Zelle?', text: 'Nennen Sie uns Zellenmaße, Temperatur und Aufstellort – wir schlagen Ihnen eine passende Kältelösung vor.' })}`;
   },
 };

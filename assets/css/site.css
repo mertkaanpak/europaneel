@@ -858,6 +858,8 @@ html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{tr
 
 /* Größere Trefferflächen ohne optische Veränderung (Ziel ≥ 44 px) */
 .hdr__logo{min-height:44px}
+.hdr__phone{min-height:44px}
+.ftr__logo{display:inline-flex;align-items:center;min-height:44px}
 :is(.link-arrow,.tel-line,.cta-band__tel){position:relative}
 :is(.link-arrow,.tel-line)::after{content:"";position:absolute;inset:-7px -4px}
 

@@ -103,11 +103,12 @@ export function ctaBand(o = {}) {
     + `<div class="cta-band__act" data-reveal data-reveal-d="1">${o.lead === 'secondary'
       ? btn(CTA.secondary.label, CTA.secondary.href, { variant: 'primary' }) + btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'ghost-light', icon: false })
       : btn(CTA.primary.label, o.primaryHref || CTA.primary.href, { variant: 'primary' }) + btn(CTA.secondary.label, CTA.secondary.href, { variant: 'ghost-light', icon: false })}`
-    + `<a class="cta-band__tel" href="${SITE.phone.href}">${icon('phone')}${CTA.tertiary.label}: ${SITE.phone.display}</a></div></div></section>`;
+    + `<p class="cta-band__direct"><a href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a><a href="${SITE.whatsapp}" target="_blank" rel="noopener">${icon('whatsapp', 'icon--fill')}WhatsApp</a></p>`
+    + `<p class="cta-band__hours">${SITE.hours.text} · Beratung für Gewerbekunden</p></div></div></section>`;
 }
 
 export function mobileContactBar() {
-  return `<nav class="mobile-contact" aria-label="Schneller Kontakt"><a href="${SITE.phone.href}">${icon('phone')}<span>Anrufen</span></a><a href="${CTA.secondary.href}">${icon('arrow-right')}<span>Projekt anfragen</span></a></nav>`;
+  return `<nav class="mobile-contact" aria-label="Schneller Kontakt" data-track-pos="mobile-bar"><a href="${SITE.phone.href}">${icon('phone')}<span>Anrufen</span></a><a class="mobile-contact__wa" href="${SITE.whatsapp}" target="_blank" rel="noopener" aria-label="Per WhatsApp schreiben">${icon('whatsapp', 'icon--fill')}</a><a href="${CTA.secondary.href}">${icon('arrow-right')}<span>Projekt anfragen</span></a></nav>`;
 }
 
 export function mapBlock(title = 'Standort der Europaneel GmbH in Bottrop') {
@@ -157,9 +158,11 @@ function renderHeader(page) {
   const tool = `<a class="mega__tool" href="${CTA.primary.href}"><span><span class="eyebrow">Online-Tool</span><b>Kühlzellen-Kalkulator</b><small>Maße, Boden und Tür wählen – Netto-Richtpreis sofort, ohne Registrierung.</small></span><span class="link-arrow">${CTA.primary.label}${icon('arrow-right')}</span></a>`;
   const drop = ind.links.map((l) => `<a class="mega__link" href="${l.href}"${page.path === l.href ? ' aria-current="page"' : ''}>${icon(l.icon)}<span><b>${l.label}</b><small>${l.desc}</small></span></a>`).join('');
   const links = NAV.links.map((l) => `<li><a class="nav__link" href="${l.href}"${navLinkCurrent(l.href, page) ? ' aria-current="page"' : ''}>${l.label}</a></li>`).join('');
+  // Startseite: Kopf liegt auf dunklem Foto bzw. ist dunkel hinterlegt → helle Logo-Variante (Kontrast)
+  const lv = (page.bodyClass || '').includes('home-cinema') ? '-light' : '';
   return `<a class="skip" href="#main">Zum Inhalt springen</a>
 <header class="hdr" data-track-pos="header"><div class="container hdr__in">
-<a class="hdr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-360.webp" srcset="/assets/img/europaneel-logo-360.webp 360w, /assets/img/europaneel-logo.webp 720w" sizes="180px" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH – Isoliertüren &amp; Kühlraumbau"></a>
+<a class="hdr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo${lv}-360.webp" srcset="/assets/img/europaneel-logo${lv}-360.webp 360w, /assets/img/europaneel-logo${lv}.webp 720w" sizes="180px" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH – Isoliertüren &amp; Kühlraumbau"></a>
 <nav class="nav" aria-label="Hauptnavigation"><ul class="nav__list">
 <li class="nav__item${solCurrent ? ' is-current' : ''}" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-sol">${sol.label}${icon('chevron-down')}</button><div class="mega" id="m-sol">${megaCols}${tool}</div></li>
 <li class="nav__item${indCurrent ? ' is-current' : ''}" data-menu><button class="nav__btn" type="button" aria-expanded="false" aria-controls="m-ind">${ind.label}${icon('chevron-down')}</button><div class="drop" id="m-ind">${drop}</div></li>
@@ -185,6 +188,7 @@ function renderFooter() {
   return `<footer class="ftr" data-track-pos="footer"><div class="container ftr__grid">
 <div class="ftr__brand"><a class="ftr__logo" href="/" aria-label="Europaneel GmbH – zur Startseite"><img src="/assets/img/europaneel-logo-light-360.webp" srcset="/assets/img/europaneel-logo-light-360.webp 360w, /assets/img/europaneel-logo-light.webp 720w" sizes="190px" width="720" height="${Math.round(720 * IMAGES.logo.height / IMAGES.logo.width)}" alt="Europaneel GmbH" loading="lazy"></a>
 <p class="ftr__claim">Kühlzellen, Tiefkühlzellen und Kühlhäuser – geplant, geliefert und montiert. Mit Lager und Abholung in Bottrop.</p>
+<p class="ftr__seat">${icon('map-pin')}Firmensitz Bottrop · Ruhrgebiet, Nordrhein-Westfalen · Montage deutschlandweit</p>
 <address>${SITE.legalName}<br>${SITE.address.street}<br>${SITE.address.zip} ${SITE.address.city}<br><a href="${SITE.phone.href}">${SITE.phone.display}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.hours.text}</address></div>
 ${FOOTER.cols.map((c) => `<div><h2>${c.title}</h2><ul>${c.links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join('')}</ul></div>`).join('')}
 </div><div class="container ftr__bottom"><span>© ${year} ${SITE.legalName} · Alle Rechte vorbehalten. Texte, Fotos und Kalkulator sind urheberrechtlich geschützt. Nutzungsvorbehalt nach § 44b UrhG: keine Verwendung für Text- und Data-Mining oder KI-Training.</span><button class="ftr__btn" type="button" data-consent-open>Cookie-Einstellungen</button></div></footer>`;

@@ -1,4 +1,4 @@
-import { icon, pic, fig, btn, facts, secHead, points, faq, related, ctaBand, linkArrow } from '../lib.mjs';
+import { icon, pic, fig, btn, secHead, points, checks, faq, related, ctaBand, linkArrow } from '../lib.mjs';
 import { SITE, CTA } from '../site.config.mjs';
 
 const tile = (h, t, k, p, text, cap) => `<a class="cinema-service" href="${h}" data-reveal><div>${pic(p, { sizes: '(min-width:1360px) 33vw,100vw' })}</div><span>${k}</span><h3>${t}</h3><p>${text}</p><small class="cinema-service__cap">Foto: ${cap}</small><b>${t} ansehen ${icon('arrow-right')}</b></a>`;
@@ -8,20 +8,34 @@ export default {
   bodyClass: 'home-cinema',
   title: 'Kühlraumbau bundesweit: Kühlzellen & Kühlhäuser | Europaneel',
   description: 'Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser deutschlandweit – in der Regel in 1–2 Wochen. Richtpreis online berechnen.',
-  updated: '2026-11-18',
+  updated: '2026-11-17',
   pageType: 'WebPage',
   ogPhoto: 'kuehlanlage-rot-praxis',
   render() {
     return `
-<section class="cinema-hero" aria-labelledby="hero-t"><div class="cinema-hero__photo">${pic('kuehlanlage-rot-praxis', { eager: true, sizes: '100vw' })}</div><div class="cinema-hero__shade"></div><div class="cinema-hero__grid" aria-hidden="true"></div><div class="container cinema-hero__content" data-hero-enter><p class="eyebrow">Europaneel · Kühlraumbau</p><h1 id="hero-t">Kühlräume,<br><em>die funktionieren.</em></h1><h2 class="cinema-hero__sub">Kühlzellen, Tiefkühlzellen und Kühlhäuser nach Maß – bundesweit.</h2><p>Wir planen Abmessungen, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb, liefern ab unserem Lager in Bottrop und montieren deutschlandweit.</p><div class="btn-row"><a class="btn btn--primary" href="${CTA.secondary.href}">Projekt anfragen${icon('arrow-right')}</a>${btn('Kühlzelle konfigurieren', CTA.primary.href, { variant: 'ghost-light', icon: false })}</div></div><a class="cinema-scroll" href="#fakten">Scrollen <i></i></a></section>
-<section id="fakten" class="cinema-facts" aria-label="Eckdaten"><div class="container">${facts([['18+', 'Jahre Erfahrung'], ['1.000+', 'montierte Kühlzellen'], ['Deutschland', 'Montage bundesweit'], ['1–2 Wochen', 'in der Regel Lieferung & Montage']], 'cinema-facts__in')}</div></section>
+<section class="cinema-hero" aria-labelledby="hero-t"><div class="cinema-hero__photo">${pic('kuehlanlage-rot-praxis', { eager: true, sizes: '100vw' })}</div><div class="cinema-hero__shade"></div><div class="cinema-hero__grid" aria-hidden="true"></div>
+<div class="container cinema-hero__content"><div class="cinema-hero__text" data-hero-enter>
+  <p class="eyebrow">Europaneel · Kühlraumbau aus Bottrop</p>
+  <h1 id="hero-t">Kühlzellen nach Maß. <em>Geplant, geliefert, montiert.</em></h1>
+  <p class="cinema-hero__lead">Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gastronomie, Handel und Gewerbe: Wir planen Maße, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb – und montieren bundesweit.</p>
+  <div class="btn-row"><a class="btn btn--primary" href="${CTA.secondary.href}" data-track-pos="hero">Projekt anfragen${icon('arrow-right')}</a>${btn('Kühlzelle konfigurieren', CTA.primary.href, { variant: 'ghost-light', icon: false, attrs: 'data-track-pos="hero"' })}</div>
+  <p class="cinema-hero__tel" data-track-pos="hero">oder direkt anrufen: <a href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a></p>
+</div>
+<a class="hero-calc" href="${CTA.primary.href}" data-hero-media><span class="hero-calc__lbl">${icon('calculator')}Online-Kalkulator</span><span class="hero-calc__dims" aria-hidden="true"><i>L</i>×<i>B</i>×<i>H</i></span><span class="hero-calc__txt">Maße, Boden und Tür wählen – Netto-Richtpreis sofort, ohne Registrierung.</span><span class="hero-calc__go">Richtpreis berechnen${icon('arrow-right')}</span></a>
+</div>
+<div class="cinema-hero__proof"><div class="container"><dl class="proof" id="fakten" aria-label="Eckdaten">
+  <div><dt>Erfahrung</dt><dd><b>18+</b> Jahre</dd></div>
+  <div><dt>Montiert</dt><dd><b>1.000+</b> Kühlzellen</dd></div>
+  <div><dt>Lieferung &amp; Montage</dt><dd>in der Regel <b>1–2</b> Wochen</dd></div>
+  <div><dt>Einsatzgebiet</dt><dd><b>bundesweit</b></dd></div>
+</dl></div></div></section>
 <section class="cinema-practice" aria-labelledby="praxis-t"><div class="container">${secHead({ eyebrow: 'Aus der Praxis', id: 'praxis-t', title: 'Anlagen, die den Raum prägen.', text: 'Echte Kühlanlagen – sachlich dokumentiert.' })}</div><div class="cinema-practice__wide" data-reveal>${fig('kuehlanlage-gruen-praxis', { n: 1, cap: 'Kühlanlage mit außenliegenden Aggregaten', ratio: 'wide', sizes: '100vw' })}</div><div class="container cinema-practice__pair"><div data-reveal>${fig('kuehlzelle-tuerreihe-praxis', { n: 2, cap: 'Weiße Kühlzelle mit mehreren Türen', ratio: 'wide', sizes: '(min-width:1360px) 50vw,100vw' })}</div><div data-reveal data-reveal-d="2">${fig('kuehlanlage-dunkel-praxis', { n: 3, cap: 'Dunkle Kühlzelle unter einem Glasdach', ratio: 'wide', sizes: '(min-width:1360px) 50vw,100vw' })}</div></div><div class="container"><p class="cinema-practice__more">${linkArrow('Alle Referenzen ansehen', '/referenzen/')}</p></div></section>
 
 <section class="cinema-services" aria-labelledby="leist-t"><div class="container">
   ${secHead({ eyebrow: 'Leistungen', id: 'leist-t', title: 'Vom Kühlraum für die Küche bis zum mehrzelligen Kühllager', text: 'Jede Anlage entsteht aus Sandwichpaneelen, Türen und Kältetechnik – abgestimmt auf Temperatur, Nutzung und den verfügbaren Platz.' })}
   <div class="cinema-services__grid">
     ${tile('/kuehlzellen/', 'Kühlzellen', 'Pluskühlung', 'kuehlzelle-offene-tuer-praxis', 'Begehbare Kühlzellen nach Maß – mit oder ohne Bodenelement, mit Dreh- oder Schiebetür und passendem Kälteaggregat.', 'Kühlzelle mit geöffneter Tür in einer Halle')}
-    ${tile('/tiefkuehlzellen/', 'Tiefkühlzellen', 'Minusbereich', 'kuehlanlage-dunkel-praxis', 'Für Tiefkühlware, die bei −18 °C oder kälter gelagert werden muss: mit isoliertem Boden, Tiefkühltür und abgestimmter Kältetechnik.', 'Kühlzelle unter einem Glasdach (Beispielfoto)')}
+    ${tile('/tiefkuehlzellen/', 'Tiefkühlzellen', 'Minusbereich', 'kuehlzelle-monoblock-werkstatt', 'Für Tiefkühlware, die bei −18 °C oder kälter gelagert werden muss: mit isoliertem Boden, Tiefkühltür und abgestimmter Kältetechnik.', 'Zelle mit Kälteaggregat neben der Tür (Beispielfoto)')}
     ${tile('/kuehlhausbau/', 'Kühlhausbau', 'Große Projekte', 'kuehlanlage-rot-praxis', 'Mehrzellige Kühlanlagen und Kühllager in Hallen – als Gesamtprojekt mit Schiebetüren, Auffahrrampen und Kältetechnik.', 'Mehrteilige Kühlanlage mit roten Paneelen in einer Halle')}
   </div>
   <div class="ind cinema-parts">
@@ -31,6 +45,19 @@ export default {
       ['/kaelteaggregate/', 'fan', 'Kälteaggregate', 'Monoblock-, Huckepack- und Split-Lösungen passend zur Zelle.'],
       ['/kuehlzellen-montage/', 'hard-hat', 'Planung & Montage', 'Aufmaß vor Ort, Planung, Lieferung und fachgerechter Aufbau.'],
     ].map(([h, ic, t, p], i) => `<a href="${h}" data-reveal${i ? ` data-reveal-d="${i}"` : ''}>${icon(ic)}<b>${t}</b><small>${p}</small></a>`).join('')}
+  </div>
+</div></section>
+
+<section class="sec route" aria-labelledby="route-t" data-track-pos="home-route"><div class="container">
+  ${secHead({ eyebrow: 'Ihr Weg zum Angebot', id: 'route-t', title: 'Drei Wege zu Ihrem Angebot', text: 'Ob eine einzelne Kühlzelle für die Küche oder ein mehrzelliges Kühllager: Wählen Sie den Einstieg, der zu Ihrem Vorhaben passt.' })}
+  <div class="route__grid">
+    <article class="route__card" data-reveal><span class="route__n">01</span><h3>Richtpreis selbst ermitteln</h3><p>Für einzelne Kühl- und Tiefkühlzellen: Kühlart, Boden, Maße und Tür wählen – der Netto-Richtpreis erscheint sofort. Die Konfiguration senden Sie mit einem Klick als Anfrage.</p>${btn('Kühlzelle konfigurieren', CTA.primary.href, { variant: 'outline' })}</article>
+    <article class="route__card route__card--lead" data-reveal data-reveal-d="1"><span class="route__n">02</span><h3>Kühlhaus oder Mehrzellenanlage planen</h3><p>Für größere Anlagen, mehrere Temperaturzonen oder besondere Einbausituationen planen wir individuell. Hilfreich für ein schnelles Angebot:</p>
+      ${checks(['Grundriss, Skizze oder Fotos des Aufstellorts', 'Ungefähre Maße und verfügbare Raumhöhe', 'Ware und gewünschte Temperatur je Bereich', 'Standort und Wunschtermin'])}
+      ${btn('Großprojekt anfragen', '/kontakt.html?projekt=kuehlhaus#anfrage', { variant: 'primary' })}</article>
+    <article class="route__card" data-reveal data-reveal-d="2"><span class="route__n">03</span><h3>Direkt mit uns sprechen</h3><p>Sie sind unsicher, welche Lösung passt? Rufen Sie an oder schreiben Sie uns per WhatsApp – Fotos und Skizzen gern direkt mitschicken.</p>
+      <ul class="route__direct"><li><a href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a></li><li><a href="${SITE.whatsapp}" target="_blank" rel="noopener">${icon('whatsapp', 'icon--fill')}WhatsApp-Nachricht</a></li><li><a href="mailto:${SITE.email}">${icon('mail')}${SITE.email}</a></li></ul>
+      <p class="route__hours">${SITE.hours.text}</p></article>
   </div>
 </div></section>
 
@@ -76,7 +103,9 @@ export default {
   <li><b>04</b><h3>Montage</h3><p>Lieferung und Montage in der Regel innerhalb von 1–2 Wochen. Übliche Zellengrößen stehen meist an einem Tag.</p></li>
 </ol></div></section>
 
-<section class="cinema-calc" aria-labelledby="calc-t" data-track-pos="calc-teaser"><div class="container"><p class="eyebrow">Kühlzellen-Kalkulator</p><h2 id="calc-t">Richtpreis in <em>4 Schritten.</em></h2><p>Kühlart wählen, Boden festlegen, Maße eingeben, Tür auswählen: Der Netto-Richtpreis für Paneele und Tür erscheint sofort – ohne Registrierung. Wenn er passt, übernehmen wir Ihre Konfiguration direkt in die Anfrage.</p><ol class="cinema-calc__steps"><li>01 Kühlart (Plus/Tief)</li><li>02 Boden</li><li>03 Maße</li><li>04 Tür &amp; Preis</li></ol><p class="cinema-calc__note">${icon('info')}Kälteaggregat, Lieferung und Montage sind nicht im Richtpreis enthalten – wir bieten sie auf Wunsch separat an.</p>${btn('Kühlzelle konfigurieren', CTA.primary.href)}</div></section>
+<section class="cinema-calc" aria-labelledby="calc-t" data-track-pos="calc-teaser"><div class="container cinema-calc__in"><div><p class="eyebrow">Kühlzellen-Kalkulator</p><h2 id="calc-t">Richtpreis in <em>4 Schritten.</em></h2><p>Kühlart wählen, Boden festlegen, Maße eingeben, Tür auswählen: Der Netto-Richtpreis für Paneele und Tür erscheint sofort – ohne Registrierung. Wenn er passt, übernehmen wir Ihre Konfiguration direkt in die Anfrage.</p><ol class="cinema-calc__steps"><li>01 Kühlart</li><li>02 Boden</li><li>03 Maße</li><li>04 Tür &amp; Preis</li></ol><p class="cinema-calc__note">${icon('info')}Kälteaggregat, Lieferung und Montage sind nicht im Richtpreis enthalten – wir bieten sie auf Wunsch separat an.</p>${btn('Kühlzelle konfigurieren', CTA.primary.href)}</div>
+<a class="calc-mock" href="${CTA.primary.href}" tabindex="-1" aria-hidden="true" data-reveal data-reveal-d="1"><span class="calc-mock__bar"><i></i><i></i><i></i><small>Schematische Darstellung</small></span><span class="calc-mock__body"><span class="calc-mock__steps"><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span><span class="calc-mock__lbl">Maße Ihrer Kühlzelle</span><span class="calc-mock__row"><span class="calc-mock__f"><small>Länge</small><b>L m</b></span><span class="calc-mock__f"><small>Breite</small><b>B m</b></span><span class="calc-mock__f"><small>Höhe</small><b>H m</b></span></span><span class="calc-mock__f calc-mock__door"><small>Tür</small><b>Drehtür oder Schiebetür</b></span><span class="calc-mock__res"><span><small>Richtpreis netto</small><b>sofort sichtbar</b></span>${icon('arrow-right')}</span></span></a>
+</div></section>
 
 <section class="sec sec--surface cinema-know" aria-labelledby="rat-t"><div class="container">
   ${secHead({ eyebrow: 'Ratgeber', id: 'rat-t', title: 'Fachwissen für Ihre Entscheidung', text: 'Antworten auf die Fragen, die vor jedem Kühlzellen-Projekt stehen – sachlich und ohne Verkaufsfloskeln.' })}
@@ -117,6 +146,6 @@ export default {
   ${fig('europaneel-standort-bottrop', { n: 4, cap: 'Firmengelände der Europaneel GmbH in Bottrop', reveal: true, sizes: '(min-width: 1024px) 640px, 100vw' })}
 </div></section>
 
-<section class="cinema-close"><div class="container"><p class="eyebrow">Ihr Projekt</p><h2>Starten wir mit einer klaren Anfrage.</h2><p>Wir prüfen Ihre Angaben und melden uns nach Sichtung zurück.</p><div class="btn-row"><a class="btn btn--primary" href="${CTA.secondary.href}">Projekt anfragen${icon('arrow-right')}</a><a class="btn btn--ghost-light" href="${SITE.phone.href}">${icon('phone')}Anrufen</a></div></div></section>${ctaBand({ lead: 'secondary', title: 'Ihre Kühlzelle. Präzise geplant.', text: 'Konfigurieren Sie vorab oder sprechen Sie direkt mit uns.' })}`;
+${ctaBand({ lead: 'secondary', title: 'Starten wir mit Ihrem Projekt.', text: 'Schildern Sie uns Ihr Vorhaben – wir prüfen Ihre Angaben und melden uns mit einem schriftlichen Angebot. Oder ermitteln Sie vorab selbst einen Richtpreis.' })}`;
   },
 };

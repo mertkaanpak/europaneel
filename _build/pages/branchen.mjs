@@ -199,6 +199,8 @@ const baeckerei = {
     eyebrow: 'Branche · Bäckerei & Konditorei',
     title: 'Kühlzellen für Bäckereien und Konditoreien',
     lead: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Wir planen beides passend zu Ihrer Backstube, liefern und montieren bundesweit – in der Regel innerhalb von 1–2 Wochen.',
+    photo: 'kuehlzelle-tuer-praxis', cap: 'Beispielfoto: Kühlzelle mit geöffneter Drehtür',
+    alt: 'Beispielfoto einer freistehenden Kühlzelle aus grauen Paneelen mit geöffneter Drehtür in einer Halle',
   })}
 <section class="sec" aria-labelledby="bedarf-t"><div class="container split">
   <div>${secHead({ eyebrow: 'Anforderungen', id: 'bedarf-t', title: 'Was eine Kühlzelle in der Backstube können muss', text: 'Zwei Temperaturbereiche, viel Reinigung und Mehlstaub: Daraus ergeben sich Zellenaufteilung, Oberflächen und Kältetechnik.', stack: true })}</div>
@@ -270,6 +272,8 @@ const handel = {
     eyebrow: 'Branche · Lebensmittelhandel & Hofladen',
     title: 'Kühlzellen für Lebensmittelhandel und Hofladen',
     lead: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Wir planen Kühl- und Tiefkühlzellen, die zu Ihrem Warenfluss passen, und montieren bundesweit – in der Regel innerhalb von 1–2 Wochen.',
+    photo: 'kuehlanlage-schiebetuer-praxis', cap: 'Beispielfoto: Kühlanlage mit Schiebetür und Streifenvorhang',
+    alt: 'Beispielfoto einer Kühlanlage aus grauen Paneelen mit Schiebetür, Sichtfenstern und einem Durchgang mit Streifenvorhang in einer Halle',
   })}
 <section class="sec" aria-labelledby="bedarf-t"><div class="container split">
   <div>${secHead({ eyebrow: 'Anforderungen', id: 'bedarf-t', title: 'Was die Lagerkühlung im Handel leisten muss', text: 'Im Laden wird die Zelle beim Auffüllen ständig geöffnet. Das entscheidet über Tür, Zubehör und Energiebedarf.', stack: true })}</div>

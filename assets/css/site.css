@@ -731,6 +731,11 @@ html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{tr
 @media (max-width:899px){.cinema-tech__grid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:479px){.cinema-service{padding:24px;min-height:420px}h1,h2,h3{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}}
 
+/* Seiten-Hero mit Foto: dezenter Schatten, ruhige Bildzeile; mobil flacher, damit der Hero nicht überladen wirkt */
+.phero .fig__img{box-shadow:var(--shadow-float)}
+.phero .fig figcaption{margin-top:1rem}
+@media (max-width:1023px){.phero__grid>.fig{margin-top:4px}.phero .fig--43 .fig__img{aspect-ratio:16/10}}
+
 /* 12 · Druck --------------------------------------------------------------- */
 @media print{
   .hdr,.mnav,.ftr,.consent,.wa-float,.cta-band,.crumbs,.skip,.no-print{display:none!important}

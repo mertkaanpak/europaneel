@@ -20,6 +20,7 @@ const hub = {
   description: 'Kühl- und Tiefkühlzellen für Gastronomie, Metzgerei, Bäckerei, Handel, Produktion, Logistik und Pharma: was jede Branche an Temperatur und Hygiene braucht.',
   updated: '2026-11-18',
   pageType: 'CollectionPage',
+  bodyClass: 'ind-page',
   crumbs: [['Branchen', '/branchen/']],
   render: () => `${pageHero({
     eyebrow: 'Branchen',
@@ -29,7 +30,7 @@ const hub = {
 <section class="sec" aria-label="Branchen im Überblick"><div class="container">
   <nav class="ind" aria-label="Branchen-Sprungmarken">${SECTIONS.map((s) => `<a href="${s.link || '#' + s.id}">${icon(s.icon)}<b>${s.title}</b><small>${s.link ? 'Eigene Seite' : 'Abschnitt'}</small><span class="more">${s.link ? 'Ansehen' : 'Lesen'}${icon('arrow-right')}</span></a>`).join('')}</nav>
 </div></section>
-${SECTIONS.map((s, i) => `<section class="sec${i % 2 ? '' : ' sec--surface'}" id="${s.id}" aria-labelledby="${s.id}-t"><div class="container split">
+${SECTIONS.map((s, i) => `<section class="sec ind-sec${i % 2 ? '' : ' sec--surface'}" id="${s.id}" aria-labelledby="${s.id}-t"><div class="container split">
   <div data-reveal><p class="eyebrow">Branche</p><h2 id="${s.id}-t">${s.title}</h2></div>
   <div data-reveal data-reveal-d="1"><p class="lead">${s.text}</p>${s.link ? `<p class="mt-m">${linkArrow(`Mehr zu ${s.title.split(/[,&]/)[0].trim()}`, s.link)}</p>` : `<p class="mt-m">${linkArrow('Kühlzellen nach Maß', '/kuehlzellen/')}</p>`}</div>
 </div></section>`).join('')}
@@ -47,6 +48,7 @@ ${ctaBand()}`,
 /* ------------------------------------------------------------ Gastronomie */
 const gastro = {
   path: '/branchen/gastronomie/',
+  bodyClass: 'ind-page',
   title: 'Kühlzelle für Gastronomie, Hotel & Catering | Europaneel',
   description: 'Kühl- und Tiefkühlzellen für Restaurants, Hotels und Catering: Platz, Lagertemperaturen, Tür und Aggregat richtig planen – Richtpreis online berechnen.',
   updated: '2026-10-05',
@@ -121,6 +123,7 @@ ${ctaBand()}`,
 /* ------------------------------------------------------------ Metzgerei */
 const metzgerei = {
   path: '/branchen/metzgerei/',
+  bodyClass: 'ind-page',
   title: 'Kühlzelle für Metzgerei & Fleischerei | Europaneel',
   description: 'Kühlräume für Metzgereien: gesetzliche Lagertemperaturen für Fleisch, Hackfleisch und Geflügel, Temperaturzonen, Hygiene und Türen richtig planen.',
   updated: '2026-10-05',
@@ -190,6 +193,7 @@ ${ctaBand()}`,
 /* ------------------------------------------------------------ Bäckerei */
 const baeckerei = {
   path: '/branchen/baeckerei-konditorei/',
+  bodyClass: 'ind-page',
   title: 'Kühlzellen für Bäckereien & Konditoreien | Europaneel',
   description: 'Kühlzellen für Bäckereien: Tiefkühlzelle für Teiglinge, Pluskühlung für Sahne und Cremes, abwaschbare Flächen – bundesweit geplant und montiert.',
   updated: '2026-11-18',
@@ -198,7 +202,7 @@ const baeckerei = {
   render: () => `${pageHero({
     eyebrow: 'Branche · Bäckerei & Konditorei',
     title: 'Kühlzellen für Bäckereien und Konditoreien',
-    lead: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Wir planen beides passend zu Ihrer Backstube, liefern und montieren bundesweit – in der Regel innerhalb von 1–2 Wochen.',
+    lead: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Wir planen beides passend zu Ihrer Backstube, liefern und montieren bundesweit – in der Regel innerhalb von <span class="nowrap">1–2 Wochen</span>.',
     photo: 'kuehlzelle-tuer-praxis', cap: 'Beispielfoto: Kühlzelle mit geöffneter Drehtür',
     alt: 'Beispielfoto einer freistehenden Kühlzelle aus grauen Paneelen mit geöffneter Drehtür in einer Halle',
   })}
@@ -263,6 +267,7 @@ ${ctaBand({ title: 'Kühlzelle für Ihre Bäckerei oder Konditorei anfragen.', t
 /* ------------------------------------------------------------ Handel & Hofladen */
 const handel = {
   path: '/branchen/lebensmittelhandel-hofladen/',
+  bodyClass: 'ind-page',
   title: 'Kühlzellen für Lebensmittelhandel & Hofladen | Europaneel',
   description: 'Kühlzellen für Lebensmittelhandel und Hofläden: Lagertemperaturen je Warengruppe, Türschließer, Streifenvorhang und Tiefkühlbereich richtig planen.',
   updated: '2026-11-18',
@@ -271,7 +276,7 @@ const handel = {
   render: () => `${pageHero({
     eyebrow: 'Branche · Lebensmittelhandel & Hofladen',
     title: 'Kühlzellen für Lebensmittelhandel und Hofladen',
-    lead: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Wir planen Kühl- und Tiefkühlzellen, die zu Ihrem Warenfluss passen, und montieren bundesweit – in der Regel innerhalb von 1–2 Wochen.',
+    lead: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Wir planen Kühl- und Tiefkühlzellen, die zu Ihrem Warenfluss passen, und montieren bundesweit – in der Regel innerhalb von <span class="nowrap">1–2 Wochen</span>.',
     photo: 'kuehlanlage-schiebetuer-praxis', cap: 'Beispielfoto: Kühlanlage mit Schiebetür und Streifenvorhang',
     alt: 'Beispielfoto einer Kühlanlage aus grauen Paneelen mit Schiebetür, Sichtfenstern und einem Durchgang mit Streifenvorhang in einer Halle',
   })}

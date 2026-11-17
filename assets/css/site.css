@@ -736,6 +736,29 @@ html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{tr
 .phero .fig figcaption{margin-top:1rem}
 @media (max-width:1023px){.phero__grid>.fig{margin-top:4px}.phero .fig--43 .fig__img{aspect-ratio:16/10}}
 
+/* Branchenseiten · Feinschliff ---------------------------------------------- */
+.nowrap{white-space:nowrap}
+/* Eyebrow im Abschnittskopf wie überall sonst (wurde von .sec-head p auf Lead-Größe gezogen) */
+.ind-page .sec-head .eyebrow{font-size:var(--fs-xs);line-height:1.68;color:var(--steel-600)}
+/* Karten im Raster gleich hoch, Links bündig am Kartenfuß */
+.ind-page .grid>.card{display:flex;flex-direction:column}
+.ind-page .grid>.card>p:last-of-type{flex-grow:1}
+.ind-page .grid>.card>.link-arrow{align-self:flex-start}
+/* Hub: ruhigerer Rhythmus für die kurzen Branchenabschnitte */
+.ind-page .ind-sec{padding-block:clamp(56px,6.5vw,96px)}
+.ind-page .ind-sec h2{max-width:16ch}
+/* Hover & Tastaturfokus: Fokus folgt der Form des Elements, Hover-Zustand auch bei Fokus */
+.btn:focus-visible{border-radius:var(--r-sm)}
+.link-arrow:focus-visible{border-color:var(--red)}
+.link-arrow:focus-visible .icon{transform:translateX(3px)}
+.related a:focus-visible{border-radius:var(--r-md);border-color:var(--line-strong)}
+.ind a:focus-visible{outline-offset:-2px;border-radius:0;background:var(--surface)}
+.ind .more .icon{transition:transform .2s var(--ease)}
+.ind a:is(:hover,:focus-visible) .more .icon{transform:translateX(3px)}
+.ind-page .ind a:hover b{color:var(--red-700)}
+.faq summary:focus-visible{outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.link-arrow:focus-visible .icon,.ind a:is(:hover,:focus-visible) .more .icon{transform:none}}
+
 /* 12 · Druck --------------------------------------------------------------- */
 @media print{
   .hdr,.mnav,.ftr,.consent,.wa-float,.cta-band,.crumbs,.skip,.no-print{display:none!important}

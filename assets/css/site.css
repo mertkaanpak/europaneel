@@ -726,9 +726,10 @@ html.js [data-reveal-d="3"]{transition-delay:.18s}html.js [data-reveal-d="4"]{tr
 .cinema-calc__note .icon{flex:none;margin-top:.2em;color:var(--red)}
 @media (min-width:1024px){.related-4 .related{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (min-width:900px) and (max-width:1023px){.related-4 .related{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:1359px){.cinema-calc__steps li+li:before{display:none}.cinema-service{min-height:440px}}
+@media (max-width:1359px){.cinema-calc__steps li+li:before{display:none}.cinema-service{min-height:440px}.cinema-hero__content{padding-bottom:88px}}
+.cinema-service b{display:inline-flex;align-items:center;gap:.4rem}
 @media (max-width:899px){.cinema-tech__grid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:479px){.cinema-service{padding:24px;min-height:420px}}
+@media (max-width:479px){.cinema-service{padding:24px;min-height:420px}h1,h2,h3{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}}
 
 /* 12 · Druck --------------------------------------------------------------- */
 @media print{

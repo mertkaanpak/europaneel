@@ -24,7 +24,7 @@ export default {
     ${tile('/tiefkuehlzellen/', 'Tiefkühlzellen', 'Minusbereich', 'kuehlanlage-dunkel-praxis', 'Für Tiefkühlware, die bei −18 °C oder kälter gelagert werden muss: mit isoliertem Boden, Tiefkühltür und abgestimmter Kältetechnik.', 'Kühlzelle unter einem Glasdach (Beispielfoto)')}
     ${tile('/kuehlhausbau/', 'Kühlhausbau', 'Große Projekte', 'kuehlanlage-rot-praxis', 'Mehrzellige Kühlanlagen und Kühllager in Hallen – als Gesamtprojekt mit Schiebetüren, Auffahrrampen und Kältetechnik.', 'Mehrteilige Kühlanlage mit roten Paneelen in einer Halle')}
   </div>
-  <div class="cinema-parts">
+  <div class="ind cinema-parts">
     ${[
       ['/sandwichpaneele/', 'layers', 'Sandwichpaneele', 'Isolierpaneele für Wand, Decke und Boden – viele Stärken ab Lager.'],
       ['/kuehlhaustueren/', 'door-closed', 'Kühlhaustüren', 'Dreh- und Schiebetüren, Anschlag links oder rechts, mit oder ohne Schwelle.'],

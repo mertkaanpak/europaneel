@@ -1,4 +1,4 @@
-import { icon, fig, pageHero, secHead, cmp, points, checks, faq, related, ctaBand, note, linkArrow } from '../lib.mjs';
+import { icon, fig, pageHero, secHead, cmp, points, checks, faq, related, ctaBand, note, linkArrow, steps } from '../lib.mjs';
 
 const TEMP_NOTE = 'Höchsttemperaturen der Ware nach VO (EG) 853/2004, Tier-LMHV, TLMV bzw. DIN 10508 (zusammengefasst im Merkblatt des LAVES Niedersachsen). Auszug ohne Gewähr – maßgeblich sind die jeweils geltenden Vorschriften.';
 
@@ -6,8 +6,8 @@ const TEMP_NOTE = 'Höchsttemperaturen der Ware nach VO (EG) 853/2004, Tier-LMHV
 const SECTIONS = [
   { id: 'gastronomie', icon: 'chef-hat', title: 'Gastronomie, Hotel & Catering', link: '/branchen/gastronomie/', text: 'Wenig Platz, viele Warengruppen und tägliche Anlieferungen: In Restaurants und Hotels arbeiten Kühl- und Tiefkühlzelle meist Hand in Hand. Entscheidend sind kurze Wege zur Küche, eine Tür, die den Betrieb nicht ausbremst, und ein Aggregat, das die Küche nicht zusätzlich aufheizt.' },
   { id: 'metzgerei', icon: 'beef', title: 'Metzgerei & Fleischerei', link: '/branchen/metzgerei/', text: 'Für Fleisch, Hackfleisch und Fleischzubereitungen gelten unterschiedliche gesetzliche Höchsttemperaturen. Daraus ergibt sich, ob eine Zelle genügt oder mehrere Temperaturzonen sinnvoll sind – dazu kommen reinigungsfreundliche Oberflächen und belastbare Böden.' },
-  { id: 'baeckerei', icon: 'croissant', title: 'Bäckerei & Konditorei', text: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Weil in Backstuben viel gereinigt wird und Mehlstaub anfällt, zählen glatte, abwaschbare Oberflächen und dichte Anschlüsse.' },
-  { id: 'handel', icon: 'store', title: 'Lebensmittelhandel & Märkte', text: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Häufige Türöffnungen beim Auffüllen machen Türschließer und Streifenvorhänge zu einem echten Energiethema.' },
+  { id: 'baeckerei', icon: 'croissant', title: 'Bäckerei & Konditorei', link: '/branchen/baeckerei-konditorei/', text: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Weil in Backstuben viel gereinigt wird und Mehlstaub anfällt, zählen glatte, abwaschbare Oberflächen und dichte Anschlüsse.' },
+  { id: 'handel', icon: 'store', title: 'Lebensmittelhandel & Hofladen', link: '/branchen/lebensmittelhandel-hofladen/', text: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Häufige Türöffnungen beim Auffüllen machen Türschließer und Streifenvorhänge zu einem echten Energiethema.' },
   { id: 'produktion', icon: 'factory', title: 'Lebensmittelproduktion', text: 'In der Produktion werden Rohware, Zwischen- und Fertigprodukte oft getrennt gekühlt. Hygienerechtlich müssen Wände und Böden leicht zu reinigen und abriebfest sein; wo nass gereinigt wird, empfehlen Hersteller robuste Oberflächen wie Edelstahl.' },
   { id: 'logistik', icon: 'forklift', title: 'Logistik & Lager', text: 'Kühllager für Paletten brauchen breite Schiebetüren, Auffahrrampen und Böden, die Hubwagen und Stapler tragen. Bei Tiefkühlbereichen auf der Bodenplatte gehört der Schutz gegen Frost im Untergrund in die Planung.' },
   { id: 'pharma', icon: 'pill', title: 'Pharma & Apotheken', text: 'Viele kühlpflichtige Arzneimittel werden zwischen 2 und 8 °C gelagert. Für den pharmazeutischen Großhandel gelten zusätzlich die GDP-Leitlinien mit Anforderungen an Temperaturüberwachung und -nachweis – diese Pflichten liegen beim Betreiber und gehören von Anfang an in die Planung.' },
@@ -18,8 +18,9 @@ const hub = {
   path: '/branchen/',
   title: 'Kühlzellen für Gastronomie, Handel & Industrie | Europaneel',
   description: 'Kühl- und Tiefkühlzellen für Gastronomie, Metzgerei, Bäckerei, Handel, Produktion, Logistik und Pharma: was jede Branche an Temperatur und Hygiene braucht.',
-  updated: '2026-10-05',
+  updated: '2026-11-18',
   pageType: 'CollectionPage',
+  bodyClass: 'ind-page',
   crumbs: [['Branchen', '/branchen/']],
   render: () => `${pageHero({
     eyebrow: 'Branchen',
@@ -29,16 +30,25 @@ const hub = {
 <section class="sec" aria-label="Branchen im Überblick"><div class="container">
   <nav class="ind" aria-label="Branchen-Sprungmarken">${SECTIONS.map((s) => `<a href="${s.link || '#' + s.id}">${icon(s.icon)}<b>${s.title}</b><small>${s.link ? 'Eigene Seite' : 'Abschnitt'}</small><span class="more">${s.link ? 'Ansehen' : 'Lesen'}${icon('arrow-right')}</span></a>`).join('')}</nav>
 </div></section>
-${SECTIONS.map((s, i) => `<section class="sec${i % 2 ? '' : ' sec--surface'}" id="${s.id}" aria-labelledby="${s.id}-t"><div class="container split">
+${SECTIONS.map((s, i) => `<section class="sec ind-sec${i % 2 ? '' : ' sec--surface'}" id="${s.id}" aria-labelledby="${s.id}-t"><div class="container split">
   <div data-reveal><p class="eyebrow">Branche</p><h2 id="${s.id}-t">${s.title}</h2></div>
   <div data-reveal data-reveal-d="1"><p class="lead">${s.text}</p>${s.link ? `<p class="mt-m">${linkArrow(`Mehr zu ${s.title.split(/[,&]/)[0].trim()}`, s.link)}</p>` : `<p class="mt-m">${linkArrow('Kühlzellen nach Maß', '/kuehlzellen/')}</p>`}</div>
 </div></section>`).join('')}
+<section class="sec sec--surface" aria-labelledby="faq-angebot-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-angebot-t', title: 'Miete, gebraucht und Privatkunden', stack: true })}</div>
+  ${faq([
+    { q: 'Arbeitet Europaneel auch für Privatkunden?', a: 'Europaneel arbeitet für Gewerbekunden.' },
+    { q: 'Gibt es Kühlzellen zur Miete?', a: 'Nein, wir bieten keine Miete an. Wir planen, liefern und montieren neue Kühlzellen nach Maß. Ihr Projekt können Sie jederzeit unverbindlich anfragen.' },
+    { q: 'Bietet Europaneel gebrauchte Kühlzellen an?', a: 'Nein, wir bieten keine gebrauchten Kühlzellen an. Wir liefern und montieren neue Kühlzellen nach Maß. Fragen Sie Ihr Projekt gern unverbindlich an.' },
+  ], { name: 'angebot-faq' })}
+</div></section>
 ${ctaBand()}`,
 };
 
 /* ------------------------------------------------------------ Gastronomie */
 const gastro = {
   path: '/branchen/gastronomie/',
+  bodyClass: 'ind-page',
   title: 'Kühlzelle für Gastronomie, Hotel & Catering | Europaneel',
   description: 'Kühl- und Tiefkühlzellen für Restaurants, Hotels und Catering: Platz, Lagertemperaturen, Tür und Aggregat richtig planen – Richtpreis online berechnen.',
   updated: '2026-10-05',
@@ -113,6 +123,7 @@ ${ctaBand()}`,
 /* ------------------------------------------------------------ Metzgerei */
 const metzgerei = {
   path: '/branchen/metzgerei/',
+  bodyClass: 'ind-page',
   title: 'Kühlzelle für Metzgerei & Fleischerei | Europaneel',
   description: 'Kühlräume für Metzgereien: gesetzliche Lagertemperaturen für Fleisch, Hackfleisch und Geflügel, Temperaturzonen, Hygiene und Türen richtig planen.',
   updated: '2026-10-05',
@@ -179,4 +190,149 @@ const metzgerei = {
 ${ctaBand()}`,
 };
 
-export default [hub, gastro, metzgerei];
+/* ------------------------------------------------------------ Bäckerei */
+const baeckerei = {
+  path: '/branchen/baeckerei-konditorei/',
+  bodyClass: 'ind-page',
+  title: 'Kühlzellen für Bäckereien & Konditoreien | Europaneel',
+  description: 'Kühlzellen für Bäckereien: Tiefkühlzelle für Teiglinge, Pluskühlung für Sahne und Cremes, abwaschbare Flächen – bundesweit geplant und montiert.',
+  updated: '2026-11-18',
+  crumbs: [['Branchen', '/branchen/'], ['Bäckerei & Konditorei', '/branchen/baeckerei-konditorei/']],
+  service: { name: 'Kühlzellen für Bäckereien und Konditoreien', type: 'Tiefkühl- und Kühlzellen für Backstuben, Bäckereien und Konditoreien' },
+  render: () => `${pageHero({
+    eyebrow: 'Branche · Bäckerei & Konditorei',
+    title: 'Kühlzellen für Bäckereien und Konditoreien',
+    lead: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Wir planen beides passend zu Ihrer Backstube, liefern und montieren bundesweit – in der Regel innerhalb von <span class="nowrap">1–2 Wochen</span>.',
+    photo: 'kuehlzelle-tuer-praxis', cap: 'Beispielfoto: Kühlzelle mit geöffneter Drehtür',
+    alt: 'Beispielfoto einer freistehenden Kühlzelle aus grauen Paneelen mit geöffneter Drehtür in einer Halle',
+  })}
+<section class="sec" aria-labelledby="bedarf-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'Anforderungen', id: 'bedarf-t', title: 'Was eine Kühlzelle in der Backstube können muss', text: 'Zwei Temperaturbereiche, viel Reinigung und Mehlstaub: Daraus ergeben sich Zellenaufteilung, Oberflächen und Kältetechnik.', stack: true })}</div>
+  <div data-reveal>${points([
+    ['Tiefkühlzelle für Teiglinge und Halbfabrikate', 'Tiefgefrorene Lebensmittel müssen ständig bei −18 °C oder kälter gehalten werden. Die Tiefkühlzelle wird deshalb immer mit isoliertem Bodenelement, Tiefkühltür und Kältetechnik mit ausreichender Reserve geplant.'],
+    ['Pluskühlung für Sahne, Cremes und Füllungen', 'Für Sahne, Cremes und Füllungen zählt eine zuverlässige Pluskühlung. Ob sie als eigene Zelle neben der Tiefkühlzelle steht oder Teil einer mehrzelligen Anlage ist, hängt von Mengen und Platz ab.'],
+    ['Glatte, abwaschbare Oberflächen', 'In Backstuben wird viel gereinigt, und Mehlstaub fällt an. Deshalb zählen glatte, abwaschbare Oberflächen und dichte Anschlüsse. Wo regelmäßig nass gereinigt wird, empfehlen Paneelhersteller Edelstahloberflächen.'],
+    ['Abwärme nicht in die Backstube', 'Steckerfertige Aggregate geben ihre Wärme an den Aufstellraum ab. Ist das die ohnehin warme Backstube, kann eine Split-Lösung mit außen aufgestelltem Verflüssigungssatz die bessere Wahl sein.'],
+  ])}</div>
+</div></section>
+
+<section class="sec sec--surface" aria-labelledby="zellen-t"><div class="container">
+  ${secHead({ eyebrow: 'Aufteilung', id: 'zellen-t', title: 'Tiefkühlung und Pluskühlung sinnvoll kombinieren', text: 'Zwischen Tiefkühl- und Kühlzelle unterscheiden sich Boden, Tür und Dämmung. Das bestimmt, wie beide Zellen zueinander stehen.' })}
+  <div class="grid g-3">
+    <article class="card" data-reveal><span class="card__icon">${icon('snowflake')}</span><h3>Tiefkühlzelle</h3><p>Immer mit isoliertem Boden, damit der Frost nicht in den Untergrund zieht. Tiefkühltüren werden üblicherweise mit Rahmenheizung ausgeführt, damit sie nicht festfrieren.</p>${linkArrow('Tiefkühlzellen', '/tiefkuehlzellen/')}</article>
+    <article class="card" data-reveal data-reveal-d="1"><span class="card__icon">${icon('layers')}</span><h3>Kühlzelle</h3><p>Mit oder ohne Bodenelement. Ohne Bodenelement und mit schwellenloser Tür fahren Rollwagen ebenerdig in die Zelle – praktisch, wenn Bleche und Wagen täglich bewegt werden.</p>${linkArrow('Kühlzellen nach Maß', '/kuehlzellen/')}</article>
+    <article class="card" data-reveal data-reveal-d="2"><span class="card__icon">${icon('door-open')}</span><h3>Tür nach Warenfluss</h3><p>Drehtüren für kleinere Zellen und Personenverkehr, ab Lager in Breiten von 75 bis 120 cm. Schiebetüren für breite Durchgänge und Rollwagen, ab Lager von 150 bis 250 cm.</p>${linkArrow('Kühlhaustüren', '/kuehlhaustueren/')}</article>
+  </div>
+</div></section>
+
+<section class="sec" aria-labelledby="plan-t"><div class="container split">
+  <div data-reveal>
+    <p class="eyebrow">Planung</p><h2 id="plan-t">Vor dem Aufmaß klären</h2>
+    <p class="lead mt-s">Mit diesen Angaben können wir Ihre Kühlzellen gezielt planen und ein schriftliches Angebot erstellen.</p>
+  </div>
+  <div data-reveal data-reveal-d="1">
+    ${checks([
+      'Welche Mengen an Teiglingen und Halbfabrikaten tiefgekühlt und welche Füllungen und Cremes gekühlt gelagert werden',
+      'Ob eine Tiefkühl- und eine Kühlzelle nötig sind und wie sie zueinander stehen sollen',
+      'Welche Wagen und Bleche in die Zelle fahren – das bestimmt Türart und Türbreite',
+      'Einbringweg, Raumhöhe und Untergrund am Aufstellort',
+      'Wohin die Abwärme der Aggregate abgeführt werden kann',
+    ])}
+    <p class="mt-m">${linkArrow('Ausführliche Planungs-Checkliste', '/ratgeber/kuehlzelle-planen/')}</p>
+  </div>
+</div></section>
+
+<section class="sec sec--surface" aria-labelledby="faq-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-t', title: 'Fragen von Bäckereien und Konditoreien', stack: true })}</div>
+  ${faq([
+    { q: 'Brauche ich für Teiglinge eine eigene Tiefkühlzelle?', a: '<p>Tiefgekühlte Teiglinge und Halbfabrikate müssen bei −18 °C oder kälter gelagert werden. Dafür ist eine Tiefkühlzelle mit gedämmtem Boden und Tiefkühltür nötig. Was technisch anders ist als bei einer Kühlzelle, lesen Sie unter <a href="/tiefkuehlzellen/">Tiefkühlzellen</a>.</p>' },
+    { q: 'Lassen sich Tiefkühl- und Kühlzelle kombinieren?', a: 'Ja, als zwei getrennte Zellen oder als mehrzellige Anlage. Wichtig sind dann die Türanordnung und wohin die Abwärme beider Aggregate abgeführt wird.' },
+    { q: 'Welche Oberflächen eignen sich bei Mehlstaub und häufiger Reinigung?', a: 'Glatte, abwaschbare Oberflächen und dichte Anschlüsse. Wo regelmäßig nass gereinigt wird oder Wasser auf den Flächen steht, empfehlen Paneelhersteller Edelstahloberflächen; für trockene Lagerbereiche genügen in der Regel beschichtete Stahlbleche.' },
+    { q: 'Passt eine Kühlzelle in einen kleinen Lagerraum oder Keller?', a: 'In vielen Fällen ja. Die Zelle wird aus einzelnen Paneelen vor Ort montiert – entscheidend ist, dass die Paneele durch Türen und Treppen passen. Die Höhe richtet sich nach dem Raum: ohne Bodenelement ab 2,10 m, mit Bodenelement ab 2,20 m.' },
+    { q: 'Was kostet eine Kühlzelle für eine Bäckerei?', a: '<p>Das hängt von Größe, Boden, Tür und Kältetechnik ab. Einen Netto-Richtpreis für Paneele und Tür sehen Sie sofort im <a href="/kalkulator.html">Kühlzellen-Kalkulator</a>; Kälteaggregat, Lieferung und Montage bieten wir auf Wunsch separat an. Welche Posten den Preis bestimmen, erklärt der Ratgeber <a href="/ratgeber/kuehlzelle-kosten/">Was kostet eine Kühlzelle?</a></p>' },
+  ], { name: 'faq-baeckerei' })}
+</div></section>
+
+<section class="sec--sm"><div class="container">${related([
+  { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Für Teiglinge und Halbfabrikate bei −18 °C.' },
+  { href: '/kaelteaggregate/', tag: 'Kältetechnik', title: 'Kälteaggregate', text: 'Abwärme und Aufstellort richtig planen.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlhaustüren', text: 'Dreh- und Schiebetüren ab Lager.' },
+  { href: '/ratgeber/paneelstaerke-kuehlzelle/', tag: 'Ratgeber', title: 'Welche Paneelstärke?', text: 'Dämmstärke für Plus- und Tiefkühlung.' },
+  { href: '/referenzen/', tag: 'Referenzen', title: 'Aus unserer Montagepraxis', text: 'Kühlzellen und Kühlanlagen im Einsatz.' },
+  { href: '/branchen/lebensmittelhandel-hofladen/', tag: 'Branche', title: 'Lebensmittelhandel & Hofladen', text: 'Lagerkühlung hinter der Verkaufsfläche.' },
+])}</div></section>
+${ctaBand({ title: 'Kühlzelle für Ihre Bäckerei oder Konditorei anfragen.', text: 'Berechnen Sie vorab einen Richtpreis für Tiefkühl- oder Kühlzelle – oder schildern Sie uns Ihr Projekt.' })}`,
+};
+
+/* ------------------------------------------------------------ Handel & Hofladen */
+const handel = {
+  path: '/branchen/lebensmittelhandel-hofladen/',
+  bodyClass: 'ind-page',
+  title: 'Kühlzellen für Lebensmittelhandel & Hofladen | Europaneel',
+  description: 'Kühlzellen für Lebensmittelhandel und Hofläden: Lagertemperaturen je Warengruppe, Türschließer, Streifenvorhang und Tiefkühlbereich richtig planen.',
+  updated: '2026-11-18',
+  crumbs: [['Branchen', '/branchen/'], ['Lebensmittelhandel & Hofladen', '/branchen/lebensmittelhandel-hofladen/']],
+  service: { name: 'Kühlzellen für Lebensmittelhandel und Hofläden', type: 'Kühl- und Tiefkühlzellen als Lagerkühlung für Lebensmittelhandel und Hofläden' },
+  render: () => `${pageHero({
+    eyebrow: 'Branche · Lebensmittelhandel & Hofladen',
+    title: 'Kühlzellen für Lebensmittelhandel und Hofladen',
+    lead: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Wir planen Kühl- und Tiefkühlzellen, die zu Ihrem Warenfluss passen, und montieren bundesweit – in der Regel innerhalb von <span class="nowrap">1–2 Wochen</span>.',
+    photo: 'kuehlanlage-schiebetuer-praxis', cap: 'Beispielfoto: Kühlanlage mit Schiebetür und Streifenvorhang',
+    alt: 'Beispielfoto einer Kühlanlage aus grauen Paneelen mit Schiebetür, Sichtfenstern und einem Durchgang mit Streifenvorhang in einer Halle',
+  })}
+<section class="sec" aria-labelledby="bedarf-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'Anforderungen', id: 'bedarf-t', title: 'Was die Lagerkühlung im Handel leisten muss', text: 'Im Laden wird die Zelle beim Auffüllen ständig geöffnet. Das entscheidet über Tür, Zubehör und Energiebedarf.', stack: true })}</div>
+  <div data-reveal>${points([
+    ['Mehrere Warengruppen, eigene Grenzwerte', 'Molkereiprodukte, Fleisch, Obst und Gemüse haben unterschiedliche Temperaturanforderungen. Lagern mehrere Warengruppen in einer Zelle, richtet sich die Einstellung nach der empfindlichsten Ware – bei größeren Mengen ist eine zweite Zelle oft die sauberere Lösung.'],
+    ['Häufige Türöffnungen beim Auffüllen', 'Jedes Öffnen lässt Kälte heraus. Türschließer und Streifenvorhänge werden bei häufigem Auffüllen deshalb zu einem echten Energiethema und gehören von Anfang an in die Planung.'],
+    ['Ebenerdig einräumen', 'Ohne Bodenelement und mit schwellenloser Tür fahren Rollwagen ebenerdig in die Kühlzelle. Für breite Durchgänge eignen sich Schiebetüren.'],
+    ['Tiefkühlware getrennt lagern', 'Tiefkühlware muss bei −18 °C oder kälter gehalten werden. Eine Tiefkühlzelle braucht immer einen isolierten Boden und eine Tiefkühltür, die nicht festfriert.'],
+  ])}</div>
+</div></section>
+
+<section class="sec sec--surface" aria-labelledby="temp-t"><div class="container">
+  ${secHead({ eyebrow: 'Lebensmittelrecht', id: 'temp-t', title: 'Lagertemperaturen typischer Waren im Handel', text: 'Die Werte gelten für die Ware selbst. Die Zelle wird deshalb kälter eingestellt, damit die Grenzen auch beim Öffnen und Einräumen sicher eingehalten werden.' })}
+  <div data-reveal>${cmp(['Ware', 'Höchsttemperatur der Ware'], [
+    ['Geflügel', '+4 °C'],
+    ['Fleischzubereitungen', '+4 °C'],
+    ['Fleisch (Huftiere)', '+7 °C'],
+    ['Feinkost, Desserts', '+7 °C'],
+    ['Konsummilch', '+8 °C'],
+    ['Milcherzeugnisse, Käse (außer Hartkäse)', '+10 °C'],
+    ['Tiefkühlware', '−18 °C oder kälter'],
+  ], { label: 'Lagertemperaturen Lebensmittelhandel', note: TEMP_NOTE })}</div>
+</div></section>
+
+<section class="sec" aria-labelledby="laden-t"><div class="container">
+  ${secHead({ eyebrow: 'Planung', id: 'laden-t', title: 'Vom Marktlager bis zum Hofladen', text: 'Ob Lager hinter dem Markt oder Nebenraum im Hofladen: Die Zelle wird nach Maß gebaut und an Raum und Abläufe angepasst.' })}
+  <div class="grid g-3">
+    <article class="card" data-reveal><span class="card__icon">${icon('ruler')}</span><h3>Platz optimal nutzen</h3><p>Kühlzellen nach Maß passen auch in Nischen, Nebenräume und Keller. Die Höhe richtet sich nach dem Raum: ohne Bodenelement ab 2,10 m, mit Bodenelement ab 2,20 m.</p>${linkArrow('Kühlzellen nach Maß', '/kuehlzellen/')}</article>
+    <article class="card" data-reveal data-reveal-d="1"><span class="card__icon">${icon('door-open')}</span><h3>Tür und Zubehör</h3><p>Drehtüren ab Lager in Breiten von 75 bis 120 cm, Schiebetüren von 150 bis 250 cm. Türschließer und Streifenvorhang halten bei häufigem Öffnen die Kälte drin.</p>${linkArrow('Kühlhaustüren', '/kuehlhaustueren/')}</article>
+    <article class="card" data-reveal data-reveal-d="2"><span class="card__icon">${icon('fan')}</span><h3>Abwärme nicht in den Verkaufsraum</h3><p>Steckerfertige Aggregate geben ihre Wärme an den Aufstellraum ab. Soll sie nicht in Laden oder Lager bleiben, kann eine Split-Lösung mit außen aufgestelltem Verflüssigungssatz sinnvoll sein.</p>${linkArrow('Kälteaggregate', '/kaelteaggregate/')}</article>
+  </div>
+  <p class="mt-l">Für die Vorbereitung vor dem Aufmaß hilft die <a href="/ratgeber/kuehlzelle-planen/">Checkliste zum Planen einer Kühlzelle</a>. Ob ein vorhandener Raum gedämmt oder eine Zelle aus Paneelen gestellt wird, vergleicht der Ratgeber <a href="/ratgeber/kuehlraum-bauen/">Kühlraum bauen</a>.</p>
+</div></section>
+
+<section class="sec sec--surface" aria-labelledby="faq-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-t', title: 'Fragen aus Lebensmittelhandel und Hofladen', stack: true })}</div>
+  ${faq([
+    { q: 'Wie halte ich die Kälte drin, wenn die Zelle ständig geöffnet wird?', a: '<p>Mit einem Türschließer, der die Tür zuverlässig schließt, und einem Streifenvorhang, der beim Ein- und Ausräumen den Luftaustausch begrenzt. Welche Tür zu Ihrem Warenfluss passt, zeigt die Übersicht <a href="/kuehlhaustueren/">Kühlhaustüren</a>.</p>' },
+    { q: 'Kann ich Molkereiprodukte, Fleisch und Obst in einer Zelle lagern?', a: 'Ja, dann richtet sich die Einstellung nach der empfindlichsten Ware. Bei größeren Mengen lohnt sich oft eine zweite Zelle, damit nicht alles auf den strengsten Wert gekühlt werden muss.' },
+    { q: 'Brauche ich für Tiefkühlware eine eigene Zelle?', a: '<p>Tiefkühlware muss bei −18 °C oder kälter gelagert werden. Dafür ist eine eigene Tiefkühlzelle mit isoliertem Boden und Tiefkühltür nötig. Mehr dazu unter <a href="/tiefkuehlzellen/">Tiefkühlzellen</a>.</p>' },
+    { q: 'Passt eine Kühlzelle in einen kleinen Hofladen?', a: 'Kühlzellen werden nach Maß gebaut und passen auch in Nischen und Nebenräume. Entscheidend sind Raumhöhe, Untergrund und der Einbringweg für die Paneele – das prüfen wir beim Aufmaß.' },
+    { q: 'Wohin mit der Abwärme des Kälteaggregats?', a: '<p>Ein steckerfertiges Aggregat gibt die Wärme an den Raum ab, in dem es steht. Soll sie nicht im Laden bleiben, kann ein Split-Aggregat mit außen aufgestelltem Verflüssigungssatz die bessere Wahl sein. Die Bauformen erklärt die Seite <a href="/kaelteaggregate/">Kälteaggregate</a>.</p>' },
+  ], { name: 'faq-handel' })}
+</div></section>
+
+<section class="sec--sm"><div class="container">${related([
+  { href: '/kalkulator.html', tag: 'Online-Tool', title: 'Richtpreis berechnen', text: 'Kühlart, Boden, Maße und Tür wählen.' },
+  { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Für Tiefkühlware bei −18 °C und kälter.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlhaustüren', text: 'Für Auffüllen und breite Durchgänge.' },
+  { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Welche Posten den Preis bestimmen.' },
+  { href: '/referenzen/', tag: 'Referenzen', title: 'Aus unserer Montagepraxis', text: 'Kühlzellen und Kühlanlagen im Einsatz.' },
+  { href: '/branchen/baeckerei-konditorei/', tag: 'Branche', title: 'Bäckerei & Konditorei', text: 'Tiefkühlung für Teiglinge, Kühlung für Füllungen.' },
+])}</div></section>
+${ctaBand({ title: 'Kühlzelle für Ihren Markt oder Hofladen anfragen.', text: 'Berechnen Sie vorab einen Richtpreis – oder schildern Sie uns Lager, Warengruppen und Abläufe.' })}`,
+};
+
+export default [hub, gastro, metzgerei, baeckerei, handel];

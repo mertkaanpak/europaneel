@@ -37,8 +37,8 @@ ${SECTIONS.map((s, i) => `<section class="sec${i % 2 ? '' : ' sec--surface'}" id
   <div>${secHead({ eyebrow: 'FAQ', id: 'faq-angebot-t', title: 'Miete, gebraucht und Privatkunden', stack: true })}</div>
   ${faq([
     { q: 'Arbeitet Europaneel auch für Privatkunden?', a: 'Europaneel arbeitet für Gewerbekunden.' },
-    { q: 'Gibt es Kühlzellen zur Miete?', a: 'Ein Mietangebot ist bei Europaneel nicht beschrieben. Für eine neue Kühlzelle können Gewerbekunden ihr Projekt anfragen.' },
-    { q: 'Bietet Europaneel gebrauchte Kühlzellen an?', a: 'Ein Gebrauchtangebot ist bei Europaneel nicht beschrieben. Gewerbekunden können eine neue Kühlzelle anfragen.' },
+    { q: 'Gibt es Kühlzellen zur Miete?', a: 'Nein, wir bieten keine Miete an. Wir planen, liefern und montieren neue Kühlzellen nach Maß. Ihr Projekt können Sie jederzeit unverbindlich anfragen.' },
+    { q: 'Bietet Europaneel gebrauchte Kühlzellen an?', a: 'Nein, wir bieten keine gebrauchten Kühlzellen an. Wir liefern und montieren neue Kühlzellen nach Maß. Fragen Sie Ihr Projekt gern unverbindlich an.' },
   ], { name: 'angebot-faq' })}
 </div></section>
 ${ctaBand()}`,

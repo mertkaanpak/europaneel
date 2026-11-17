@@ -18,7 +18,7 @@ export default {
   path: '/kalkulator.html',
   title: 'Kühlzellen-Kalkulator: Preis online berechnen | Europaneel',
   description: 'Kühlzelle konfigurieren und Netto-Richtpreis sofort sehen – ohne Registrierung: Kühlart, Boden, Maße und Tür wählen, Konfiguration direkt als Anfrage senden.',
-  updated: '2026-10-05',
+  updated: '2026-11-17',
   pageType: 'WebPage',
   crumbs: [['Kühlzellen-Kalkulator', '/kalkulator.html']],
   css: ['calc.css'],
@@ -31,7 +31,7 @@ export default {
   <div class="container">
     <p class="eyebrow">Online-Tool · ohne Registrierung</p>
     <h1 id="page-t">Kühlzellen-Kalkulator</h1>
-    <p class="lead">Konfigurieren Sie Ihre Kühlzelle in vier Schritten und sehen Sie sofort einen Netto-Richtpreis für Paneele und Tür. Passt die Größenordnung, senden Sie uns die Konfiguration direkt als Anfrage.</p>
+    <p class="lead">In vier Schritten zum Netto-Richtpreis für Paneele und Tür – sofort und ohne Registrierung. Passt die Größenordnung, senden Sie uns die Konfiguration direkt als Anfrage.</p>
   </div>
 </section>
 
@@ -81,6 +81,7 @@ export default {
       <div id="step-4" class="step-content" role="group" aria-labelledby="s4-t">
         ${back('goToStep(3)')}
         <h2 class="step-title" id="s4-t">Tür wählen &amp; Richtpreis</h2>
+        <p class="calc-recap" id="calcRecap" hidden></p>
         <div class="field"><label for="inp-tuer">Tür</label>
           <select class="select" id="inp-tuer" onchange="berechnePreis()">${DOORS.map(([v, t, sel]) => `<option value="${v}"${sel ? ' selected' : ''}>${t}</option>`).join('')}</select>
         </div>
@@ -143,6 +144,7 @@ export default {
   <div class="dlg__head"><h2 id="req-t">Angebot anfordern</h2><button class="dlg__close" type="button" onclick="closeRequestModal()" aria-label="Schließen">${icon('x')}</button></div>
   <div class="dlg__body">
     <p class="muted">Ihre Konfiguration wird automatisch übernommen. Bitte ergänzen Sie Ihre Kontaktdaten – wir melden uns mit einem schriftlichen Angebot.</p>
+    <div class="req-cfg" hidden><p class="req-cfg__t">${icon('clipboard-check')}Diese Konfiguration senden Sie mit</p><dl id="reqCfg"></dl></div>
     <form class="mt-m" action="https://formsubmit.co/${SITE.email}" method="POST" data-validate data-form="kalkulator" data-track-submit="quote_request">
       <input type="hidden" name="_subject" value="Neue Kalkulator-Anfrage (europaneel.de)">
       <input type="hidden" name="_next" value="${SITE.url}/danke.html">

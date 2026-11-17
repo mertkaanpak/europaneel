@@ -1,6 +1,5 @@
 /* Kühlzellen-Kalkulator – nur auf /kalkulator.html geladen. (c) Europaneel GmbH */
 .calc-head{padding-block:0 clamp(28px,4vw,48px)}
-.calc-head .crumbs{padding-left:0}
 .calc-head .eyebrow{margin-top:clamp(20px,3vw,36px)}
 .calc-head .lead{margin-top:1rem;max-width:44rem}
 
@@ -42,6 +41,10 @@
 .opt small{color:var(--steel-600);font-size:.9rem;line-height:1.45}
 .opt:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:var(--shadow-card)}
 .opt[data-typ="tief"] .icon{color:var(--frost)}
+.opt{position:relative}
+.opt.is-selected{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink),var(--shadow-card)}
+.opt.is-selected::after{content:"";position:absolute;top:16px;right:16px;width:22px;height:22px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/13px no-repeat}
+.opt:focus-visible{outline-offset:3px;border-radius:var(--r-md)}
 @media (max-width:519px){.opt-grid{grid-template-columns:minmax(0,1fr)}.opt{min-height:0}}
 
 .dims{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:1.5rem}
@@ -56,7 +59,18 @@
 .tip summary .icon{color:var(--steel-500)}
 .tip p{padding:0 14px 14px;font-size:.92rem;color:var(--steel-700)}
 .step-next{margin-top:1.5rem}
-.step-title+.field{margin-top:1.25rem}
+.step-title+.field,.calc-recap+.field{margin-top:1.25rem}
+.calc-recap{display:inline-flex;align-items:center;gap:.5rem;margin-top:.7rem;padding:.45rem .8rem;border-radius:4px;background:var(--surface);border:1px solid var(--line);font-size:.92rem;font-weight:600;color:var(--steel-700);font-variant-numeric:tabular-nums}
+.calc-recap::before{content:"";width:18px;height:8px;flex:none;border-inline:1.5px solid var(--red);background:linear-gradient(var(--red),var(--red)) center/100% 1.5px no-repeat}
+.calc-recap[hidden]{display:none}
+/* Anfrage-Dialog: übernommene Konfiguration */
+.req-cfg{margin-top:1rem;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);padding:14px 18px}
+.req-cfg[hidden]{display:none}
+.req-cfg__t{display:flex;align-items:center;gap:.5rem;font-size:var(--fs-xs);font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--steel-600);margin-bottom:.4rem}
+.req-cfg__t .icon{color:var(--red)}
+.req-cfg dl>div{display:flex;justify-content:space-between;gap:1rem;padding:7px 0;border-top:1px solid var(--line);font-size:.93rem}
+.req-cfg dt{color:var(--steel-600)}
+.req-cfg dd{margin:0;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
 
 /* Ergebnis */
 .result{margin-top:1.5rem;border-radius:var(--r-md);padding:24px 26px;background:var(--graphite);color:#fff;position:relative;overflow:hidden;
@@ -96,6 +110,8 @@
 @media (max-width:1023px){
   .calc__grid{grid-template-columns:minmax(0,1fr)}
   .calc-side{position:static}
+  .calc-wrapper{min-height:0}
+  body.page-calc .mobile-contact{display:none}
   .calc-bar:not([hidden]){display:flex;position:fixed;left:0;right:0;bottom:0;z-index:950;justify-content:space-between;align-items:center;gap:12px;
     padding:12px var(--gutter) calc(12px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -12px rgba(16,18,22,.25)}
   .calc-bar small{display:block;font-size:.75rem;color:var(--steel-500)}

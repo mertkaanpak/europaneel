@@ -212,6 +212,43 @@
     });
   });
 
+  /* ---------- Kontaktformular: Projektart aus der URL vorbelegen (?projekt=kuehlhaus) ---------- */
+  var pre = (w.location.search.match(/[?&]projekt=([a-z]+)/) || [])[1];
+  if (pre) { var pin = $('input[data-prefill="' + pre + '"]'); if (pin) pin.checked = true; }
+
+  /* ---------- Kalkulator: Bedienhilfen (nur Darstellung – Preislogik bleibt in calc.js) ---------- */
+  var calcWrap = $('.calc-wrapper');
+  if (calcWrap) {
+    // gewählte Option sichtbar markieren
+    calcWrap.addEventListener('click', function (e) {
+      var o = e.target.closest('.opt'); if (!o) return;
+      $$('.opt', o.parentNode).forEach(function (x) { x.classList.toggle('is-selected', x === o); x.setAttribute('aria-pressed', x === o ? 'true' : 'false'); });
+    });
+    // Kurzfassung der Auswahl im Schritt „Tür & Preis“ (gespiegelt aus der Seitenleiste)
+    var recap = $('#calcRecap'), sum = $('#selectionSummary');
+    var txt = function (s) { var e = $(s + ' dd'); return e ? e.textContent.replace(/\s+/g, ' ').trim() : ''; };
+    var updRecap = function () {
+      if (!recap) return;
+      var parts = [txt('#summaryType'), txt('#summaryFloor'), txt('#summarySize')].filter(function (t) { return t && t !== '–'; });
+      recap.textContent = parts.join(' · ');
+      recap.hidden = !parts.length;
+    };
+    if (sum && recap && 'MutationObserver' in w) { new MutationObserver(updRecap).observe(sum, { childList: true, subtree: true, characterData: true }); updRecap(); }
+    // Anfrage-Dialog: übernommene Konfiguration anzeigen, bevor der Nutzer absendet
+    var showCfg = function () {
+      var box = $('#reqCfg'); if (!box) return;
+      // Anzeige in deutscher Schreibweise (Maße aus der Zusammenfassung); versendet werden unverändert die Felder aus calc.js
+      var val = function (s) { var el = $(s); return el && el.value ? el.value : ''; };
+      var size = txt('#summarySize');
+      var rows = [['Kühlzelle', val('#hidden-typ')], ['Maße (L × B × H)', val('#hidden-masse') ? (size && size !== '–' ? size : val('#hidden-masse')) : ''], ['Tür', val('#hidden-tuer')], ['Richtpreis netto', val('#hidden-preis')]]
+        .filter(function (r) { return r[1]; });
+      box.textContent = '';
+      rows.forEach(function (r) { var row = d.createElement('div'), dt = d.createElement('dt'), dd = d.createElement('dd'); dt.textContent = r[0]; dd.textContent = r[1]; row.appendChild(dt); row.appendChild(dd); box.appendChild(row); });
+      box.parentNode.hidden = !rows.length;
+    };
+    d.addEventListener('click', function (e) { if (e.target.closest('[onclick*="openRequestModal"]')) setTimeout(showCfg, 0); });
+  }
+
   /* ---------- Lightbox (Referenzen) ---------- */
   var lb = $('#lightbox');
   if (lb) {

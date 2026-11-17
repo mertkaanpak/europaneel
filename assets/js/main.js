@@ -176,7 +176,9 @@
   });
   var consent = getConsent();
   if (consent) applyConsent(consent);
-  else if (banner && ($('[data-consent-required]') || (w.EP_CONFIG && w.EP_CONFIG.ga4))) showBanner(true);
+  // Nur für Statistik wird aktiv gefragt. Für Karten genügt die Zustimmung am Platzhalter („Karte laden“) –
+  // der Hinweis verdeckt so nicht mehr das Anfrageformular. Geladen wird weiterhin nichts ohne Zustimmung.
+  else if (banner && w.EP_CONFIG && w.EP_CONFIG.ga4) showBanner(true);
 
   /* ---------- Alte Modal-Links (#impressum …) auf neue Rechtsseiten ---------- */
   var legacy = { '#impressum': '/impressum/', '#agb': '/agb/', '#datenschutz': '/datenschutz/' };

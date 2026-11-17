@@ -605,6 +605,8 @@ dialog.dlg::backdrop{background:rgba(16,18,22,.62);backdrop-filter:blur(3px)}
 .wa-float .icon{width:28px;height:28px}
 .wa-float:hover{transform:translateY(-2px)}
 body.has-consent .wa-float{bottom:calc(20px + var(--consent-h,0px))}
+/* Bei mittleren Desktopbreiten bleibt die letzte Faktenzelle neben dem festen WhatsApp-Button lesbar. */
+@media (min-width:900px) and (max-width:1359px){.home-cinema .cinema-facts .facts>div:last-child{padding-right:92px}}
 
 .consent{position:fixed;left:20px;bottom:20px;z-index:1500;width:min(440px,calc(100vw - 40px));background:#fff;border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow-float);padding:20px 22px}
 .consent[hidden]{display:none}

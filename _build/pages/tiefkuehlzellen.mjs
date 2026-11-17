@@ -4,7 +4,7 @@ export default {
   path: '/tiefkuehlzellen/',
   title: 'Tiefkühlzellen nach Maß für Gewerbe & Gastro | Europaneel',
   description: 'Tiefkühlzellen mit isoliertem Boden, Tiefkühltür und passender Kältetechnik – geplant für Ware bei −18 °C und kälter. Richtpreis online berechnen.',
-  updated: '2026-10-05',
+  updated: '2026-11-18',
   crumbs: [['Tiefkühlzellen', '/tiefkuehlzellen/']],
   service: { name: 'Tiefkühlzellen nach Maß', type: 'Planung, Lieferung und Montage von Tiefkühlzellen' },
   ogPhoto: 'kuehlzelle-monoblock-werkstatt',
@@ -72,8 +72,8 @@ export default {
     <div class="ind" data-reveal>
       ${[
         ['/branchen/gastronomie/', 'chef-hat', 'Gastronomie & Hotel', 'Vorräte, Eis, vorbereitete Komponenten.'],
-        ['/branchen/#baeckerei', 'croissant', 'Bäckerei & Konditorei', 'Tiefgekühlte Teiglinge und Halbfabrikate.'],
-        ['/branchen/#handel', 'store', 'Lebensmittelhandel', 'TK-Lager hinter der Verkaufsfläche.'],
+        ['/branchen/baeckerei-konditorei/', 'croissant', 'Bäckerei & Konditorei', 'Tiefgekühlte Teiglinge und Halbfabrikate.'],
+        ['/branchen/lebensmittelhandel-hofladen/', 'store', 'Lebensmittelhandel & Hofladen', 'TK-Lager hinter der Verkaufsfläche.'],
         ['/branchen/#logistik', 'forklift', 'Logistik & Lager', 'Tiefkühllager mit Schiebetüren.'],
       ].map(([h, ic, t, s]) => `<a href="${h}">${icon(ic)}<b>${t}</b><small>${s}</small></a>`).join('')}
     </div>

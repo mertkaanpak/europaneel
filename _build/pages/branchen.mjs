@@ -1,4 +1,4 @@
-import { icon, fig, pageHero, secHead, cmp, points, checks, faq, related, ctaBand, note, linkArrow } from '../lib.mjs';
+import { icon, fig, pageHero, secHead, cmp, points, checks, faq, related, ctaBand, note, linkArrow, steps } from '../lib.mjs';
 
 const TEMP_NOTE = 'Höchsttemperaturen der Ware nach VO (EG) 853/2004, Tier-LMHV, TLMV bzw. DIN 10508 (zusammengefasst im Merkblatt des LAVES Niedersachsen). Auszug ohne Gewähr – maßgeblich sind die jeweils geltenden Vorschriften.';
 
@@ -6,8 +6,8 @@ const TEMP_NOTE = 'Höchsttemperaturen der Ware nach VO (EG) 853/2004, Tier-LMHV
 const SECTIONS = [
   { id: 'gastronomie', icon: 'chef-hat', title: 'Gastronomie, Hotel & Catering', link: '/branchen/gastronomie/', text: 'Wenig Platz, viele Warengruppen und tägliche Anlieferungen: In Restaurants und Hotels arbeiten Kühl- und Tiefkühlzelle meist Hand in Hand. Entscheidend sind kurze Wege zur Küche, eine Tür, die den Betrieb nicht ausbremst, und ein Aggregat, das die Küche nicht zusätzlich aufheizt.' },
   { id: 'metzgerei', icon: 'beef', title: 'Metzgerei & Fleischerei', link: '/branchen/metzgerei/', text: 'Für Fleisch, Hackfleisch und Fleischzubereitungen gelten unterschiedliche gesetzliche Höchsttemperaturen. Daraus ergibt sich, ob eine Zelle genügt oder mehrere Temperaturzonen sinnvoll sind – dazu kommen reinigungsfreundliche Oberflächen und belastbare Böden.' },
-  { id: 'baeckerei', icon: 'croissant', title: 'Bäckerei & Konditorei', text: 'Tiefgekühlte Teiglinge und Halbfabrikate verlangen eine Tiefkühlzelle, Sahne, Cremes und Füllungen eine zuverlässige Pluskühlung. Weil in Backstuben viel gereinigt wird und Mehlstaub anfällt, zählen glatte, abwaschbare Oberflächen und dichte Anschlüsse.' },
-  { id: 'handel', icon: 'store', title: 'Lebensmittelhandel & Märkte', text: 'Hinter der Verkaufsfläche lagern Molkereiprodukte, Fleisch, Obst und Gemüse und Tiefkühlware – jeweils mit eigenen Temperaturanforderungen. Häufige Türöffnungen beim Auffüllen machen Türschließer und Streifenvorhänge zu einem echten Energiethema.' },
+  { id: 'baeckerei', icon: 'croissant', title: 'Bäckerei & Konditorei', link: '/branchen/baeckerei-konditorei/', text: 'Kühlzellen für Bäckereien und Konditoreien werden auf den Betrieb abgestimmt. Von der Anfrage bis zur Montage begleitet Europaneel Gewerbekunden bundesweit.' },
+  { id: 'handel', icon: 'store', title: 'Lebensmittelhandel & Hofladen', link: '/branchen/lebensmittelhandel-hofladen/', text: 'Kühlzellen für Lebensmittelhandel und Hofläden werden passend zum Betrieb geplant, geliefert und montiert – bundesweit für Gewerbekunden.' },
   { id: 'produktion', icon: 'factory', title: 'Lebensmittelproduktion', text: 'In der Produktion werden Rohware, Zwischen- und Fertigprodukte oft getrennt gekühlt. Hygienerechtlich müssen Wände und Böden leicht zu reinigen und abriebfest sein; wo nass gereinigt wird, empfehlen Hersteller robuste Oberflächen wie Edelstahl.' },
   { id: 'logistik', icon: 'forklift', title: 'Logistik & Lager', text: 'Kühllager für Paletten brauchen breite Schiebetüren, Auffahrrampen und Böden, die Hubwagen und Stapler tragen. Bei Tiefkühlbereichen auf der Bodenplatte gehört der Schutz gegen Frost im Untergrund in die Planung.' },
   { id: 'pharma', icon: 'pill', title: 'Pharma & Apotheken', text: 'Viele kühlpflichtige Arzneimittel werden zwischen 2 und 8 °C gelagert. Für den pharmazeutischen Großhandel gelten zusätzlich die GDP-Leitlinien mit Anforderungen an Temperaturüberwachung und -nachweis – diese Pflichten liegen beim Betreiber und gehören von Anfang an in die Planung.' },
@@ -33,6 +33,14 @@ ${SECTIONS.map((s, i) => `<section class="sec${i % 2 ? '' : ' sec--surface'}" id
   <div data-reveal><p class="eyebrow">Branche</p><h2 id="${s.id}-t">${s.title}</h2></div>
   <div data-reveal data-reveal-d="1"><p class="lead">${s.text}</p>${s.link ? `<p class="mt-m">${linkArrow(`Mehr zu ${s.title.split(/[,&]/)[0].trim()}`, s.link)}</p>` : `<p class="mt-m">${linkArrow('Kühlzellen nach Maß', '/kuehlzellen/')}</p>`}</div>
 </div></section>`).join('')}
+<section class="sec sec--surface" aria-labelledby="faq-angebot-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-angebot-t', title: 'Miete, gebraucht und Privatkunden', stack: true })}</div>
+  ${faq([
+    { q: 'Arbeitet Europaneel auch für Privatkunden?', a: 'Europaneel arbeitet für Gewerbekunden.' },
+    { q: 'Gibt es Kühlzellen zur Miete?', a: 'Ein Mietangebot ist bei Europaneel nicht beschrieben. Für eine neue Kühlzelle können Gewerbekunden ihr Projekt anfragen.' },
+    { q: 'Bietet Europaneel gebrauchte Kühlzellen an?', a: 'Ein Gebrauchtangebot ist bei Europaneel nicht beschrieben. Gewerbekunden können eine neue Kühlzelle anfragen.' },
+  ], { name: 'angebot-faq' })}
+</div></section>
 ${ctaBand()}`,
 };
 
@@ -179,4 +187,98 @@ const metzgerei = {
 ${ctaBand()}`,
 };
 
-export default [hub, gastro, metzgerei];
+/* ------------------------------------------------------------ Bäckerei */
+const baeckerei = {
+  path: '/branchen/baeckerei-konditorei/',
+  title: 'Kühlzellen für Bäckereien & Konditoreien | Europaneel',
+  description: 'Europaneel plant, liefert und montiert Kühlzellen für Bäckereien und Konditoreien – bundesweit für Gewerbekunden, in der Regel innerhalb von 1–2 Wochen.',
+  updated: '2026-11-17',
+  crumbs: [['Branchen', '/branchen/'], ['Bäckerei & Konditorei', '/branchen/baeckerei-konditorei/']],
+  service: { name: 'Kühlzellen für Bäckereien und Konditoreien', type: 'Kühlzellen für Gewerbekunden' },
+  render: () => `${pageHero({
+    eyebrow: 'Branche · Bäckerei & Konditorei',
+    title: 'Kühlzellen für Bäckereien und Konditoreien',
+    lead: 'Europaneel plant, liefert und montiert Kühlzellen für Gewerbekunden. Für Bäckereien und Konditoreien wird die Lösung auf den jeweiligen Betrieb abgestimmt – bundesweit.',
+  })}
+<section class="sec" aria-labelledby="nutzen-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'Für den Betrieb', id: 'nutzen-t', title: 'Kühlung passend zum Ablauf planen', stack: true })}</div>
+  <div data-reveal>${points([
+    ['Betrieb im Mittelpunkt', 'Die Planung orientiert sich an Ihrem Betrieb und den Anforderungen Ihres Projekts.'],
+    ['Anfrage mit klaren Angaben', 'Mit Angaben zu Ihrem Vorhaben lässt sich die Planung gezielt abstimmen.'],
+    ['Bundesweit umgesetzt', 'Europaneel liefert und montiert Kühlzellen bundesweit für Gewerbekunden.'],
+  ])}</div>
+</div></section>
+<section class="sec sec--surface" aria-labelledby="ablauf-t"><div class="container">
+  ${secHead({ eyebrow: 'Ablauf', id: 'ablauf-t', title: 'Von der Anfrage bis zur Montage', text: 'Lieferung und Montage sind in der Regel innerhalb von 1–2 Wochen machbar.' })}
+  ${steps([
+    ['Anfrage', 'Sie schildern Ihr Projekt und senden die verfügbaren Angaben.'],
+    ['Planung', 'Wir stimmen die Ausführung für Ihren Betrieb ab.'],
+    ['Lieferung', 'Die Kühlzelle wird bundesweit zu Ihrem Betrieb geliefert.'],
+    ['Montage', 'Europaneel montiert die Anlage bei Ihnen vor Ort.'],
+  ])}
+</div></section>
+<section class="sec" aria-labelledby="faq-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-t', title: 'Fragen von Bäckereien und Konditoreien', stack: true })}</div>
+  ${faq([
+    { q: 'Liefert und montiert Europaneel bundesweit?', a: 'Ja. Europaneel liefert und montiert Kühlzellen bundesweit.' },
+    { q: 'Wie schnell sind Lieferung und Montage möglich?', a: 'Lieferung und Montage sind in der Regel innerhalb von 1–2 Wochen machbar.' },
+    { q: 'Wie erhalte ich einen ersten Richtpreis?', a: '<p>Im <a href="/kalkulator.html">Kühlzellen-Kalkulator</a> können Sie einen Netto-Richtpreis für Paneele und Tür berechnen.</p>' },
+    { q: 'Wie starte ich mein Projekt?', a: '<p>Schildern Sie Ihr Vorhaben über die <a href="/kontakt.html">Projektanfrage</a>. Wir stimmen die nächsten Schritte mit Ihnen ab.</p>' },
+  ])}
+</div></section>
+<section class="sec--sm"><div class="container">${related([
+  { href: '/branchen/lebensmittelhandel-hofladen/', tag: 'Branche', title: 'Lebensmittelhandel & Hofladen', text: 'Kühlzellen für Gewerbekunden.' },
+  { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen', text: 'Kühlzellen für Gewerbekunden.' },
+  { href: '/kalkulator.html', tag: 'Online-Tool', title: 'Richtpreis berechnen', text: 'Paneele und Tür konfigurieren.' },
+])}</div></section>
+${ctaBand({ title: 'Kühlzelle für Ihre Bäckerei oder Konditorei anfragen.', text: 'Konfigurieren Sie vorab oder schildern Sie uns Ihr Projekt.' })}`,
+};
+
+/* ------------------------------------------------------------ Handel & Hofladen */
+const handel = {
+  path: '/branchen/lebensmittelhandel-hofladen/',
+  title: 'Kühlzellen für Handel & Hofladen | Europaneel',
+  description: 'Europaneel plant, liefert und montiert Kühlzellen für Lebensmittelhandel und Hofläden – bundesweit für Gewerbekunden, in der Regel innerhalb von 1–2 Wochen.',
+  updated: '2026-11-17',
+  crumbs: [['Branchen', '/branchen/'], ['Lebensmittelhandel & Hofladen', '/branchen/lebensmittelhandel-hofladen/']],
+  service: { name: 'Kühlzellen für Lebensmittelhandel und Hofläden', type: 'Kühlzellen für Gewerbekunden' },
+  render: () => `${pageHero({
+    eyebrow: 'Branche · Lebensmittelhandel & Hofladen',
+    title: 'Kühlzellen für Lebensmittelhandel und Hofladen',
+    lead: 'Europaneel plant, liefert und montiert Kühlzellen für Gewerbekunden. Für Lebensmittelhandel und Hofläden wird die Lösung auf den jeweiligen Betrieb abgestimmt – bundesweit.',
+  })}
+<section class="sec" aria-labelledby="nutzen-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'Für den Betrieb', id: 'nutzen-t', title: 'Kühlung passend zum Betrieb planen', stack: true })}</div>
+  <div data-reveal>${points([
+    ['Projektbezogen planen', 'Die Planung orientiert sich an Ihrem Betrieb und den Anforderungen Ihres Projekts.'],
+    ['Klar anfragen', 'Mit Angaben zu Ihrem Vorhaben lässt sich die Planung gezielt abstimmen.'],
+    ['Bundesweit umgesetzt', 'Europaneel liefert und montiert Kühlzellen bundesweit für Gewerbekunden.'],
+  ])}</div>
+</div></section>
+<section class="sec sec--surface" aria-labelledby="ablauf-t"><div class="container">
+  ${secHead({ eyebrow: 'Ablauf', id: 'ablauf-t', title: 'Von der Anfrage bis zur Montage', text: 'Lieferung und Montage sind in der Regel innerhalb von 1–2 Wochen machbar.' })}
+  ${steps([
+    ['Anfrage', 'Sie schildern Ihr Projekt und senden die verfügbaren Angaben.'],
+    ['Planung', 'Wir stimmen die Ausführung für Ihren Betrieb ab.'],
+    ['Lieferung', 'Die Kühlzelle wird bundesweit zu Ihrem Betrieb geliefert.'],
+    ['Montage', 'Europaneel montiert die Anlage bei Ihnen vor Ort.'],
+  ])}
+</div></section>
+<section class="sec" aria-labelledby="faq-t"><div class="container split">
+  <div>${secHead({ eyebrow: 'FAQ', id: 'faq-t', title: 'Fragen aus Lebensmittelhandel und Hofladen', stack: true })}</div>
+  ${faq([
+    { q: 'Liefert und montiert Europaneel bundesweit?', a: 'Ja. Europaneel liefert und montiert Kühlzellen bundesweit.' },
+    { q: 'Wie schnell sind Lieferung und Montage möglich?', a: 'Lieferung und Montage sind in der Regel innerhalb von 1–2 Wochen machbar.' },
+    { q: 'Wie erhalte ich einen ersten Richtpreis?', a: '<p>Im <a href="/kalkulator.html">Kühlzellen-Kalkulator</a> können Sie einen Netto-Richtpreis für Paneele und Tür berechnen.</p>' },
+    { q: 'Wie starte ich mein Projekt?', a: '<p>Schildern Sie Ihr Vorhaben über die <a href="/kontakt.html">Projektanfrage</a>. Wir stimmen die nächsten Schritte mit Ihnen ab.</p>' },
+  ])}
+</div></section>
+<section class="sec--sm"><div class="container">${related([
+  { href: '/branchen/baeckerei-konditorei/', tag: 'Branche', title: 'Bäckerei & Konditorei', text: 'Kühlzellen für Gewerbekunden.' },
+  { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen', text: 'Kühlzellen für Gewerbekunden.' },
+  { href: '/kalkulator.html', tag: 'Online-Tool', title: 'Richtpreis berechnen', text: 'Paneele und Tür konfigurieren.' },
+])}</div></section>
+${ctaBand({ title: 'Kühlzelle für Ihren Lebensmittelbetrieb anfragen.', text: 'Konfigurieren Sie vorab oder schildern Sie uns Ihr Projekt.' })}`,
+};
+
+export default [hub, gastro, metzgerei, baeckerei, handel];

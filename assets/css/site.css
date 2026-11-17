@@ -264,6 +264,7 @@ body.nav-open{overflow:hidden}
 .phero .lead{margin-top:1.25rem;max-width:40rem}
 .phero .btn-row{margin-top:1.75rem}
 @media (max-width:1023px){.phero__grid,.phero__grid--text{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:519px){.phero .btn-row{display:grid;grid-template-columns:minmax(0,1fr)}.phero .btn-row .btn{width:100%}}
 
 /* Abbildung mit technischer Beschriftung */
 .fig{position:relative}

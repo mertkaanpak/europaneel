@@ -67,6 +67,8 @@ export const NAV = {
       { href: '/branchen/', label: 'Alle Branchen', desc: 'Von Gastronomie bis Logistik', icon: 'layout-grid' },
       { href: '/branchen/gastronomie/', label: 'Gastronomie & Hotel', desc: 'Kühl- und Tiefkühlzellen für Küchen', icon: 'chef-hat' },
       { href: '/branchen/metzgerei/', label: 'Metzgerei & Fleischerei', desc: 'Kühlräume für Fleisch & Wurst', icon: 'beef' },
+      { href: '/branchen/baeckerei-konditorei/', label: 'Bäckerei & Konditorei', desc: 'Kühlzellen für Gewerbekunden', icon: 'croissant' },
+      { href: '/branchen/lebensmittelhandel-hofladen/', label: 'Lebensmittelhandel & Hofladen', desc: 'Kühlzellen für Gewerbekunden', icon: 'store' },
     ],
   },
   links: [

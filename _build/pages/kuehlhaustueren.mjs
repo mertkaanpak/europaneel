@@ -19,7 +19,7 @@ export default {
       title: 'Kühlhaustüren ab Lager – Dreh- und Schiebetüren für Kühl- und Tiefkühlräume',
       lead: 'Die Tür ist das meistgenutzte Bauteil einer Kühlzelle – und die größte Schwachstelle für Kälteverluste. Wir führen Dreh- und Schiebetüren in gängigen Formaten am Lager in Bottrop, jeweils mit Anschlag links oder rechts und mit oder ohne Schwelle.',
       photo: 'kuehlzelle-anthrazit-schiebetuer', cap: 'Kühlhaus-Schiebetür in weißer Ausführung an einer Zelle in Anthrazit',
-      ctas: { lead: 'secondary' },
+      ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=tuer#anfrage' },
     })}
 
 <section class="sec--facts" aria-label="Eckdaten"><div class="container">${facts([
@@ -85,6 +85,6 @@ export default {
   { href: '/ratgeber/kuehlzelle-planen/', tag: 'Ratgeber', title: 'Kühlzelle planen', text: 'Türposition, Breite und Anschlag festlegen.' },
 ])}</div></section>
 
-${ctaBand({ lead: 'secondary', title: 'Passende Tür gefunden?', text: 'Nennen Sie uns Format, Anschlagseite und ob Sie eine Schwelle wünschen – wir prüfen die Verfügbarkeit und melden uns mit einem Angebot.' })}`;
+${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=tuer#anfrage', title: 'Passende Tür gefunden?', text: 'Nennen Sie uns Format, Anschlagseite und ob Sie eine Schwelle wünschen – wir prüfen die Verfügbarkeit und melden uns mit einem Angebot.' })}`;
   },
 };

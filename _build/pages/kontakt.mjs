@@ -3,13 +3,13 @@ import { SITE } from '../site.config.mjs';
 
 const field = (id, label, input, o = {}) => `<div class="field${o.full ? ' full' : ''}"><label for="${id}">${label}${o.req ? ' <span class="req" aria-hidden="true">*</span>' : ''}</label>${input}${o.hint ? `<span class="hint" id="${id}-h">${o.hint}</span>` : ''}${o.req ? `<span class="err" id="${id}-e">${o.err || 'Bitte ausfüllen.'}</span>` : ''}</div>`;
 const inp = (id, name, type, o = {}) => `<input class="input" id="${id}" name="${name}" type="${type}"${o.req ? ' required aria-required="true"' : ''}${o.ac ? ` autocomplete="${o.ac}"` : ''}${o.ph ? ` placeholder="${o.ph}"` : ''}${o.req || o.hint ? ` aria-describedby="${[o.hint ? id + '-h' : '', o.req ? id + '-e' : ''].filter(Boolean).join(' ')}"` : ''}>`;
-const choice = (name, value, label, type = 'radio', checked = false) => `<label class="choice"><input type="${type}" name="${name}" value="${value}"${checked ? ' checked' : ''}><span>${label}</span></label>`;
+const choice = (name, value, label, type = 'radio', checked = false, key = '') => `<label class="choice"><input type="${type}" name="${name}" value="${value}"${checked ? ' checked' : ''}${key ? ` data-prefill="${key}"` : ''}><span>${label}</span></label>`;
 
 export default {
   path: '/kontakt.html',
   title: 'Kontakt & Projektanfrage | Europaneel Bottrop',
   description: 'Europaneel GmbH in Bottrop: Projekt anfragen, Telefon +49 2041 / 777 9191, E-Mail, WhatsApp und Anfahrt. Sie erhalten ein schriftliches Angebot.',
-  updated: '2026-10-05',
+  updated: '2026-11-17',
   pageType: 'ContactPage',
   crumbs: [['Kontakt', '/kontakt.html']],
   render() {
@@ -23,7 +23,7 @@ export default {
 
 <section class="sec" aria-labelledby="form-t">
   <div class="container split split--rev">
-    <div class="card form-card">
+    <div class="card form-card" id="anfrage">
       <h2 id="form-t" class="h3">Ihre Projektanfrage</h2>
       <p class="muted small mt-s">Pflichtfelder sind mit <span class="req">*</span> markiert. Wir arbeiten ausschließlich für Gewerbekunden.</p>
       <form class="mt-m" action="https://formsubmit.co/${SITE.email}" method="POST" data-validate data-form="kontakt" data-track-submit="contact_form_submit">
@@ -35,8 +35,8 @@ export default {
 
         <fieldset class="field full"><legend>Worum geht es? <span class="req" aria-hidden="true">*</span></legend>
           <div class="choices">
-            ${choice('Projektart', 'Kühlzelle', 'Kühlzelle', 'radio', true)}${choice('Projektart', 'Tiefkühlzelle', 'Tiefkühlzelle')}${choice('Projektart', 'Kühlhaus / mehrere Zellen', 'Kühlhaus')}
-            ${choice('Projektart', 'Sandwichpaneele', 'Paneele')}${choice('Projektart', 'Kühlhaustür', 'Tür')}${choice('Projektart', 'Kälteaggregat', 'Aggregat')}${choice('Projektart', 'Sonstiges', 'Sonstiges')}
+            ${choice('Projektart', 'Kühlzelle', 'Kühlzelle', 'radio', true, 'kuehlzelle')}${choice('Projektart', 'Tiefkühlzelle', 'Tiefkühlzelle', 'radio', false, 'tiefkuehlzelle')}${choice('Projektart', 'Kühlhaus / mehrere Zellen', 'Kühlhaus / mehrere Zellen', 'radio', false, 'kuehlhaus')}
+            ${choice('Projektart', 'Sandwichpaneele', 'Paneele', 'radio', false, 'paneele')}${choice('Projektart', 'Kühlhaustür', 'Tür', 'radio', false, 'tuer')}${choice('Projektart', 'Kälteaggregat', 'Aggregat', 'radio', false, 'aggregat')}${choice('Projektart', 'Sonstiges', 'Sonstiges')}
           </div>
         </fieldset>
 
@@ -74,6 +74,14 @@ export default {
         <a class="contact-strip__i" href="mailto:${SITE.email}">${icon('mail')}<span><small>E-Mail</small><b>${SITE.email}</b></span></a>
         <div>${icon('clock')}<span><small>Erreichbarkeit</small><b>${SITE.hours.text}<br>${SITE.hours.sat}</b></span></div>
         <div>${icon('map-pin')}<span><small>Adresse</small><b>${SITE.legalName}<br>${SITE.address.street}<br>${SITE.address.zip} ${SITE.address.city}</b></span></div>
+      </div>
+      <div class="next-steps">
+        <h3>So geht es nach dem Absenden weiter</h3>
+        <ol>
+          <li><b>Sichtung</b>Wir prüfen Ihre Angaben und melden uns persönlich – bei offenen Punkten mit kurzen Rückfragen.</li>
+          <li><b>Klärung &amp; Aufmaß</b>Temperatur, Boden, Tür und Kältetechnik stimmen wir mit Ihnen ab; Maße nehmen wir vor Ort oder anhand Ihrer Unterlagen auf.</li>
+          <li><b>Schriftliches Angebot</b>Mit allen Positionen – Zelle, Tür, Kältetechnik, Lieferung und Montage.</li>
+        </ol>
       </div>
     </aside>
   </div>

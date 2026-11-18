@@ -14,7 +14,7 @@ export default {
       title: 'Tiefkühlzellen nach Maß',
       lead: 'Tiefgefrorene Lebensmittel müssen ständig bei −18 °C oder kälter gehalten werden. Dafür braucht eine Zelle mehr als dickere Wände: einen gedämmten Boden, eine Tür, die nicht festfriert, und Kältetechnik mit ausreichender Reserve. Wir planen das als System.',
       photo: 'kuehlzelle-monoblock-werkstatt', cap: 'Anthrazitfarbene Zelle mit Kälteaggregat neben der Tür', pos: 'center 55%',
-      ctas: { primaryHref: '/kalkulator.html#tiefkuehlung' },
+      ctas: { primaryHref: '/kalkulator.html#tiefkuehlung', secondaryHref: '/kontakt.html?projekt=tiefkuehlzelle#anfrage' },
     })}
 
 <section class="sec--facts" aria-label="Eckdaten"><div class="container">${facts([
@@ -113,6 +113,6 @@ export default {
   { href: '/ratgeber/paneelstaerke-kuehlzelle/', tag: 'Ratgeber', title: 'Welche Paneelstärke?', text: 'Dämmstärke und U-Wert nach Temperatur.' },
 ])}</div></section>
 
-${ctaBand({ title: 'Ihre Tiefkühlzelle – Richtpreis in wenigen Schritten.', primaryHref: '/kalkulator.html#tiefkuehlung' })}`;
+${ctaBand({ title: 'Ihre Tiefkühlzelle – Richtpreis in wenigen Schritten.', primaryHref: '/kalkulator.html#tiefkuehlung', secondaryHref: '/kontakt.html?projekt=tiefkuehlzelle#anfrage' })}`;
   },
 };

@@ -14,7 +14,7 @@ export default {
       title: 'Kühlhausbau – Kühlanlagen und Kühllager als Gesamtprojekt',
       lead: 'Wenn eine einzelne Zelle nicht reicht: Wir planen mehrzellige Kühlanlagen und Kühllager in bestehenden Hallen – mit getrennten Temperaturzonen, Schiebetüren für den Warenfluss, Auffahrrampen und abgestimmter Kältetechnik.',
       photo: 'kuehlanlage-monoblock-aggregate', cap: 'Mehrzellige Kühlanlage mit Aggregaten, Schiebetüren und Auffahrrampen',
-      ctas: { lead: 'secondary' },
+      ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=kuehlhaus#anfrage' },
     })}
 
 <section class="sec--facts" aria-label="Eckdaten"><div class="container">${facts([
@@ -94,6 +94,6 @@ export default {
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Boden, Tür und Druckausgleich.' },
 ])}</div></section>
 
-${ctaBand({ lead: 'secondary', title: 'Sie planen ein Kühlhaus oder eine mehrzellige Anlage?', text: 'Schildern Sie uns Ware, Temperaturen und Halle – wir melden uns für Beratung und Aufmaß. Für einzelne Zellen sehen Sie den Richtpreis direkt im Kalkulator.' })}`;
+${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=kuehlhaus#anfrage', title: 'Sie planen ein Kühlhaus oder eine mehrzellige Anlage?', text: 'Schildern Sie uns Ware, Temperaturen und Halle – wir melden uns für Beratung und Aufmaß. Für einzelne Zellen sehen Sie den Richtpreis direkt im Kalkulator.' })}`;
   },
 };

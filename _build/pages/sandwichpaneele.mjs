@@ -33,7 +33,7 @@ export default {
       title: 'Sandwichpaneele für Kühlzellen und Kühlhäuser',
       lead: 'Sandwichpaneele sind das Grundmaterial jeder Kühlzelle: zwei beschichtete Deckschichten mit einem Dämmkern dazwischen. Wir halten viele Stärken, Formate und Oberflächen am Lager in Bottrop vor – für Ihr Projekt mit Montage oder zur Abholung.',
       photo: 'europaneel-lager-bottrop', cap: 'Paneellager der Europaneel GmbH in Bottrop', ratio: '43', pos: 'center 62%',
-      ctas: { lead: 'secondary' },
+      ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=paneele#anfrage' },
     })}
 
 <section class="sec--facts" aria-label="Eckdaten"><div class="container">${facts([
@@ -129,6 +129,6 @@ export default {
   { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Paneele für mehrzellige Anlagen.' },
 ])}</div></section>
 
-${ctaBand({ lead: 'secondary', title: 'Paneele für Ihr Projekt anfragen', text: 'Nennen Sie uns Stärke, Mengen und Oberfläche – oder die Maße Ihrer Zelle. Wir melden uns mit Verfügbarkeit und Angebot.' })}`;
+${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=paneele#anfrage', title: 'Paneele für Ihr Projekt anfragen', text: 'Nennen Sie uns Stärke, Mengen und Oberfläche – oder die Maße Ihrer Zelle. Wir melden uns mit Verfügbarkeit und Angebot.' })}`;
   },
 };

@@ -5,6 +5,7 @@ include:
 exclude:
   - _build
   - _intern
+  - docs
   - "*.md"
   - package.json
   - node_modules

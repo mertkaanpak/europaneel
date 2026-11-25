@@ -78,6 +78,9 @@ ${confirmed.length ? `<section class="sec--facts" aria-label="Kennzahlen"><div c
   { href: '/referenzen/', tag: 'Referenzen', title: 'Projekte aus der Praxis', text: 'Echte Fotos unserer Anlagen.' },
   { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'So läuft ein Projekt ab.' },
   { href: '/kontakt.html', tag: 'Kontakt', title: 'Anfahrt & Kontakt', text: 'Besuch nach Vereinbarung.' },
+  { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Mit oder ohne Boden, Dreh- oder Schiebetür.' },
+  { href: '/branchen/', tag: 'Branchen', title: 'Kühlräume nach Branche', text: 'Anforderungen von Gastronomie bis Handel.' },
+  { href: '/ratgeber/', tag: 'Ratgeber', title: 'Fachwissen zu Kühlzellen', text: 'Kosten, Paneelstärke und Planung.' },
 ])}</div></section>
 
 ${ctaBand()}`;

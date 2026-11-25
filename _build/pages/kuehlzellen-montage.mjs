@@ -97,6 +97,9 @@ export default {
   { href: '/ratgeber/kuehlzelle-planen/', tag: 'Ratgeber', title: 'Kühlzelle planen: Checkliste', text: 'Alles, was vor dem Aufmaß geklärt sein sollte.' },
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Aufbau, Boden, Türen, Temperatur.' },
   { href: '/referenzen/', tag: 'Referenzen', title: 'Projekte aus der Praxis', text: 'Fotos aus unserer Montagepraxis.' },
+  { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Mehrzellige Anlagen als Gesamtprojekt.' },
+  { href: '/unternehmen/', tag: 'Unternehmen', title: 'Über Europaneel', text: 'Lager, Werkstatt und Beratung in Bottrop.' },
+  { href: '/ratgeber/kuehlraum-bauen/', tag: 'Ratgeber', title: 'Kühlraum bauen', text: 'Raum dämmen oder Kühlzelle aus Paneelen?' },
 ])}</div></section>
 
 ${ctaBand({ lead: 'secondary', title: 'Montagetermin oder Aufmaß anfragen', text: `Schildern Sie uns Ihr Projekt – oder rufen Sie direkt an: ${SITE.phone.display}.` })}`;

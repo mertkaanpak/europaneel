@@ -6,7 +6,7 @@ const meta = (html) => `<p class="meta-line"><span>${icon('clock')}${readingTime
 
 function article(o) {
   return {
-    path: o.path, title: o.title, description: o.description, updated: PUB, readProgress: true, ogPhoto: o.photo,
+    path: o.path, title: o.title, description: o.description, updated: PUB, readProgress: true, ogPhoto: o.photo, topic: o.topic,
     crumbs: [['Ratgeber', '/ratgeber/'], [o.short, o.path]],
     article: { published: PUB, headline: o.h1 },
     render() {
@@ -14,7 +14,10 @@ function article(o) {
       return `${pageHero({ eyebrow: `Ratgeber · ${o.topic}`, title: o.h1, lead: o.lead, ctas: false, after: meta(body) })}
 ${articleBody(body)}
 ${o.faq ? `<section class="sec sec--surface" aria-labelledby="faq-t"><div class="container split"><div>${secHead({ eyebrow: 'FAQ', id: 'faq-t', title: 'Häufige Fragen zum Thema', stack: true })}</div>${faq(o.faq)}</div></section>` : ''}
-<section class="sec--sm"><div class="container">${related(o.related)}</div></section>
+<section class="sec--sm"><div class="container">${related(o.related)}
+<p class="eyebrow mt-l">Weitere Ratgeber-Artikel</p>
+<div class="mt-s">${related(ARTICLES.filter((a) => a.path !== o.path).map((a) => ({ href: a.path, tag: a.topic, title: a.article.headline })), 'Weitere Ratgeber-Artikel')}</div>
+</div></section>
 ${ctaBand()}`;
     },
   };

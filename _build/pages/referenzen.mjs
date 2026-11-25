@@ -50,6 +50,9 @@ ${GROUPS.map((g, gi) => `<section class="sec${gi % 2 ? ' sec--surface' : ''}" ar
   { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Mehrzellige Anlagen planen.' },
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Einzelne Zellen für Ihren Betrieb.' },
   { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'So läuft ein Projekt ab.' },
+  { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Mit isoliertem Boden und Tiefkühltür.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlraumtüren ab Lager', text: 'Dreh- und Schiebetüren in vielen Formaten.' },
+  { href: '/unternehmen/', tag: 'Unternehmen', title: 'Über Europaneel', text: 'Lager, Werkstatt und Beratung in Bottrop.' },
 ])}</div></section>
 
 <dialog class="lightbox" id="lightbox" aria-label="Bildansicht">

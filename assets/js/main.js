@@ -189,20 +189,44 @@
   d.addEventListener('dragstart', function (e) { if (e.target.tagName === 'IMG') e.preventDefault(); });
 
   /* ---------- Formulare: Validierung, Doppelversand, Tracking ---------- */
+  // Spam-Schutz ohne zusätzlichen Dienst: Honeypot (Feld _honey, für Menschen unsichtbar) und Mindestzeit seit Seitenaufruf.
+  // Beides greift nur vor dem Absenden im Browser; Ziel, Methode und Felder des Formulars bleiben unverändert.
+  // Nichts wird still verworfen: Wer gestoppt wird, sieht einen Hinweis und kann erneut senden.
+  var formT0 = Date.now(), MIN_FILL_MS = 3000;
   $$('form[data-validate]').forEach(function (form) {
     form.setAttribute('novalidate', '');
+    var status = null;
+    var say = function (msg) {
+      if (!status) {
+        if (!msg) return;
+        status = d.createElement('p'); status.className = 'form-status'; status.setAttribute('role', 'alert');
+        var sb = $('button[type=submit]', form), anchor = sb ? (sb.closest('.form-foot') || sb) : null;
+        if (anchor && anchor.parentNode) anchor.parentNode.insertBefore(status, anchor); else form.appendChild(status);
+      }
+      status.textContent = msg || ''; status.hidden = !msg;
+    };
     form.addEventListener('submit', function (e) {
-      var firstBad = null;
+      say('');
+      var firstBad = null, bad = 0;
       $$('.field', form).forEach(function (f) {
         var inp = $('input, select, textarea', f);
         if (!inp || inp.type === 'hidden') return;
         var ok = inp.checkValidity();
         f.classList.toggle('is-invalid', !ok);
         inp.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok) bad++;
         if (!ok && !firstBad) firstBad = inp;
       });
       $$('input[type=checkbox][required]', form).forEach(function (cb) { if (!cb.checked && !firstBad) firstBad = cb; });
-      if (firstBad) { e.preventDefault(); firstBad.focus(); return; }
+      if (firstBad) {
+        e.preventDefault();
+        say(bad > 1 ? 'Bitte füllen Sie die ' + bad + ' markierten Pflichtfelder aus.' : 'Bitte füllen Sie das markierte Pflichtfeld aus.');
+        firstBad.focus(); return;
+      }
+      var hp = $('input[name="_honey"]', form);
+      if (hp && hp.value) { e.preventDefault(); say('Ihre Anfrage konnte nicht gesendet werden. Bitte laden Sie die Seite neu oder erreichen Sie uns telefonisch oder per E-Mail.'); return; }
+      if (Date.now() - formT0 < MIN_FILL_MS) { e.preventDefault(); say('Das ging sehr schnell. Bitte prüfen Sie Ihre Angaben kurz und senden Sie erneut.'); return; }
+      if (w.navigator && w.navigator.onLine === false) { e.preventDefault(); say('Keine Internetverbindung. Bitte prüfen Sie Ihre Verbindung und senden Sie erneut – oder rufen Sie uns an.'); return; }
       var btn = $('button[type=submit]', form);
       if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); }
       var ev = form.getAttribute('data-track-submit');
@@ -211,6 +235,12 @@
     form.addEventListener('input', function (e) {
       var f = e.target.closest('.field');
       if (f && f.classList.contains('is-invalid') && e.target.checkValidity()) { f.classList.remove('is-invalid'); e.target.setAttribute('aria-invalid', 'false'); }
+    });
+    // Zurück-Taste nach dem Absenden: Seite kommt aus dem Browser-Cache, der Button wäre sonst dauerhaft gesperrt
+    w.addEventListener('pageshow', function (ev) {
+      if (!ev.persisted) return;
+      var b = $('button[type=submit]', form);
+      if (b) { b.disabled = false; b.removeAttribute('aria-busy'); }
     });
   });
 

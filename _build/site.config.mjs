@@ -17,6 +17,7 @@ export const SITE = {
   geo: { lat: 51.49864, lng: 6.93782 }, // OpenStreetMap, Gebäude Am Rhein-Herne-Kanal 10 (02.10.2026)
   hours: { text: 'Mo–Fr 09:00–17:00 Uhr', sat: 'Sa nach Vereinbarung', days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '09:00', closes: '17:00' },
   areaServed: ['DE', 'AT', 'CH', 'NL'],
+  areaServedNames: { DE: 'Deutschland', AT: 'Österreich', CH: 'Schweiz', NL: 'Niederlande' }, // ausgeschriebene Ländernamen für schema.org (Country.name)
   areaCities: ['Düsseldorf', 'Köln', 'Frankfurt am Main', 'München', 'Stuttgart', 'Essen', 'Dortmund', 'Bochum', 'Gelsenkirchen', 'Duisburg'], // Mert 16.11.2026: montiert überall, Beispielorte
   vatID: 'DE283639971',
   mapsLink: 'https://www.google.com/maps/search/?api=1&query=Europaneel+GmbH%2C+Am+Rhein-Herne-Kanal+10%2C+46242+Bottrop',

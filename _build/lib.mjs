@@ -190,20 +190,21 @@ function renderFooter() {
 <p class="ftr__claim">Kühlzellen, Tiefkühlzellen und Kühlhäuser – geplant, geliefert und montiert. Mit Lager und Abholung in Bottrop.</p>
 <p class="ftr__seat">${icon('map-pin')}Firmensitz Bottrop · Ruhrgebiet, Nordrhein-Westfalen · Montage deutschlandweit</p>
 <address>${SITE.legalName}<br>${SITE.address.street}<br>${SITE.address.zip} ${SITE.address.city}<br><a href="${SITE.phone.href}">${SITE.phone.display}</a><br><a href="mailto:${SITE.email}">${SITE.email}</a><br>${SITE.hours.text}</address></div>
-${FOOTER.cols.map((c) => `<div><h2>${c.title}</h2><ul>${c.links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join('')}</ul></div>`).join('')}
+${FOOTER.cols.map((c) => `<div><p class="ftr__title">${c.title}</p><ul>${c.links.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join('')}</ul></div>`).join('')}
 </div><div class="container ftr__bottom"><span>© ${year} ${SITE.legalName} · Alle Rechte vorbehalten. Texte, Fotos und Kalkulator sind urheberrechtlich geschützt. Nutzungsvorbehalt nach § 44b UrhG: keine Verwendung für Text- und Data-Mining oder KI-Training.</span><button class="ftr__btn" type="button" data-consent-open>Cookie-Einstellungen</button></div></footer>`;
 }
 
 function renderConsent() {
   const stats = !!SITE.ga4;
   return `<div class="consent" id="consent" role="dialog" aria-labelledby="consent-t" aria-describedby="consent-d" hidden>
-<h2 id="consent-t">${icon('cookie')}Externe Dienste</h2>
+<p class="consent__title" id="consent-t">${icon('cookie')}Externe Dienste</p>
 <p id="consent-d">Für die Kartenansicht binden wir Google Maps${stats ? ' und zur Reichweitenmessung Google Analytics' : ''} erst nach Ihrer Zustimmung ein. Dabei können Daten an Google übermittelt werden. Ihre Wahl können Sie jederzeit unter „Cookie-Einstellungen“ ändern. <a href="/datenschutz/">Datenschutzerklärung</a></p>
 <div class="consent__btns"><button class="btn btn--outline btn--sm" type="button" data-consent="necessary">Nur notwendige</button><button class="btn btn--outline btn--sm" type="button" data-consent="all">Alle akzeptieren</button></div></div>`;
 }
 
 /* --------------------------------------------------------- Strukturierte Daten */
 const ORG_ID = `${SITE.url}/#organization`, WEB_ID = `${SITE.url}/#website`;
+const countries = () => SITE.areaServed.map((c) => ({ '@type': 'Country', name: SITE.areaServedNames[c] || c }));
 export function orgNode() {
   return {
     '@type': 'LocalBusiness', '@id': ORG_ID, name: SITE.legalName, legalName: SITE.legalName, alternateName: 'EuroPaneel – Isoliertüren & Kühlraumbau',
@@ -213,7 +214,7 @@ export function orgNode() {
     geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.lat, longitude: SITE.geo.lng }, hasMap: SITE.mapsLink,
     openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: SITE.hours.days, opens: SITE.hours.opens, closes: SITE.hours.closes }],
     contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', telephone: SITE.phone.schema, email: SITE.email, areaServed: SITE.areaServed, availableLanguage: ['de'] }],
-    areaServed: [...SITE.areaServed.map((c) => ({ '@type': 'Country', name: c })), ...SITE.areaCities.map((c) => ({ '@type': 'City', name: c }))],
+    areaServed: [...countries(), ...SITE.areaCities.map((c) => ({ '@type': 'City', name: c }))],
     knowsAbout: ['Kühlzellen', 'Tiefkühlzellen', 'Kühlhausbau', 'Sandwichpaneele', 'Kühlhaustüren', 'Isoliertüren', 'Kälteaggregate'],
     ...(SITE.sameAs.length ? { sameAs: SITE.sameAs } : {}),
   };
@@ -229,13 +230,21 @@ function schemaGraph(page, ctx) {
     const items = [['Start', '/'], ...page.crumbs];
     g.push({ '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: items.map(([t, h], i) => ({ '@type': 'ListItem', position: i + 1, name: strip(t), ...(i < items.length - 1 ? { item: abs(h) } : {}) })) });
   }
-  if (page.service) g.push({ '@type': 'Service', '@id': url + '#service', name: page.service.name, serviceType: page.service.type, description: page.description, provider: { '@id': ORG_ID }, areaServed: SITE.areaServed.map((c) => ({ '@type': 'Country', name: c })), url, ...(page.ogPhoto ? { image: SITE.url + imgSrc(page.ogPhoto) } : {}) });
+  if (page.service) g.push({ '@type': 'Service', '@id': url + '#service', name: page.service.name, serviceType: page.service.type, description: page.description, provider: { '@id': ORG_ID }, areaServed: countries(), url, ...(page.ogPhoto ? { image: SITE.url + imgSrc(page.ogPhoto) } : {}) });
   if (page.article) g.push({ '@type': 'Article', '@id': url + '#article', headline: page.article.headline || page.h1, description: page.description, datePublished: page.article.published, dateModified: page.updated, author: { '@id': ORG_ID }, publisher: { '@id': ORG_ID }, mainEntityOfPage: { '@id': url + '#webpage' }, inLanguage: 'de-DE', ...(page.ogPhoto ? { image: SITE.url + imgSrc(page.ogPhoto) } : {}) });
   if (ctx.faqItems.length && page.faqSchema !== false) g.push({ '@type': 'FAQPage', '@id': url + '#faq', mainEntity: ctx.faqItems.map((f) => ({ '@type': 'Question', name: strip(f.q), acceptedAnswer: { '@type': 'Answer', text: strip(f.a) } })) });
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': g });
 }
 
 /* --------------------------------------------------------------- Dokument */
+// GitHub Pages liefert jede Seite zusätzlich unter Nebenformen mit Status 200 aus (/ordner/index.html, /seite ohne .html).
+// Ein serverseitiges 301 ist dort nicht möglich. Das Canonical zeigt bereits auf die Hauptform; dieses kurze Skript
+// lenkt Besucher und rendernde Suchmaschinen zusätzlich direkt dorthin (ein Sprung, Parameter und Anker bleiben erhalten).
+function altFormRedirect(page) {
+  if (page.path === '/404.html') return ''; // die Fehlerseite wird unter beliebigen Adressen ausgeliefert
+  const alt = page.path.endsWith('/') ? page.path + 'index.html' : page.path.replace(/\.html$/, '');
+  return `(function(l){if(l.pathname===${JSON.stringify(alt)})l.replace(${JSON.stringify(page.path)}+l.search+l.hash)})(location);`;
+}
 export function renderDocument(page, main, ctx, V) {
   const canonical = abs(page.path);
   const indexable = page.robots !== 'noindex';
@@ -252,10 +261,9 @@ export function renderDocument(page, main, ctx, V) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(page.title)}</title>
 <meta name="description" content="${esc(page.description)}">
-<meta name="robots" content="${indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'}">
+<meta name="robots" content="${indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'}, noai, noimageai">
 ${indexable ? `<link rel="canonical" href="${canonical}">` : ''}
 <meta name="tdm-reservation" content="1">
-<meta name="robots" content="noai, noimageai">
 <meta name="author" content="${SITE.legalName}">
 <meta name="copyright" content="© ${SITE.legalName}">
 <meta property="og:type" content="${page.article ? 'article' : 'website'}">
@@ -278,7 +286,7 @@ ${indexable ? `<link rel="canonical" href="${canonical}">` : ''}
 <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
 ${ctx.preloads.join('\n')}
 ${css.map((h) => `<link rel="stylesheet" href="${h}">`).join('\n')}
-<script>document.documentElement.className+=' js';</script>${cfg}
+<script>document.documentElement.className+=' js';${altFormRedirect(page)}</script>${cfg}
 ${js.map((s) => `<script src="${s}" defer></script>`).join('\n')}
 <script type="application/ld+json">${schemaGraph(page, ctx)}</script>
 </head>

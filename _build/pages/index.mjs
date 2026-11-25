@@ -24,7 +24,7 @@ export default {
 <a class="hero-calc" href="${CTA.primary.href}" data-hero-media><span class="hero-calc__lbl">${icon('calculator')}Online-Kalkulator</span><span class="hero-calc__dims" aria-hidden="true"><i>L</i>×<i>B</i>×<i>H</i></span><span class="hero-calc__txt">Maße, Boden und Tür wählen – Netto-Richtpreis sofort, ohne Registrierung.</span><span class="hero-calc__go">Richtpreis berechnen${icon('arrow-right')}</span></a>
 </div>
 <div class="cinema-hero__proof"><div class="container"><dl class="proof" id="fakten" aria-label="Eckdaten">
-  <div><dt>Erfahrung</dt><dd><b>18+</b> Jahre</dd></div>
+  <div><dt>Erfahrung</dt><dd>Kühlraumbau <b>seit 2009</b></dd></div>
   <div><dt>Montiert</dt><dd><b>1.000+</b> Kühlzellen</dd></div>
   <div><dt>Lieferung &amp; Montage</dt><dd>in der Regel <b>1–2</b> Wochen</dd></div>
   <div><dt>Einsatzgebiet</dt><dd><b>bundesweit</b></dd></div>

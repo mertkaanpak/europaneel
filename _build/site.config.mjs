@@ -29,7 +29,7 @@ export const SITE = {
   // Bestätigt durch die Geschäftsführung am 05.10.2026.
   facts: {
     installed: { value: '1.000+', label: 'montierte Kühlzellen', confirmed: true },
-    years: { value: '18+', label: 'Jahre Erfahrung', confirmed: true },
+    years: { value: 'seit 2009', label: 'Kühlraumbau', confirmed: true },
   },
 };
 

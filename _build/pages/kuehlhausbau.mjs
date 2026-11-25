@@ -92,6 +92,9 @@ export default {
   { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'Aufmaß, Lieferung und Aufbau.' },
   { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Schiebetüren ab Lager', text: 'Formate für breite Öffnungen.' },
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Boden, Tür und Druckausgleich.' },
+  { href: '/sandwichpaneele/', tag: 'Komponenten', title: 'Sandwichpaneele', text: 'Isolierpaneele ab Lager Bottrop.' },
+  { href: '/ratgeber/kuehlzelle-planen/', tag: 'Ratgeber', title: 'Kühlzelle planen: Checkliste', text: 'Was vor dem Aufmaß geklärt sein sollte.' },
+  { href: '/branchen/', tag: 'Branchen', title: 'Kühlräume nach Branche', text: 'Anforderungen von Gastronomie bis Handel.' },
 ])}</div></section>
 
 ${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=kuehlhaus#anfrage', title: 'Sie planen ein Kühlhaus oder eine mehrzellige Anlage?', text: 'Schildern Sie uns Ware, Temperaturen und Halle – wir melden uns für Beratung und Aufmaß. Für einzelne Zellen sehen Sie den Richtpreis direkt im Kalkulator.' })}`;

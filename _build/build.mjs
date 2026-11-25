@@ -122,7 +122,7 @@ write('site.webmanifest', JSON.stringify({
   background_color: '#ffffff', theme_color: '#16191f',
   icons: [{ src: '/assets/img/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/img/icon-512.png', sizes: '512x512', type: 'image/png' }],
 }, null, 2) + '\n');
-write('_config.yml', `# GitHub Pages: Die Seiten sind fertiges HTML (erzeugt mit node _build/build.mjs).\n# Jekyll liefert nur aus. Interne Ordner werden nie veröffentlicht.\ninclude:\n  - .well-known\nexclude:\n  - _build\n  - _intern\n  - "*.md"\n  - package.json\n  - node_modules\n`);
+write('_config.yml', `# GitHub Pages: Die Seiten sind fertiges HTML (erzeugt mit node _build/build.mjs).\n# Jekyll liefert nur aus. Interne Ordner werden nie veröffentlicht.\ninclude:\n  - .well-known\nexclude:\n  - _build\n  - _intern\n  - docs\n  - "*.md"\n  - package.json\n  - node_modules\n`);
 
 /* 7) Qualitätsprüfung */
 const errors = [], warns = [];
@@ -152,6 +152,8 @@ for (const [file, { page, html }] of out) {
     if (!u.startsWith('/') || u.startsWith('//')) continue;
     const [p, frag] = u.split('#'); const clean = p.split('?')[0];
     const rel = clean.endsWith('/') ? clean.slice(1) + 'index.html' : clean.slice(1);
+    if (REDIRECTS.some((r) => r.from === rel)) errors.push(`${tag} interner Link auf weitergeleitete Adresse: ${u}`);
+    if (clean.endsWith('/index.html') || clean === '/kontakt' || clean === '/kalkulator') errors.push(`${tag} interner Link auf Nebenform statt Hauptform: ${u}`);
     if (!exists(rel)) errors.push(`${tag} Ziel fehlt: ${u}`);
     else if (frag && out.has(rel) && !idsOf(out.get(rel).html).has(frag)) errors.push(`${tag} Anker fehlt auf Zielseite: ${u}`);
   }
@@ -160,6 +162,18 @@ for (const [file, { page, html }] of out) {
   }
   for (const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) { try { JSON.parse(m[1]); } catch (e) { errors.push(`${tag} JSON-LD ungültig: ${e.message}`); } }
 }
+// Interne Verlinkung: Jede Seite der Sitemap soll aus dem Inhaltsbereich (<main>) von mindestens drei anderen Seiten verlinkt sein.
+const mainLinks = new Map();
+for (const [, { page, html }] of out) {
+  const main = (html.match(/<main[\s\S]*?<\/main>/) || [''])[0];
+  mainLinks.set(page.path, new Set([...main.matchAll(/<a\b[^>]*\shref="(\/[^"#?]*)/g)].map((m) => m[1])));
+}
+for (const p of indexable) {
+  const n = [...mainLinks].filter(([from, set]) => from !== p.path && set.has(p.path)).length;
+  if (n < 3) warns.push(`[${p.path}] nur ${n} Seite(n) verlinken aus dem Inhalt hierher (Ziel: mindestens 3)`);
+}
+// Sitemap: keine weitergeleiteten Adressen
+for (const p of indexable) if (REDIRECTS.some((r) => '/' + r.from === p.path)) errors.push(`Sitemap enthält weitergeleitete Adresse: ${p.path}`);
 for (const name of USED_ICONS) if (!fs.existsSync(path.join(ROOT, '_build/icons', `${name}.svg`))) errors.push(`Icon fehlt: ${name}`);
 
 console.log(`Build: ${out.size} Seiten, ${REDIRECTS.length} Weiterleitungen, ${USED_ICONS.size} Icons, Sitemap ${indexable.length} URLs – ${Date.now() - t0} ms`);

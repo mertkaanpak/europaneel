@@ -7,17 +7,17 @@ const list = (items) => `<ul class="door-list">${items.map((d) => `<li><span cla
 
 export default {
   path: '/kuehlhaustueren/',
-  title: 'Kühlhaustüren & Isoliertüren ab Lager | Europaneel',
-  description: 'Kühlhaustüren ab Lager Bottrop: 9 Drehtür- und 14 Schiebetürformate, Anschlag links oder rechts, mit oder ohne Schwelle – für Kühl- und Tiefkühlräume.',
-  updated: '2026-10-05',
+  title: 'Kühlraumtüren & Kühlhaustüren ab Lager | Europaneel',
+  description: 'Kühlraumtüren und Kühlhaustüren ab Lager Bottrop: 9 Drehtür- und 14 Schiebetürformate, Anschlag links oder rechts, mit oder ohne Schwelle.',
+  updated: '2026-11-25',
   crumbs: [['Kühlhaustüren', '/kuehlhaustueren/']],
   service: { name: 'Kühlhaustüren und Isoliertüren', type: 'Lieferung und Montage von Kühlhaustüren' },
   ogPhoto: 'kuehlzelle-anthrazit-schiebetuer',
   render() {
     return `${pageHero({
       eyebrow: 'Isoliertüren · Dreh- & Schiebetüren',
-      title: 'Kühlhaustüren ab Lager – Dreh- und Schiebetüren für Kühl- und Tiefkühlräume',
-      lead: 'Die Tür ist das meistgenutzte Bauteil einer Kühlzelle – und die größte Schwachstelle für Kälteverluste. Wir führen Dreh- und Schiebetüren in gängigen Formaten am Lager in Bottrop, jeweils mit Anschlag links oder rechts und mit oder ohne Schwelle.',
+      title: 'Kühlraumtüren und Kühlhaustüren ab Lager – Dreh- und Schiebetüren',
+      lead: 'Ob Kühlraumtür, Kühlzellentür oder Kühlhaustür genannt: Die Tür ist das meistgenutzte Bauteil einer Kühlzelle – und die größte Schwachstelle für Kälteverluste. Wir führen Dreh- und Schiebetüren für Kühl- und Tiefkühlräume in gängigen Formaten am Lager in Bottrop, jeweils mit Anschlag links oder rechts und mit oder ohne Schwelle.',
       photo: 'kuehlzelle-anthrazit-schiebetuer', cap: 'Kühlhaus-Schiebetür in weißer Ausführung an einer Zelle in Anthrazit',
       ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=tuer#anfrage' },
     })}
@@ -83,6 +83,9 @@ export default {
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Zelle und Tür als Einheit planen.' },
   { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Schiebetüren für Kühllager.' },
   { href: '/ratgeber/kuehlzelle-planen/', tag: 'Ratgeber', title: 'Kühlzelle planen', text: 'Türposition, Breite und Anschlag festlegen.' },
+  { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Tiefkühltür, Boden und Druckausgleich.' },
+  { href: '/sandwichpaneele/', tag: 'Komponenten', title: 'Sandwichpaneele', text: 'Isolierpaneele für Wand, Decke und Boden.' },
+  { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'Aufmaß, Lieferung und Aufbau.' },
 ])}</div></section>
 
 ${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=tuer#anfrage', title: 'Passende Tür gefunden?', text: 'Nennen Sie uns Format, Anschlagseite und ob Sie eine Schwelle wünschen – wir prüfen die Verfügbarkeit und melden uns mit einem Angebot.' })}`;

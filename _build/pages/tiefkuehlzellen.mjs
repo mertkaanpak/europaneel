@@ -111,6 +111,9 @@ export default {
   { href: '/kuehlzellen/', tag: 'Pluskühlung', title: 'Kühlzellen nach Maß', text: 'Mit oder ohne Boden, Dreh- oder Schiebetür.' },
   { href: '/kaelteaggregate/', tag: 'Kältetechnik', title: 'Kälteaggregate', text: 'Monoblock, Huckepack oder Split im Vergleich.' },
   { href: '/ratgeber/paneelstaerke-kuehlzelle/', tag: 'Ratgeber', title: 'Welche Paneelstärke?', text: 'Dämmstärke und U-Wert nach Temperatur.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlraumtüren ab Lager', text: 'Dreh- und Schiebetüren für Kühl- und Tiefkühlräume.' },
+  { href: '/sandwichpaneele/', tag: 'Komponenten', title: 'Sandwichpaneele', text: 'Isolierpaneele für Wand, Decke und Boden.' },
+  { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Warum Tiefkühlung mehr Aufwand bedeutet.' },
 ])}</div></section>
 
 ${ctaBand({ title: 'Ihre Tiefkühlzelle – Richtpreis in wenigen Schritten.', primaryHref: '/kalkulator.html#tiefkuehlung', secondaryHref: '/kontakt.html?projekt=tiefkuehlzelle#anfrage' })}`;

@@ -8,7 +8,7 @@ export default {
   bodyClass: 'home-cinema',
   title: 'Kühlraumbau bundesweit: Kühlzellen & Kühlhäuser | Europaneel',
   description: 'Europaneel plant, liefert und montiert Kühlzellen, Tiefkühlzellen und Kühlhäuser deutschlandweit – in der Regel in 1–2 Wochen. Richtpreis online berechnen.',
-  updated: '2026-11-17',
+  updated: '2026-11-25',
   pageType: 'WebPage',
   ogPhoto: 'kuehlanlage-rot-praxis',
   render() {
@@ -16,7 +16,7 @@ export default {
 <section class="cinema-hero" aria-labelledby="hero-t"><div class="cinema-hero__photo">${pic('kuehlanlage-rot-praxis', { eager: true, sizes: '100vw' })}</div><div class="cinema-hero__shade"></div><div class="cinema-hero__grid" aria-hidden="true"></div>
 <div class="container cinema-hero__content"><div class="cinema-hero__text" data-hero-enter>
   <p class="eyebrow">Europaneel · Kühlraumbau aus Bottrop</p>
-  <h1 id="hero-t">Kühlzellen nach Maß. <em>Geplant, geliefert, montiert.</em></h1>
+  <h1 id="hero-t">Kühlzellen und Kühlhäuser nach Maß. <em>Geplant, geliefert, montiert.</em></h1>
   <p class="cinema-hero__lead">Kühlzellen, Tiefkühlzellen und Kühlhäuser für Gastronomie, Handel und Gewerbe: Wir planen Maße, Paneelstärke, Boden, Türen und Kältetechnik passend zu Ihrem Betrieb – und montieren bundesweit.</p>
   <div class="btn-row"><a class="btn btn--primary" href="${CTA.secondary.href}" data-track-pos="hero">Projekt anfragen${icon('arrow-right')}</a>${btn('Kühlzelle konfigurieren', CTA.primary.href, { variant: 'ghost-light', icon: false, attrs: 'data-track-pos="hero"' })}</div>
   <p class="cinema-hero__tel" data-track-pos="hero">oder direkt anrufen: <a href="${SITE.phone.href}">${icon('phone')}${SITE.phone.display}</a></p>
@@ -24,7 +24,7 @@ export default {
 <a class="hero-calc" href="${CTA.primary.href}" data-hero-media><span class="hero-calc__lbl">${icon('calculator')}Online-Kalkulator</span><span class="hero-calc__dims" aria-hidden="true"><i>L</i>×<i>B</i>×<i>H</i></span><span class="hero-calc__txt">Maße, Boden und Tür wählen – Netto-Richtpreis sofort, ohne Registrierung.</span><span class="hero-calc__go">Richtpreis berechnen${icon('arrow-right')}</span></a>
 </div>
 <div class="cinema-hero__proof"><div class="container"><dl class="proof" id="fakten" aria-label="Eckdaten">
-  <div><dt>Erfahrung</dt><dd><b>18+</b> Jahre</dd></div>
+  <div><dt>Erfahrung</dt><dd>Kühlraumbau <b>seit 2009</b></dd></div>
   <div><dt>Montiert</dt><dd><b>1.000+</b> Kühlzellen</dd></div>
   <div><dt>Lieferung &amp; Montage</dt><dd>in der Regel <b>1–2</b> Wochen</dd></div>
   <div><dt>Einsatzgebiet</dt><dd><b>bundesweit</b></dd></div>
@@ -135,7 +135,7 @@ export default {
   <div data-reveal>
     <p class="eyebrow">Standort Bottrop</p>
     <h2 id="ort-t">Lager, Werkstatt und Beratung am Rhein-Herne-Kanal</h2>
-    <p class="lead mt-s">Besuchen Sie uns nach Vereinbarung: Wir beraten Sie persönlich, zeigen Paneele und Türen – oder Sie holen Ihre Ware direkt ab.</p>
+    <p class="lead mt-s">Besuchen Sie uns nach Vereinbarung: Wir beraten Sie persönlich, zeigen Paneele und Türen – oder Sie holen Ihre Ware direkt ab. ${linkArrow('Mehr über Europaneel', '/unternehmen/')}</p>
     <div class="contact-strip contact-strip--stack mt-l">
       <div>${icon('map-pin')}<span><small>Adresse</small><b>${SITE.legalName}<br>${SITE.address.street}, ${SITE.address.zip} ${SITE.address.city}</b></span></div>
       <a class="contact-strip__i" href="${SITE.phone.href}" data-track-pos="home-contact">${icon('phone')}<span><small>Telefon</small><b>${SITE.phone.display}</b></span></a>

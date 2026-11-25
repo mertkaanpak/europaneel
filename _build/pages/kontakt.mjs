@@ -90,7 +90,7 @@ export default {
 <section class="sec sec--surface" aria-labelledby="anfahrt-t">
   <div class="container split split--center">
     <div data-reveal>
-      ${secHead({ eyebrow: 'Anfahrt', id: 'anfahrt-t', title: 'So finden Sie uns in Bottrop', stack: true, text: 'Unser Standort liegt am Rhein-Herne-Kanal. Besuche, Beratung vor Ort und Abholung bitte nach Terminvereinbarung.' })}
+      ${secHead({ eyebrow: 'Anfahrt', id: 'anfahrt-t', title: 'So finden Sie uns in Bottrop', stack: true, text: 'Unser Standort liegt am Rhein-Herne-Kanal. Besuche, Beratung vor Ort und Abholung bitte nach Terminvereinbarung. Mehr zu Lager und Werkstatt lesen Sie auf der Seite <a href="/unternehmen/">Über Europaneel</a>.' })}
       <div class="btn-row"><a class="btn btn--dark" href="${SITE.mapsLink}" target="_blank" rel="noopener">${icon('navigation')}Route planen</a></div>
     </div>
     <div data-reveal data-reveal-d="1">${mapBlock()}</div>

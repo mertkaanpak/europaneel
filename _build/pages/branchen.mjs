@@ -116,6 +116,9 @@ const gastro = {
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Mit oder ohne Boden, Dreh- oder Schiebetür.' },
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Für Vorräte, Eis und Halbfabrikate.' },
   { href: '/kaelteaggregate/', tag: 'Kältetechnik', title: 'Kälteaggregate', text: 'Abwärme und Aufstellort richtig planen.' },
+  { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Welche Posten den Preis bestimmen.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlraumtüren ab Lager', text: 'Dreh- und Schiebetüren in vielen Formaten.' },
+  { href: '/referenzen/', tag: 'Referenzen', title: 'Aus unserer Montagepraxis', text: 'Kühlzellen und Kühlanlagen im Einsatz.' },
 ])}</div></section>
 ${ctaBand()}`,
 };
@@ -186,6 +189,9 @@ const metzgerei = {
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Aufbau, Boden, Tür und Temperatur.' },
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Für gefrorenes Fleisch bei −18 °C.' },
   { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlhaustüren', text: 'Dreh- und Schiebetüren ab Lager.' },
+  { href: '/kaelteaggregate/', tag: 'Kältetechnik', title: 'Kälteaggregate', text: 'Abwärme und Aufstellort richtig planen.' },
+  { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Welche Posten den Preis bestimmen.' },
+  { href: '/referenzen/', tag: 'Referenzen', title: 'Aus unserer Montagepraxis', text: 'Kühlzellen und Kühlanlagen im Einsatz.' },
 ])}</div></section>
 ${ctaBand()}`,
 };

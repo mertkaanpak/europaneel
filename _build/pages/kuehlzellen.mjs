@@ -4,7 +4,7 @@ export default {
   path: '/kuehlzellen/',
   title: 'Kühlzellen nach Maß: planen, liefern, montieren | Europaneel',
   description: 'Begehbare Kühlzellen nach Maß für Gastronomie, Handel und Industrie: mit oder ohne Boden, Dreh- oder Schiebetür, Kältetechnik und Montage. Richtpreis online.',
-  updated: '2026-10-05',
+  updated: '2026-11-25',
   crumbs: [['Kühlzellen', '/kuehlzellen/']],
   service: { name: 'Kühlzellen nach Maß', type: 'Planung, Lieferung und Montage von Kühlzellen' },
   ogPhoto: 'kuehlzelle-anthrazit-fliesenboden',
@@ -109,7 +109,7 @@ export default {
 
 <section class="sec sec--surface" aria-labelledby="ablauf-t">
   <div class="container">
-    ${secHead({ eyebrow: 'Ablauf', id: 'ablauf-t', title: 'So entsteht Ihre Kühlzelle', text: 'Vom Richtpreis bis zur Übergabe mit einem festen Ansprechpartner.' })}
+    ${secHead({ eyebrow: 'Ablauf', id: 'ablauf-t', title: 'Kühlzelle kaufen: So läuft es ab', text: 'Vom Richtpreis bis zur Übergabe mit einem festen Ansprechpartner.' })}
     ${steps([
       ['Richtpreis oder Anfrage', 'Mit dem Kalkulator erhalten Sie in wenigen Schritten einen Netto-Richtpreis – oder Sie schildern uns Ihr Projekt direkt.'],
       ['Beratung & Aufmaß', 'Wir klären Temperatur, Boden, Tür und Kältetechnik und nehmen die Maße vor Ort oder anhand Ihrer Angaben auf.'],
@@ -149,6 +149,9 @@ export default {
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Mit isoliertem Boden und Tiefkühltür.' },
   { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlhaustüren ab Lager', text: 'Dreh- und Schiebetüren in vielen Formaten.' },
   { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Preisfaktoren und Richtpreis im Überblick.' },
+  { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'Aufmaß, Lieferung und Aufbau.' },
+  { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Mehrere Zellen und Kühllager als Gesamtprojekt.' },
+  { href: '/ratgeber/paneelstaerke-kuehlzelle/', tag: 'Ratgeber', title: 'Welche Paneelstärke?', text: 'Dämmstärke und U-Wert nach Temperatur.' },
 ])}</div></section>
 
 ${ctaBand()}`;

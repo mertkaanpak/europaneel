@@ -4,7 +4,7 @@ export default {
   path: '/kaelteaggregate/',
   title: 'Kälteaggregate für Kühlzellen: Monoblock, Split | Europaneel',
   description: 'Kälteaggregate für Kühl- und Tiefkühlzellen: Huckepack, Monoblock und Split im Vergleich – Aufstellung, Abwärme und Kältemittel nach F-Gase-Verordnung.',
-  updated: '2026-10-05',
+  updated: '2026-11-25',
   crumbs: [['Kälteaggregate', '/kaelteaggregate/']],
   service: { name: 'Kälteaggregate für Kühlzellen', type: 'Lieferung von Kälteaggregaten für Kühl- und Tiefkühlzellen' },
   ogPhoto: 'kuehlanlage-aggregat-schiebetueren',
@@ -50,6 +50,16 @@ export default {
   </div>
 </section>
 
+<section class="sec" aria-labelledby="hand-t">
+  <div class="container">
+    ${secHead({ eyebrow: 'Zelle und Kältetechnik', id: 'hand-t', title: 'Kühlzelle mit Aggregat aus einer Hand', text: 'Beratung, Aufmaß, Planung, Lieferung und Montage kommen von uns – auf Wunsch inklusive Kältetechnik als Huckepack-, Monoblock- oder Split-Lösung.' })}
+    <div class="prose measure" data-reveal>
+      <p>Wer Zelle und Aggregat zusammen plant, stimmt Zellengröße, Temperatur und Aufstellort von Anfang an aufeinander ab. Den Netto-Richtpreis für Paneele und Tür ermitteln Sie vorab im <a href="/kalkulator.html">Kühlzellen-Kalkulator</a>; das passende Aggregat nennen wir Ihnen im schriftlichen Angebot – zusammen mit Zelle, Tür, Lieferung und Montage.</p>
+      <p>Mehr zum Aufbau der Zelle: <a href="/kuehlzellen/">Kühlzellen nach Maß</a> und <a href="/tiefkuehlzellen/">Tiefkühlzellen</a>. Wie sich die Kältetechnik auf den Gesamtpreis auswirkt, erklärt der Ratgeber <a href="/ratgeber/kuehlzelle-kosten/">Was kostet eine Kühlzelle?</a></p>
+    </div>
+  </div>
+</section>
+
 <section class="sec" aria-labelledby="fgas-t">
   <div class="container split split--rev">
     <div data-reveal>
@@ -85,6 +95,9 @@ export default {
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Zelle und Kältetechnik aus einer Hand.' },
   { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Aggregate mit Abtaufunktion.' },
   { href: '/kuehlzellen-montage/', tag: 'Service', title: 'Planung & Montage', text: 'Aufstellort und Abwärme vorab klären.' },
+  { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Kältetechnik für mehrzellige Anlagen.' },
+  { href: '/ratgeber/kuehlzelle-kosten/', tag: 'Ratgeber', title: 'Was kostet eine Kühlzelle?', text: 'Welche Posten den Preis bestimmen.' },
+  { href: '/ratgeber/kuehlzelle-planen/', tag: 'Ratgeber', title: 'Kühlzelle planen', text: 'Strom, Abwärme und Aufstellort klären.' },
 ])}</div></section>
 
 ${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=aggregat#anfrage', title: 'Welches Aggregat passt zu Ihrer Zelle?', text: 'Nennen Sie uns Zellenmaße, Temperatur und Aufstellort – wir schlagen Ihnen eine passende Kältelösung vor.' })}`;

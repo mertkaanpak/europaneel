@@ -21,16 +21,16 @@ const DIAGRAM = `<figure class="diagram" data-reveal>
 
 export default {
   path: '/sandwichpaneele/',
-  title: 'Sandwichpaneele für Kühlhaus & Kühlzelle | Europaneel',
-  description: 'Sandwichpaneele für Kühlzellen und Kühlhäuser: Isolierpaneele für Wand, Decke und Boden, viele Stärken kurzfristig ab Lager Bottrop verfügbar.',
-  updated: '2026-10-05',
+  title: 'Kühlraumpaneele: Sandwichpaneele ab Lager | Europaneel',
+  description: 'Kühlraumpaneele für Kühlzellen und Kühlhäuser: Sandwichpaneele für Wand, Decke und Boden, viele Stärken kurzfristig ab Lager Bottrop verfügbar.',
+  updated: '2026-11-25',
   crumbs: [['Sandwichpaneele', '/sandwichpaneele/']],
   service: { name: 'Sandwichpaneele für Kühlräume', type: 'Lieferung von Sandwichpaneelen für Kühlzellen und Kühlhäuser' },
   ogPhoto: 'europaneel-lager-bottrop',
   render() {
     return `${pageHero({
       eyebrow: 'Isolierpaneele · Kühlhauspaneele',
-      title: 'Sandwichpaneele für Kühlzellen und Kühlhäuser',
+      title: 'Kühlraumpaneele: Sandwichpaneele für Kühlzellen und Kühlhäuser',
       lead: 'Sandwichpaneele sind das Grundmaterial jeder Kühlzelle: zwei beschichtete Deckschichten mit einem Dämmkern dazwischen. Wir halten viele Stärken, Formate und Oberflächen am Lager in Bottrop vor – für Ihr Projekt mit Montage oder zur Abholung.',
       photo: 'europaneel-lager-bottrop', cap: 'Paneellager der Europaneel GmbH in Bottrop', ratio: '43', pos: 'center 62%',
       ctas: { lead: 'secondary', secondaryHref: '/kontakt.html?projekt=paneele#anfrage' },
@@ -127,6 +127,9 @@ export default {
   { href: '/ratgeber/paneelstaerke-kuehlzelle/', tag: 'Ratgeber', title: 'Welche Paneelstärke?', text: 'Stärke, U-Wert und Kernmaterial.' },
   { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß', text: 'Komplett geplant und montiert.' },
   { href: '/kuehlhausbau/', tag: 'Projekte', title: 'Kühlhausbau', text: 'Paneele für mehrzellige Anlagen.' },
+  { href: '/tiefkuehlzellen/', tag: 'Minusbereich', title: 'Tiefkühlzellen', text: 'Stärkere Dämmung und isolierter Boden.' },
+  { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlraumtüren ab Lager', text: 'Dreh- und Schiebetüren in vielen Formaten.' },
+  { href: '/ratgeber/kuehlraum-bauen/', tag: 'Ratgeber', title: 'Kühlraum bauen', text: 'Raum dämmen oder Kühlzelle aus Paneelen?' },
 ])}</div></section>
 
 ${ctaBand({ lead: 'secondary', secondaryHref: '/kontakt.html?projekt=paneele#anfrage', title: 'Paneele für Ihr Projekt anfragen', text: 'Nennen Sie uns Stärke, Mengen und Oberfläche – oder die Maße Ihrer Zelle. Wir melden uns mit Verfügbarkeit und Angebot.' })}`;

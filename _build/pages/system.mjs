@@ -30,7 +30,11 @@ export default [
     { href: '/kuehlzellen/', tag: 'Lösungen', title: 'Kühlzellen nach Maß' },
     { href: '/kuehlhaustueren/', tag: 'Komponenten', title: 'Kühlhaustüren ab Lager' },
     { href: '/kontakt.html', tag: 'Kontakt', title: 'Projekt anfragen' },
+    { href: '/tiefkuehlzellen/', tag: 'Lösungen', title: 'Tiefkühlzellen' },
+    { href: '/branchen/', tag: 'Branchen', title: 'Kühlräume nach Branche' },
+    { href: '/ratgeber/', tag: 'Ratgeber', title: 'Fachwissen zu Kühlzellen' },
   ], 'Beliebte Seiten')}</div>
+  <p class="mt-l"><a class="tel-line" href="${SITE.phone.href}">${icon('phone')}Lieber direkt fragen? ${SITE.phone.display}</a></p>
 </div></section>`,
   },
 ];
